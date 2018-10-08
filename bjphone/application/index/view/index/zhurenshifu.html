@@ -1,0 +1,182 @@
+{include file='public/header'}
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+  <div class='zhurenmaster'>
+    <div class="weui-cells weui-cells_form margin-none">
+      <div class="weui-cells__title">主任师傅工号：<span class='masterid'>15662532</span></div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">品牌：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label-span'>奥迪</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">客户名称：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label-span'>刘邦建</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">店铺地址：</label>
+        </div>
+        <div class="weui-cell__bd">
+            <span class='weui-input label-span'>内蒙古内蒙古内蒙古内蒙古内蒙古内蒙古内蒙古</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">预约时间：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label-span'>2017-02-02 22:15:15</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">师傅个数：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input type="Number" class='weui-input user-input label-span' placeholder="请输入个数"><span for="" class='label-span'>个</span>
+        </div>
+        <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" style='background-color: #ff5200;'>帮手</a>
+      </div>
+     <div class="weui-cells__title">
+        <div class="weui-cell__bd">
+                    <div class='checkbox'>
+                        <input type='checkbox' id='checkbox1' name='checkboox[]'>
+                        <label for='checkbox1' class='label-span'>确认施工时间是否可行</label>
+                    </div>
+                </div>
+      </div>
+      <div class="weui-table">
+          <div class="weui-table-tr">
+             <div class="weui-cell-item"><span>项目</span></div>
+             <div class="weui-cell-item"><span>项目预算价</span></div>
+             <div class="weui-cell-item"><span>故障详情</span></div>
+          </div>
+          <div class='weui-table-th'>
+             <div class="weui-cell-item"><span>安装</span></div>
+             <div class="weui-cell-item">￥<span>58</span></div>
+             <div class="weui-cell-item"><a href="" class='a-link'><span>查看</span></a></div>
+          </div>
+          <div class='weui-table-th'>
+              <div class="weui-cell-item"><span>安装</span></div>
+              <div class="weui-cell-item">￥<span>58</span></div>
+              <div class="weui-cell-item"><a href="" class='a-link'><span>查看</span></a></div>
+          </div>
+       </div>
+       <div class="weui-tim">
+         <div class="weui-tim-content">
+           <div class="weui-tim-content-left">
+            <div class='weui-tim-content-left-photo'>
+              <img src="__indexStatic__images/pic_160.png" height='45' width='45' alt="">
+            </div>
+            <div class='weui-tim-content-left-text'>
+              <span class=''>是否加急费能够降低10%</span>
+            </div>
+          </div>
+          <div class="weui-tim-content-right">
+            <div class='weui-tim-content-right-photo'>
+              <img src="__indexStatic__images/pic_160.png" height='45' width='45' alt="">
+            </div>
+            <div class='weui-tim-content-right-text'>
+              <span class=''>是否加急费能够降低10%</span>
+            </div>
+          </div>
+         </div>
+       </div>
+       <div class="weui-cell">
+          <div class="weui-cell__bd">
+            <div class="weui-cell weui-cell_select label-span">
+              <div class="weui-cell__bd weui-cell__bd-after">
+                <select class="weui-select" name="select1">
+                  <option selected="" value="1">微信号</option>
+                  <option value="2">QQ号</option>
+                  <option value="3">Email</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="weui-cell__hd">
+              <label class="weui-label" style='text-align: center;line-height: 1px;'>
+                <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" style='background-color: #ff5200;'>发送</a>
+              </label>
+            </div>
+        </div>
+        <div class="weui-cell">
+          <div class="weui-cell__bd">
+              <a href="javascript:;" class="weui-btn weui-btn_warn bg-color">确认收货</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+    sex: 1
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "主任师傅"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+</script>

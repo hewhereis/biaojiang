@@ -1,0 +1,150 @@
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+<!--nav-->
+{include file="public/header" }
+<!--header-->
+<div class="main">
+    <!-- header-img-->
+    <div class="header-img ">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <div class="container container-hidden" >
+<!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>提现</small><span>>></span>
+        </h5>
+        <!-- 主题-->
+        <div class="row mt-10" id="navigatesLeft" style="height: 515px">
+            {include file="fenlei/purse_recharge_left" }
+            <div class="col-xs-12 right" id='navigatesRigth'>
+                <ul>
+                    <li>提现</li>
+                    <li></li>
+                    <li><p>中国邮政(0479)<i>快捷方式</i><span class="fa fa-angle-right"></span></p>
+
+                    </li>
+                    <li><input type="text" placeholder="输入现在你要的输入金额" id="money"/></li>
+                    <li>当前余额为xxxx元 <a href="">全部提现</a></li>
+                    <li><button class="btn btn-lg btn-orange" disabled id="ack_buttone">确认按钮</button></li>
+                </ul>
+            </div>
+        </div >
+
+    </div>
+</div>
+<style>
+    #navigatesRigth>ul{
+         width: 100%;
+        border: 1px solid #dddddd;
+    }
+    #navigatesRigth>ul>li:first-child{
+        height: 50px;
+        background: #ff5200;
+        padding-left: 20px;
+        line-height: 50px;
+        color: #ffffff;
+    }
+    #navigatesRigth>ul>li:nth-child(2){
+        height: 30px;
+        background: #dddddd;
+    }
+    #navigatesRigth>ul>li:nth-child(3){
+        padding-left: 80px;
+        line-height: 60px;
+        height: 60px;
+        border-bottom: 1px solid #dddddd;
+    }
+    #navigatesRigth>ul>li:nth-child(3)>p{
+        font-weight: 900;
+    }
+    #navigatesRigth>ul>li:nth-child(3)>p>i{
+        font-weight: 300;
+    }
+    #navigatesRigth>ul>li:nth-child(3)>p>span{
+        float: right;
+        margin-right: 100px;
+        font-size: 60px;
+    }
+    @media screen and (max-width: 776px){
+        #navigatesRigth>ul>li:nth-child(3)>p>span{
+            margin-right: 10px;
+        }
+    }
+    #navigatesRigth>ul>li:nth-child(4)>input{
+        width: 100%;
+        height: 50px;
+        padding-left: 80px;
+        border: none;
+        border-bottom: 1px solid #dddddd;
+    }
+    #navigatesRigth>ul>li:nth-child(5){
+        padding-left: 80px;
+        line-height: 60px;
+        height: 60px;
+        border-bottom: 1px solid #dddddd;
+    }
+    #navigatesRigth>ul>li:nth-child(5)>a{
+        color: #0044cc;
+        margin-left: 10px;
+    }
+    #navigatesRigth>ul>li:nth-child(6){
+        width: 100%;
+        height: 90px;
+        padding-top: 30px;
+        text-align: center;
+        background: #dddddd;
+    }
+    #navigatesRigth>ul>li:nth-child(6)>button{
+        text-align: center;
+        width: 180px;
+        border: 1px solid #dddddd;
+        color: #ffffff;
+        background: #d2d2d2;
+    }
+    #navigatesLeft{
+        height: 515px;
+    }
+</style>
+<style>
+
+
+</style>
+<script>
+    $("#money").focus(function () {
+        $("#ack_buttone").removeAttr('disabled');
+        $("#ack_buttone").addClass('bg-success');
+    });
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+</script>
+{include file="public/footer" }

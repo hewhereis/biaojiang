@@ -1,0 +1,102 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="icon" type="image/png" href="__PUBLIC__static/index/images/favicon.png" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrapValidator/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="__PUBLIC__static/index/js/bootstrapfileinput/css/fileinput.min.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/font-awesome.min.css">
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/awesome-bootstrap-checkbox.css">
+    <!--swiper-->
+    <link rel="stylesheet" href="__PUBLIC__static/index/js/swiper/swiper.min.css">
+    <!-- Main -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/main.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/custom.css">
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/custom2.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--jQuery -->
+    <script src="__PUBLIC__static/index/js/jquery/jquery-1.11.2.min.js"></script>
+    <!--Bootstrap -->
+    <script src="__PUBLIC__static/index/js/bootstrap/bootstrap.min.js"></script>
+    <script src="__PUBLIC__static/index/js/bootstrap/bootstrap-datetimepicker.min.js"></script>
+    <script src="__PUBLIC__static/index/js/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="__PUBLIC__static/index/js/bootstrapValidator/bootstrapValidator.min.js"></script>
+    <script src="__PUBLIC__static/index/js/bootstrapValidator/zh_CN.js"></script>
+    <script src="__PUBLIC__static/index/js/bootstrapfileinput/js/fileinput.min.js"></script>
+    <script src="__PUBLIC__static/index/js/bootstrapfileinput/js/locales/zh.js"></script>
+    <!--swiper-->
+    <script type="text/javascript" src="__PUBLIC__static/index/js/swiper/swiper.min.js"></script>
+    <!-- layui -->
+    <script src="__PUBLIC__static/index/js/placeholder/placeholder.min.js"></script>
+    <script src="__PUBLIC__static/index/js/tool.js"></script>
+    <script src="__PUBLIC__static/index/js/public.js"></script>
+    <script src="__PUBLIC__static/index/js/jquery.form.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/index/js/jiaoben4375/datedropper.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/index/js/jiaoben4375/timedropper.min.css">
+    <script src="__PUBLIC__static/index/js/jiaoben4375/datedropper.min.js"></script>
+    <script src="__PUBLIC__static/index/js/jiaoben4375/timedropper.min.js"></script>
+    <!--<images src="image_origin.png" onerror="this.src=placeholder.getData({size:'256x128',})" title='logo'>-->
+</head>
+<style>
+    input[name=file]{
+        opacity: 0;
+    }
+</style>
+
+
+
+        <div class="panel panel-orange">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    个人基本基料
+                </div>
+            </div>
+            <div class="panel-body" style="min-height: 600px">
+                <form action="">
+                    <div class="row">
+
+                        <div class="col-sm-5 col-xs-8 " id="imgPicker">
+                            <input type="hidden" id="data_photo" name="aimg[]">
+                            <img id="img_data" style="" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                        </div>
+                    </div>
+                    <div class="mt-20">
+                        <input type="submit" class="btn btn-success"  value="保存">
+                        <input type="button" class="btn btn-default" value="取消">
+                    </div>
+                </form>
+            </div>
+        </div>
+    <script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+    <script src="__CITY__/distpicker.data.js"></script>
+    <script src="__CITY__/distpicker.js"></script>
+    <script src="__CITY__/main.js"></script>
+    <script>
+        var uploader = WebUploader.create({
+            auto: true,// 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+            duplicate: true,// 重复上传图片，true为可重复false为不可重复
+            pick: '#imgPicker',// 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function (file, data, response) {
+                $("#data_photo").val(data._raw);
+                $("#img_data").attr('src', '__TUN__/face/' + data._raw).show();
+            }
+        });
+    </script>

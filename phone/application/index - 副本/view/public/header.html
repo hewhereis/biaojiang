@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+  <title>__Dstitle__</title>
+  <link rel="stylesheet" href="__indexStatic__css/reset.css">
+  <link rel="stylesheet" href="__indexStatic__css/style.css">
+  <link rel="stylesheet" href="__indexStatic__css/weui.min.css">
+  <link rel="stylesheet" href="__indexStatic__css/jquery-weui.min.css">
+  <link rel="stylesheet" href="__indexStatic__css/index.css">
+  <link rel="stylesheet" href="__indexStatic__css/index2.css">
+  <link rel="stylesheet" href="__indexStatic__css/index3.css">
+  <script src='__indexStatic__js/vue.min.js'></script>
+  <script src='__indexStatic__js/jquery-2.1.4.js'></script>
+  <script src='__indexStatic__js/jquery-weui.min.js'></script>
+  <!-- <script src='__indexStatic__js/fastclick.js'></script> -->
+  <script src='__indexStatic__js/index.js'></script>
+  <script src='__indexStatic__js/public.js'></script>
+  <script>
+	var ds_public='__PUBLIC__';
+    var html = $('html')
+    var hW = html.outerWidth() > 640 ? 640 : html.outerWidth()
+    _rem = 16
+    html.css('fontSize', _rem)
+    $(function () {
+      // FastClick.attach(document.body)
+    })
+     Vue.prototype.WebUploader=function (element,func,i) {
+      WebUploader.create({
+          auto: true,// 选完文件后，是否自动上传。
+          swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+          server: '__PUBLIC__dsupload',// 文件接收服务端。
+          duplicate :true,// 重复上传图片，true为可重复false为不可重复
+          pick: '#'+element,// 选择文件的按钮。可选。
+          accept: {
+              title: 'Images',
+              extensions: 'gif,jpg,jpeg,bmp,png',
+              mimeTypes: 'image/jpg,image/jpeg,image/png'
+          },
+          'onUploadSuccess': func
+      })
+    }
+    Vue.prototype.WebUploader1=function (element,i) {
+
+     setTimeout(function(){
+       WebUploader.create({
+          auto: true,// 选完文件后，是否自动上传。
+          swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+          server: '__PUBLIC__dsupload',// 文件接收服务端。
+          duplicate :true,// 重复上传图片，true为可重复false为不可重复
+          pick: '#'+element,// 选择文件的按钮。可选。
+          accept: {
+              title: 'Images',
+              extensions: 'gif,jpg,jpeg,bmp,png',
+              mimeTypes: 'image/jpg,image/jpeg,image/png'
+          },
+          'onUploadSuccess': function(file, data, response){
+            $("#arr"+i).attr("src","__DsQINiu__" + data._raw).show();
+            var urls = data._raw;
+            $.ajax({
+              url:'__PUBLIC__img',
+              data:{urls:urls},
+              dataType:'json',
+              type:'post',
+              success:function(data){
+                  if(data.code==200){
+                    var ids = data.datas;
+                    datas.arr[i]=ids;
+                  }else {
+                    $.tiptop(data.msg);
+                  }
+               }
+            })
+          },
+      })
+     },10)
+    }
+    Vue.prototype.WebUploader2=function (element,i) {
+
+setTimeout(function(){
+WebUploader.create({
+          auto: true,// 选完文件后，是否自动上传。
+          swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+          server: '__PUBLIC__dsupload',// 文件接收服务端。
+          duplicate :true,// 重复上传图片，true为可重复false为不可重复
+          pick: '#'+element,// 选择文件的按钮。可选。
+          accept: {
+              title: 'Images',
+              extensions: 'gif,jpg,jpeg,bmp,png',
+              mimeTypes: 'image/jpg,image/jpeg,image/png'
+          },
+          'onUploadSuccess': function(file, data, response){
+             $("#arrs"+i).attr("src","__DsQINiu__" + data._raw).show();
+             var urls =  data._raw;
+            $.ajax({
+              url:'__PUBLIC__img',
+              data:{urls:urls},
+              dataType:'json',
+              type:'post',
+              success:function(data){
+                  if(data.code==200){
+                    var ids = data.datas;
+                    datas.arrs[i]=ids;
+                  }else {
+                    $.tiptop(data.msg);
+                  }
+               }
+            })
+          }
+      })
+},10)
+      
+    }
+  </script>
+</head>
+
+<body>
+<span hidden="hidden">{:session('id')}{:session('ds_username')}{:session('type')}{:session('openid')}</span>
+  <div id="app" style='padding-bottom: 53px;padding-top:40px'>
+<script type="text/x-template" id='header'>
+      <div class='header'>
+          <div class="header-wrapper">
+            <div class="header-left" @click='goback()'>
+              <i class='icon-arrow_lift'></i>
+              <span class='goback'>返回</span>
+            </div>
+            <div class="header-content">
+              <span class='text'>{{title}}</span>
+            </div>
+            <div class="header-right"></div>
+          </div>
+        </div>
+    </script>

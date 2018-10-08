@@ -1,0 +1,191 @@
+{include file="public/header_sy" }
+<div id="bj-app" class="fenxiangtuijian">
+    <si-headers ></si-headers>
+    <si-content ></si-content>
+    <si-footer ></si-footer>
+</div>
+<script type="text/x-template" id="content">
+    <div class="content">
+        <div class="zhuanshuma">
+            <a href="#guize">活动规则 》</a>
+            <div class="tab">
+                <div class="tab-header">
+                    <p>我的专属邀请码</p>
+                    <h3 class="h yellow">
+                        {{suji}}
+                    </h3>
+                </div>
+                <div class="tab-content">
+                    <p>
+                        目前己有
+                        <span class="yellow">201747</span>
+                        师傅加入了 "标匠" 已累积获得
+                        <span class="yellow">2002548</span>
+                        订单分成
+                    </p>
+                    <p class="yellow">
+                        立即邀请好友,你也可以获得分成
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="guize" id="guize">
+            <p class="text m"> <span class="h">活动规则</span> <span class="blue">多邀多请,上不封顶</span> <p>
+            <p class="text">累计邀请人<span class="oran">100</span>人 <p>
+            <p class="text">已有 <span class="oran">5</span> 人为您赚取<span class="oran">250</span>元 <p>
+        </div>
+        <div class="daohang">
+            <ul class="daohang-nav">
+                <li  class=" li blue" :class="{active:nav_active===1}" @click="nav_active=1">
+                    我的宴请
+                </li>
+                <li :class="{active:nav_active===2}" class="li blue" @click="nav_active=2">
+                    游戏排行榜
+                </li>
+                <li :class="{active:nav_active===3}" class="li blue" @click="nav_active=3">
+                    邀请规则
+                </li>
+            </ul>
+            <div class="daohang-chr" v-show="nav_active===1">
+                <ul  v-for="(item,index) in arr" class="character">
+                    <li class="daohang-chr-li">
+                        <ul class="daohang-chr-li-ul">
+                            <li class="daohang-chr-li-ul-li">
+                                <img src="http://localhost/phone/static/index/images/t5.png" alt="">
+                            </li>
+                            <li class="minzi">
+                                {{item.name}}
+                            </li>
+                            <li>
+                                {{item.time}}
+                            </li>
+                            <li>
+                                <span v-if="item.zhuangtai===1">注册成功</span>
+                                <span v-if="item.zhuangtai===0">注册失败</span>
+                            </li>
+                            <li>
+                                奖励 <span class="oran">{{item.nar}}</span> 元
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="daohang-chr" v-show="nav_active===2">
+                <ul  v-for="(item,index) in arr"  class="character">
+                    <li class="daohang-chr-li">
+                        <ul class="daohang-chr-li-ul">
+                            <li class="pai" :class="{ac:index<3}">
+                                {{index+1}}
+                            </li>
+                            <li class="daohang-chr-li-ul-li">
+
+                                <img src="http://localhost/phone/static/index/images/t5.png" alt="">
+                            </li>
+                            <li class="minzi">
+                                在考虑在
+                            </li>
+                            <li>
+                                邀请人数<span class="oran">51</span>
+                            </li>
+                            <li>
+                                奖励 <span class="oran">51</span> 元
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="daohang-chr" v-show="nav_active===3">
+                <ul   class="character">
+                    3
+                </ul>
+            </div>
+
+
+        </div>
+        <div class="btn">
+            <div  class="weui-flex">
+                <div class="weui-flex__item">
+                    <input type="button" class="weui-btn  bj_button_yellow" value="立即邀请">
+                </div>
+                <div class="weui-flex__item">
+                    <input type="button" class="weui-btn  bj_button_yellow" value="面对面邀请">
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" id="footer">
+
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "分享推荐",
+                left:" <span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            },
+        },
+        mounted:function () {
+
+        },
+
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return{
+                nav_active:1,
+                suji:0,
+                arr:[{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},{id:"1",name:"赵孔磊",time:"2017-10-20",zhuangtai:1,nar:"10"},]
+            }
+        },
+        methods:{
+        },
+        mounted:function () {
+            function GetRandomNum(Min,Max)
+            {
+                var Range = Max - Min;
+                var Rand = Math.random();
+                return(Min + Math.round(Rand * Range));
+            }
+            function add(min,max) {
+                var q= GetRandomNum(min,max)
+                var w= GetRandomNum(min,max)
+                var e= GetRandomNum(min,max)
+                var r= GetRandomNum(min,max)
+                var t= GetRandomNum(min,max)
+                var m= GetRandomNum(min,max)
+                return q+""+w+""+""+e+""+""+r+""+""+m+"";
+            }
+            this.suji=add(1,10)
+        }
+    });
+    Vue.component('si-footer', {
+        template: '#footer',
+        data: function () {
+            return {
+            }
+        },
+        methods:{
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+        methods:{
+
+        }
+    });
+
+
+</script>
+</body>

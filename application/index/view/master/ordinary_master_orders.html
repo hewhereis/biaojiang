@@ -1,0 +1,324 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="main settlement_page">
+    <div class="container pr-0-media pl-0_media">
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>普通师傅接单</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+            <div class="row mt-10 Inquiries_orders_page" id="navigatesLeft">
+
+                <div class="clo-xs-12 " id='navigatesRigth'>
+                    <div class="panel panel-default mb-0 height ">
+                        <div class="panel-heading  bg-orange">
+                            <span>普通师傅接单</span>
+                        </div>
+                    </div>
+                    <input value="<?php echo date('Y-m-d H:i:s')?>" hidden="hidden" id="sending_time">
+                    <input type="hidden" id ='order_number' value="{$order_number}">
+                    <input type="hidden" id ='uid' value="{$uid}">
+                    <input type="hidden" id ='worker_id' value="{$worker_id}">
+                    <input type="hidden" id ='num' value="{$num}">
+                    <input type="hidden" id ='number' value="{$number}">
+                    <div  class="panel-body   border-bottom-1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">订单号</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <span  class="form-control" style="border: none"   id="">{$order_number}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">品牌</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control" value="{$data.brand}" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">客户名称</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control" value="{$data['owner_name']}" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">店铺地址</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control" value="{$data['full_location']}" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">预约时间</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control" value="{$data['start_time']|date='Y-m-d H:i:s',###}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body Inquiries_orders_page_none">
+                        <div class="row border-bottom-1 pb-30">
+                            <div class="col-md-6 col-md-offset-3">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>项目</td>
+                                        <td>项目详情</td>
+
+                                    </tr>
+                                    </thead>
+								<?php if($service_id['service_type_id']==2){ ?>
+                                    <tbody>
+                                     <?php foreach($cate as $vo){ ?>
+                                    <tr>
+                                        <td>{$vo[$cate1]}_{$vo[$cate2]}_{$vo['id']}</td>
+                                        <td>
+                                            <a  class="btn border-radius btn-default" href="__PUBLIC__one/{$vo['id']}">查看详情</a>
+                                        </td>
+                                    </tr>
+                                      <?php } ?>
+                                    </tbody>
+								<?php }else if($service_id['service_type_id']==1){ ?>	
+									<tbody>
+										 <?php foreach($cate as $vo){ ?>
+										<tr>
+											<td>{$vo[$cate1]}_{$vo[$cate2]}_{$vo['id']}</td>
+											<td>
+												<a  class="btn border-radius btn-default" href="__PUBLIC__install_order/{$order_number}">查看详情</a>
+											</td>
+										</tr>
+										  <?php } ?>
+									</tbody>
+                                     <?php }else if($service_id['service_type_id']==5){ ?>
+                                    <tbody>
+                                    <?php foreach($cate as $vo){ ?>
+                                    <tr>
+                                        <td>更换灯片_{$vo['brand']}(品牌)</td>
+                                        <td>
+                                            <a  class="btn border-radius btn-default" href="__PUBLIC__oneer/{$vo['id']}">查看详情</a>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                    </tbody>
+								<?php }else if($service_id['service_type_id']==6){ ?>	
+									<tbody>
+										 
+										<tr>
+											<td>{$cates}</td>
+											<td>
+												<a  class="btn border-radius btn-default" href="__PUBLIC__coaming_detail/{$order_number}">查看详情</a>
+											</td>
+										</tr>
+										 
+									</tbody>
+								<?php } ?>	
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">服务要求及押金</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <span class="form-control" style="border: none"></span>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                     <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">预计工作时长</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <input type="text" class="form-control" value="{$informat.working_hours}" name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">佣金额数</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <input type="text" class="form-control" value="{$informat.cost}" name="" id="">
+                                </div>
+                            </div>
+                        </div>
+
+                          
+                    </div>
+                    
+                    <div class="row">
+                     <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">师傅技能需求</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <input type="text" class="form-control" value="{$informat.skill}"  name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">主任师傅对项要求</label>
+                                <div class="col-sm-10 col-md-8 ">
+                                    <input type="text" class="form-control" value="{$informat.need}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--按钮确认页面-->
+            <?php if(!empty($common_master)) { ?>
+            <div class="row mt-30 ">
+                <div class="col-md-2 col-md-offset-3">
+                    <input type="button" class="form-control  btn-success btn " id="confirms" value="确认跟单">
+                </div>
+                <div class="col-md-2">
+                    <input type="button" class="form-control btn btn-orange" id="refuse" value="取消跟单">
+                </div>
+            </div>
+            <?php } ?>
+        </form>
+    </div>
+</div>
+<script>
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+    var cu=true;
+    $(".popup_message>a").click(function (e) {
+        e.preventDefault();
+        if(cu){
+            $(this).siblings('ul').removeClass('on');
+            cu=false;
+        }else{
+            $(this).siblings('ul').addClass('on');
+            cu=true;
+        }
+    });
+
+    //order_calibrate
+    $('#order_calibrate').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $("input").css("border-radius","3px");
+</script>
+<script>
+
+
+$('#confirms').click(function(){
+
+var order_number = $('#order_number').val();
+var worker_id = $('#worker_id').val();
+var num = $('#num').val();
+var number = $('#number').val();
+$.ajax({
+        url: '__PUBLIC__confirms',
+        dataType: 'json',
+        data: {
+             order_number:order_number,
+             worker_id:worker_id
+        },
+        type: 'post',
+        success: function(data) {
+           if(number>=num){
+            layer.msg('师傅已满，请下次及时抢单',{icon:2,time:1500,shade: 0.1});
+           }else{
+             if (data.code == 200) {
+              layer.msg(data.msg,{icon:1,time:1500,shade: 0.1}, function(index){
+                 window.location.href="__PUBLIC__orders/client";
+                });
+               
+            } else {
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                });
+              }
+           }  
+        },
+        
+    })
+})
+
+$('#refuse').click(function(){
+
+var order_number = $('#order_number').val();
+var worker_id = $('#worker_id').val();
+$.ajax({
+        url: '__PUBLIC__refuse',
+        dataType: 'json',
+        data: {
+             order_number:order_number,
+             worker_id:worker_id
+        },
+        type: 'post',
+        success: function(data) {
+            if (data.code == 200) {
+             layer.msg(data.msg,{icon:1,time:1500,shade: 0.1}, function(index){
+                 window.location.href="__PUBLIC__orders/client";
+                });
+            } else {
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                });
+            }
+        },
+        
+    })
+})   
+
+
+
+</script>
+
+{include file='public/footer'}

@@ -1,0 +1,374 @@
+{include file="public/header"}
+<!-- header -->
+<!--main-->
+<div class='main'>
+    <div class='header-img'>
+        <img src="__PUBLIC__static/index/images/banner2.jpg" class='img-responsive' title='logo'>
+    </div>
+    <div class='container'>
+        <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>客户信息添加</small><span>>></span>
+            </h5>
+        <div class='panel panel-orange'>
+            <div class='panel-heading'>
+                <div class="panel-title">
+                    <span>公司信息认证</span>
+                </div>
+            </div>
+            <div class='panel-body'>
+                <form id='form' class='form-horizontal' method="post" enctype="multipart/form-data">
+                    <div class='row mt-10'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='brand-name' class='control-label'>品牌</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                    <input type="text" name="brand_name" class="form-control" placeholder="请输入品牌名称" id="brand-name" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-6 col-sm-3'>
+                                    <label for='brand-logo' class='control-label'>
+                                        logo / 图片</label>
+                                </div>
+                                <div class='col-xs-6 col-sm-2'>
+                                    <label for='brand-logo' class='control-label btn btn-info w-b text-center'>
+                                        <i class="fa fa-plus" aria-hidden="true"></i> 上传</label>
+                                </div>
+                                <div class='col-xs-6 col-xs-3 col-sm-offset-4 mt-10'>
+                                	<input class='hide img1' name='brand-logo' id='brand-logo' type='file'/>
+                                    <img src="__PUBLIC__static/index/images/id1.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='row'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='invite-phone' class='control-label'>店铺位置</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                   	<div class='row'>
+                                   		<div class='col-xs-6'>
+                                   		<select class='form-control' name='city' >
+											<option>上海</option>
+                                   		</select>
+                                   		</div>
+                                   		<div class='col-xs-6'>
+                                   			<select class='form-control' name='city' >
+											<option>上海</option>
+                                   		</select>
+                                   		</div>
+                                   	</div>
+                                </div>
+                                <div class='col-xs-12 col-sm-9 col-sm-offset-3 mt-10'>
+                                   	<div class='row'>
+                                   		<div class='col-xs-6'>
+                                   		<select class='form-control' name='city' >
+											<option>上海</option>
+                                   		</select>
+                                   		</div>
+                                   		<div class='col-xs-6'>
+                                   			<select class='form-control' required name='city' >
+											<option>上海</option>
+                                   		</select>
+                                   		</div>
+                                   	</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <div class='row mt-10'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='' class='control-label'>店铺地址</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                    <textarea name="a" class='form-control' style='resize: none' required rows='4'></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mt-10'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='row'>
+                            	<div class='col-xs-6 col-sm-3 col-sm-offset-3'>
+                                    <a class='btn btn-info'>添加店铺</a>
+                                </div>
+                            	<div class="col-xs-6 col-sm-3">
+                                    <a class='btn btn-info'>添加品牌</a>
+                            	</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mt-10'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='invite-phone' class='control-label text-orange'>邀请人手机号码</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                    <input type="text" name="invite-phone" class="form-control" placeholder="请输入邀请人手机号码" id="invite-phone" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='row mt-20'>
+                        <div class='col-md-12'>
+                            <div class='well height-400 over-s'>
+                                <p>
+                                    协议
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <div class='col-xs-12 pl-30'>
+                            <div class="checkbox">
+                                <input type="checkbox" name="acceptTerms" class='styled' id="acceptTerms" />
+                                <label for='acceptTerms' class=''>
+                                    我已全部阅读，我同意协议
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mt-30'>
+                        <div class='col-xs-3 col-xs-offset-8 text-right mb-10'>
+                            <input class='btn btn-info btn-sm' type='button' id='button' value="提交">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--main end-->
+<!-- ===============================================
+    ============== Page Specific Scripts ===============
+    ================================================ -->
+<script>
+$(document).ready(function() {
+	img('img1',1);
+	$('.img1').change(function(){
+		$(this).parent('div').removeClass('col-xs-6 col-xs-3 col-sm-3 col-sm-offset-4').addClass('col-xs-12 col-sm-6 col-sm-offset-1');
+		$(this).siblings('img').hide();
+	});
+    $('#form').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            brand_name: {
+                message: '真实姓名!',
+                validators: {
+                    notEmpty: {
+                        message: '真实姓名不能为空！'
+                    },
+                    stringLength: {
+                        min: 2,
+                        message: '真实姓名不能为空必须大于2位！',
+                    },
+                }
+            },
+            cert_id: {
+                message: '身份证!',
+                validators: {
+                    notEmpty: {
+                        message: '身份证不能为空！'
+                    },
+                    stringLength: {
+                        min: 15,
+                        max: 18,
+                        message: '身份证号必须是15到18位！',
+                    },
+                    regexp: {
+                        regexp: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+                        message: '身份证格式不正确！'
+                    }
+                },
+            },
+            credit_card: {
+                message: '银行卡号!',
+                validators: {
+                    notEmpty: {
+                        message: '银行卡号不能为空！'
+                    },
+                    regexp: {
+                        regexp: /^(\d{16}|\d{19})$/,
+                        message: '银行卡号格式不正确',
+                    },
+                },
+            },
+            credit_card_phone: {
+                message: '手机验证失败!',
+                validators: {
+                    notEmpty: {
+                        message: '手机不能为空！'
+                    },
+                    stringLength: {
+                        min: 11,
+                        max: 11,
+                        message: '手机长度必须是11位！',
+                    },
+                    regexp: {
+                        regexp: /^1[34578]{1}\d{9}$/,
+                        message: '手机号格式不正确！'
+                    },
+                },
+            },
+            idImgmust1: {
+                validators: {
+                    notEmpty: {
+                        message: '请上传身份证图片！！'
+                    }
+                }
+            },
+            acceptTerms: {
+                validators: {
+                    notEmpty: {
+                        message: ' '
+                    }
+                }
+            },
+
+        }
+    });
+
+
+
+    $('.o1').on('fileloaded', function(event, file, previewId, index, reader) {
+        var base = reader.result;
+        var filename1 = 'id_front';
+        $.ajax({
+            url: '',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                file_data: base,
+                folder_id: 1,
+                time: timestamp,
+                file_id: filename1
+            },
+            success: function(response) {
+
+                if (response.type == "success") {
+                    var img_url = response.image_uri;
+
+                    $('.idImg1').val(img_url)
+                }
+
+            },
+            error: function(response) {
+
+            }
+        });
+    });
+    $('.o2').on('fileloaded', function(event, file, previewId, index, reader) {
+        var base = reader.result;
+        var filename2 = 'id_reverse';
+        $.ajax({
+            url: '',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                file_data: base,
+                folder_id: 1,
+                time: timestamp,
+                file_id: filename2
+            },
+            success: function(response) {
+
+                if (response.type == "success") {
+                    var img_url = response.image_uri;
+                    $('.idImg2').val(img_url)
+                }
+            },
+            error: function(response) {
+
+            }
+        });
+    });
+    $('.o3').on('fileloaded', function(event, file, previewId, index, reader) {
+        var base = reader.result
+        var filename3 = 'id_hand';
+        $.ajax({
+            url: '',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                file_data: base,
+                folder_id: 1,
+                time: timestamp,
+                file_id: filename3
+            },
+            success: function(response) {
+                if (response.type == "success") {
+                    var img_url = response.image_uri;
+                    $('.idImg3').val(img_url)
+                }
+            },
+            error: function(response) {
+
+            }
+        });
+    });
+    img('o1', 1);
+    img('o2', 1);
+    img('o3', 1);  
+    $('.fileInput').change(function() {
+        $(this).parent('div').siblings('div').addClass('hide');
+    });
+    $('#submit').on('click', function() {
+        var brand_name = $("#form input[name=brand_name]").val();
+        var cert_id = $("#form input[name=cert_id]").val();
+        var credit_card = $("#form input[name=credit_card]").val();
+        var credit_card_phone = $("#form input[name=credit_card_phone]").val();
+        var id_front = $("#form input[name=id_front]").val();
+        var id_reverse = $("#form input[name=id_reverse]").val();
+        var id_hand = $("#form input[name=id_hand]").val();
+        if (id_front != "" && id_reverse != "" && id_hand != "") {
+            $.ajax({
+                url: '',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    brand_name: brand_name,
+                    cert_id: cert_id,
+                    credit_card: credit_card,
+                    credit_card_phone: credit_card_phone,
+                    id_front: id_front,
+                    id_reverse: id_reverse,
+                    id_hand: id_hand,
+                },
+                success: function(response) {
+                    if (response.type == "success") {
+                        window.location.href = "";
+                    }
+
+                },
+                error: function(response) {
+
+                }
+            });
+        } else {
+
+        }
+    });
+});
+</script>
+<!--/ Page Specific Scripts -->
+<!-- footer -->
+{include file="public/footer"}
+<!-- footer end-->

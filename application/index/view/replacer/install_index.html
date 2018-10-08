@@ -1,0 +1,345 @@
+{include file='public/header'}
+<link href="__PUBLIC__static/index/css/select2.css" rel="stylesheet" />
+<script src="__PUBLIC__static/index/js/select2.js"></script>
+<div class='main'>
+    <div class='container'>
+        <h5 class="page-header">
+            <span>当前位置：</span>
+            <small>价格协商>></small>
+        </h5>
+        <div class="">
+            <div class='panel panel-orange'>
+
+                <div class='panel-heading'>
+                    <div class='panel-title' class='text-right'>
+                        <span class='glyphicon glyphicon-italic i1'></span>
+                        <span class=''>订单编号：</span>
+                        <span id="orderid">{$order_number}</span>
+                        <span class=''>咨询师傅工号：</span>
+                        <span id="masterid">{$worker_id}</span>
+                    </div>
+                </div>
+                <form action="" method="post"  class="layui-form">
+                    <input type="hidden" id="order_number" value="{$order_number}">
+                    <input type="hidden" id="worker_id" value="{$worker_id}">
+                    
+                    <div class='panel-body'>
+                        <div class="row form-group">
+                            <label class="col-md-1 mt-10 ">品牌</label>
+                            <div class="col-md-4">
+                                <input type="text" name="" id="" value="{$order.brand}" class="form-control">
+                            </div>
+                            <label class="col-md-1 mt-10 ">客户名称</label>
+                            <div class="col-md-4">
+                                <input type="text" name="customer_name" id="customer_name" value="{$order['owner_name']}" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <!--店铺地址-->
+                            <label class=" col-md-1 ">店铺地址</label>
+                            <div class="col-md-4 ">
+                                <input type="text" name="target_address" id="target_address" value="{$order['full_location']}" class="form-control">
+                            </div>
+                            <!--预约开始时间-->
+                            <label class=" col-md-1 ">预约时间</label>
+                            <div class="col-md-4">
+                                <input type="text" class="layui-input form-control"  name="Appointment_start_time"  placeholder="" value="{$order['start_time']|date='Y-m-d H:i',###}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-10">
+                            <div class="col-md-1 col-xs-4 mt-10 pr-0" style="">当前确认师傅个数</div>
+                            <?php if(empty($num)){?>
+                            <div class="col-md-3 col-xs-4">
+                                <input type="tel"  id="normalmasternum" class="form-control">
+                            </div>
+                            <?php }else{ ?>
+                              <div class="col-md-3 col-xs-4">
+                                <input type="tel"  id="normalmasternum" class="form-control" value="{$num['num']}">
+                            </div>
+                            <?php } ?>
+                            <div class="col-md-1 col-xs-4">
+                                <a  href="__PUBLIC__help_master/{$order_number}" id="helper" class="btn btn-blue" >帮手</a>
+                            </div>
+                            <div class="col-md-1 col-xs-12">
+                                <input type="checkbox" lay-filter="time">
+                                确认施工时间是否可行
+                            </div>
+                            <div class="col-md-3 col-xs-12">
+                                <input type="text" value="{$time}" class="form-control">
+                            </div>
+                            <input type="hidden" id="gettime" value="0">
+                        </div>
+                        <div class='row'>
+                            <div class="col-md-12 mt-30">
+                                <table class='table table-hover table-bordered table-striped'>
+                                    <thead class='' style="">
+                                    <tr>
+                                        <th>维修项目</th>
+                                        <th>师傅出价</th>
+                                        <th>故障详情</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach($cate as $vo){ ?>
+                                    <tr>
+                                        <td>更换灯片_{$order.brand}</td>
+                                        <td><input oninput="prices(this)" id="item{$vo['id']}" class='qian' name='weixiu1' type='' >
+                                            <input type="hidden" class="aa" value="{$vo['id']}">
+                                        </td>
+                                        <td>
+                                            <a href="__PUBLIC__oneer/{$vo['id']}" class="btn btn-default border-radius">查看</a>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-10 mt-10">
+                                总价<span class="zongjia"></span>&nbsp;元
+                            </div>
+                        </div>
+                        <div class='liaotian'>
+                            <div class='well' id="dialog">
+                                <div class="text-right">
+                                    <span>您好这里将展示对方给您消息？</span>
+                                    <img class='img' src='__PUBLIC__static/index/images/img.jpg' width='50px' height='50px'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row mb-20'>
+                            <div class="col-xs-11">
+                                <?php if($price['pay']==0){ ?>
+                                <select name="interest" lay-filter="msgtomaster">
+                                    <option value="">在客户正式咨询之前可以简单沟通</option>
+                                    <option value="提供信息不全，需要洽谈了解进一步的情况。">提供信息不全，需要洽谈了解进一步的情况。</option>
+                                    <option value="信息全面，确定可以承接，请直接下单。">信息全面，确定可以承接，请直接下单。</option>
+                                </select>
+                                <?php }else{ ?>
+                                <input id="msg2remotetext"  placeholder="请输入您要发送的信息" class="form-control show">
+                                 
+
+                                 <p style="font-size: 14px;color: #ff5200;padding:10px;">聊天结束,确认接单,请输入"1"</p>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class="col-xs-6 col-md-offset-8 col-md-2">
+                                <!--     <a href='javascript:onSendData()' class='btn btn-danger'>发送</a>  -->
+                                <input type="button" id="send" class='btn form-control btn-danger' value="发送">
+                            </div>
+                            <div class=" col-xs-6 col-md-2">
+                                <a href='javascript:' onClick="javascript :history.back(-1);" class='btn form-control btn-danger'>返回</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+ $(".js-example-tags").select2({tags: true});
+            $(".select2-container").css("width", "100%");
+
+            $(".select2-selection").css("border","none")
+            $("#select2-brand-container").addClass("form-control").css({
+                lineHeight:"22px"
+            })
+var  num={};
+    function SetSelfElement(from_user_id,msg)
+    {
+        //here, set the value of different element.
+        var items={};
+        var keyvalue=[];
+        var key="",value="";
+        var paraString=msg.split("&");
+        var chatmsg=""
+        for(var i in paraString)
+        {
+            keyvalue=paraString[i].split("=");
+            if (keyvalue[0] == "diag") {
+                chatmsg = keyvalue[1];
+            }
+        }
+        return chatmsg;
+    }
+    function  prices(thi) {
+        var k=0;
+        $(".qian").each(function (index,data) {
+            var m= $(data).val();
+            if(m!=""){
+                k=parseInt(m)+k
+            }
+        });
+        $(".zongjia").text(k)
+
+    }
+</script>
+
+{include file="cqueryprice/embedchat"}
+<script>
+
+    var usermsg="提供信息不全，需要洽谈了解进一步的情况。";
+    var ifonsite="1";
+    var ifneedmaster="0";
+    var ifitemter='0';
+    var zongjia='0';
+    var num={};
+    var zongjia1=null;
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form();
+        form.render();
+        //监听提交
+        form.on('select(msgtomaster)', function(data){
+            //Get selected text when user change selected msg.
+            console.log(data);
+            if(data.value!="") usermsg=data.value;
+        });
+        form.on('select(ifonsite)', function(data){
+            //Get selected text when user change selected msg.
+            console.log(data);
+            if(data.value!="") ifonsite=data.value;
+        });
+        form.on('checkbox(ifneedmaster)', function(data){
+            //Get selected text when user change selected msg.
+            console.log(data.elem.checked)
+            if(data.value!="") ifneedmaster=data.elem.checked;
+        });
+
+        form.on('checkbox(time)', function(data){
+            //Get selected text when user change selected msg.
+            if(data.elem.checked){
+                ifitemter=1;
+                $('#gettime').val(1);
+            }else{
+                ifitemter=0;
+            }
+
+        });
+
+    });
+
+    // 提交对话内容到服务器。
+    function onSendData(usermsg) {
+        //得到交易对方的userid.
+        //get the content in the element and wrap into .
+        var msgout=GetElementValue(ifonsite,ifneedmaster)+"&diag="+usermsg;
+        var content="msgtype:1,msg:"+msgout;
+        //{msgtype:typeval,msg:msgcontent}
+        //{"userid":userid,"usertype":usertype,"username":data['username']};
+        //msgcontend<={needcheck=0&numcraftman:n&item1name=item1price&item2name=item2price}
+        SendContentOut(content);
+    }
+
+    $('#send').click(function(){
+        var  order_number = $('#order_number').val();
+        var  worker_id = $('#worker_id').val();
+         var rate="";
+        var ids="";
+        
+        $('.qian').each(function(){
+            rate+=$(this).val()+','; 
+        });
+        $('.aa').each(function(){
+            ids+=$(this).val()+',';
+        });
+        zongjia1=$(".zongjia").text();
+        var gettime = $('#gettime').val();
+        var project_time = $('input[name="Appointment_start_time"]').val();
+        if($('#msg2remotetext').length>0)
+        {
+            usermsg=$('#msg2remotetext').val();
+        }
+        console.log("send out msg should be "+usermsg);
+       
+        if($('#msg2remotetext').length>0){
+            $("#msg2remotetext").val("");
+            $("#msg2remotetext").focus();
+        }        
+    $.ajax({
+            url:'__PUBLIC__gjminstall_send',
+            data:{order_number:order_number,rate:rate,ids:ids,worker_id:worker_id,gettime:gettime,project_time:project_time,usermsg:usermsg},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                    if(data.code===200){
+                        if(ifitemter==0){
+                                msg("请勾选确认施工时间");
+                                return false; 
+                        }
+                        var status=true;
+                          $(".qian").each(function(index){
+                                var va= $(".qian").eq(index).val();
+                                var id= $(".qian").eq(index).attr("id");
+                                if(va<10){
+
+                                    Tip(id,"价格不能小于10");
+                                    $(id).focus();
+                                    status= false;
+                                    return false;
+                                    
+                                }
+                          }) 
+                          if(!status){
+                           
+                            return false;
+                          }
+
+                         num.aa=data.aa;
+                        zongjia=data.bb;
+
+
+                    }else if(data.code===400){
+                         num.aa=data.aa;
+                        zongjia=data.bb;
+                    }
+
+            if(usermsg==1){
+                        usermsg='信息全面，确定可以承接，请直接下单';
+                    }
+                 onSendData(usermsg);
+  
+            }
+
+        })
+    })
+    $("input[type='text']").prop("disabled",true).css("background","#fff").css("border","1px solid #ddd");
+
+</script>
+<script>
+    $('#helper').click(function(e){
+        e.preventDefault();
+        var  order_number = $('#order_number').val();
+        var  num = $('#normalmasternum').val();
+        if(num==''){
+            layer.msg('请先填写需要帮手的数量', {
+                icon: 2,
+                time: 1000
+            });
+            return false;
+        }
+        $.ajax({
+            url:'__PUBLIC__gjminstall_number',
+            data:{order_number:order_number,num:num},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                if(data.code==200){
+                    window.location.href="__PUBLIC__gjm_help_master/"+order_number;
+                }
+            }
+        })
+    })
+
+
+</script>
+{include file='public/footer'}
+

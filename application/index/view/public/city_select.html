@@ -1,0 +1,48 @@
+<div location-selector mm="11">
+	<div class="{$data.style}">
+		<label class="sr-only" for="province10">Province</label> 
+		<select class="form-control" id="province10" name="{$data.name[0]}" selector-lvl="0">
+			<option value="">-省份-</option>
+			{foreach name="provinces" item="province"}
+			<option value="{$province.province_id}">{$province.province_name}</option>
+			{/foreach}
+		</select>
+	</div>
+	<div class="{$data.style}">
+		<label class="sr-only" for="city10">City</label> 
+		<select class="form-control" id="city10" name="{$data.name[1]}" selector-lvl="1">
+		<option value="">-城市-</option>
+		</select>
+	</div>
+	<div class="{$data.style}">
+		<label class="sr-only" for="district10">District</label> 
+		<select class="form-control" id="district10" name="{$data.name[2]}" selector-lvl="2">
+		<option value="">-区县-</option>
+		</select>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var selector={
+		change:function(current){
+			let currentLvl=current.attr('selector-lvl');
+			$.each(current.parents('[location-selector]').find('[selector-lvl]'),function(index,item){
+				if($(item).attr('selector-lvl')>current.attr('selector-lvl')){
+					$(item).children('[value!=""]').remove();
+				}
+			});
+			$.get('/location/locationList',{level:currentLvl,pid:current.val()},function(response){
+				var data=$.parseJSON(response)
+				$.each(data,function(index,item){
+					current.parents('[location-selector]').find('[selector-lvl="'+(parseInt(currentLvl)+1)+'"]').append('<option value="'+item.id+'">'+item.name+'</option>')
+				})
+			});
+		}
+	}
+	
+	$('[selector-lvl]').off('change').on('change',function(){
+		let _this=$(this);
+		selector.change(_this);
+	});
+
+</script>

@@ -1,0 +1,500 @@
+<!--安装确认表-->
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<style>
+.list_lh{ height:400px; overflow:hidden;}
+.list_lh li{ padding:10px;}
+.list_lh li.lieven{ background:#F0F2F3;}
+.list_lh li p{ height:24px; line-height:24px;}
+.list_lh li p a{ float:left;}
+.list_lh li p em{ width:80px; font:normal 12px/24px Arial; color:#FF3300; float:right; display:inline-block;}
+.list_lh li p span{ color:#999; float:right;}
+.list_lh li p a.btn_lh{ background:#28BD19; height:17px; line-height:17px; color:#fff; padding:0 5px; margin-top:4px; display:inline-block; float:right;}
+.btn_lh:hover{ color:#fff; text-decoration:none;}
+
+.btm p{ font:normal 12px/24px 'Microsoft YaHei'; text-align:center;}
+
+.a_s{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #00B83F;
+    color: #00B83F;
+    padding: 2px;
+}
+    .bg-b{
+        background: #00B83F;
+    }
+    .text-default{
+        color: #ffffff;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    .border-orange{
+        border: 1px solid #ff5200;
+
+    }
+    .b_a{
+        border: 1px solid #ff5200;
+        color: #ff5200;
+        width: 140px;
+        display: inline-block;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        text-align: center;
+    }
+    .b_gorage{
+        background: #ff5200;
+        color: #ffffff;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .k{
+        height: 60px;
+        border: 1px solid #dddddd;
+    }
+    .k:first-child{
+        border-left: none;
+        border-right: none;
+    }
+.k:last-child{
+    border-right: none;
+    border-left: none;
+}
+.k.activee{
+        border: 1px solid #ff5200;
+    }
+    .b-sefr{
+        min-height: 700px;
+        background: #ffffff;
+        padding: 20px;
+        margin-left: -10px;
+        color: #000000;
+    }
+    .h_s{
+        position: relative;
+            margin-top: 10px;
+    }
+.h_s img{
+    height: 200px;
+}
+.h_s span{
+     position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #ffffff;
+    font-size: 26px;
+}
+</style>
+<div class="main">
+    <div class="container mt-20 pl-0_media pr-0-media " >
+        <h5 class="page-header bx">
+            <span class="pl-10">当前位置：</span>
+            <small>师傅信息</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="The-test-panel-head ">
+
+            <p class="pl-10 h5">师傅信息</p>
+        </div>
+        <form id="fault_details" action="">
+        <input type="hidden" id="worker_id" value="{$wid}">
+            <div class="The-test-panel-body pb-0">
+                <div class="row pr-20">
+                    <div class="col-md-4 col-xs-12 pl-20">
+                        <a  href="javascript:;">
+                            <img style="height:250px;border-radius: 5px" src="__DsQINiu__{$master.img}" onerror="this.src='__PUBLIC__static/index/images/moren.jpg'" class="img-responsive " alt=""/>
+                        </a>
+                    </div>
+                    <div style="min-height: 250px;line-height: 30px" class="col-md-8 col-xs-12 pt-10 pl-20 border-orange border-radius">
+                       <a class="text-orange h3 ">{$master.real_name} </a><a class="text-orange">工号({$master.uid})</a>
+                        &nbsp;&nbsp;&nbsp;<br class="hidden-log hidden-sm hidden-md">
+                        <a href="" class="a_s bg-b"><i class="layui-icon text-default">&#xe612;</i></a><a  class="a_s" href="">实名认证</a>
+                        <div class="row mt-30 ">
+                            <div class="col-md-6 mb-20 col-xs-6">
+                                <span  class="b_a b_gorage">
+                                    保证金
+                                </span>
+                                <span  class="b_a">
+                                    <img src="__PUBLIC__static/index/images/zc.png" alt=""> {$master.guarantee}
+                                </span>
+                            </div>
+                            <div class="col-md-6 mb-20 col-xs-6">
+                                <span  class="b_a b_gorage">
+                                    综合评价
+                                </span>
+                                <span class="b_a">
+                                    <img src="__PUBLIC__static/index/images/sx.png" alt="">{$master.score}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mt-30">
+                            <div class="col-md-6 mb-20 col-xs-6">
+                                <span  class="b_a b_gorage">
+                                    诚信分
+                                </span>
+                                <span  class="b_a">
+                                    <img src="__PUBLIC__static/index/images/zs.png" alt="">{$master.credit_score}
+                                </span>
+                            </div>
+                            <div class="col-md-6 mb-20 col-xs-6">
+                                <span class="b_a b_gorage">
+                                    技术等级
+                                </span>
+                                <span class="b_a">
+                                    <img src="__PUBLIC__static/index/images/wx.png" alt="">{$master.technical_level}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mt-20 mb-20">
+                            <div class="col-md-6">
+                                <a href="__PUBLIC__{$cid}/{$order_number}/wid/{$wid}" class="btn pl-20 pr-20 ml-20 btn-success border-radius">直接雇佣</a>
+                            </div>
+                           <!--  <div class="col-md-6">
+                                <input type="button" value="下单让师傅抢" class="btn pl-20 pr-20 btn-orange border-radius">
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row  pl-5 mt-20 text-center" style="padding-right: 13px;line-height: 60px">
+                    <div class="col-md-4 activee k">
+                        师傅信息
+                    </div>
+                    <div class="col-md-4 k">
+                        完工照片
+                    </div>
+                    <div class="col-md-4 k">
+                        用户评价
+                    </div>
+                </div>
+                <div class="b-se   b-sefr" style="line-height: 45px">
+                    <p>联系人：{$master.real_name}</p>
+                    <p>所在区域：{$master.province}　{$master.city}　{$master.town}</p>
+                    <p>服务介绍:
+                    </p>
+                    <div style="border: 1px solid #dddddd"> </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            服务品牌:{$brand_list.brand}
+                             
+                        </div>
+                        <div class="col-md-6">员工人数:{$master.staff_num}</div>
+                         
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            服务类别:{$service.name}
+                        </div>
+                        <div class="col-md-6">
+                            服务时间:{$master.service_time}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            服务地区:{$master.service_province}　{$master.service_city}
+                        </div>
+                        <div class="col-md-6">
+                            货车情况:{$master.truck_situation}
+                        </div>
+                    </div>                    
+                    <div class="mb-20 mt-40" style="background: #ffffff;margin-left: -21px;margin-right:  -21px;padding-left: 10px;padding: 10px;border-top: 1px solid #ff5200;border-bottom: 1px solid #ff5200;border-left: 1px solid #dddddd;border-right: 1px solid #dddddd;">
+                        <img src="__PUBLIC__static/index/images/s_xitong.png" style="height: 40px;" alt="">
+                        最新动态</div>
+                    <div class="list_lh">
+
+                    <ul>
+                    {volist name="order" id="vo"}
+                    <li>
+                    <p><a href="#">完成订单</a></p>
+                    <p><a href="#" class="a_blue">{$vo.service_type_id}(客户：{$vo.owner_name} ***)</a><span>{$vo.end_time}</span></p>
+                    </li>
+                     {/volist}
+                    </ul>
+
+            </div>
+                </div>
+                <div  class="row hidden b-se mt-20 mr-10 ml-10">
+                    <div class="col-md-12 text-center">
+                        以下照片均为 <span class="text-orange">{$master.real_name}</span> 师傅完成订单后提供的真实照片
+                    </div>
+            
+                   {volist name="img" id="vv"}
+                    <div class="col-md-4 text-center h_s">
+                        <img src="__DsQINiu__{$vv['afterpics']['image']}" onerror="this.src='__PUBLIC__static/index/images/moren.png'"class="img-responsive " alt=""/>
+                        <div class="text-left pl-50">0</div>
+                    </div>
+                   {/volist}
+                </div>
+                <div class="b-se hidden">
+                   <div class="row mt-10 pl-10  mb-10">
+                       <div class="col-md-2  " style="border-right: 1px  solid #dddddd">
+                           <h4 class="h5 text-black" >综合评价</h4>
+                           <p>
+                              <i class="text-orange" style="font-size: 20px"></i><span class="text-orange">{$master.score}分</span>
+                           </p>
+                          <!--  <p>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                           </p> -->
+                       </div>
+                       <div class="col-md-8">
+                          <span class="text-black">大家都在说:</span>  <span>暂无消息</span>
+                       </div>
+                   </div>
+
+                    <div class="row pt-10 pb-10  pl-10" style="border-top: 1px solid #dddddd ;border-bottom: 1px solid #dddddd;margin-right: 0px;margin-left: -10px">
+
+                        <div class="col-md-2" id="all">
+                            <input name="s" type="radio"  >全部({$all})
+                        </div>
+                        <div class="col-md-2" id="praise">
+                            <input name="s"  type="radio" >好评({$good})
+                        </div>
+                        <div class="col-md-2" id="secondary">
+                            <input name="s" type="radio" >中评({$secondary})
+                        </div>
+                        <div class="col-md-2" id="bad">
+                            <input name="s" type="radio" >差评({$bad})
+                        </div>
+                        <!-- <div class="col-md-2">
+                            <input name="s" type="radio" >有解释(5)
+                        </div> -->
+                    </div>
+                    
+                   
+                    <div id="comment">
+                  
+                    </div>
+                       
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__static/index/js/scroll.js"></script>
+<script>
+$(document).ready(function(){
+    $('.list_lh li:even').addClass('lieven');
+})
+$(function(){
+    $("div.list_lh").myScroll({
+        speed:30, //数值越大，速度越慢
+        rowHeight:68 //li的高度
+    });
+});
+
+</script>
+<script>
+$(".k").click(function () {
+    $(this).addClass("activee");
+    $(this).siblings("").removeClass("activee");
+    $(".b-se").eq($(this).index()).siblings(".b-se").addClass('hidden')
+$(".b-se").eq($(this).index()).removeClass('hidden');
+});
+$(".b_a img").css("width","20px")
+</script>
+<script>
+//好评
+$('#praise').click(function(){
+    var worker_id = $('#worker_id').val();
+    $.ajax({
+        url:'__PUBLIC__praise',
+        data:{worker_id:worker_id},
+        dataType:'json',
+        type:'post',
+        success:function(data){
+            if(data.code==200){
+              var praise = data.praise; 
+              var html="";   
+              for(var i in praise){  
+                var value= praise[i].create_time ; 
+                var time = new Date(parseInt(value)*1000);
+                var aa = time.toLocaleString();
+                var bb =praise[i].work_quality;
+                var cc =praise[i].service_attitude;
+                var dd =praise[i].work_speed;
+                html+='<div class="pl-10 pr-10 pt-20"><p><span class="text-black mr-10">'+praise[i].username+'</span><span class="ml-10"></span></p>'+aa+'<p>质量';
+                        for(var i=0;i<bb;i++){
+                          html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                        }
+                 html+='</p>';   
+                html+='<p> <span>态度</span>';
+                for(var j=0;j<cc;j++){
+                      html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';  
+                }
+                html+='</p><p></span>速度<span>';
+                for(var m=0;m<dd;m++){
+                        html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                }
+                html+='</p><p>系统默认好评 (用户超过15天为评价) </p><p> 服务类型: <span class="text-orange">送货到家并安装</span></p></div>';
+              }
+            $('#comment').html(html);
+            }
+        }
+    })
+})
+//中评
+$('#secondary').click(function(){
+    var worker_id = $('#worker_id').val();
+    $.ajax({
+        url:'__PUBLIC__secondary',
+        data:{worker_id:worker_id},
+        dataType:'json',
+        type:'post',
+        success:function(data){
+            if(data.code==200){
+              var praise = data.praise;   
+              var html="";
+              for(var i in praise){  
+                var value= praise[i].create_time ; 
+                var time = new Date(parseInt(value)*1000);
+                var aa = time.toLocaleString();
+                var bb =praise[i].work_quality;
+                var cc =praise[i].service_attitude;
+                var dd =praise[i].work_speed;
+                html+='<div class="pl-10 pr-10 pt-20"><p><span class="text-black mr-10">'+praise[i].username+'</span><span class="ml-10"></span></p>'+aa+'<p>质量';
+                        for(var i=0;i<bb;i++){
+                          html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                        }
+                 html+='</p>';   
+                html+='<p> <span>态度</span>';
+                for(var j=0;j<cc;j++){
+                      html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';  
+                }
+                html+='</p><p></span>速度<span>';
+                for(var m=0;m<dd;m++){
+                        html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                }
+                html+='</p><p>系统默认好评 (用户超过15天为评价) </p><p> 服务类型: <span class="text-orange">送货到家并安装</span></p></div>';
+              }
+            $('#comment').html(html);
+            }
+        }
+    })
+})
+//差评
+$('#bad').click(function(){
+    var worker_id = $('#worker_id').val();
+    $.ajax({
+        url:'__PUBLIC__bad',
+        data:{worker_id:worker_id},
+        dataType:'json',
+        type:'post',
+        success:function(data){
+            if(data.code==200){
+              var praise = data.praise;   
+              var html="";
+              for(var i in praise){  
+                var value= praise[i].create_time ; 
+                var time = new Date(parseInt(value)*1000);
+                var aa = time.toLocaleString();
+                var bb =praise[i].work_quality;
+                var cc =praise[i].service_attitude;
+                var dd =praise[i].work_speed;
+                html+='<div class="pl-10 pr-10 pt-20"><p><span class="text-black mr-10">'+praise[i].username+'</span><span class="ml-10"></span></p>'+aa+'<p>质量';
+                        for(var i=0;i<bb;i++){
+                          html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                        }
+                 html+='</p>';   
+                html+='<p> <span>态度</span>';
+                for(var j=0;j<cc;j++){
+                      html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';  
+                }
+                html+='</p><p></span>速度<span>';
+                for(var m=0;m<dd;m++){
+                        html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                }
+                html+='</p><p>系统默认好评 (用户超过15天为评价) </p><p> 服务类型: <span class="text-orange">送货到家并安装</span></p></div>';
+              }
+            $('#comment').html(html);
+            }
+        }
+    })
+})
+//全部
+$('#all').click(function(){
+    var worker_id = $('#worker_id').val();
+    $.ajax({
+        url:'__PUBLIC__all',
+        data:{worker_id:worker_id},
+        dataType:'json',
+        type:'post',
+        success:function(data){
+            if(data.code==200){
+              var praise = data.praise;   
+              var html="";
+             for(var i in praise){  
+                var value= praise[i].create_time ; 
+                var time = new Date(parseInt(value)*1000);
+                var aa = time.toLocaleString();
+                var bb =praise[i].work_quality;
+                var cc =praise[i].service_attitude;
+                var dd =praise[i].work_speed;
+                html+='<div class="pl-10 pr-10 pt-20"><p><span class="text-black mr-10">'+praise[i].username+'</span><span class="ml-10"></span></p>'+aa+'<p>质量';
+                        for(var i=0;i<bb;i++){
+                          html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                        }
+                 html+='</p>';   
+                html+='<p> <span>态度</span>';
+                for(var j=0;j<cc;j++){
+                      html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';  
+                }
+                html+='</p><p></span>速度<span>';
+                for(var m=0;m<dd;m++){
+                        html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                }
+                html+='</p><p>系统默认好评 (用户超过15天为评价) </p><p> 服务类型: <span class="text-orange">送货到家并安装</span></p></div>';
+              }
+            $('#comment').html(html);
+            }
+        }
+    })
+})
+
+//默认
+
+    var worker_id = $('#worker_id').val();
+    $.ajax({
+        url:'__PUBLIC__default',
+        data:{worker_id:worker_id},
+        dataType:'json',
+        type:'post',
+        success:function(data){
+            if(data.code==200){
+              var praise = data.praise;   
+              var html="";
+              for(var i in praise){  
+                var value= praise[i].create_time ; 
+                var time = new Date(parseInt(value)*1000);
+                var aa = time.toLocaleString();
+                var bb =praise[i].work_quality;
+                var cc =praise[i].service_attitude;
+                var dd =praise[i].work_speed;
+                html+='<div class="pl-10 pr-10 pt-20"><p><span class="text-black mr-10">'+praise[i].username+'</span><span class="ml-10"></span></p>'+aa+'<p>质量';
+                        for(var i=0;i<bb;i++){
+                          html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                        }
+                 html+='</p>';   
+                html+='<p> <span>态度</span>';
+                for(var j=0;j<cc;j++){
+                      html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';  
+                }
+                html+='</p><p></span>速度<span>';
+                for(var m=0;m<dd;m++){
+                        html+='<img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>';
+                }
+                html+='</p><p>系统默认好评 (用户超过15天为评价) </p><p> 服务类型: <span class="text-orange">送货到家并安装</span></p></div>';
+              }
+            $('#comment').html(html);
+            }
+        }
+    })
+
+</script>
+{include file="public/footer" }

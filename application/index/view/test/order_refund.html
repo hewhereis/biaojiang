@@ -1,0 +1,313 @@
+<!--header-->
+<{include file="public/header" }>
+<!--main-->
+    <div class="main">
+        <!--导航图片-->
+        <div class="header-img">
+            <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+        </div>
+        <!--面包屑导航-->
+        <form id="order_refund" class="form-horizontal ">
+        <div class="container container-hidden">
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>订单详情</small><span>>></span>
+            </h5>
+            <div class="row mt-10" id="navigatesLeft">
+                <!--左边内容-->
+                {include file="public/left_order" }
+                <!--表单 右边内容 -->
+                <div class="col-md-12 col-sm-12 col-xs-12  right" id='navigatesRigth'>
+                        <div class="well border-aspx well-sm">
+                            <span class="hidden-xs">2014-555-88-55-8</span>
+                            <span>订单号:104005540508</span>
+                            <span class=" pull-right" style="display: inline-block;padding-left: 0"><i>待付款</i>￥65548.22</span>
+                        </div>
+                        <!--品牌-->
+                        <div class=" form-group">
+                            <label class="col-md-2 mt-10 text-right">品牌</label>
+                            <div class="col-md-10">
+                                <input type="text" id="trademark" name="trademark" class="form-control"/>
+                            </div>
+                        </div>
+                        <!--地址-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 text-right">地址</label>
+                            <div class="col-md-10">
+                                <input type="text" id="site" name="site" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--计划施工日期-->
+                        <div class="form-group layui-form-item">
+                            <label class="col-md-2 mt-10 text-right">计划施工日期</label>
+                            <div class="col-md-10  ">
+                                <input class="layui-input form-control"  name="LAY_demorange_s"  id="LAY_demorange_s">
+                            </div>
+                        </div>
+                        <!--实际完成日期-->
+                        <div class="form-group layui-form-item">
+                            <label class="col-md-2 mt-10 text-right">实际完成日期</label>
+                            <div class="col-md-10  ">
+                                <input class="l form-control" name="LAY_demorange_e"  id="LAY_demorange_e">
+                            </div>
+                        </div>
+                        <!--师傅名称-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 text-right">师傅名称</label>
+                            <div class="col-md-10">
+                                <input type="text" id="The_teacher_name" name="The_teacher_name" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--师傅工号-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 text-right">师傅工号</label>
+                            <div class="col-md-10">
+                                <input type="text" id="Maste_work_number" name="Maste_work_number"  class="form-control"/>
+                            </div>
+                        </div>
+                        <!--施工报告-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 text-right">施工报告</label>
+                            <div class="col-md-10">
+                                <input type="text" id="construction_report" name="construction_report" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 text-right">师傅联系电话</label>
+                            <div class="col-md-10">
+                                <input type="text" id="Master_contact_number" name="Master_contact_number" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--退款金额-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 text-right ">退款金额</label>
+                            <div class="col-md-10 ">
+                                <input type="text" id="refund_amount" name="refund_amount" class="form-control"/>
+                            </div>
+                        </div>
+                        <!--退款理由-->
+                        <div class="form-group">
+                            <label class="col-md-2 text-right">退款理由</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" name="The_refund_reason" rows="5"></textarea>
+                            </div>
+                        </div>
+                    <div class="row mt-30 ">
+                        <div class="form-group col-md-offset-2 ml-10" >
+                            <input type='file' accept="image/*"  id="fileupload" capture="camera" class='hide fileupload uploadimg'/>
+                            <label for="fileupload" class="btn btn-info">上传图片</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-success">确定退款</button>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+        </form>
+    </div>
+<script>
+    //师傅首页的侧边栏
+    img('fileupload');
+
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('mouseenter','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    })
+</script>
+<script>
+//    <!--表单验证-->
+$('#order_refund').bootstrapValidator({
+    message: '这个值是无效的.',
+    feedbackIcons: { /*input状态样式图片*/
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+        trademark: {
+            message: '品牌',
+            validators: {
+                notEmpty: {
+                    message: '品牌名称不能为空'
+                }
+            }
+        },
+        site:{
+            message: '地址',
+            validators: {
+                notEmpty: {
+                    message: '地址不能为空'
+                }
+            }
+        },
+        customer_address:{
+            message: '客户地址',
+            validators: {
+                notEmpty: {
+                    message: '客户地址地址不能为空'
+                }
+            }
+        },
+        contact_number:{
+            message: '客户联系电话',
+            validators: {
+                notEmpty: {
+                    message: '客户联系电话地址不能为空'
+                }
+            }
+        },
+        actual_finishing_date:{
+            message: '地址',
+            validators: {
+                notEmpty: {
+                    message: '实际完成日期地址不能为空'
+                }
+            }
+        },
+        LAY_demorange_s:{
+            message: '计划施工日期',
+            validators: {
+                notEmpty: {
+                    message: '计划施工日期地址不能为空'
+                }
+            }
+        },
+        LAY_demorange_e:{
+            message: '实际完成日期',
+            validators: {
+                notEmpty: {
+                    message: '实际完成日期地址不能为空'
+                }
+            }
+        },
+        The_teacher_name:{
+            message: '师傅名称',
+            validators: {
+                notEmpty: {
+                    message: '师傅名称地址不能为空'
+                }
+            }
+        },
+        Maste_work_number:{
+            message: '师傅工号',
+            validators: {
+                notEmpty: {
+                    message: '师傅工号地址不能为空'
+                }
+            }
+        },
+        Master_contact_number:{
+            message: '师傅联系电话',
+            validators: {
+                notEmpty: {
+                    message: '师傅联系电话地址不能为空'
+                }
+            }
+        },
+        construction_report:{
+            message: '师傅报告',
+            validators: {
+                notEmpty: {
+                    message: '师傅报告地址不能为空'
+                }
+            }
+        },
+        The_refund_reason:{
+            message: '退款理由',
+            validators: {
+                notEmpty: {
+                    message: '退款理由地址不能为空'
+                }
+            }
+        },
+        refund_amount:{
+            message: '退款金额',
+            validators: {
+                notEmpty: {
+                    message: '退款金额地址不能为空'
+                }
+            }
+        }
+    }
+});
+$('input[type="text"]').focus(function() {
+
+    $('#order_refund').bootstrapValidator('validate');
+    $("i.form-control-feedback").remove();
+
+});
+$("#order_refund").submit(function () {
+    $("i.form-control-feedback").remove();
+})
+layui.use('laydate', function(){
+    var laydate = layui.laydate;
+
+    var start = {
+        min: laydate.now()
+        ,max: '2099-06-16 23:59:59'
+        ,istoday: false
+        ,choose: function(datas){
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+
+    var end = {
+        min: laydate.now()
+        ,max: '2099-06-16 23:59:59'
+        ,istoday: false
+        ,choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+
+    document.getElementById('LAY_demorange_s').onclick = function(){
+        start.elem = this;
+        laydate(start);
+    }
+    document.getElementById('LAY_demorange_e').onclick = function(){
+        end.elem = this
+        laydate(end);
+    }
+
+});
+</script>
+{include file='public/footer'}

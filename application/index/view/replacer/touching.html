@@ -1,0 +1,232 @@
+{include file='public/header'}
+<script src="__PUBLIC__static/index/js/jq/flashcanvas.js"></script>
+<script src="__PUBLIC__static/index/js/jq/jSignature.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<style>
+    .webuploader-pick{
+        background:#fff;
+    }
+</style>
+    <div class='main'>
+        <div class='container'>
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>核单报告</small><span>>></span>
+            </h5>
+            <form action='__PUBLIC__touchingadd' method='post' name='form' id='form'>
+                <div class='row'>
+                <div class="col-xs-12">
+                <!-- <input type="hidden" class='form-control' name="qianming" id='qianming' value=''> -->
+                {volist name="tou" id="v"}
+                <input type="hidden" name="ids[]" value='{$v.id}'>
+                <input type="hidden" name="order_number" id='ordernum' value='{$v.order_number}'>
+                    <div class='panel-group bx'>
+                        <div class='panel panel-orange'>
+                            <div class='panel-heading'>
+                                <div class='panel-title'>
+                                    <p class='text-pd panel-title-p' style=''>
+                                        <span>{$v.service_type_id_name} -</span>
+                                        <span>{$v.l1_category_name} -</span>
+                                        <span id=''>{$v.id}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class='panel-body mb-5'>
+                                <div class='row'>
+                                    <div class='col-sm-3'>
+                                        <div class='checkbox checkbox-success'>
+                                            <input type='checkbox' name='guzhang[]' id='guzhang_{$v.id}' class='styled' value='1'>
+                                            <label for='guzhang_{$v.id}'>故障详情是否需补充</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class='col-sm-9'>
+                                        <div class='form-group'>
+                                            <input type='text' name='guzhanginfo[]' class='form-control' placeholder="请输入故障信息" value='{if $p==1}{$v.content}{else}{/if}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" class='form-control img_hidden' name="imagsids_{$v.id}" id='imagsids_{$v.id}'  value='{if $p==1}{$v.imagesids}{else}{/if}'>
+                                <div class='row mt-5'>
+                                    <div class='col-sm-3 mb-5'>
+                                        <label class='label label-info btn-sm' for=''>
+                                            <i class='glyphicon glyphicon-plus'></i>
+                                            <span>添加照片</span>
+                                        </label>
+                                    </div>
+                                    <div class='col-sm-3 uploads{$v.id}' num='{$v.id}'>
+                                       <img src="{if $p==1}__DsQINiu__{$v.imagesids}{else}__PUBLIC__static/index/images/tj.png{/if}" id='uploads{$v.id}' alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        WebUploader.create({
+                            auto: true, // 选完文件后，是否自动上传。
+                            swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                            duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                            pick: '.uploads{$v.id}', // 选择文件的按钮。可选。
+                            accept: {
+                                title: 'Images',
+                                extensions: 'gif,jpg,jpeg,bmp,png',
+                                mimeTypes: 'image/jpg,image/jpeg,image/png'
+                            },
+                            'onUploadSuccess': function(file, data, response) {
+                                num = $('#uploads{$v.id}');
+                                $("#imagsids_{$v.id}").val(data._raw);
+                                $("#uploads{$v.id}").attr('src', '__DsQINiu__' + data._raw).show();
+                            }
+                        });
+                    </script>
+                    {/volist}
+                    <div class='row'>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <label for="" class='btn btn-danger input-group-addon'>增加报价</label>
+                                <input type="text" class='form-control' id='qianming' name='qianming'  placeholder="请输入您要增加的价钱" value="{if $p==1}{$v.signature_id}{else}{/if}">
+                                <label for="" class='btn input-group-addon'>￥</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row mt-10'>
+                        <!-- <div class='col-xs-4'>
+                                <a class='btn btn-sm btn-orange' id='q' data-toggle='modal' data-target='#queren'>师傅签名确认</a>
+                        </div> -->
+                        <div class='col-xs-12 text-center'>
+                            <input type="submit" class='btn btn-sm btn-info'  value="提交报告" />
+                        </div>
+                    </div>
+                   <!-- <div id='oippp'></div> -->
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- <div class='modal fade' id='queren'>
+        <div class="modal-dialog">
+           <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        师傅签名
+                    </div>
+                </div>
+                <div class='modal-body' id='jSignature' style='border:1px solid #aaf;'>
+
+                </div>
+                <div class="modal-footer">
+                    <button class='btn btn-info' id='ok'>确定</button>                    
+                    <button class='btn btn-danger' id='rest'>重置</button>            
+                </div>
+           </div>
+        </div>
+    </div> -->
+    <script>
+    // imgAll('uploadimg',5,'__PUBLIC__uploadImg',5);
+    // $jSignature =$('#jSignature');
+    // $('#queren').on('shown.bs.modal',function(){
+    //     width = $jSignature.parent().width()-20;
+    //     $jSignature.jSignature({height:200,width:width,lineWidth:"2",signatureLine:true});
+    // });
+    //  $('#queren').on('hide.bs.modal',function(){
+    //   $jSignature.html(''); 
+    // });
+    // $('#ok').on('click',function(){
+    //         layer.confirm('您是确定好签名了吗？', {
+    //               btn: ['确定','取消'] //按钮
+    //             }, function(){
+    //                 var datapair = $jSignature.jSignature("getData", "image");
+    //                 var i = new Image();
+    //                 i.src = "data:" + datapair[0] + "," + datapair[1];
+    //                 $(i).appendTo($("#oippp"));
+    //                 if(i.src!=''){
+    //                     var order_number = $('#ordernum').val();
+    //                     AJAXsignature('__PUBLIC__signature',i.src,'6',order_number,'qianming','qianming');
+    //                     msg('保存成功',1);
+    //                     $('#queren').modal('hide');
+    //                     $('#q').attr({'disabled':'true'});
+    //                     $('#q').css({'display':'none'});
+    //                 }
+    //             }, function(){
+    //                     layer.close();
+    //             });
+    // });
+            //提交
+    $(function(){
+        $('#form').ajaxForm({
+            beforeSubmit: checkForm, 
+            success: complete, 
+            dataType: 'json'
+        });
+        
+        function checkForm(){
+            if($('#qianming').val()==''){
+                msg('请先填写报价！');
+                return false;
+            }
+        }
+
+
+        function complete(data){
+            if(data.code==1){
+                layer.msg(data.msg, {icon: 6,time:1500,shade: 0.1}, function(index){
+                        var number = {$ordernumber};
+                        var message_type='1';
+                        var source_id="<?php echo session('id') ?>";
+                        var receive_id='{$owner_id}';
+                        var content='师傅已经提交订单为{$ordernumber}的核单报告，请查看！';
+                        var sending_time ="<?php echo date('Y-m-d h:i:s',time()); ?>"; 
+                        var link = "__PUBLIC__gjmclient_touching/{$ordernumber}";
+                    $.ajax({
+                        url: '__PUBLIC__api/message',
+                        dataType: 'json',
+                        data: {
+                            message_type:message_type,
+                            source_id:source_id,
+                            receive_id:receive_id,
+                            content:content,
+                            sending_time:sending_time,
+                            link:link
+                        },
+                        type: 'post',
+                        success: function(data) {
+                            window.location.href="__PUBLIC__orders/client";
+                        },    
+                    })
+                    
+                });
+            }else{
+                layer.msg(data.msg, {icon: 5,time:1500,shade: 0.1});
+                
+                return false;   
+            }
+        }
+        });
+        // $('.uploads').on('click',function(){
+            WebUploader.create({
+            auto: true, // 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+            duplicate: true, // 重复上传图片，true为可重复false为不可重复
+            pick: '.uploads', // 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function(file, data, response) {
+                num = $(this)
+               console.log($(num[0].options.pick).index());
+                $("#idImg3").val(data._raw);
+                $("#hand img").attr('src', '__DsQINiu__' + data._raw).show();
+            }
+        });
+        // });
+        
+
+    </script>
+{include file='public/footer'}

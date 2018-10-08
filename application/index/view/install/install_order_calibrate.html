@@ -1,0 +1,357 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="main order_calibrate">
+   
+    <!-- 面包屑导航-->
+    <div class="container ">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>安装订单询价页面</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+            <div class="row mt-10 Inquiries_orders_page" id="navigatesLeft">
+
+                <div class="clo-xs-12 " id='navigatesRigth'>
+                    <div class="panel panel-default height ">
+                        <div class="panel-heading bg-orange">
+                            <span>安装订单询价页面</span>
+                        </div>
+                    </div>
+                    <div  class="panel-body border-bottom-1 pl-50 pr-30">
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2  mt-10 text-right">客户名称</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" class="form-control"  name="customer_name" id="customer_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 mt-10  text-right">目标地址</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" class="form-control" name="target_address" id="target_address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_date" class="col-sm-2 text-right">预约开始时间</label>
+                            <div class="layui-inline col-xs-12   col-sm-10 relative_order_calibrate">
+                                <input id="input_date" class="layui-input" name="Appointment_start_time"  onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD '})">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-body Inquiries_orders_page_none pl-50 pr-30">
+                        <div class="row mb-10">
+                            <div class="col-md-12 text-center">订单师傅总数：<span>1个</span></div>
+
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td>项目</td>
+                                <td>项目预算价</td>
+                                <td>故障详情</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>项目1</td>
+                                <td>50</td>
+                                <td>
+                                    <a href="" class="btn btn-default">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>项目1</td>
+                                <td>50</td>
+                                <td>
+                                    <a href="" class="btn btn-default">查看</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>项目1</td>
+                                <td>50</td>
+                                <td>
+                                    <a href="" class="btn btn-default">查看</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row mt-10 mb-10">
+                            <div class="col-md-12">
+                                合计：xxxx元
+                            </div>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td>抢单师傅</td>
+                                <td>报价</td>
+                                <td>是否报标</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="popup_message">
+                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                    <a href="">王师傅</a>
+                                    <div class="mobile_static"></div>
+                                    <ul class="text-left on ul_li_float_parent">
+                                        <li class="clearfix">
+                                            <ul class="ul_li_float">
+                                                <li>
+                                                    <a href=""></a>
+                                                </li>
+                                                <li >
+                                                    <p>王师傅</p>
+                                                    <p>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            师傅报告 <span>xxxx号  </span>
+                                        </li>
+                                        <li>
+                                            平台等级 <span>10</span>
+                                        </li>
+                                        <li>
+                                            客户评分<span>7.0分</span>
+                                        </li>
+                                        <li>
+                                            师傅日薪 <span>xxxxx元</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>100</td>
+                                <td>
+                                    <a href="" class="btn btn-default">选定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="popup_message">
+                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                    <a href="">王师傅</a>
+                                    <div class="mobile_static"></div>
+                                    <ul class="text-left on ul_li_float_parent">
+                                        <li class="clearfix">
+                                            <ul class="ul_li_float">
+                                                <li>
+                                                    <a href=""></a>
+                                                </li>
+                                                <li >
+                                                    <p>王师傅</p>
+                                                    <p>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            师傅报告 <span>xxxx号  </span>
+                                        </li>
+                                        <li>
+                                            平台等级 <span>10</span>
+                                        </li>
+                                        <li>
+                                            客户评分<span>7.0分</span>
+                                        </li>
+                                        <li>
+                                            师傅日薪 <span>xxxxx元</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>100</td>
+                                <td>
+                                    <a href="" class="btn btn-default">选定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="popup_message">
+                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                    <a href="">王师傅</a>
+                                    <div class="mobile_static"></div>
+                                    <ul class="text-left on ul_li_float_parent">
+                                        <li class="clearfix">
+                                            <ul class="ul_li_float">
+                                                <li>
+                                                    <a href=""></a>
+                                                </li>
+                                                <li >
+                                                    <p>王师傅</p>
+                                                    <p>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            师傅报告 <span>xxxx号  </span>
+                                        </li>
+                                        <li>
+                                            平台等级 <span>10</span>
+                                        </li>
+                                        <li>
+                                            客户评分<span>7.0分</span>
+                                        </li>
+                                        <li>
+                                            师傅日薪 <span>xxxxx元</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>100</td>
+                                <td>
+                                    <a href="" class="btn btn-default">选定</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="popup_message">
+                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                    <a href="">王师傅</a>
+                                    <div class="mobile_static"></div>
+                                    <ul class="text-left on ul_li_float_parent">
+                                        <li class="clearfix">
+                                            <ul class="ul_li_float">
+                                                <li>
+                                                    <a href=""></a>
+                                                </li>
+                                                <li >
+                                                    <p>王师傅</p>
+                                                    <p>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            师傅报告 <span>xxxx号  </span>
+                                        </li>
+                                        <li>
+                                            平台等级 <span>10</span>
+                                        </li>
+                                        <li>
+                                            客户评分<span>7.0分</span>
+                                        </li>
+                                        <li>
+                                            师傅日薪 <span>xxxxx元</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>100</td>
+                                <td>
+                                    <a href="" class="btn btn-default">选定</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-12 mt-30 text-center mb-10">
+                                <button class="btn btn-orange btn-lg">确认</button>
+                            </div>
+                        </div>
+                        <div style="height: 50px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right mt-20">
+                    <div class="col-md-2 pull-right text-right">
+                        <a href="  " class="text-blue">返回>></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+
+
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+    var cu=true;
+    $(".popup_message>a").click(function (e) {
+        e.preventDefault();
+        if(cu){
+            $(this).siblings('ul').removeClass('on');
+            cu=false;
+        }else{
+            $(this).siblings('ul').addClass('on');
+            cu=true;
+        }
+    });
+
+    //order_calibrate
+    $('#order_calibrate').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $('input').focus(function () {
+        $('#order_calibrate').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+    })
+</script>
+{include file='public/footer'}

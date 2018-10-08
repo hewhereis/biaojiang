@@ -1,0 +1,191 @@
+{include file='public/header'}
+<style>
+        .main img{
+            cursor: url('__PUBLIC__static/index/images/seachh.png'),auto;
+        }
+        #imgseach{
+            cursor:pointer;
+            margin:0px auto;
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+          $('.main img').click(function(){
+              var imgUrl = $(this).attr('src'); 
+              $('#imgmodal').on('show.bs.modal', function (e) {
+                    $('#imgseach').attr('src',imgUrl);
+                })
+             $('#imgmodal').modal('show');
+          });  
+        };
+        
+    </script>
+    <!--main-->
+    <div class='modal fade' id='imgmodal'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style='font-size:2em'>&times;</span></button>
+                <img src="" id='imgseach' alt="">
+            </div>
+        </div>
+    </div>
+    <div class='main'>
+        <div class='container'>
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>核单报告</small><span>>></span>
+            </h5>
+                <div class='row'>
+                <div class="col-xs-12">
+                <input type="hidden" id='qianming' value=''>
+                    <div class='panel-group bx'>
+                    {volist name='list' id='v'}
+                        <input type="hidden" id='ordernum' value='{$v.order_number}'>
+                        <div class='panel panel-orange'>
+                            <div class='panel-heading'>
+                                <div class='panel-title'>
+                                    <p class='text-pd panel-title-p' style=''>
+                                        <span>{$v.l1_category_name} - </span>
+                                        <span>{$v.o_m_ids}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class='panel-body mb-5'>
+                                <div class='row'>
+                                    <div class='col-sm-3'>
+                                        <div class=''>
+                                            <label for='guzhang3'>故障详情补充</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-sm-9'>
+                                        <div class='form-group'>
+                                            <input type='text' name='guzhanginfo' class='form-control' placeholder="请输入故障信息" value="{$v.content}" readonly="" disabled="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-sm-4 col-xs-6'>
+                                        <img src="__TUN__/face/{$v.imagesids}" class='img-responsive img-thumbnail' />
+                                    </div>
+                                </div>
+                                <div class='row mt-10'>
+                                    <div class="col-sm-4">
+                                        <div class="input-group">
+                                            <label for="" class='btn btn-danger input-group-addon'>增加报价</label>
+                                            <input type="text" class='form-control' id='qianming' readonly  placeholder="请输入您要增加的价钱" value="{$v.signature_id}">
+                                            <label for="" class='btn input-group-addon'>￥</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        {/volist}
+                    </div>
+                    <?php if($imgurl){ ?>
+                    <div class='row mb-10'>
+                        <div class='col-xs-5'>
+                            <img src="__PUBLIC__public/{$imgurl}" alt="">
+                        </div>
+                    </div>
+                    <?php }else{ ?>
+                    <div class='row mb-10'>
+                        <div class='col-xs-5'>
+                            <a class='btn btn-sm btn-orange' data-toggle='modal' data-target='#queren'>客户确认签名</a>
+                        </div>
+                        <div class='col-xs-7' id='oippp'>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-xs-6 text-center'>
+                            <button class='btn btn-sm btn-info' id="submit">提交报告</button> 
+                        </div>
+                    </div>
+                    <?php } ?>
+
+                </div>
+                </div>
+        </div>
+    </div>
+<script src="__PUBLIC__static/index/js/jq/flashcanvas.js"></script>
+<script src="__PUBLIC__static/index/js/jq/jSignature.min.js"></script>
+    <div class='modal fade' id='queren'>
+        <div class="modal-dialog">
+           <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        客户签名
+                    </div>
+                </div>
+                <div class='modal-body' id='jSignature' style='border:1px solid #aaf;'>
+
+                </div>
+                <div class="modal-footer">
+                    <button class='btn btn-info' id='ok'>确定</button>                    
+                    <button class='btn btn-danger' data-dismiss='modal' id='rest'>关闭</button>            
+                </div>
+           </div>
+        </div>
+    </div>
+    <script>
+       $jSignature =$('#jSignature');
+    $('#queren').on('shown.bs.modal',function(){
+        width = $jSignature.parent().width()-20;
+        $jSignature.jSignature({height:200,width:width,lineWidth:"2",signatureLine:true});
+    });
+     $('#queren').on('hide.bs.modal',function(){
+      $jSignature.html(''); 
+    });
+    $('#ok').on('click',function(){
+        layer.confirm('您是确定好签名了吗？', {
+              btn: ['确定','取消'] //按钮
+            }, function(){
+            var datapair = $jSignature.jSignature("getData", "image");
+            var i = new Image();
+            i.src = "data:" + datapair[0] + "," + datapair[1];
+            $(i).appendTo($("#oippp"));
+            if(i.src!=''){
+                var order_number = $('#ordernum').val();
+                AJAXsignature('__PUBLIC__signature',i.src,'6',order_number,'qianming','qianming');
+                msg('保存成功',1);
+                $('#queren').modal('hide');
+                $('#q').attr({'disabled':'true'});
+                $('#q').css({'display':'none'});
+            }
+            }, function(){
+              layer.close();
+            });
+        
+    });
+    $('#submit').click(function(){
+        var qianming = $('#qianming').val();
+        var ordernumber = $('#ordernum').val();
+        if(qianming==''){
+            msg('请先签名');
+            return;
+        }
+        $.ajax({
+            url:'__PUBLIC__client_submit',
+            type:'post',
+            dataTpye:'json',
+            data:{
+                order_number:ordernumber,
+                user_signature_id:qianming
+            },
+            success:function(data){
+                if(data.code=200){
+                    msg(data.msg,1,5,3000);
+                    setTimeout(function(){
+                        window.location.href='__PUBLIC__orders/client';
+                    },3000);
+                }
+            },
+            error:function(data){
+                msg();
+            }
+        });
+
+    });
+    </script>
+{include file='public/footer'}

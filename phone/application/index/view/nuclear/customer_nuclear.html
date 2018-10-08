@@ -1,0 +1,182 @@
+{include file='public/header'}
+<script src="__indexStatic__/js/sign/flashcanvas.js"></script>
+<script src="__indexStatic__/js/sign/jSignature.min.js"></script>
+<script>
+
+</script>
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<template id="mian">
+	<div class="hedanbaogaobiao">
+		<div class="xiangm">
+			<span class="xm">订单号：</span>
+			<span class="az">{{order_number}}</span>
+			<!-- <button class="add">添加</button> -->
+		</div>
+
+    <div v-for="(item,index) in result">
+		<div class="shangchuan1">
+			<div class="sczhaopian">
+				<span class="zhaopian">{{item.service}}-{{item.l2_category_id}}</span>
+				<!-- <a href="#"><span class="icon-close"></span></a> -->
+			</div>
+			    <!-- 上传专柜全景 -->
+             <div class="weui-flex shangchuan3">
+                <div class="weui-flex__item">
+                    <div class="border1">
+                        <div class="tupian">
+                            <img src="__indexStatic__/images/tupian.png" alt="">
+                        </div>
+                        <p class="text6">上传专柜全景</p>
+                    </div>
+                </div>
+                <div class="weui-flex__item">
+                    <div class="border2">
+                        <div class="tupian">
+                            <img :src="'__DsQINiu__'+item.imagesids" height="75" width="81" alt="">
+                        </div>
+                        <!-- <p class="text6">点击上传</p> -->
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div class="guzhang">
+			 <div class="guzhang_border">
+				  <input type="text" class="text1" readonly="" id="text1" v-model="item.content"  value="请描述故障" name="">
+			 </div>
+		</div>
+		</div>
+
+    <div class="weui-flex name">
+      <div class="weui-flex__item yezhu_name">
+        <span class="yezhu">核单所需费用</span>
+        <span class="name1"><input type="text" readonly="" disabled v-model="result[0].price" class="text2" id="text2" name=""></span>
+      </div>
+    </div>
+		<div class="weui-flex name">
+			<div class="weui-flex__item yezhu_name" v-if="result[0].sign==0">
+				<!-- <span class="name1"><input type="text" name="" v-model="customer_sign" ></span> -->
+        <a href="__PUBLIC__nuclear_sign/{$order_number}" class="duibizhao">点击签字</a>
+			</div>
+      <div class="weui-flex__item yezhu_name" v-if="result[0].sign==1">
+        <img :src="'__PUBLIC__public/'+result[0].qianming" alt="">
+      </div>
+		</div>
+		<div class="btn" v-if="result[0].sign==0">
+			<input type="button" value="提交报告" @click="submits_sign()" class="btn1">
+			<a :href="'__PUBLIC__report_error/'+order_number"><div class="btn2">报告有问题</div></a>
+		</div>
+    <div class="signModal">
+      <div class="signModalContent">
+        <div class="signModal-header"></div>
+        <div class="signModal-body"></div>
+      </div>
+    </div>
+	</div>
+</template>
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+
+
+  var data = {
+    sex: 1,
+    order_number:'{$order_number}',
+    result:{$result},
+    customer_sign:''
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+      submits_sign:function(){
+            var _this = this;
+            var link = '__PUBLIC__order_master_home';
+            $.ajax({
+            url:'__PUBLIC__submit_sign',
+            data:{order_number:_this.order_number,link:link},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+               if(data.code==200){
+                  $.toast(data.msg,function(){
+                    window.location.href="__PUBLIC__customer_home"
+                  });
+               }else{
+                  $.toptip(data.msg)
+               } 
+            }
+        })
+      }
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+      $jSignature = $('#clientSign');
+    width = $jSignature.parent().width() - 20;
+    $jSignature.jSignature({
+        height: 200,
+        width: width,
+        lineWidth: "2",
+        signatureLine: false
+    });
+    //     var html=$(".one").html();
+    //   $(".add").click(function(){
+    //        $(".one").append(html);
+    //   });
+    //   $('.one').on('click','.icon-close',function(){
+    // 	$(this).parent('a').parent().parent().parent().remove(); 
+    // });
+
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "核单报告表"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+
+  
+</script>

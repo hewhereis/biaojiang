@@ -1,0 +1,175 @@
+<!--nav-->
+{include file="public/header" }
+<div class="main intall_the_customer_additional">
+   
+    <!-- 面包屑导航-->
+    <div class="container pl-0_media pr-0-media">
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>客户追加项目报价</small><span>>></span>
+        </h5>
+        <!-- 左边框-->
+        <div class="row mt-10 The_master_artisan_submit_orders_report  " id="navigatesLeft">
+            {include file="public/left_order" }
+            <form class="form-horizontal " id="order_construction">
+                <div class="clo-xs-12 right " id='navigatesRigth'>
+                    <div class="panel panel-default height " >
+                        <div class="panel-heading bg-orange" style="z-index: 0">
+                            <span class="">客户追加项目报价</span>
+                            <span class="pull-right"><img src="__PUBLIC__static/index/images/sign_in_to_work.png" alt=""/>上班签到</span>
+                        </div>
+                        <div class="panel-body ml-10 boredr_none boredr_none">
+                            <!-- 品牌-->
+                            <div class="form-group border-bottom-1 pb-20 mt-20">
+                                <label class="col-md-2 mt-10 ">客户名称</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="brand" name="brand" class="form-control"/>
+                                </div>
+                                <label class="col-md-2 mt-10 ">目标地址</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="site" name="site" class="form-control"/>
+                                </div>
+                            </div>
+                            <!--师傅信息-->
+                            <table class="table  table-bordered">
+                                <thead>
+                                <tr>
+                                    <td>增加项目</td>
+                                    <td>项目预算价</td>
+                                    <td>项目详情</td>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                <tr>
+                                    <td>维修空调</td>
+                                    <td class="line-height-40">
+                                        <input type="text" class="border-bottom-1 text-center">
+                                    </td>
+                                    <td>
+                                        <input type="button" value="查看详情" class="btn btn-success  border-radius">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>维修空调</td>
+                                    <td class="line-height-40">
+                                        <input type="text" class="border-bottom-1 text-center">
+                                    </td>
+                                    <td>
+                                        <input type="button" value="查看详情" class="btn btn-success  border-radius">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>维修空调</td>
+                                    <td class="line-height-40">
+                                        <input type="text" class="border-bottom-1 text-center">
+                                    </td>
+                                    <td>
+                                        <input type="button" value="查看详情" class="btn btn-success  border-radius">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!--合计总价-->
+                            <div class="row">
+                                <div class="col-md-12 border-bottom-1 pb-20 mt-10  line-height-30">
+                                    <!--合计-->
+                                    <p>
+                                        <span>合计</span>：<input type="text" class=" text-center border-bottom-1">
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row pt-10">
+                                <div class="col-sm-3 col-xs-12 col-sm-offset-4 col-sm-4 " >
+                                    <input type="button" value="确认" id="affirm" class="btn form-control btn-success border-radius">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    //师傅首页的侧边栏
+
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('mouseenter','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    })
+    //表单验证
+    $('#order_construction').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            brand: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 6,
+                        message: '最大长度6位最小长度2位',
+                    }
+                }
+            },
+            site:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 6,
+                        message: '最大长度6位最小长度2位',
+                    }
+                }
+            },
+        }
+    });
+    $('#affirm').click(function() {
+
+        $('#order_construction').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+
+    });
+</script>
+{include file='public/footer'}

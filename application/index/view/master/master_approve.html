@@ -1,0 +1,275 @@
+{include file="public/header"}
+<!-- header -->
+<!--main-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<style>
+    .webuploader-pick{
+        background:#fff;
+    }
+</style>
+<div class='main'>
+    <div class='container'>
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>师傅信息认证</small><span>>></span>
+        </h5>
+        <form id='form' class='form-horizontal' method="post" enctype="multipart/form-data">
+            <div class='panel panel-orange'>
+            <div class='panel-heading'>
+                <div class="panel-title">
+                    <span>师傅信息登记</span>
+                </div>
+            </div>
+
+            <div class='panel-body'>
+                    <div class='row mt-20'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='real-name' class='control-label'>真实姓名</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                    <input type="text" name="real_name" class="form-control" placeholder="请输入真实姓名" id="real-name" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='cert_id' class='control-label'>身份证</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                    <input type="text" name="cert_id" class="form-control" placeholder="请输入您的身份证号码" id="cert_id" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='credit-card' class='control-label'>银行卡号</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                    <input type="text" name="credit_card" class="form-control" placeholder="请输入您的银行卡号" id="credit-card" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-3'>
+                                    <label for='credit-card-phone' class='control-label'>银行预留手机号码</label>
+                                </div>
+                                <div class='col-xs-12 col-sm-9'>
+                                    <input type="text" name="credit_card_phone" class="form-control" placeholder="请输入您的手机号" id="credit-card-phone" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-20">
+                        <div class='col-sm-8 col-sm-offset-2 mb-30'>
+
+                            <label  class='control-label'><i class='glyphicon glyphicon-plus'></i>身份证正面图片上传</label>
+                            <div class='form-group'>
+                                <div class='col-xs-12 col-sm-4'>
+                                    <input type="hidden" name="id_front" id='idImg1' value="" />
+                                </div>
+                                <div class='col-xs-12 col-sm-4' id='front'>
+                                    <img src="__PUBLIC__static/index/images/ID1.png" alt=""  class="img-responsive img-thumbnail">
+                                </div>
+                                <div class='col-xs-12 col-sm-4'>
+                                    请身份证正面照片
+                                    <p>1.文件要求为扫描件或清晰图片;</p>
+                                    <p>2.照片为JPG.JPEG或PNG;</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-sm-8 col-sm-offset-2 col-xs-12 mb-30'>
+                            <label for='idImg2' class='control-label'><i class='glyphicon glyphicon-plus'></i>身份证反面图片上传</label>
+                            <div class='row'>
+                                <div class='col-xs-12 col-sm-4'>
+                                    <input type="hidden" name="id_reverse" id='idImg2' value="" />
+                                </div>
+                                <div class='col-xs-12 col-sm-4' id='reverse'>
+                                    <img src="__PUBLIC__static/index/images/ID2.png" alt="" class="img-responsive img-thumbnail">
+                                </div>
+                                <div class='col-xs-12 col-sm-4'>
+                                    请身份证反面照片
+                                    <p>1.文件要求为扫描件或清晰图片;</p>
+                                    <p>2.照片为JPG.JPEG或PNG;</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-sm-8 col-sm-offset-2 col-xs-12 mb-30'>
+                            <label for='idImg3' class='control-label'>
+                                <i class='glyphicon glyphicon-plus'></i>
+                                手持身份证图片上传
+                            </label>
+                            <div class='row'>
+                                <div class='col-xs-12 col-sm-4'>
+                                    <input type="hidden" name="id_hand" id='idImg3' value="" />
+                                </div>
+                                <div class='col-xs-12 col-sm-4' id='hand'>
+                                    <img src="__PUBLIC__static/index/images/ID3.png" alt="" class="img-responsive img-thumbnail">
+                                </div>
+                                <div class='col-xs-12 col-sm-4'>
+                                    请手持身份证照片
+                                    <p>1.文件要求为扫描件或清晰图片;</p>
+                                    <p>2.照片为JPG.JPEG或PNG;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </form>
+        <a href="javascript:;" id="yezhuxieyi">查看业主协议</a>
+        <div class="checkbox" style="display: inline-block;">
+            <input type="checkbox" name="acceptTerms" class='styled' id="acceptTerms"/>
+            <label for='acceptTerms' class=''>我已全部阅读，我同意协议</label>
+        </div>
+        <div class='row mt-30'>
+            <div class='col-xs-6'>
+                <input class='btn btn-primary form-control' type='button' id='submit' value="申请审核">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#yezhuxieyi").click(function () {
+            layer.open({
+                type:2,
+                title:"业主协议",
+                    btn:['我同意',"我再看看"],
+                    content:" __PUBLIC__yezhuxieyi",
+                    area:["80%","80%"]
+                })
+            });
+            WebUploader.create({
+                auto: true, // 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                pick: '#front', // 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function(file, data, response) {
+                    $("#idImg1").val(data._raw);
+                    $("#front img").attr('src', '__DsQINiu__' + data._raw).show();
+                }
+            });
+
+            WebUploader.create({
+                auto: true, // 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                pick: '#reverse', // 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function(file, data, response) {
+                    $("#idImg2").val(data._raw);
+                    $("#reverse img").attr('src', '__DsQINiu__' + data._raw).show();
+                }
+            });
+
+            WebUploader.create({
+                auto: true, // 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                pick: '#hand', // 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function(file, data, response) {
+                    $("#idImg3").val(data._raw);
+                    $("#hand img").attr('src', '__DsQINiu__' + data._raw).show();
+                }
+            });
+
+            $('.fileInput').change(function(){
+                $(this).parent('div').siblings('div').addClass('hide');
+            });
+            $('#submit').on('click', function() {
+
+                var real_name = $("#form input[name=real_name]").val();
+                var cert_id = $("#form input[name=cert_id]").val();
+                var credit_card = $("#form input[name=credit_card]").val();
+                var credit_card_phone = $("#form input[name=credit_card_phone]").val();
+                var id_front = $("#form input[name=id_front]").val();
+                var id_reverse = $("#form input[name=id_reverse]").val();
+                var id_hand = $("#form input[name=id_hand]").val();
+                if(real_name==''|| !(/^([\u4e00-\u9fa5]){2,10}$/.test(real_name))){
+                   msg('请先填写正确的真实姓名',7,6,2000);
+                    return false;
+                }
+                if(cert_id=='' || !(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(cert_id))){
+                    msg('请先填写正确的身份证号码',7,6,2000);
+                    return false;
+                }
+                if(credit_card=='' || !(/\d{15}|\d{19}/.test(credit_card))){
+                   msg('请先填写正确的银行卡号码',7,6,2000);
+                    return false;
+                }
+                if(credit_card_phone=='' || !(/^1[34578]\d{9}$/.test(credit_card_phone))){
+                   msg('请先填写正确的手机号码',7,6,2000);
+                    return false;
+                }
+                if(id_front == "" || id_reverse == "" || id_hand == "") {
+                   msg('请先添加身份证照再提交',7,6,2000);
+                    return false;
+                }
+                if(!$('#acceptTerms').is(':checked')) {
+                    // do something
+                    msg('请先阅读协议',7,6,2000);
+                    return false;
+                }
+                var locading = layer.load(3);
+                $.ajax({
+                    url: 'master/approve',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        real_name: real_name,
+                        cert_id: cert_id,
+                        credit_card: credit_card,
+                        credit_card_phone: credit_card_phone,
+                        id_front: id_front,
+                        id_reverse: id_reverse,
+                        id_hand: id_hand,
+                    },
+                    success: function(response) {
+                        layer.close(locading);
+                        if(response.code == 200) {
+                            msg(response.msg,1,6,3000);
+                            setTimeout(function(){
+                                window.location.href = "__PUBLIC__core/master";
+                            },3000)
+                        }else{
+                            layer.msg(response.msg)
+                        }
+                    },
+                    error: function(response) {
+                        if(response.code == 0){
+                            layer.msg('提交失败');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    {include file="public/footer"}

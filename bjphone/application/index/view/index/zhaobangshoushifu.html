@@ -1,0 +1,206 @@
+{include file='public/header'}
+<div class='app'>
+  <!-- 342
+    26
+      x214
+      y288 -->
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+
+  <div class='zhaobangshoushifu'>
+    <div class="weui-flex">
+      <div class="weui-flex__item">
+        <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary btn-green">23669</a>
+      </div>
+      <div class="weui-flex__item">
+        <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary btn-orange">王师傅</a>
+      </div>
+      <div class="weui-flex__item">
+        <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary btn-blue">23669</a>
+      </div>
+    </div>
+    <div class="weui-master">
+      <div class="weui-bjmasterinfo">
+        <div class="photo">
+          <img src="__indexStatic__images/pic_160.png" alt="" width="100px" height='144'>
+          <span class='rz-icon'></span>
+        </div>
+        <div class="content">
+          {include file='public/star'}
+          <stars></stars>
+          <div class='text'>
+            <span class='text-pf'>{{fenshu}}</span>
+            <span class='text-span'>评分</span>
+          </div>
+          <div class="price">
+            <div class="weui-cell">
+              <div class="weui-cell__hd">
+                <label class="weui-label label">保障金：</label>
+              </div>
+              <div class="weui-cell__bd">
+                <span class="weui-input label-span">￥2000</span>
+                <span class='bao-icon'></span>
+              </div>
+            </div>
+          </div>
+          <div class='scort'>
+            <div class="weui-cell">
+              <div class="weui-cell__hd">
+                <label class="weui-label label">诚信分：</label>
+              </div>
+              <div class="weui-cell__bd">
+                <span class="weui-input label-span">9.9</span>
+                <span class='bao-icon'></span>
+              </div>
+            </div>
+          </div>
+          <div class="tag">
+            <div class="weui-cell">
+              <div class="weui-cell__hd">
+                <label class="weui-label label">技能标签：</label>
+              </div>
+              <div class="weui-cell__bd">
+                <span class="weui-input label-span">电工、木工....</span>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary btn-blue">邀请</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-flex" style='padding: 0px 15px;'>
+      <div class="weui-flex__item">
+        <a href="javascript:;" class="weui-btn buttomadd">增加师傅
+          <i class='icon-add_circles'></i>
+        </a>
+      </div>
+      <div class="weui-flex__item">
+      </div>
+      <div class="weui-flex__item">
+        <a href="javascript:;" class="weui-btn buttomreduce">减少师傅
+          <i class='icon-cancel-circles'></i>
+        </a>
+      </div>
+    </div>
+    <div class='weui-list'>
+      <div class='forms'>
+        <div class="weui-cells__title" style='color:#666;padding-left:0'>师傅工号</div>
+        <div class="forms-item">
+          <div class="forms-input">
+            <input type="text" class='weui-input'>
+          </div>
+          <div class="forms-buttom">
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary btn-blue">验证</a>
+          </div>
+        </div>
+        <div class="weui-cells__title" style='color:#666;padding-left:0'>所需时长</div>
+        <div class="forms-item">
+          <div class="forms-input">
+            <input type="text" class='weui-input'>
+          </div>
+        </div>
+        <div class="weui-cells__title" style='color:#666;padding-left:0'>师傅技能需求</div>
+        <div class="forms-item">
+          <div class="forms-input">
+              <input class="weui-input" id="select" type="text"  readonly="">
+          </div>
+        </div>
+        <div class="weui-cells__title" style='color:#666;padding-left:0'>佣金数额</div>
+        <div class="forms-item">
+          <div class="forms-input">
+              <input type="text" class='weui-input'>
+          </div>
+        </div>
+        <div class="forms-item" style='height:85px'>
+            <div class="forms-input" style='height:85px'>
+                <textarea class="weui-textarea" placeholder="请输入您对师傅的需求！" rows="5"></textarea>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+
+  var data = {
+    fenshu: 4.9
+  }
+  var star = {
+    template: '#star'
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    components: {
+      "stars": star
+    },
+    data: function () {
+      return data
+    },
+    methods: {
+
+    },
+    mounted: function () {
+      $("#select").select({
+        title: "您的爱好",
+        multi: true,
+        items: [
+          {
+            title: "画画",
+            value: 1
+          },
+          {
+            title: "打球",
+            value: 2
+          },
+          {
+            title: "唱歌",
+            value: 3
+          },
+          {
+            title: "游泳",
+            value: 4
+          },
+        ]
+      });
+    },
+    computed: {
+      stars: starComponted
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "找帮手师傅"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+</script>

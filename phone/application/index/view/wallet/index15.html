@@ -1,0 +1,142 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="shifuziliao">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div class="weui-cells_form">
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">充值金额:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input label-span" v-model="price" type="text"  placeholder="请输入充值金额">
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_radio" style="margin-top: 20px">
+            <label class="weui-cell weui-check__label" for="x11">
+                <div class="weui-cell__ft">
+                    <span style="font-size: 20px;margin-right: 10px" class="icon-微信"></span>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>微信支付</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" v-model="radio1" value="1" class="weui-check" name="radio1" id="x11">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="x12">
+                <div class="weui-cell__ft">
+                    <span style="font-size: 20px;margin-right: 10px" class="icon-支付宝"></span>
+                </div>
+                <div class="weui-cell__bd">
+                    <p>支付包支付</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input v-model="radio1" value="2" type="radio" name="radio1" class="weui-check" id="x12">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+        </div>
+        <div class="weui-flex" style="margin-top: 20px">
+            <div class="weui-flex__item">
+                <input @click="xiadan" type="button" value="确认支付" class="weui-btn bj_button_orange">
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "选择支付方式",
+                left:"<span class='icon-返回2'></span><a  style='color: #fff'>返回</a>",
+                right:"",
+
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                radio1:0,
+                price:'',
+                uid:{$uid},
+            }
+        },
+        methods:{
+            xiadan:function () {
+                var _this = this;
+                if(this.radio1==0){
+                    $.alert({
+                        title: '选择支付方式',
+                        text: '你还未选择支付方式',
+                        shand:"red",
+                        onOK: function () {
+                            //点击确认
+                        }
+                    });
+                }
+                _this.fangshi();
+            },
+               fangshi:function(){
+                var _this = this;
+                if(this.radio1==1){
+                        $.ajax({
+                        url:'__PUBLIC__is_weixin',
+                        type:'post',
+                        data:{},
+                        dataType:'json',
+                        success:function(data){
+                            console.log(data);
+                            if(data==true){
+                                location.href="http://www.bj-wang.com/PhoneWxpay/customer_payment_jsapi?total="+_this.price+"&&uid="+_this.uid;
+                            }else{
+                                $.ajax({
+                                    url:'__PUBLIC__customer_add_qian',
+                                    type:'post',
+                                    data:{totals:_this.price,uid:_this.uid},
+                                    dataType:'json',
+                                    success:function(data){
+                                        if(data.code==200){
+                                            window.location.href="__PUBLIC__customer_payment/"+_this.uid+'/times/'+data.msg;
+                                        }
+
+                                    }
+                                })
+
+                            }
+
+                        }
+                    })
+                 }else{
+                    $.toptip('目前还不支持支付宝支付')
+                }
+            }
+        }
+
+
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

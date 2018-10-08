@@ -1,0 +1,272 @@
+{include file='public/header'}
+  <link rel="stylesheet" href="__indexStatic__css/style/liuyanpeishifu.css">
+
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<template id='mian'>
+  <div class="liuyanpeishifu">
+    <div class="weui-cells1 weui-cells_form">
+    <div class="weui-cell">
+      <div class="weui-cell_hd">
+          <label class="weui-label">您的称呼：</label>
+      </div>
+      <div class="weui-cell_bd" style='width:100%'>
+        <span class="weui-input">{{order.contact_name}}</span>
+        
+      </div>
+    </div> 
+    <div class="weui-cell">
+      <div class="weui-cell_hd">
+        <label class="weui-label">详细地址：</label>
+      </div>
+      <div class="weui-cell__bd">
+          <span class='weui-input label-span'>{{order.full_location}}</span>
+        </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell_hd">
+        <div class="weui-label">楼号-门牌号：</div>
+      </div>
+      <div class="weui-cell__bd">
+          <span class='weui-input label-span'>{{order.location_ext}}</span>
+        </div>
+    </div>
+  </div>
+  <div class="backgroundColor"> </div>
+    <div class="backgroundColor"> 
+       <div class="zm">
+         <span>招募留言：</span>
+         <span>{{comments}}</span>
+       </div>
+       <!--维修 -->
+       <div class="xiangmu" v-if="item.service_type_id===2" v-for="(item,index) in list">
+          <div class="xiangmu1">维修{{item.commodity}}</div>
+          <div class="time">
+            <span> {{order.start_time}}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="yusuanjia">
+            <span>项目预算价</span>
+            <span class="text10"><input type="text" class="text11" readonly="" name="" :value="item.budget"></span>
+            <span class="btn"><a :href="'__PUBLIC__repair_details/'+item.id" class="btn_ck">查看</a></span>
+          </div>
+       </div>
+       <!--安装 -->
+       <div class="xiangmu" v-if="item.service_type_id===1" v-for="(item,index) in list">
+          <div class="xiangmu1">安装{{item.commodity}}</div>
+          <div class="time">
+            <span> {{order.start_time}}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="yusuanjia">
+            <span>项目预算价</span>
+            <span class="text10"><input type="text" class="text11" readonly="" name="" :value="item.budget"></span>
+            <span class="btn"><button class="btn_ck">查看</button></span>
+          </div>
+       </div>
+       <!--维修 -->
+       <div class="xiangmu" v-if="item.service_type_id===5" v-for="(item,index) in list">
+          <div class="xiangmu1" >更换灯片{{item.commodity}}</div>
+          <div class="time">
+            <span> {{order.start_time}}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="yusuanjia">
+            <span>项目预算价</span>
+            <span class="text10"><input type="text" class="text11" readonly="" name="" :value="item.budget"></span>
+            <span class="btn"><button class="btn_ck">查看</button></span>
+          </div>
+       </div>
+       <!--维修 -->
+       <div class="xiangmu" v-if="item.service_type_id===6" v-for="(item,index) in list">
+          <div class="xiangmu1" >围板搭建{{item.commodity}}</div>
+          <div class="time">
+            <span> {{order.start_time}}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="yusuanjia">
+            <span>项目预算价</span>
+            <span class="text10"><input type="text" class="text11" readonly="" name="" :value="item.budget"></span>
+            <span class="btn"><button class="btn_ck">查看</button></span>
+          </div>
+       </div>
+
+       <div class="content">
+          <div class="xuanshifu">
+            <input type="button"  class="xuanshifu_btn" @click="select_master()" value="选师傅">
+          </div>
+        <div class="total">
+            <span class="heji">合&nbsp;&nbsp;&nbsp;计:￥{{totals}}</span>
+        </div>
+            <div class="read_quality">阅读量：{{rob_num}}次</div>
+        </div>
+
+      </div>
+  <div class="xie">
+    <div class="pinglun">
+      <span>写评论</span>
+      <span class="icon-bubbles3"></span>
+      
+    </div>
+  </div>
+  <div class="weui-cell">
+    <div class="weui-cell_hd yuan"></div>
+    <div class="weui-cell_bd heading">
+      <a href="#">布鲁没谁了</a>
+      <p>今天01:10</p>
+    </div>
+  </div>
+  <div class="content1">
+    <p>这个项目离我家挺近，报价也合理，这个单我接了</p>
+  </div>
+  <div class="content2">
+    <div class="liulan">
+      <span>浏览20次</span>
+      <span class="icon-bubble2"></span>
+      <span class="icon-thumb_up one"></span>
+    </div>
+  </div>
+  <div class="weui-cell heading2">
+    <div class="weui-cell_hd jia">
+     <span class="icon-thumb_up two"> </span>
+    </div>
+    <div class="weui-cell_bd">
+     <span><a href="#">时间煮雨也煮</a>、
+     <a href="#">抠脚不收费</a></span>
+    </div>
+  </div>
+  <div class="pinglun2">
+    <span> <a href="#">爱情如水中月</a>：</span>
+    <span>说的对！那你去吧</span>
+  </div>
+  <div class="textarea">
+    <div class="textarea_one">
+      <textarea class="weui-textarea" placeholder="评论" rows="1"></textarea>
+    </div>
+  </div>
+  <div class="backgroundColor">
+  </div>
+    <div class="weui-cell">
+    <div class="weui-cell_hd yuan"></div>
+    <div class="weui-cell_bd heading">
+      <a href="#">布鲁没谁了</a>
+      <p>今天01:10</p>
+    </div>
+  </div>
+  <div class="content1">
+    <p>这个项目离我家挺近，报价也合理，这个单我接了</p>
+  </div>
+  <div class="content2">
+    <div class="liulan">
+      <span>浏览20次</span>
+      <span class="icon-bubble2"></span>
+      <span class="icon-thumb_up one"></span>
+    </div>
+  </div>
+  <div class="weui-cell heading2">
+    <div class="weui-cell_hd jia">
+     <span class="icon-thumb_up two"> </span>
+    </div>
+    <div class="weui-cell_bd">
+     <span><a href="#">时间煮雨也煮</a>、
+     <a href="#">抠脚不收费</a></span>
+    </div>
+  </div>
+  <div class="pinglun2">
+    <span> <a href="#">爱情如水中月</a>：</span>
+    <span>说的对！那你去吧</span>
+  </div>
+  <div class="textarea">
+    <div class="textarea_one">
+      <textarea class="weui-textarea" placeholder="评论" rows="1"></textarea>
+    </div>
+  </div>
+  </div>
+</template>
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+    sex: 1,
+    order_number:'{$order_number}',
+    order:{$order},
+    list:{$list},
+    totals:{$total},
+    comments:'{$comments}',
+    rob_num:{$rob_num}
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+     select_master:function(){
+      var _this=this;
+      $.ajax({
+        url:'__PUBLIC__change_status',
+        data:{order_number:_this.order_number},
+        dataType:'json',
+        type:'post',
+        success:function(data){
+           if(data.code==200){
+             window.location.href="__PUBLIC__select_master/"+_this.order_number;
+           }else{
+             $.toast(data.msg);
+           }
+         }
+      })
+         
+      }
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "订单撮合"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+</script>

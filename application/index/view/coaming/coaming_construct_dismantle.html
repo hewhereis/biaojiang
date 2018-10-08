@@ -1,0 +1,1119 @@
+{include file="public/header" }
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<link href="__PUBLIC__static/index/css/select2.css" rel="stylesheet" />
+<script src="__PUBLIC__static/index/js/select2.js"></script>
+<style type="text/css">
+    #imgPickers .webuploader-pick,#imgPickerss .webuploader-pick{
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        background: #FFF;
+        padding: 10px 15px;
+        color: #fff;
+        text-align: center;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    #de .webuploader-pick,#de1 .webuploader-pick{
+        background: #00b7ee;
+    }
+
+    #header{
+        border-bottom: 1px solid #cacaca;
+        padding-bottom:2em;
+    }
+    #chengbao{
+        border-top: 1px solid #cacaca;
+        border-bottom: 1px solid #cacaca;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    #border{
+        border-bottom: 1px solid #cacaca;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+    }
+    #shangchangbz{
+        background-color: rgb(252,232,216);
+        padding: 1em 0;
+    }
+    .panel.panel-orange{
+        border-color:#cacaca;
+    }
+    .btn-numbox {
+
+        margin-top: 0px;
+    }
+    .btn-numbox li {
+        float: left;
+    }
+    .btn-numbox li .number,
+    .kucun {
+        display: inline-block;
+        font-size: 12px;
+        color: #808080;
+        vertical-align: sub;
+    }
+    .btn-numbox .count {
+        overflow: hidden;
+        margin: 0 16px 0 -20px;
+    }
+    .btn-numbox .count .num-jian,
+    .input-num,
+    .num-jia {
+        display: inline-block;
+        width: 28px;
+        height: 32px;
+        line-height: 28px;
+        text-align: center;
+        font-size: 18px;
+        color: #999;
+        cursor: pointer;
+        border: 1px solid #e6e6e6;
+    }
+
+    .btn-numbox .count .num-jia {
+        margin-left: 1px;
+    }
+
+    .btn-numbox .count .input-num {
+        width: 58px;
+        height: 32px;
+        color: #333;
+        border-left: 0;
+        border-right: 0;
+    }
+    .xin{
+        position: relative;
+        top: 3px;
+    }
+    @media (min-width: 776px ) {
+        .metaclass{
+            margin-top: 60px;
+        }
+    }
+    .file-item {
+        float: left;
+        position: relative;
+        width: 110px;
+        height: 110px;
+        margin: 0 20px 20px 0;
+    }
+
+    .file-item .info {
+        overflow: hidden;
+    }
+
+    .uploader-list {
+        width: 100%;
+        overflow: hidden;
+    }
+
+
+
+    .dele1 {
+        line-height: 40px;
+    }
+
+    .count * {
+        line-height: 28px;
+    }
+
+    .j {
+        border-bottom: 1px solid #dddddd;
+        margin: 0px 0px 0px -10px;
+    }
+
+    .jk {
+        padding: 10px 10px 10px 10px;
+    }
+
+    .l_lin {
+        padding-top: 30px;
+    }
+
+    .jkdele1 {
+        padding-top: 20px;
+    }
+</style>
+
+
+
+
+<div class="main">
+    <form id="demoa"  method="post" action="__PUBLIC__coaming_submit" class="demoform">
+        <div class="container">
+            <div class="header">
+                <h5 class="page-header bx">
+                    <span>当前所在位置</span>
+                    <span>>></span>
+                    <small>围板搭建/拆除下单</small>
+                </h5>
+            </div>
+            <div class="panel panel-orange">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        围板搭建/拆除下单
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <input id="ds-sub" name="ds_step" hidden="hidden" value="">
+                    <?php if(empty($_SESSION['think']['ds_username'])){ ?>
+                    <div class="row" >
+                        <input type="hidden" id="denglu" >
+                        <label style="float:left;" class="pl-20">您还未登录,登录后给您更好的服务</label>
+                        <div class="col-md-6"><a href="__PUBLIC__auth" class="text-orange">登录>></a></div>
+                    </div>
+                    <!--一条线-->
+                    <div class="border-bottom-1 ml-0 mb-10"></div>
+                    <?php } ?>
+
+
+                    <!-- 客户ID/商城名称 -->
+                    <div class="row">
+                        <div class="col-md-1 mt-10">
+                            客户ID
+                        </div>
+                        <?php if(!empty($_SESSION['think']['ds_username'])): ?>
+                        <div class="col-md-4 col-xs-10">
+                            <input type="text" readonly unselectable="on" id="client" name="uid" class="form-control ds-uid" value="<?php echo $_SESSION['think']['id'] ?>">
+                            <input type="text" style="display:none" id="uname" name="uname" class="form-control ds-uid" value="<?php echo $_SESSION['think']['ds_username'] ?>">
+                        </div>
+                        <?php else:?>
+                        <div class="col-md-4">
+
+                        </div>
+                        <?php endif; ?>
+                        <!-- <div class="col-md-1 mt-10">
+                            客户ID
+                        </div> -->
+                        <!-- <div class="col-md-4">
+                            <input type="text" name="" class="form-control border-radius" value="">
+                        </div> -->
+                        <div class="col-md-1 pl-0 " >
+
+                        </div>
+                        <div class="col-md-1 col-xs-12 mt-10">商场名称</div>
+                        <div class="col-md-4 col-xs-10">
+                            <input type="text" name="market" id="market" class="form-control border-radius" value="">
+                        </div>
+                        <div class="col-md-1 col-xs-1 pl-0">
+                            <b class='text-orange xin'>*</b>
+                        </div>
+                    </div>
+                    <!--  联系人/预约时间 -->
+                    <div class="row mt-10">
+                        <div class="col-md-1 mt-10">
+                            联系人
+                        </div>
+                        <div class="col-md-4 col-xs-10">
+                            <input type="text" name="contact_name" id="contact_name" class="form-control border-radius" value="{$loaction.name}">
+                        </div>
+                        <div class="col-md-1 col-xs-1 pl-0">
+                            <b class='text-orange xin'>*</b>
+                        </div>
+                        <div class="col-md-1 col-xs-12 mt-10">
+                            预约时间
+                        </div>
+                        <div class="col-md-4 col-xs-10">
+                            <input type="text" name="start_time" id="start_time" onclick="layui.laydate({elem: this, format:'YYYY-MM-DD hh:mm:ss',istime: true,min: laydate.now()})" class="form-control border-radius" value="">
+                        </div>
+                        <div class="col-md-1 col-xs-1 pl-0">
+                            <b class='text-orange xin'>*</b>
+                        </div>
+                    </div>
+                    <!--  联系电话/店铺地址 -->
+                    <div class="row mt-10">
+                        <div class="col-md-1 col-xs-12 mt-10">
+                            联系电话
+                        </div>
+                        <div class="col-md-4 col-xs-10">
+                            <input type="text" name="contact_phone" id="contact_phone" class="form-control border-radius" value="{$loaction.phone}">
+                        </div>
+                        <div class="col-md-1 col-xs-1 pl-0">
+                            <b class='text-orange xin'>*</b>
+                        </div>
+                        <?php if($loaction['province']==''):?>
+                        <div class="col-md-1 col-xs-12 mt-10">
+                            店铺地址
+                        </div>
+
+                        <div class="col-md-4 col-xs-10">
+                            <div class="row" id="distpicker5">
+                                <div class="col-md-4 mb-10">
+                                    <select lay-filter="location_ext"  name="province" class="form-control" lay-verify="" id="province">
+                                    </select>
+                                    <input type='hidden' value="" name="m">
+                                </div>
+                                <div class="col-md-4 mb-10">
+                                    <select lay-filter="location_ext1" name="city" class="form-control" lay-verify="" id="city">
+                                    </select>
+                                    <input type='hidden' value="" name="b">
+                                </div>
+                                <div class="col-md-4 mb-10">
+                                    <select lay-filter="location_ext2" name="town" class="form-control" lay-verify="" id="town" >
+                                    </select>
+                                    <input type='hidden' value="" name="c">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-1 col-xs-1 mt-4" style="padding-left: 0">
+                            <b class='text-orange xin'>*</b>
+                        </div>
+                        <?php else:?>
+                        <div class="col-md-6 ">
+                            <div class="row">
+                                <label class="col-md-3 col-xs-12">店铺地址</label>
+                                <div class="col-md-8 col-xs-10">
+                                    <div class="row" >
+                                        <div class="col-md-12">
+                                            <input type="hidden"  style="border:none;background:#fff"  class='form-control' name="province" id="province" value="{$loaction.province}">
+                                            <input type="hidden" style="border:none;background:#fff"  class='form-control' name="city" id="city" value="{$loaction.district}">
+                                            <input type="hidden" style="border:none;background:#fff"   class='form-control' name="town" id="town" value="{$loaction.city}">
+                                            <span id="ds_u_pro">{$loaction.province}</span>
+                                            <span id="ds_u_cit">{$loaction.city}</span>
+                                            <span id="ds_u_dis">{$loaction.district}</span>
+                                            <span id="ds_u_ars">{$loaction.location}</span>
+                                            <a class="ds_add_dizhi" style="cursor: pointer;">使用新地址</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endif;?>
+                    </div>
+                    <!--  品牌/ -->
+                    <div class="row mt-10" id="header">
+                        <div class="col-md-1  col-xs-12 mt-10">
+                            品牌
+                        </div>
+                        <div class="col-md-4 mb-10 col-xs-10">
+                            <select lay-filte="brand"  lay-verify="brand|required" name="brand" id="brand" autocomplete="off" class="form-control js-example-tags">
+                                {volist name="brand" id="v"}
+                                <option value="{$v.brand}">{$v.brand}</option>
+                                {/volist}
+                            </select>
+                        </div>
+                        <div class="col-md-1 col-xs-1 pl-0">
+                            <b class='text-orange xin'>*</b>
+                        </div>
+                        <div class="col-md-1 mt-10">
+
+                        </div>
+                        <?php if($loaction['province']==''):?>
+                        <div class="col-md-4 col-xs-10 ">
+                            <input type="text" name="address" id="address" placeholder="请填写您的详细地址（楼层、店铺号）" class="form-control border-radius" value="">
+                        </div>
+                        <div class="col-md-1 col-xs-1 pl-0">
+                            <b class='text-orange xin'>*</b>
+                        </div>
+                        <?php else:?>
+                        <input type="hidden" name="address" id="address" class="form-control border-radius" value="{$loaction.location}">
+                        <?php endif;?>
+                        <div class="col-md-1 pl-0">
+
+                        </div>
+                    </div>
+
+                    <!-- 搭建时间 -->
+                    <div class="row mt-20">
+                        <div class="col-md-1 pt-10">
+                            搭建时间
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input type="text" name="constructdate" id="constructdate" readonly="" onclick="layui.laydate({elem: this, format:'YYYY-MM-DD hh:mm:ss',istime: true,min: laydate.now()})" class="form-control">
+                                <a class="btn btn-defalute input-group-addon">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 搭建时间 -->
+                    <div class="row mt-20">
+                        <div class="col-md-1 pt-10">
+                            拆除时间
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input type="text" name="dismantledate" id="dismantledate" readonly="" onclick="layui.laydate({elem: this, format:'YYYY-MM-DD hh:mm:ss',istime: true,min: laydate.now()})" class="form-control">
+                                <a class="btn btn-defalute input-group-addon">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 上传围板搭建图纸 -->
+                    <div class="row mt-20">
+                        <div class="col-md-2 pt-10">
+                            上传围板搭建图纸<b class='text-orange xin'>*</b>
+                        </div>
+
+                        <div class="col-md-3 col-xs-12">
+                            <div id="imgPickerss">
+                                <input type="hidden" id='imgpaper' name="imgpaper" value="">
+                                <img id="img_datass"  class="mt-0_xs" style="width: 200px;height: 200px" src="__PUBLIC__static/index/images/tj.png"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 承包模式 -->
+                    <div class="row mt-20" id="chengbao">
+                        <div class="col-md-2 pt-10">
+                            承包模式<b class='text-orange xin'>*</b>
+                        </div>
+                        <input type="hidden"  id="contract" value="">
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="contract" id="radio4" value="1">
+                                <label for="radio4">全包</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="contract" id="radio5" value="0">
+                                <label for="radio5">半包（协助模式）</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 物流提货 -->
+                    <div class="row" id="border">
+                        <div class="col-md-2 pt-10">
+                            物流提货<b class='text-orange xin'>*</b>
+                        </div>
+                        <input type="hidden"  id="delivery" value="">
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="delivery" id="radio6" value="1">
+                                <label for="radio6">需要</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="delivery" id="radio7" value="0">
+                                <label for="radio7">不需要</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 是否需要现场查看场地 -->
+                    <div class="row" id="border">
+                        <div class="col-md-2 pt-10">
+                            是否需要现场查看场地<b class='text-orange xin'>*</b>
+                        </div>
+                        <input type="hidden"  id="site" value="">
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="site" id="radio8" value="1">
+                                <label for="radio8">是</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="site" id="radio9" value="0">
+                                <label for="radio9">否</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 是否需要办理施工手续 -->
+                    <div class="row" id="border">
+                        <div class="col-md-2 pt-10">
+                            是否需要办理施工手续<b class='text-orange xin'>*</b>
+                        </div>
+                        <input type="hidden"  id="procedure" value="">
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="procedure" id="radio10" value="1">
+                                <label for="radio10">是</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="procedure" id="radio11" value="0">
+                                <label for="radio11">否</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 是否需要代缴工程押金 -->
+                    <div class="row" id="border">
+                        <div class="col-md-2 pt-10">
+                            是否需要代缴工程押金<b class='text-orange xin'>*</b>
+                        </div>
+                        <input type="hidden"  id="deposit" value="">
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="deposit" id="radio12" value="1">
+                                <label for="radio12">需要</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="deposit" id="radio13" value="0">
+                                <label for="radio13">不需要</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 完工后垃圾处理方式 -->
+                    <div class="row" id="border">
+                        <div class="col-md-2 pt-10">
+                            完工后垃圾处理方式<b class='text-orange xin'>*</b>
+                        </div>
+                        <input type="hidden"  id="garbage" value="">
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="garbage" id="radio17" value="1">
+                                <label for="radio17">商场处理</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="garbage" id="radio18" value="0">
+                                <label for="radio18">师傅处理</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 选择施工人数 -->
+                    <div class="row" style="border-bottom:1px solid #cacaca;padding:1em 0">
+                        <div class="col-md-12 ">
+                            <div class="row">
+                                <div class="col-md-2 col-xs-5 pt-10">
+                                    选择施工人数<b class='text-orange xin'>*</b>
+                                </div>
+                                <div class="col-xs-7">
+                                    <ul class="btn-numbox">
+                                        <li>
+                                            <ul class="count">
+                                                <li><span id="reducenumber" class="num-jian">-</span></li>
+                                                <li><input type="text" name="workernumber"  class="input-num" id="peopleNumber" value="0"
+                                                /></li>
+                                                <li><span id="addnumber" class="num-jia">+</span></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="border-bottom:1px solid #cacaca;padding: 2em 0">
+                        <div class="col-md-12 upload_module">
+                            <!-- 上传围板塔建/拆除进度表 -->
+                            <div class="row">
+                                <div class="col-md-3 pt-10">
+                                    上传围板搭建/拆除进度表(图)<b class='text-orange xin'>*</b>
+                                </div>
+                                <input type="hidden" value="" lay-verify="drawings" name="drawings" id="drawings" lay-filter="drawings">
+                                <div class="col-md-2 col-xs-6">
+                                    <a href="javascript:;"  num="1" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 1.7em">上传进度表图</a>
+                                </div>
+                                <div class="col-md-2 col-xs-6">
+                                    <a href="javascript:;" num="0" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 2.2em">无进度表图</a>
+                                </div>
+                            </div>
+
+                            <!-- 上传围板塔建/拆除验收单 -->
+                            <div class="row mt-20">
+                                <div class="col-md-3 pt-10">
+                                    上传围板搭建/拆除验收单(图)<b class='text-orange xin'>*</b>
+                                </div>
+                                <input type="hidden" value="" lay-verify="check_list" name="check_list" id="check_list" lay-filter="check_list">
+                                <div class="col-md-2 col-xs-6">
+                                    <a href="javascript:;" num="1" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 1.7em">上传验收单图</a>
+                                </div>
+                                <div class="col-md-2 col-xs-6">
+                                    <a href="javascript:;" num="0" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 2.2em">无验收单图</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="shangchangbz">
+                        <div class="col-md-2 mt-10">
+                            <b>商场办证<b class='text-orange xin'>*</b></b>
+                        </div>
+                        <input type="hidden" id="permit" value="">
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="permit" id="radio20" value="1">
+                                <label for="radio20">师傅代办</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="permit" id="radio21" value="2">
+                                <label for="radio21">客户代办</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="checkbox checkbox-success">
+                                <input type="radio" name="permit" id="radio22" value="3">
+                                <label for="radio22">不需要办理</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-10">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-md-2 pl-30 " >
+                                        <label class="btn btn-default">门头照片</label><b class='text-orange xin'>*</b>
+                                    </div>
+                                    <div class="col-md-3 col-xs-12">
+                                        <div id="imgPickers">
+                                            <img id="img_datas"  class="mt-0_xs" style="width: 200px;height: 200px" src="__PUBLIC__static/index/images/tj.png"/>
+                                            <input type="hidden" id="imgstore" name="imgstore">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input value="0" id="ds_hedan" name="hedan" hidden="hidden">
+                            <div class="row mt-20" >
+                                <div class="col-md-4">
+                                    <div class="checkbox checkbox-success">
+                                        <input type="checkbox" name="single" id="nuclear_list_in_advance" value="">
+                                        <label for="checkbox2">需求待进一步明确，需预先核单</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4" id="pas">
+                                    <div class="checkbox checkbox-success" >
+                                        <input type="hidden" name="yue" id="yue" value="">
+                                        <input type="checkbox" class="" name="monthly" id="monthly" value="">
+                                        <label  for="monthly" class="">使用平台月结服务</label>
+                                    </div>
+                                    <input type="password" autocomplete="off"  name="pwd" placeholder="月结客户使用的密码" id="year_service_ordere_pwd" class="form-control" style="opacity: 0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-bottom-1"></div>
+
+                <div class="row pl-20 pt-20 pb-10">
+                    <div class="col-sm-3" style="color: red;">
+                        注： <b class='text-orange xin'>*</b> 表示必填项
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <a id="yezhuxieyi" href="javascript:;" class="" >《业主协议》</a>
+                    <div class="mt-10 checkbox checkbox-success" style="display: inline-block">
+                        <input type="checkbox" id="agreement">
+                        <label for="agreement">我同意协议</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row pb-20 pl-10">
+                        <div class="col-md-3 col-sm-4 col-xs-6 col-sm-offset-1 text-center mt-20">
+                            <input type="submit" id="xiadan" disabled class="btn bg-success form-control border-radius " value="直接下单">
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6 col-sm-offset-3 text-center mt-20">
+                            <input type="submit" disabled id="quick_consulting" class="btn btn-blue form-control border-radius " value="快捷咨询">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <input id="judge" name="judge" hidden="hidden" value="">
+        <input type="hidden" value="" lay-verify="check_list" name="balance" id="balance" lay-filter="check_list">
+        <input type="hidden" value="" lay-verify="check_list" name="chart" id="chart" lay-filter="check_list">
+    </form>
+        <div id="de" style="opacity: 1;position: absolute;top:  10px;height: 0;overflow: hidden"  >
+            <div id="imgPicker" class="mb-10 ml-20 mt-20">
+                <i class="glyphicon glyphicon-plus"></i>上传进度表图表
+            </div>
+        </div>
+        <div id="de1"  style="opacity: 1;position: absolute;top:  10px;height: 0;overflow: hidden" >
+
+            <div id="imgPicker1" class="mb-10 ml-20 mt-20">
+                <i class="glyphicon glyphicon-plus"></i>上传验收单图
+            </div>
+        </div>
+</div>
+
+<?php if(empty($_SESSION['think']['type'])) :?>
+<?php else: ?>
+<input value="<?php echo $_SESSION['think']['type']; ?>" id="ds_worker_type" name="ds_worker_type" hidden>
+<?php endif ?>
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<script>
+    $(".ds_add_dizhi").click(function () {
+        var uid=$('#ds_uid').val();
+        var layer=layui.layer;
+        var  url="__PUBLIC__/client_location";
+        parent.layer.open({
+            type:2,
+            area:["800px","600px"],
+            title:"地址管理",
+            shade:0,
+            scrollbar:false,
+            content:url,
+            end: function() {
+                ds_show();
+            },
+            success:function (inde) {
+
+            }
+        });
+    });
+
+
+</script>
+<script type="text/javascript">
+    function ds_show(){
+        $.get("__PUBLIC__api_uid_address", function(data) {
+            $('#contact_name').val(data.name);
+            $('#contact_phone').val(data.phone);
+
+            $('#province10').val(data.province);
+            $('#city10').val(data.city);
+            $('#district10').val(data.district);
+            $('#address').val(data.location);
+
+            $('#ds_u_pro').html(data.province);
+            $('#ds_u_cit').html(data.city);
+            $('#ds_u_dis').html(data.district);
+            $('#ds_u_ars').html(data.location);
+
+
+        }, "json" );
+    }
+
+</script>
+<script>
+    //品牌可写
+    $(".js-example-tags").select2({tags: true});
+    $(".select2-container").css("width", "100%");
+    $(".select2-selection").css("border","none");
+    $("#select2-brand-container").addClass("form-control").css({
+        lineHeight:"22px"
+    })
+    //判断是否需要核单
+    $('#nuclear_list_in_advance').click(function () {
+        if ($(this).prop("checked") === true) {
+            $('#ds_hedan').val(1);
+        } else {
+            $('#ds_hedan').val(0);
+        }
+    })
+    //判断是否是月结客户
+    $('#monthly').click(function(){
+        if($(this).prop("checked") === true){
+            $('#yue').val(1);
+        }else{
+            $('#yue').val(0);
+        }
+    })
+    window.onload =function(){
+        $('#addnumber').click(function(){
+            var val = $('#peopleNumber').val();
+            if(val==''){
+                val=0;
+            }
+            ++val;
+            $('#peopleNumber').val(val);
+        });
+        $('#reducenumber').click(function(){
+            var val = $('#peopleNumber').val();
+            if(val==''){
+                val=0;
+            }
+            if(val!=0){
+                --val;
+            }
+            $('#peopleNumber').val(val);
+        });
+    }
+
+    //图片上传
+    var uploader = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#picture',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#img-data").attr('src', '__DsQINiu__' + data._raw).show();
+        }
+    });
+
+    var uploader = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPickerss',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#imgpaper").val(data._raw);
+            $("#img_datass").attr('src', '__DsQINiu__' + data._raw).show();
+        }
+    });
+    var uploader = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPickers',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#imgstore").val(data._raw);
+            $("#img_datas").attr('src', '__DsQINiu__' + data._raw).show();
+        }
+    });
+
+    $(".upload_module").on("click","a",function (e) {
+        e.preventDefault();
+        var this_=$(this);
+        this_.css("border-color","red");
+        this_.parent().siblings("input[type='hidden']").val(this_.attr('num'));
+        this_.parent().siblings("div").find("a").css("border-color","#00a0e9");
+        var layer=layui.layer;
+        var hr=$(this).attr('href');
+        if(this_.text()=="上传进度表图"){
+            $("#de").height("150px");
+            layer.open({
+                type:1,
+                area:["300px","300px"],
+                content:$("#de"),
+                time:"20000",
+                cancel:function (idnex) {
+                    $("#de").height("0px");
+                }
+            });
+        }else if(this_.text()=="上传验收单图"){
+            $("#de1").height("150px");
+            layer.open({
+                type:1,
+                area:["300px","300px"],
+                content:$("#de1"),
+                time:"20000",
+                cancel:function (idnex) {
+                    $("#de1").height("0px");
+                }
+            });
+        }
+
+    });
+    var uploader1= WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPicker1',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+
+            $("#balance").val(data._raw);
+            layer.closeAll();
+            $("#img_data1").attr('src', '__DsQINiu__' + data._raw).show();
+            layer.msg("上传成功",{ icon: 1, time: 1500, shade: 0 })
+        }
+    });
+    var uploader1= WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPicker',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#chart").val(data._raw);
+            layer.closeAll();
+            $("#img_data2").attr('src', '__DsQINiu__' + data._raw).show();
+            layer.msg("上传成功",{ icon: 1, time: 1500, shade: 0 })
+        }
+    });
+</script>
+<script>
+    $("#xiadan").click(function () {
+        $("#judge").val(1);
+        $("#ds-sub").val(8);
+    })
+    $("#quick_consulting").click(function () {
+        $("#ds-sub").val(9);
+    })
+
+    $("#radio5").click(function(){
+        $('#contract').val(1);
+    })
+    $("#radio4").click(function(){
+        $('#contract').val(1);
+    })
+    $("#radio6").click(function(){
+        $('#delivery').val(1);
+    })
+    $("#radio7").click(function(){
+        $('#delivery').val(1);
+    })
+    $("#radio8").click(function(){
+        $('#site').val(1);
+    })
+    $("#radio9").click(function(){
+        $('#site').val(1);
+    })
+    $("#radio10").click(function(){
+        $('#procedure').val(1);
+    })
+    $("#radio11").click(function(){
+        $('#procedure').val(1);
+    })
+    $("#radio12").click(function(){
+        $('#deposit').val(1);
+    })
+    $("#radio13").click(function(){
+        $('#deposit').val(1);
+    })
+    $("#radio17").click(function(){
+        $('#garbage').val(1);
+    })
+    $("#radio18").click(function(){
+        $('#garbage').val(1);
+    })
+    $("#radio20").click(function(){
+        $('#permit').val(1);
+    })
+    $("#radio21").click(function(){
+        $('#permit').val(1);
+    })
+    $("#radio22").click(function(){
+        $('#permit').val(1);
+    })
+    //提交
+    $(document).ready(function () {
+        $('#demoa').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+        function checkForm() {
+            var ds_types=$("#ds_worker_type").val();
+            if(ds_types==2){
+                msg('您是师傅,不能下单',2);
+                return false;
+            }
+            var market=	$("#market").val();
+            if(market==""){
+                Tip("market","请填写商场名称");
+                return false;
+            }
+            var contact_name=$("#contact_name").val();
+            if(contact_name==""){
+                Tip("contact_name","请填写联系人");
+                return false;
+            }
+            var start_time=$("#start_time").val();
+            if(start_time==""){
+                Tip("start_time","请填写预约时间");
+                return false;
+            }
+            var contact_phone=$("#contact_phone").val();
+            if(contact_phone==""){
+                Tip("contact_phone","请填写联系电话");
+                return false;
+            }
+            var brand=$("#brand").val();
+            if(brand==""){
+                Tip("brand","请填写品牌");
+                return false;
+            }
+            var province = $('#province').val();
+            if(province==""){
+                Tip("province","请选择店铺地址省份");
+                return false;
+            }
+            var city = $('#city').val();
+            if(city==""){
+                Tip("city","请选择店铺地址城市");
+                return false;
+            }
+            var town = $('#town').val();
+            if(town==""){
+                Tip("town","请选择店铺地址区县");
+                return false;
+            }
+            var address = $('#address').val();
+            if(address==""){
+                Tip("address","请填写店铺详细地址");
+                return false;
+            }
+            var constructdate=$("#constructdate").val();
+            var dismantledate=$("#dismantledate").val();
+            if(constructdate=='' && dismantledate==''){
+                if(constructdate==""){
+                    Tip("constructdate","请填写搭建或拆除时间");
+                    return false;
+                }
+            }
+            var imgpaper=$("#imgpaper").val();
+            if(imgpaper==""){
+                msg('请上传围板搭建图纸',{icom:2,time:2000});
+                return false;
+            }
+
+            var contract = $('#contract').val();
+            if(contract==''){
+                Tip("radio4","请选择承包模式");
+                return false;
+            }
+
+            var delivery = $('#delivery').val();
+            if(delivery==''){
+                Tip("radio6","请选择是否需要物流提货");
+                return false;
+            }
+            var site= $('#site').val();
+            if(site==''){
+                Tip("radio8","请选择是否需要查看场地");
+                return false;
+            }
+            var procedure = $('#procedure').val();
+            if(procedure==''){
+                Tip("radio10","请选择是否需要办理施工手续");
+                return false;
+            }
+            var deposit = $('#deposit').val();
+            if(deposit==''){
+                Tip("radio12","请选择是否需要代缴工程押金");
+                return false;
+            }
+
+            var garbage = $('#garbage').val();
+            if(garbage==''){
+                Tip("radio17","请选择完工后垃圾处理方式");
+                return false;
+            }
+            var peopleNumber=$("#peopleNumber").val();
+            if(peopleNumber==""){
+                Tip("peopleNumber","请填写施工人数");
+                return false;
+            }
+            var drawings=$("#drawings").val();
+            if(drawings==""){
+                msg("请上传围板搭建/拆除进度表",{icon:2,time:2000});
+                return false;
+            }
+            var check_list=$("#check_list").val();
+            if(check_list==""){
+                msg("请上传围板搭建/拆除验收单",{icon:2,time:2000});
+                return false;
+            }
+            var permit = $('#permit').val();
+            if(permit==''){
+                Tip("radio20","请选择商场是否需要办证");
+                return false;
+            }
+            var imgstore=$("#imgstore").val();
+            if(imgstore==""){
+                msg("请上传门头照片",{icon:2,time:2000});
+                return false;
+            }
+
+        }
+        function complete(data) {
+            var layer=layui.layer;
+            var dsurl = $('#ds-sub').val();
+            if (data.code == 200) {
+                var jump = data.msg;
+                if (dsurl == 8) {
+                    if($("#monthly").prop("checked")){
+                        window.location.href = "__PUBLIC__month_order/";
+                    }else{
+                        window.location.href = "__PUBLIC__coaming_jilt_single/" + jump;
+                    }
+
+                } else {
+                    window.location.href = "__PUBLIC__choose_coaming/" + jump + "/wid/0";
+                }
+            } else if (data.code == -1) {
+                layer.open({
+                    content:"你还未登录还不能开始下单,是否去登录账号",
+                    btn:['登录', '我在看看'],
+                    title:"登录",
+                    shade:0,
+                    yes:function () {
+                        window.location.href = "__PUBLIC__auth";
+                    }
+                })
+
+            } else if(data.code==0) {
+                layer.open({
+                    content: data.msg+'是否前去申请月结客户'
+                    ,btn: ['申请月结客户', '我在看看'],
+                    title:"申请月结客户",
+                    shade:0,
+                    skin:"layui-layer-lan"
+                    ,yes: function(index, layero){
+                        //按钮【按钮一】的回调
+                        window.location.href="__PUBLIC__core/customer";
+                    }
+                });
+                return false;
+            }else{
+                msg(data.msg);
+            }
+        }
+    });
+    $("#monthly").change(function () {
+        if ($(this).prop("checked") === true) {
+
+            $("#year_service_ordere_pwd").css("opacity", '1');$("#quick_consulting").css("opacity", "0");} else {$("#year_service_ordere_pwd").css("opacity", '0');$("#quick_consulting").css("opacity", "1");
+        }
+    });
+
+    var layer=layui.layer;
+    $("#yezhuxieyi").click(function () {
+        layui.layer;parent.layer.open({type:2, title:"业主协议", btn:['我同意',"我再看看"], content:" __PUBLIC__yezhuxieyi", area:["80%","80%"], yes:function(index,layero){
+
+            $("#agreement").prop("checked",'true');layer.close(index);$("#xiadan").prop("disabled",false);$("#quick_consulting").prop("disabled",false);
+        },
+            btn2:function(index,layero){
+                $("#agreement").prop("checked",false);layer.close(index);$("#xiadan").prop("disabled",true);$("#quick_consulting").prop("disabled",true);
+            }
+        })
+    })
+    $("#agreement").click(function () {
+        if ($(this).prop("checked")) {
+            $("#xiadan").prop("disabled",false);
+            $("#quick_consulting").prop("disabled",false);
+        } else {
+            $("#xiadan").prop("disabled",true);
+            $("#quick_consulting").prop("disabled",true);
+        }
+    });
+</script>
+{include file="public/footer" }

@@ -1,0 +1,178 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main exam_select">
+    <!-- header-img-->
+    <div class="container">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>考试选择</small>
+            <span>>></span>
+        </h5>
+        </div>
+    <!--/*主题*/-->
+    <div class="container   mr--1_medai ml--1_medai">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12 ">选择你想参加的考试类型</div>
+        </div>
+
+        <div class="row The-test-panel-body">
+
+            <div class=" col-xs-12 col-sm-3 col-md-2  Panel-face ">
+                <img src="__DsQINiu__{$headerImg}" alt="">
+                <br>
+                <span>木工等级：初级学徒</span>
+            </div>
+            <div class="col-md-10 col-xs-5  Subject-to-the-right-panel">
+                <div class="row">
+                    <div class="h5 col-md-12 text-or">平台考试：初级</div>
+                </div>
+                <div class="row">
+                    {if $num == 0}
+                        <div class="col-md-5 col-xs-6">您还没有参加过考试</div>
+                    {else}
+                        <div class="col-md-2 col-xs-6">参加考试{$Gnum}/{$num}次</div>
+                        <div class="col-md-4 col-xs-6">通过率{$Gnum/$num*100|substr=0,5}%</div>
+                    {/if}
+                </div>
+                <br>
+                <!-- <div class="row">
+                    <div class="col-md-3 col-xs-12">參加考試2/5</div>
+                    <div class="col-md-3 col-xs-12">通过率40%</div>
+                </div> -->
+            </div>
+
+        </div>
+        <!--/*下拉选择框*/-->
+        <div class="row The-test-panel-body Panel-topic-form ">
+            <p>请选择你想参加考试类型</p>
+            <div class="row">
+                <!-- <div class="col-sm-3">
+                    <select class='form-control'>
+                        <option value='1'>请选择类型</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <select class='form-control'>
+                        <option value='1'>请选择级别</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <a class='btn btn-success'>搜索</a>
+                </div> -->
+
+                <form name="admin_list_sea" class="form-search" method="post" action="__PUBLIC__studytrain/exam_select">
+                                    <div class="col-sm-3">
+                                    <select class='form-control' id='tag' name='tags_id'>
+                                        <option value='-1' >请选择类型</option>
+                                        {volist name='tag' id='tag'}
+                                            {if $tag.id ==$tags_id}
+                                            <option value='{$tag.id}' selected="true">{$tag.tag}</option>
+                                            {else}
+                                            <option value='{$tag.id}'>{$tag.tag}</option>
+                                            {/if}
+                                        {/volist}
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class='form-control' id='level' name='level'>
+                                        <option value='-1'>请选择级别</option>
+                                        <?php for($i=0;$i<=5;$i++){?>
+                                            {if $level2 ==$i}
+                                                <option value='<?php echo $i ?>' selected><?php echo $i ?></option>
+                                            {else}
+                                                <option value='<?php echo $i ?>'><?php echo $i ?></option>
+
+                                            {/if}
+                                            }
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <span class="input-group-btn"> 
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i> 搜索</button> 
+                                </span>
+                    </form>
+            </div>
+        </div>
+        <!--基本信息-->
+        <script id="list-template" type="text/html">
+        {{# for(var i=0;i<d.length;i++){ }}
+            <div class="row The-test-panel-body examination">
+
+                <div class="col-md-12 The-test-panel-body">
+                    <div class="row">
+                        <div class=" col-xs-2  Panel-face">
+                            <img src="__DsQINiu__{$headerImg}" alt="">
+                            <br>
+                            <span>木工等级：初级学徒</span>
+                        </div>
+                        <div class="col-md-8 col-xs-6 Subject-to-the-right-panel">
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <a href="__PUBLIC__studytrain/proceed_exam/{{d[i].id}}"><p class="h4">{{d[i].group_title}}</p></a>
+                                    <!-- <p class="h6">电工基本知识考试</p> -->
+                                </div>
+                            </div>
+                            <div class="row tuoxiang">
+                                <div class="col-md-6">
+                                    <i class="fa fa-user"></i><span>参加</span>/<span>通过</span>:<span>10/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                </div>
+            </div>
+            {{# } }}
+        </script>
+        <div id="list-content"></div>
+        <div id="AjaxPage" style=" text-align: right;"></div>
+        <div id="allpage" style=" text-align: right;"></div>
+    </div>
+
+</div>
+<!-- 加载动画 -->
+<script>
+//laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr){
+        var locading = layer.load();
+        var key=$('#tag').val();
+        var key1=$('#level').val();
+        if(key==-1 || key1==-1){
+            key='';key1='';
+        }
+        $.getJSON('__PUBLIC__studytrain/exam_select', {page: curr || 1,tags_id:key,level:key1}, function(data){
+            console.log(data);
+            layer.close(locading);
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画 
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+            }else{
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$count}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+
+
+
+</script>
+{include file="public/footer" }

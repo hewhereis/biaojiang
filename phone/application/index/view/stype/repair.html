@@ -1,0 +1,55 @@
+﻿<div v-if="item.step_type==1">
+			 <div v-if="item.status==1">	
+				 <a :href="'__PUBLIC__select_master/'+item.order_number" class="bg-orange">去选标</a> 
+			 </div>
+			 <div v-if="item.status==2">	
+				 <a :href="'__PUBLIC__settlement/'+item.order_number" class="bg-orange">去付款</a> 
+			 </div>
+			 <div v-if="item.status==3">	
+				 <div v-if="item.step_number==8">	
+					<a :href="'__PUBLIC__customer_nuclear/'+item.order_number" class="bg-orange">确认报告</a> 
+				</div>
+				
+			 </div>
+			 <div v-if="item.status==4">	
+				 <a :href="'__PUBLIC__customer_reports/'+item.order_number" class="bg-orange">去验收</a> 
+			 </div>
+			 <div v-if="item.status==5">	
+				 <a href="" class="bg-orange">去评价</a> 
+			 </div>
+			 <div v-if="item.status==6">	
+				 <a href="" class="bg-orange">追加评价</a> 
+			 </div>
+		
+</div>
+<div v-else-if="item.step_type==2">
+		<div v-if="item.status==1">	
+				<div v-if="item.step_number==2">	
+					<a :href="'__PUBLIC__choose/'+item.order_number" class="bg-orange">挑主任师傅</a> 
+				</div>
+				 <div v-if="item.step_number==3">	
+					<a :href="'__PUBLIC__consult1/'+item.order_number+'/wid/'+item.worker_id" class="bg-orange">咨询主任师傅</a> 
+				</div>
+				 <div v-if="item.step_number==4">	
+					<a :href="'__PUBLIC__helper1/'+item.order_number+'/wid/'+item.worker_id" class="bg-orange">增加普通师傅</a> 
+				</div>
+		 </div>
+		 <div v-if="item.status==2">	
+			 <a :href="'__PUBLIC__settlement/'+item.order_number" class="bg-orange">去付款</a> 
+		 </div>
+		 <div v-if="item.status==3">	
+			 <div v-if="item.step_number==8">	
+				<a :href="'__PUBLIC__customer_nuclear/'+item.order_number" class="bg-orange">确认报告</a> 
+			</div>
+			
+		 </div>
+		 <div v-if="item.status==4">	
+			 <a :href="'__PUBLIC__customer_reports/'+item.order_number" class="bg-orange">去验收</a> 
+		 </div>
+		 <div v-if="item.status==5">	
+			 <a href="" class="bg-orange">去评价</a> 
+		 </div>
+		 <div v-if="item.status==6">	
+			 <a href="" class="bg-orange">追加评价</a> 
+		 </div>
+</div>

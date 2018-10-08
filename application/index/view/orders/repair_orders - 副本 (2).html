@@ -1,0 +1,1461 @@
+<!--nav-->
+{include file="public/header" }
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+<style>
+    .btn-numbox {
+
+        margin-top: 0px;
+    }
+    .btn-numbox li {
+        float: left;
+    }
+    .btn-numbox li .number,
+    .kucun {
+        display: inline-block;
+        font-size: 12px;
+        color: #808080;
+        vertical-align: sub;
+    }
+    .btn-numbox .count {
+        overflow: hidden;
+        margin: 0 16px 0 -20px;
+    }
+    .btn-numbox .count .num-jian,
+    .input-num,
+    .num-jia {
+        display: inline-block;
+        width: 28px;
+        height: 32px;
+        line-height: 28px;
+        text-align: center;
+        font-size: 18px;
+        color: #999;
+        cursor: pointer;
+        border: 1px solid #e6e6e6;
+    }
+
+    .btn-numbox .count .num-jia {
+        margin-left: 1px;
+    }
+
+    .btn-numbox .count .input-num {
+        width: 58px;
+        height: 32px;
+        color: #333;
+        border-left: 0;
+        border-right: 0;
+    }
+    .xin{
+        position: relative;
+        top: 3px;
+    }
+    @media (min-width: 776px ) {
+        .metaclass{
+            margin-top: 60px;
+        }
+    }
+
+</style>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style>
+    .file-item {
+        float: left;
+        position: relative;
+        width: 110px;
+        height: 110px;
+        margin: 0 20px 20px 0;
+    }
+
+    .file-item .info {
+        overflow: hidden;
+    }
+
+    .uploader-list {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .webuploader-pick {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        background: #fff;
+        padding: 10px 15px;
+        color: #fff;
+        text-align: center;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .dele1 {
+        line-height: 40px;
+    }
+
+    .count * {
+        line-height: 28px;
+    }
+
+    .j {
+        border-bottom: 1px solid #dddddd;
+        margin: 0px 0px 0px -10px;
+    }
+
+    .jk {
+        padding: 10px 10px 10px 10px;
+    }
+
+    .l_lin {
+        padding-top: 30px;
+    }
+
+    .jkdele1 {
+        padding-top: 20px;
+    }
+</style>
+
+<form autocomplete="off" id="myForm" class="" method="post" action="__PUBLIC__orders/placeorder">
+    <!--main-->
+    <div class="container mt_md-130">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>故障详情</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <div class="container ">
+        <!--/*标题*/-->
+        <div class="The-test-panel-head">
+            <span class="ml-10">故障详情</span>
+        </div>
+        <div class="The-test-panel-body" style="position: relative;">
+            <div class="" style="line-height: 40px">
+                <?php if(empty($_SESSION['think']['ds_username'])){ ?>
+                <div class="row">
+                    <label style="float:left;" class="pl-50">您还未登录,登录后给您更好的服务</label>
+                    <div class="col-md-6 pl-40 ">
+                        <a href="__PUBLIC__auth" class="text-orange">登录>></a>
+                    </div>
+                </div>
+                <div class="j"></div>
+                <?php } ?>
+                <div class="row mt-10">
+                    <!--客户信息-->
+                    <!-- 未登入状态 -->
+                    <?php if(empty($_SESSION['think']['ds_username'])): ?>
+
+                    <div class="col-md-6 hidden">
+                        <div>
+                            <label style="float:left;">您还未登录,登录后给您更好的服务</label>
+                            <div class="col-md-6 pl-40 ">
+                                <a href="__PUBLIC__auth" class="text-orange">登录>></a>
+                            </div>
+                        </div>
+                        <div class="row hidden">
+                            <div class="col-md-3">
+                                <label>您还未登录,登录后给您更好的服务</label>
+                                <a href="__PUBLIC__auth" class="form-control text-orange">
+                                    登录
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <!-- 登入后的状态 -->
+                    <?php else: ?>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">客户ID </label>
+                            <div class="col-md-8 col-xs-10">
+                                <input type="text" readonly unselectable="on" id="client" name="uid" class="form-control ds-uid" value="<?php echo $_SESSION['think']['id'] ?>">
+                                <input type="text" style="display:none" id="uname" name="uname" class="form-control ds-uid" value="<?php echo $_SESSION['think']['ds_username'] ?>">
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    <!--预约开始时间-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label for="input_date" class="col-md-3 col-xs-12">预约施工时间</label>
+                            <div class="col-md-8 col-xs-10">
+                                <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                    <input class="layui-input" autocomplete="off" id="form_datetime" class="form-control" placeholder="" name="input_date" onclick="layui.laydate({elem: this, format:'YYYY-MM-DD hh:mm:ss',istime: true,min: laydate.now()})">
+
+                                    <span class="add-on"><i class="icon-remove"></i></span>
+                                    <span class="add-on"><i class="icon-calendar"></i></span>
+                                </div>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--联系人-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">联系人</label>
+                            <div class="col-md-8 col-xs-10">
+                                <input type="text" name="linkman_contacts" id="linkman_contacts" class="form-control">
+                            </div>
+                            <label class="col-xs-1" ><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+
+                    <!--目标维修地址-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-3 col-xs-12">维修地址</label>
+                            <div class="col-md-8 col-xs-10">
+                                <div id="distpicker5" class="row">
+
+                                    <div class="col-md-4 mb-10">
+                                        <label class="sr-only" for="province10">Province</label>
+                                        <select class="form-control" id="province10" name="province">
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 mb-10">
+                                        <label class="sr-only" for="city10">City</label>
+                                        <select class="form-control" id="city10" name="city">
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-4 mb-10">
+                                        <label class="sr-only" for="district10">District</label>
+                                        <select class="form-control" id="district10" name="district">
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--联系电话-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">联系电话</label>
+                            <div class="col-md-8 col-xs-10">
+                                <input type="text" autocomplete="off" name="telephone" id="telephone" class="form-control">
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-3 col-xs-12"> <b class='text-orange xin'></b></label>
+                            <div class="col-md-8 col-xs-10">
+                                <input type="text" autocomplete="off" name="address" id="address" placeholder="请输入详细地址，精确到街道、门牌号" class="form-control">
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pb-20">
+                    <div class="col-md-6">
+                        <div class=" row">
+                            <label class="col-md-2 col-xs-12" name="market_cer">商城名称</label>
+                            <div class="col-md-8 col-xs-10">
+                                <input type="text" autocomplete="off" name="designation" id="designation" class="form-control">
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="j"></div>
+            <div class="dele1 ">
+                <!--服务类别-->
+                <div class="row l_lin">
+                    <!--服务类别-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2  col-xs-12">服务类别</label>
+                            <div class="col-md-6 col-xs-10">
+                                <input type="text" autocomplete="off" id="maintain" disabled class="form-control" value="维修">
+                            </div>
+                        </div>
+                    </div>
+                    <!--服务大类-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">商品大类</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select class="form-control ml-0" lai-ignore name="product_categories[]" id="product_categories">
+                                    <option value="<?php echo $rlist['id']?>">{$rlist['name']}</option>
+                                    {volist name="lists" id="v"}
+                                    <option value="{$v.id}">{$v.name}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <!--服务类-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">商品小类</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select class="form-control ml-0 col-xs-8 mb-10" name="product_categoriesx_xiao[]" id="product_categoriesx_xiao">
+                                    <option name="comm" id="comm" value="<?php echo $clist['id']?>">{$clist['name']}</option>
+                                    {volist name="comm" id="v"}
+                                    <option value="{$v.id}">{$v.name}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+
+                    </div>
+                    <!--品牌-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">品牌</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select name="brand[]" id="brand" class="form-control js-example-tags" autocomplete="off">
+                                    {volist name="brand" id="v"}
+                                    <option value="{$v.brand}">{$v.brand}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <!--商品型号-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2">商品型号</label>
+                            <div class="col-md-3 col-xs-10">
+                                <input type="text" autocomplete="off" id="marquey" name="marquey[]" class="form-control mb-10" value="">
+                            </div>
+                            <div class="col-md-4 col-xs-offset-1 col-md-offset-0 col-xs-12">
+                                <ul class="btn-numbox">
+                                    <li>
+                                        <ul class="count">
+                                            <li><span id="num-jian" class="num-jian">-</span></li>
+                                            <li><input type="text" name="input-num[]" class="input-num" id="input-num" value="0"
+                                                    /></li>
+                                            <li><span id="num-jia" class="num-jia">+</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="j"></div>
+                <!--故障详情复选-->
+                <div class="row j jk">
+                    <!--故障详情-->
+                    <div class="col-md-3 col-xs-4 ">
+                        <div class="btn btn-default">
+                            故障概况
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-xs-6">
+                        <div id="ds-duox" class="">
+                            {volist name="glist" id="v"}
+                            <label>
+                                <input id="site_survey_measurement" autocomplete="off" name="site_survey_measurement[]" value="{$v.id}" type="checkbox">{$v.name}
+                            </label> {/volist}
+                        </div>
+                    </div>
+                </div>
+                <!--照片上传-->
+
+                <div class="text-orange font_xs pl-10 j" style="background-color:#EFD9CE;line-height: 2">
+                    请按照实际情况上传照片，最多可上传3张，支持JPEG/JPG/PNG格式。
+                </div>
+                <div class="row l_lin">
+                    <div class="col-md-4">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2  col-xs-10" >
+                                <input type="text" class="form-control" name="ds_imgs1[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPicker1">
+                                <input type="hidden" id="data_photo1" name="bimg[]">
+                                <img id="img_data1" style="" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2  col-xs-10 ">
+                                <input type="text" class="form-control" name="ds_imgs2[]"placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPicker2">
+                                <input type="hidden" id="data_photo2" name="cimg[]">
+                                <img id="img_data2" height="" class="mt-0_xs" style="" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 pr-30">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-10 ">
+                                <input type="text" class="form-control" name="ds_imgs3[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPicker3">
+                                <input type="hidden" id="data_photo3" name="dimg[]">
+                                <img id="img_data3" height="" class="mt-0_xs" style="" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row j l_lin" style="border-bottom: 5px solid #ddd">
+                    <label class="col-md-2 col-md-offset-1 col-xs-4 ">故障详情描述</label>
+                    <div class="col-md-8 col-xs-8">
+                        <input id="malfunction" autocomplete="off" placeholder="请详细描述你的故障详细" type="text" class="form-control" name="malfunction[]">
+                    </div>
+                </div>
+            </div>
+            <div class="dele1 hiddeno jkdele1">
+                <!--服务类别-->
+                <div class="row">
+                    <!--服务类别-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-4 ">服务类别</label>
+                            <div class="col-md-6 col-xs-10">
+                                <input type="text" id="maintain1" disabled class="form-control" value="维修">
+                            </div>
+                        </div>
+                    </div>
+                    <!--服务大类-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">商品大类</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select class="form-control ml-0" name="product_categories[]" id="product_categories1">
+                                    <option value="">请选择</option>
+                                    {volist name="listss" id="v"}
+                                    <option value="{$v.id}">{$v.name}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row " id="yc">
+                            <label class="col-md-2">商品小类</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select class="form-control ml-0 mb-10" name="product_categoriesx_xiao[]" id="product_categoriesx_xiao1">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <label class="col-xs-1 "> <b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                    <!--品牌-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">品牌</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select name="brand[]" id="brand1" class="form-control
+                                js-example-tags" autocomplete="off">
+                                    {volist name="brand" id="v"}
+                                    <option value="{$v.brand}">{$v.brand}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <!--商品型号-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2">商品型号</label>
+                            <div class="col-md-3 col-xs-10">
+                                <input type="text" id="marquey1" name="marquey[]" class="form-control mb-10" value="">
+                            </div>
+                            <div class="col-md-4 col-xs-offset-1 col-md-offset-0 col-xs-12">
+                                <ul class="btn-numbox">
+                                    <li>
+                                        <ul class="count">
+                                            <li><span id="num-jian1" class="num-jian">-</span></li>
+                                            <li><input type="text" class="input-num" id="input-num1" name="input-num[]" value="0"
+                                                    /></li>
+                                            <li><span id="num-jia1" class="num-jia">+</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="j"></div>
+                <!--故障详情复选-->
+                <div class="row j jk" id="gz">
+                    <!--故障详情-->
+                    <div class="col-md-3 ">
+                        <div class="btn btn-default">
+                            故障概况
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div id="ds-duox1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-orange font_xs pl-10 j" style="background-color:#EFD9CE;line-height: 2">
+                    请按照实际情况上传照片，最多可上传3张，支持JPEG/JPG/PNG格式。
+                </div>
+                <!--照片上传-->
+                <div class="row  l_lin">
+                    <div class="col-md-4">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2  col-xs-10">
+                                <input type="text" class="form-control" name="ds_imgs1[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPicker1s">
+                                <input type="hidden" id="data_photo1s" name="bimg[]">
+                                <img id="img_data1s" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2  col-xs-10">
+                                <input type="text" class="form-control" name="ds_imgs2[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPicker2s">
+                                <input type="hidden" id="data_photo2s" name="cimg[]">
+                                <img id="img_data2s" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 pr-30">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-10">
+                                <input type="text" class="form-control" name="ds_imgs3[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPicker3s">
+                                <input type="hidden" id="data_photo3s" name="dimg[]">
+                                <img id="img_data3s" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row l_lin">
+                    <label class="col-md-2 col-md-offset-1 col-xs-4 ">故障详情描述</label>
+                    <div class="col-md-8 col-xs-8">
+                        <input id="malfunction1" autocomplete="off" placeholder="请详细描述你的故障详细" type="text" class="form-control" name="malfunction[]">
+                    </div>
+                </div>
+                <div class="row j " style="border-bottom: 5px solid #ddd">
+                    <div class="col-md-12 text-right">
+                        <input value="删除维修项目" num="1" data-toggle="modal" data-target=".bs-example-modal-sm" type="button" class="btn mr-10 mb-10 border-radius delete btn-orange "
+                               id="ds-delete1">
+                    </div>
+                </div>
+            </div>
+            <div class="dele1 hiddeno jkdele1">
+                <!--服务类别-->
+                <div class="row  ">
+                    <!--服务类别-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">服务类别</label>
+                            <div class="col-md-6 col-xs-10">
+                                <input type="text" id="maintain2" disabled class="form-control" value="维修">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--服务大类-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-13">商品大类</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select class="form-control" name="product_categories[]" id="product_categories2">
+                                    <option value="">请选择</option>
+                                    {volist name="listss" id="v"}
+                                    <option value="{$v.id}">{$v.name}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--服务类-->
+                    <div class="col-md-6">
+                        <div class="row" id="yc1">
+                            <label class="col-md-2 col-xs-12">商品小类</label>
+                            <div class="col-md-6 col-xs-10">
+                                <select class="form-control" name="product_categoriesx_xiao[]" id="product_categoriesx_xiao2">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                    <!--品牌-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2 col-xs-12">品牌 </label>
+                            <div class="col-md-6 col-xs-10">
+                                <select name="brand[]" id="brand2" class="form-control
+                                js-example-tags" autocomplete="off">
+                                    {volist name="brand" id="v"}
+                                    <option value="{$v.brand}">{$v.brand}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                            <label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-10">
+                    <!--商品型号-->
+                    <div class="col-md-6">
+                        <div class="row">
+                            <label class="col-md-2">商品型号</label>
+                            <div class="col-md-3 col-xs-10">
+                                <input type="text" id="marquey2" name="marquey[]" class="form-control mb-10" value="">
+                            </div>
+                            <div class="col-md-4 col-xs-offset-1 col-md-offset-0 col-xs-12">
+                                <ul class="btn-numbox">
+                                    <li>
+                                        <ul class="count">
+                                            <li><span id="num-jian2" class="num-jian">-</span></li>
+                                            <li><input type="text" class="input-num" name="input-num[]" id="input-num2" value="0"
+                                                    /></li>
+                                            <li><span id="num-jia2" class="num-jia">+</span></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="j"></div>
+                <!--故障详情复选-->
+                <div class="row j jk" id="gz1">
+                    <!--故障详情-->
+                    <div class="col-md-3">
+                        <div class="btn btn-default">
+                            故障概况
+                        </div>
+                    </div>
+                    <div class="col-md-8 ">
+                        <div class="row">
+                            <div id="ds-duox2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-orange font_xs pl-10 j" style="background-color:#EFD9CE;line-height: 2">
+                    请按照实际情况上传照片，最多可上传3张，支持JPEG/JPG/PNG格式。
+                </div>
+                <!--照片上传-->
+                <div class="row l_lin">
+                    <div class="col-md-4">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-10">
+                                <input type="text" class="form-control" name="ds_imgs1[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPickerz1">
+                                <input type="hidden" id="data_photoz1" name="bimg[]">
+                                <img id="img_dataz1" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 pr-30">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-10">
+                                <input type="text" class="form-control" name="ds_imgs2[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPickerz2">
+                                <input type="hidden" id="data_photoz2" name="cimg[]">
+                                <img id="img_dataz2" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row text-center">
+                            <div class="col-sm-8 col-sm-offset-2 col-xs-10">
+                                <input type="text" class="form-control" name="ds_imgs3[]" placeholder="请描述上传图片信息">
+                            </div>
+                            <div class="col-xs-10 col-sm-12" id="imgPickerz3">
+                                <input type="hidden" id="data_photoz3" name="dimg[]">
+                                <img id="img_dataz3" class="mt-0_xs" src="__PUBLIC__static/index/images/tj.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row l_lin mt-30" >
+                    <!--故障描述-->
+                    <label class="col-md-2 col-md-offset-1 col-xs-4 ">故障详情描述</label>
+                    <div class="col-md-8 col-xs-8">
+                        <input id="malfunction2" placeholder="请详细描述你的故障详细" type="text" class="form-control" name="malfunction[]">
+                    </div>
+                </div>
+                <div class="row j mb-20" style="border-bottom: 5px solid #ddd">
+                    <div class="col-md-12 text-right">
+                        <input value="删除维修项目" num="2" data-toggle="modal" data-target=".bs-example-modal-sm" type="button" class="btn mr-10 mb-10 border-radius delete btn-orange "
+                               id="ds-delete2">
+                    </div>
+                </div>
+            </div>
+            <!--增加项目 Increase_the_project_title-->
+            <div class="row j jk l_lin  Increase_the_project_title">
+                <div class="col-md-5 pl-40">
+                    <input value="增加维修项目" type="button" class="btn border-radius mb-10 btn-success" id="increase">
+                </div>
+            </div>
+            <div class="row l_lin">
+                <!--商场办证-->
+                <div class="col-md-2  col-xs-12">
+                    商场办证 <b class='text-orange xin'>*</b>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="radio mt-0  radio-success">
+                        <input value="1" type="radio" id="master_worker" checked name="departure_card">
+                        <label for="master_worker">
+                            师傅代办
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="radio mt-0 radio-success">
+                        <input value="2" type="radio" id="clientele" name="departure_card">
+                        <label for="clientele">
+                            客户办理
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <div class="radio mt-0 radio-success">
+                        <input value="3" type="radio" id="do_without" name="departure_card">
+                        <label for="do_without">
+                            不需要办证
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row pb-20 l_lin">
+                <div class="col-md-2 col-xs-12 ">上传维修签收单</div>
+                <div class="col-md-2 col-xs-6">
+                    <input value="点击上传" type="button" class="btn border-radius mb-10 btn-success form-control" id="increase2">
+
+                </div>
+                <div class="col-md-2 col-xs-6">
+                    <input value="无验收单" type="button" class="btn border-radius mb-10 btn-success form-control" id="increase1">
+                </div>
+            </div> -->
+            <div class="row l_lin">
+                <div class="col-md-2">
+                    <label class="btn btn-default">门头照片</label>
+                </div>
+                <div class="col-md-6" id="imgPickers">
+                    <input type="hidden" id="data_photos" name="aimg">
+                    <img id="img_datas" class="mt-0_xs" style="width: 200px;height: 200px" src="__PUBLIC__static/index/images/tj.png" />
+                </div>
+            </div>
+            <div class="j"></div>
+            <!--需求-->
+            <div class="row j pb-20">
+                <div class="col-md-12 mt-20">
+                    <div class="checkbox-warning checkbox">
+                        <input type="checkbox"  value="1"   id="nuclear_list_in_advance">
+                        <label for="nuclear_list_in_advance">
+                            需现场调查，进一步核实
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-20">
+                    <div class="checkbox checkbox-primary">
+                        <input type="checkbox"  id="ds-s"    value="1" >
+                        <label for="ds-s">
+                            使用平台月结服务
+                        </label>
+                    </div>
+                    <input type="password" autocomplete="off"  name="pwd" placeholder="月结客户使用的密码" id="year_service_ordere_pwd" class="form-control" style="opacity: 0">
+                </div>
+            </div>
+            <div class="row pt-20">
+                <!--协议-->
+                <div class="col-xs-6 " style="color:red;">
+                    注： <b class='text-orange xin'>*</b> 表示必填项
+                </div>
+            </div>
+        </div>
+        <input id="ds-sub" name="ds_step" hidden="hidden" value="">
+        <!--同意协议-->
+        <input value="0" id="ds_hedan" name="hedan" hidden="hidden">
+        <input value="0" id="ds_yue" name="yue" hidden="hidden">
+        <?php if(empty($_SESSION['think']['type'])) :?>
+        <?php else: ?>
+        <input value="<?php echo $_SESSION['think']['type']; ?>" id="ds_worker_type" name="ds_worker_type" hidden>
+        <?php endif ?>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="mt-10">
+                    <a id="yezhuxieyi" href="javascript:;" class="" id="yz">《业主协议》</a>
+                </p>
+                <div class="checkbox checkbox-success">
+                    <input type="radio" id="agreement">
+                    <label for="agreement">
+                        我同意协议
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mt-20">
+                <button id="xiandan" type="submit" disabled class="btn btn-success border-radius btn-lg">直接下单</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mt-20">
+                <input type="submit" id="quick_consulting" disabled class="btn btn-blue border-radius btn-lg" value="咨询下单">
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<script>
+
+
+    $("#yezhuxieyi").click(function () {
+        var   layer=layui.layer;
+        parent.layer.open({
+            type:2,
+            title:"业主协议",
+            btn:['我同意',"我再看看"],
+            content:" __PUBLIC__yezhuxieyi",
+            area:["80%","80%"],
+            yes:function(index,layero){
+                $("#agreement").prop("checked",'true');
+                layer.close(index);
+                $("#xiandan").prop("disabled",false);
+                $("#quick_consulting").prop("disabled",false);
+            },
+            btn2:function(index,layero){
+                $("#agreement").prop("checked",false);
+                layer.close(index);
+                $("#xiandan").prop("disabled",true);
+                $("#quick_consulting").prop("disabled",true);
+            }
+        })
+
+    })
+
+
+    // 缓存机制
+    window.localStorage.setItem("input-num", 0);
+    window.onload = function () {
+        // window.localStorage.clear();
+        //      保存数据：localStorage.setItem(key,value);
+        //      读取数据：localStorage.getItem(key);
+        //      删除单个数据：localStorage.removeItem(key);
+        //      删除所有数据：localStorage.clear();
+        //      得到某个索引的key：localStorage.key(index);
+        function savelocalStorage(key, value) {
+            window.localStorage.setItem(key, value);
+        }
+        function addlocalStorage(id) {
+            $('#' + id).on('change', function () {
+                var brand = $(this).val();
+                savelocalStorage(id, brand);
+                console.log(window.localStorage);
+            });
+        }
+        function setVal(id) {
+
+            val = localStorage.getItem(id);
+            if (localStorage.getItem('input-num') == '') {
+                val = 0;
+            }
+            $('#' + id).val(val);
+        }
+        if (window.localStorage) {
+            setVal('brand');
+            setVal('marquey');
+            setVal('input-num');
+            setVal('linkman_contacts');
+            setVal('malfunction');
+            setVal('telephone');
+            setVal('form_datetime');
+            setVal('address');
+            setVal('designation');
+            addlocalStorage('brand');
+            addlocalStorage('marquey');
+            addlocalStorage('input-num');
+            addlocalStorage('linkman_contacts');
+            addlocalStorage('malfunction');
+            addlocalStorage('telephone');
+            addlocalStorage('form_datetime');
+            addlocalStorage('address');
+            addlocalStorage('designation');
+        }else{}
+    }
+    //控制隐藏元素开启
+    $(document).ready(function () {
+        $('#myForm').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+        function checkForm() {
+
+            var ds_types=$("#ds_worker_type").val();
+            if(ds_types==2){
+                layer.msg('您是师傅.不能下单');
+                return false;
+            }
+            var  form_datetime= alertmsg.msgk("form_datetime","请填写要求完成时间")
+            if(!form_datetime){
+                return false;
+            }
+            var linkman_contacts=alertmsg.msgk("linkman_contacts","请填写联系人");
+            if(!linkman_contacts){
+                return false;
+            }
+            var telephone=alertmsg.msgk("telephone","请填写联系人电话");
+            if(!telephone){
+                return false;
+            }
+            if(!(/^1[34578]\d{9}$/.test($("#telephone").val()))){
+
+                layer.msg('手机号格式不正确，请重新输入手机号码', { icon: 2, time: 1500, shade: 0 }, function (index) {
+                    layer.close(index);
+                });
+                $("#telephone").focus()
+                return false;
+            }
+            var province10=alertmsg.msgk("province10","请输入目标维修地址");
+            if(!province10){
+                return false;
+            }
+            var city10=alertmsg.msgk("city10","请输入维修地址");
+            if(!city10){
+                return false;
+            }
+            var city10=alertmsg.msgk("city10","请输入维修地址");
+            if(!city10){
+                return false;
+            }
+
+            var district10=alertmsg.msgk("district10","请输入维修地址");
+            if(!district10){
+                return false;
+            }
+            var address=alertmsg.msgk("address","请输入详细地址，精确到街道、门牌号");
+            if(!address){
+                return false;
+            }
+            var designation=alertmsg.msgk("designation","商城名称不能为空,请输入商城名称");
+            if(!designation){
+                return false;
+            }
+            var product_categories=alertmsg.msgk("product_categories","请填写商品大类");
+            if(!product_categories){
+                return false;
+            }
+            var product_categoriesx_xiao=alertmsg.msgk("product_categoriesx_xiao","请填写商品小类");
+            if(!product_categoriesx_xiao){
+                return false;
+            }
+            var brand=alertmsg.msgk("brand","请填写品牌");
+            if(!brand){
+                return false;
+            }
+            if($("#ds-s").prop("checked")){
+                var year_service_ordere_pwd=alertmsg.msgk("year_service_ordere_pwd","请填写月结客户密码");
+                if(!year_service_ordere_pwd){
+                    return false;
+                }
+            }
+
+            if (alertmsg.ker) {
+                var product_categories1=alertmsg.msgk("product_categories1","请填写商品大类");
+                if(!product_categories1){
+                    return false;
+                }
+                var product_categoriesx_xiao1=alertmsg.msgk("product_categoriesx_xiao1","请填写商品小类");
+                if(!product_categoriesx_xiao1){
+                    return false;
+                }
+                var brand1=alertmsg.msgk("brand1","请填写品牌");
+                if(!brand1){
+                    return false;
+                }
+            }
+            if (alertmsg.kers) {
+                var product_categories2=alertmsg.msgk("product_categories2","请填写商品大类");
+                if(!product_categories2){
+                    return false;
+                }
+                var product_categoriesx_xiao2=alertmsg.msgk("product_categoriesx_xiao2","请填写商品小类");
+                if(!product_categoriesx_xiao2){
+                    return false;
+                }
+
+                var brand2=alertmsg.msgk("brand2","请填写品牌");
+                if(!brand2){
+                    return false;
+                }
+            }
+            //查找元素
+            var checkbox_sel = $(".dele1:eq(0) [type='checkbox']");
+            var checkbox_sel = $(".dele1:eq(1) [type='checkbox']");
+            var checkbox_sel = $(".dele1:eq(2) [type='checkbox']");
+        }
+        function complete(data) {
+            var layer=layui.layer;
+            var dsurl = $('#ds-sub').val();
+            if (data.code == 200) {
+                var jump = data.msg;
+                if (dsurl == 1) {
+                    if($("#ds-s").prop("checked")){
+                        window.location.href = "__PUBLIC__month_order/";
+                    }else{
+                        window.location.href = "__PUBLIC__jilt_single/" + jump;
+                    }
+
+                } else {
+                    window.location.href = "__PUBLIC__choose/" + jump + "/wid/0";
+                }
+            } else if (data.code == -1) {
+                layer.open({
+                    content:"你还未登录还不能开始下单,是否去登录账号",
+                    btn:['登录', '我在看看'],
+                    title:"登录",
+                    shade:0,
+                    skin:"layui-layer-molv",
+                    yes:function () {
+                        window.location.href = "__PUBLIC__auth";
+                    }
+                })
+
+            } else if(data.code==0) {
+                layer.open({
+                    content: data.msg+'是否前去申请月结客户'
+                    ,btn: ['申请月结客户', '我在看看'],
+                    title:"申请月结客户",
+                    shade:0,
+                    skin:"layui-layer-lan"
+                    ,yes: function(index, layero){
+                        //按钮【按钮一】的回调
+                        window.location.href="__PUBLIC__core/customer";
+                    }
+                });
+                return false;
+            }else{
+                msg(data.msg);
+            }
+        }
+    });
+    $('#nuclear_list_in_advance').click(function () {
+        if ($(this).prop("checked") === true) {
+            $('#ds_hedan').val(1);
+        } else {
+            $('#ds_hedan').val(0);
+        }
+    })
+    $('#ds-s').click(function () {
+        if ($(this).prop("checked") === true) {
+            $('#ds_yue').val(1);
+        } else {
+            $('#ds_yue').val(0);
+        }
+    });
+    function getSelectVal() {
+        $.getJSON("__PUBLIC__orders/twostclass", { bigname: $("#product_categories").val() }, function (json) {
+            var smallname = $("#product_categoriesx_xiao");
+            $("option", smallname).remove(); //清空原有的选项
+            $.each(json, function (index, array) {
+                var option = "<option id='ds_option' value='" + array['id'] + "'>" + array['name'] + "</option>";
+                smallname.append(option);
+
+
+                var aa = $('#ds_option').val();
+                $.getJSON("__PUBLIC__orders/threedefault", { bigname: aa }, function (json) {
+                    var smallname = $("#ds-duox");
+                    smallname.html(' '); //清空原有的选项
+                    $.each(json, function (index, array) {
+                        var option = "<input type='checkbox' id='site_survey_measurement' name='site_survey_measurement[]' value='" + array['id'] + "'>" + array['name'] + "";
+                        smallname.append(option);
+                    });
+                });
+            });
+        });
+
+
+
+    }
+    function getSelectVals() {
+        $.getJSON("__PUBLIC__orders/threestclass", { bigname: $("#product_categoriesx_xiao").val() }, function (json) {
+            var smallname = $("#ds-duox");
+            smallname.html(' '); //清空原有的选项
+            $.each(json, function (index, array) {
+                var option = "<input type='checkbox' id='site_survey_measurement' name='site_survey_measurement[]' value='" + array['id'] + "'>" + array['name'] + "";
+                smallname.append(option);
+            });
+        });
+    }
+    function getSelectVals() {
+        $.getJSON("__PUBLIC__orders/threestclass", { bigname: $("#product_categoriesx_xiao").val() }, function (json) {
+            var smallname = $("#ds-duox");
+            smallname.html(' '); //清空原有的选项
+            $.each(json, function (index, array) {
+                var option = "<input type='checkbox' id='site_survey_measurement' name='site_survey_measurement[]' value='" + array['id'] + "'>" + array['name'] + "";
+                smallname.append(option);
+            });
+        });
+    }
+    function getSelectVal1() {
+        $.getJSON("__PUBLIC__orders/twostclass", { bigname: $("#product_categories1").val() }, function (json) {
+            var smallname = $("#product_categoriesx_xiao1");
+            $("option", smallname).remove(); //清空原有的选项
+            $.each(json, function (index, array) {
+                var option = "<option id='ds_option1' value='" + array['id'] + "'>" + array['name'] + "</option>";
+                smallname.append(option);
+
+                var aa = $('#ds_option1').val();
+                $.getJSON("__PUBLIC__orders/threedefault", { bigname: aa }, function (json) {
+                    var smallname = $("#ds-duox1");
+                    smallname.html(' '); //清空原有的选项
+                    $.each(json, function (index, array) {
+                        var option = "<label><input type='checkbox' id='site_survey_measurement' name='site_survey_measurement[]' value='" + array['id'] + "'>" + array['name'] + "</label>";
+                        smallname.append(option);
+                    });
+                });
+            });
+        });
+    }
+    function getSelectVals1() {
+        $.getJSON("__PUBLIC__orders/threestclass", { bigname: $("#product_categoriesx_xiao1").val() }, function (json) {
+            var smallname = $("#ds-duox1");
+            smallname.html(' '); //清空原有的选项
+            $.each(json, function (index, array) {
+                var option = "<label><input type='checkbox' id='site_survey_measurement' name='site_survey_measurement[]' value='" + array['id'] + "'>" + array['name'] + "</label>";
+                smallname.append(option);
+            });
+        });
+    }
+    function getSelectVal2() {
+        $.getJSON("__PUBLIC__orders/twostclass", { bigname: $("#product_categories2").val() }, function (json) {
+            var smallname = $("#product_categoriesx_xiao2");
+            $("option", smallname).remove(); //清空原有的选项
+            $.each(json, function (index, array) {
+                var option = "<option id='ds_option2' value='" + array['id'] + "'>" + array['name'] + "</option>";
+                smallname.append(option);
+
+                var aa = $('#ds_option2').val();
+                $.getJSON("__PUBLIC__orders/threedefault", { bigname: aa }, function (json) {
+                    var smallname = $("#ds-duox2");
+                    smallname.html(' '); //清空原有的选项
+                    $.each(json, function (index, array) {
+                        var option = "<label><input type='checkbox' id='site_survey_measurement' name='site_survey_measurement[]' value='" + array['id'] + "'>" + array['name'] + "</label>";
+                        smallname.append(option);
+                    });
+                });
+            });
+        });
+    }
+    function getSelectVals2() {
+        $.getJSON("__PUBLIC__orders/threestclass", { bigname: $("#product_categoriesx_xiao2").val() }, function (json) {
+            var smallname = $("#ds-duox2");
+            smallname.html(' '); //清空原有的选项
+            $.each(json, function (index, array) {
+                var option = "<label><input type='checkbox' id='site_survey_measurement' name='site_survey_measurement[]' value='" + array['id'] + "'>" + array['name'] + "</label>";
+                smallname.append(option);
+            });
+        });
+    }
+    $(function () {
+        $("#product_categories").change(function () {
+            getSelectVal();
+            var smallname = $("#ds-duox");
+            smallname.html(' '); //清空原有的选项
+
+        });
+        $("#product_categoriesx_xiao").change(function () {
+            getSelectVals();
+        });
+        $("#product_categories1").change(function () {
+            document.getElementById('yc').style.display = 'block';
+            getSelectVal1();
+            var smallname = $("#ds-duox1");
+            smallname.html(' '); //清空原有的选项
+        });
+        $("#product_categoriesx_xiao1").change(function () {
+            document.getElementById('gz').style.display = 'block';
+            getSelectVals1();
+        });
+        $("#product_categories2").change(function () {
+            document.getElementById('yc1').style.display = 'block';
+            getSelectVal2();
+            var smallname = $("#ds-duox2");
+            smallname.html(' '); //清空原有的选项
+        });
+        $("#product_categoriesx_xiao2").change(function () {
+            document.getElementById('gz1').style.display = 'block';
+            getSelectVals2();
+        });
+        $("#xiandan").click(function () {
+
+            $("#ds-sub").val(1);
+
+        })
+        $("#quick_consulting").click(function () {
+            $("#ds-sub").val(2);
+        })
+    });
+
+    // 表单清空 增删
+    $(function () {
+        // 定义变量找到操作元素
+        var d1 = $(".dele1").eq(0);
+        var d2 = $(".dele1").eq(1);
+        var d3 = $(".dele1").eq(2);
+        var name_dl = $(".dele1:eq(0) [name]:not(:hidden)");
+        var ds_delete1 = $("#ds-delete1");
+        var ds_delete2 = $("#ds-delete2");
+
+        //图片默认地址
+        var IMGurl = "http://localhost/newbj/static/admin/images/no_img.jpg"
+        // 第一个删除按钮
+        ds_delete1.click(function () {
+            var name_d2 = $(".dele1:eq(1) [name]:not(:hidden)");
+            //隐藏
+            d2.addClass("hiddeno");
+            //重新赋值
+            k = 1;
+            //当我删一个按钮将表单清空
+            alertmsg.ker = false;
+            name_d2.each(function (i, value) {
+                $(value).val("");
+                if ($(value).attr("name") === "site_survey_measurement[]") {
+                    $(value).prop("checked", false)
+                }
+                if ($(value).attr("id") === "input-num1") {
+                    $(value).val(0)
+                }
+                if ($(value).attr("name") === "file") {
+                    $(value).parent().parent().siblings("img").attr("src", IMGurl);
+
+                }
+
+            })
+            //当用户删除第一个按钮的时候删除图片默认显示图片地址
+        });
+        //第二个删除按钮
+        ds_delete2.click(function () {
+            var name_d3 = $(".dele1:eq(2) [name]:not(:hidden)");
+            //隐藏
+            alertmsg.kers = false;
+            d3.addClass("hiddeno");
+            //判断当用户先点击第一个删除按钮 赋值1 先点击第二个的时候赋值2
+            if (d2.attr("class") === "dele1 mt-10 hiddeno") {
+                //重新赋值
+                k = 1;
+            } else {
+                //重新赋值
+                k = 2;
+            }
+            //点击删除 所有东西情清空
+            name_d3.each(function (i, value) {
+                $(value).val("");
+                if ($(value).attr("name") === "site_survey_measurement[]") {
+                    $(value).prop("checked", false)
+                }
+                if ($(value).attr("id") === "input-num2") {
+                    $(value).val(0)
+                }
+
+                if ($(value).attr("name") === "file") {
+                    $(value).parent().parent().siblings("img").attr("src", IMGurl);
+
+                }
+            })
+        });
+        // 连接函数关系的变量
+        var k = 1;
+        // 增加项目
+        $("#increase").click(function () {
+            if (k === 1) {
+                d2.removeClass("hiddeno");
+                alertmsg.ker = true;
+            }
+            if (k === 2) {
+                d3.removeClass("hiddeno");
+                alertmsg.kers = true;
+            }
+            if (k === 3) {
+                layer.msg('只能添加两次', { icon: 2, time: 1500, shade: 0 }, function (index) {
+                    layer.close(index);
+                });
+            }
+            k++;
+        });
+
+
+    });
+    // 表单验证 月结客户 按钮显示隐藏
+    $(function () {
+
+
+        //同意按钮
+        var l = true;
+        $("#agreement").click(function () {
+
+            if ($(this).prop("checked") === true && l) {
+                $(this).prop("checked", true);
+                $("#xiandan").prop("disabled", false);
+                $("#quick_consulting").prop("disabled", false);
+                l = false;
+            } else {
+                $(this).prop("checked", false);
+                l = true;
+                $("#xiandan").prop("disabled", true);
+                $("#quick_consulting").prop("disabled", true);
+            }
+        });
+        //月结密码显示隐藏
+        //需求待进一步明确，预先核单 nuclear_list_in_advance
+        //使用平台月结服务 ds-s
+        $("#nuclear_list_in_advance").change(function () {
+            if ($(this).prop("checked") === true) {
+
+            } else {
+
+            }
+
+        });
+        $("#ds-s").change(function () {
+            if ($(this).prop("checked") === true) {
+                $("#year_service_ordere_pwd").css("opacity", '1');
+                $("#quick_consulting").css("opacity", "0");
+            } else {
+                $("#year_service_ordere_pwd").css("opacity", '0');
+                $("#quick_consulting").css("opacity", "1");
+            }
+
+        });
+
+    })
+    //上传图片
+    var WebUploader_s=function (s1,s2,s3) {
+        WebUploader.create({
+            auto: true,// 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+            duplicate: true,// 重复上传图片，true为可重复false为不可重复
+            pick: '#'+s1,// 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function (file, data, response) {
+                $("#"+s2).val(data._raw);
+                $("#"+s3).attr('src', '__TUN__/face/' + data._raw).show();
+            }
+        });
+    }
+    var WebUploader_array_element=[
+        ['imgPicker','data_photo','img_data'],
+        ['imgPicker1','data_photo1','img_data1'],
+        ['imgPicker2','data_photo2','img_data2'],
+        ['imgPicker3','data_photo3','img_data3'],
+        ['imgPickers','data_photos','img_datas'],
+        ['imgPicker1s','data_photo1s','img_data1s'],
+        ['imgPicker2s','data_photo2s','img_data2s'],
+        ['imgPicker3s','data_photo3s','img_data3s'],
+        ['imgPickerz','data_photoz','img_dataz'],
+        ['imgPickerz1','data_photo1s','img_dataz1'],
+        ['imgPickerz2','data_photo2s','img_dataz2'],
+        ['imgPickerz3','data_photo3s','img_dataz3'],
+    ];
+    WebUploader_array_element.forEach(function (p1, p2, p3) {
+        WebUploader_s(p1[0],p1[1],p1[2]);
+    });
+    $(function () {
+        //操作对象数组集合
+        var ks = ["#num-jia", "#num-jian", "#input-num", "#num-jia1", "#num-jian1", "#input-num1", "#num-jia2", "#num-jian2", "#input-num2"];
+        var ms = 0;//数值1
+        var a = 1;//数值2
+        var b = 2;//数值3
+        var c = 3;//数值4
+        var e = 4;//数值5
+        var f = 5;//数值6
+        var j = 6;//数值7
+        var k = 7;//数值8
+        var m = 8;//数值9
+        $(ks[ms]).click(function () {
+            var n = $(ks[b]).val()
+            if (n === "") {
+                n = 0
+            } else {
+                $(ks[b]).val(parseInt($(ks[b]).val()) + 1);
+            }
+
+        });
+        $(ks[a]).click(function () {
+            if ($(ks[b]).val() == "") {
+                $(ks[b]).val(0);
+            }
+            if ($(ks[b]).val() < 1) {
+                $(ks[b]).val(0);
+            } else {
+                $(ks[b]).val(parseInt($(ks[b]).val()) - 1);
+            }
+        })
+        $(ks[c]).click(function () {
+            $(ks[f]).val(parseInt($(ks[f]).val()) + 1);
+        })
+        $(ks[e]).click(function () {
+            if ($(ks[f]).val() < 1) {
+                $(ks[f]).val(0);
+            } else {
+                $(ks[f]).val(parseInt($(ks[f]).val()) - 1);
+            }
+        })
+        $(ks[j]).click(function () {
+            $(ks[m]).val(parseInt($(ks[m]).val()) + 1);
+        })
+        $(ks[k]).click(function () {
+            if ($(ks[m]).val() < 1) {
+                $(ks[m]).val(0);
+            } else {
+                $(ks[m]).val(parseInt($(ks[m]).val()) - 1);
+            }
+        })
+    });
+</script>
+<script>
+    $(".js-example-tags").select2({tags: true});
+    $(".select2-container").css("width", "100%");
+
+    $(".select2-selection").css("border","none")
+    $("#select2-brand-container").addClass("form-control").css({
+        lineHeight:"22px"
+    })
+</script>
+{include file="public/footer" }

@@ -1,0 +1,148 @@
+<!--nav-->
+{include file="public/header" }
+<div class="main new_Order_Single">
+
+    <!-- 面包屑导航-->
+    <div class="container">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+			 <small><a href="__PUBLIC__messages/all">消息中心</a></small><span>>></span>
+            <small>系统消息</small>
+        </h5>
+        <!-- 左边框-->
+        <div class="row mt-10 " id="navigatesLeft">
+
+            <div class="clo-xs-12 " id='navigatesRigth'>
+                <div class="panel-default">
+                    <div class="panel-heading text-center bg-orange">
+                        <span>系统消息</span>
+                    </div>
+                </div>
+				
+				<div id="sa" class="table table-bordered table-hover">
+							<script id="list-template" type="text/html">
+								{{# for(var i=0;i<d.length;i++){  }}
+									      <div class="panel-body  pl-20 pr-20" style="border: none;">
+										 
+											<div class="row ehe border-aspx pl-20 pt-20 pb-20 pr-20 "  >
+											<div class="col-md-9  col-xs-12 col-sm-8 line-height-40"  onclick="read({{d[i].id}},this)">
+													{{# if(d[i].status==0){ }}
+														<div class="col-md-1 col-xs-2 col-sm-1 ds-cc he" >
+															<span style="top:30px;" class="ds-bian" ></span>
+														</div>
+													{{# }if(d[i].status==1){ }}
+														<div class="col-md-1 col-xs-2 col-sm-1  he" >
+															
+														</div>
+													{{# } }}
+													<div class="col-xs-12 h5 text-black mb-10 col-sm-6" style="font-size:1.5rem;line-height:2" >
+															<span style="color:#373434;">你的系统消息</span>
+															
+															{{# if(d[i].link==null){ }}
+														<p class="text-black" style="color:#353333"><a href="javascript:;">{{d[i].content}}</a></p>
+													{{# }else{ }}
+														<p class="text-black" style="color:#353333"><a href="{{d[i].link}}">{{d[i].content}}</a></p>
+													{{# } }}
+														</div>
+												</div>
+												<div class="col-md-3 col-sm-3 col-xs-12 text-right">
+													
+													<p style="color:#767575;">{{d[i].sending_time}}</p>
+													
+													<a href="javascript:;" onclick="del_ser({{d[i].id}})">删除</a>
+												</div>
+													
+														
+													</div>
+													
+												</div>
+											</div>
+										
+											
+										</div>
+									
+								{{# } }}
+                        </script>
+							<div id="list-content"></div>
+							
+						
+							
+				</table>      
+				<div id="AjaxPage" class="mt-20" style=" text-align: right;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 加载动画 -->
+<div class="spiner-example">
+    <div class="sk-spinner sk-spinner-three-bounce">
+        <div class="sk-bounce1"></div>
+        <div class="sk-bounce2"></div>
+        <div class="sk-bounce3"></div>
+    </div>
+</div>
+<script type="text/javascript">
+function read(id,obj){
+
+  var id=id;
+   $.ajax({
+		url: '__PUBLIC__read_messages',
+		dataType: 'json',
+		data: {
+			id:id
+		},
+		type: 'post',
+		success: function(data) {
+			if (data.code == 200) {
+				//window.location.reload();
+				
+				  $(obj).find('.ds-cc').find('.ds-bian').remove();
+				
+			} else {
+				
+			}
+		},
+		
+	})
+	
+}
+
+</script>
+{include file='public/footer'}
+<script type="text/javascript">  
+    //laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr){
+        var key=$('#key').val();
+        $.getJSON('__PUBLIC__messages/system_messages', {page: curr || 1,key:key}, function(data){
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画 
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无消息</td>');
+            }else{
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+//删除
+function del_ser(id){
+    lunhui.confirm(id,'__PUBLIC__del_messages');
+	
+}
+</script>

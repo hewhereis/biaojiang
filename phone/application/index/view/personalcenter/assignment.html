@@ -1,0 +1,93 @@
+{include file='public/headerblack'}
+<div class='app'>
+		<mian></mian>
+		<menus></menus>
+</div>
+{include file='public/menu'} {include file='public/footer'}
+<script type="text/x-template" id='mian'>
+    <div class="tijiaoshijuan">
+        <div class="top">
+            <div class="topheader">
+                <div class="topheader-item left">
+                    <i class='icon-arrow_lift'></i>
+                </div>
+                <div class="topheader-item center">得分</div>
+                <div class="topheader-item right">
+                    <img src="__indexStatic__images/pic_160.png" alt="" width='30' height='30'>
+                </div>
+            </div>
+        
+            <div class="scort">
+                <div class="circle">
+                    <div class="line" v-for="index in lineNum" :style="'transform:rotate('+(6*index)+'deg)'"></div>
+                </div>
+                <div class="center">
+                    <span class='name'>{$name}师傅</span>
+                    <span class='f'>{$score}<span class='s'>分</span> </span>
+                    <span class='type' v-if='{$score}>60'>及格</span>
+                    <span class='type' v-else>不及格</span>
+                </div>
+                <div class="buttons">
+                    <a href="__PUBLIC__master_choice" class="oneS">再考一次</a>
+                </div>
+                <!-- 217 -->
+                <span class='zs' id = 'zd'>
+                    <i class='z'></i>
+                </span>
+            </div>
+            
+        </div>
+        
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+	window.onload = function () {
+		var data = {
+            lineNum:60,
+            fen:100,
+        
+		}
+		Vue.component('mian', {
+			template: '#mian',
+			data: function () {
+				return data
+			},
+			methods: {
+                computedF:function(){   
+                        return this.fen * 253 / 100
+                }
+			},
+			mounted: function () {
+
+			},
+            computed:{
+				fenReminder:function(){
+                    var f = this.fen;
+                    if(f< 60){
+                        return "不及格"
+                    }
+                    return "及格"
+                }
+            }
+		})
+		Vue.component('menus', {
+			template: '#menu',
+			data: function () {
+				return {}
+			}
+		})
+		Vue.component('footers', {
+			template: '#footers',
+			data: function () {
+				return {}
+			}
+		})
+		new Vue({
+			el: '.app'
+		})
+	}
+</script>

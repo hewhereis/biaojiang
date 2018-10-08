@@ -1,0 +1,148 @@
+{include file='public/header'}
+<link rel="stylesheet" href="__indexStatic__/layui/css/layui.css">
+<script src="__indexStatic__/layui/layui.js"></script>
+<style>
+    #app{
+        background:#f2f2f2
+    }
+</style>
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+    <script type="text/x-template" id='mian'>
+        <div class='infomationList'>
+            <div class="messagesList" v-for="(item,index) in list">
+                <div class="messTime">
+                    <span class='messTimes' v-html="item.sending_time"></span>
+                </div>
+                <div class="messContent">
+                    <div class='messContentTitle'>你的系统消息</div>
+                    <div class="messContentInfo">
+                        <a :href="item.link"><span v-html="item.content"></span></a>
+                    </div>
+                    <div class='messContentDel'>
+                        <span class='delete' @click="deletes(item.id,index)">删除</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+                <if condition="count($list) eq 6">
+                    <a  id="btn"  href="javascript:;"></a>
+                </if>
+</div>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {
+         list:{$list}
+       
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {
+         deletes: function(id,index){
+                _that = this
+                $.confirm({
+                    title: '确认删除?',
+                    text: '',
+                    onOK: function () {
+                        $.ajax({
+                            type:"post",
+                            url:"__PUBLIC__delete_messages",
+                            data:{id:id},
+                            dataType:'json',
+                            success:function(data){
+                              if(data.code==1){
+                                $.toptip('操作成功', 'success');
+                               
+                                _that.list.splice(index,1)
+                              }else{
+                                $.toptip('系统繁忙', 'error');
+                              }
+                           },
+                           erorr:function(){
+
+                           }
+                        })
+                  },
+                  onCancel: function () {
+                  }
+                });
+                
+                
+            },
+             load:function(){
+             _that = this;
+                var nStart = 6;
+               
+                layui.use('flow', function(){
+                var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+                  flow = layui.flow;
+                  flow.load({
+                    elem: '#btn' //指定列表容器
+                    ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
+                      var lis = [];
+                      //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+                      $.post("__PUBLIC__infomationlist", {start: nStart}, function(res){
+                        //假设你的列表返回在data集合中
+                        layui.each(res.result, function(index, item){
+                         _that.list.push(item)
+                        }); 
+                        //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+                        //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+                        next(lis.join(''), nStart < res.totals,nStart += 6); 
+                      });
+                    }
+                  });
+                });
+             }
+
+        },
+        mounted: function () {
+            this.load()
+        }
+    })
+    //头
+    Vue.component('headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "消息"
+            }
+        },
+        methods: {
+            goback: function () {
+                window.history.go(-1)
+            }
+        }
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        }
+    })
+    Vue.component('menus', {
+        template: '#menus',
+        data: function () {
+            return {
+                
+
+            }
+        },
+        methods:{
+                
+        },
+        mounted:function(){
+            
+        }
+       
+    })
+    new Vue({
+        el: '.app'
+    })
+</script>

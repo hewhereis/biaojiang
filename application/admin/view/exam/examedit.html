@@ -1,0 +1,191 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style>
+.file-item{float: left; position: relative; width: 110px;height: 110px; margin: 0 20px 20px 0; padding: 4px;}
+.file-item .info{overflow: hidden;}
+.uploader-list{width: 100%; overflow: hidden;}
+</style>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>编辑考题内容</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" name="serviceEdit" id="serviceEdit" method="post" action="{:url('examEdit')}">
+                        <input type="hidden" name="id" value="{$exam.id}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">选择题组：</label>
+                            <div class="input-group col-sm-4">
+                                <div class="checked i-checks">
+                                    <table class='table table-bordered'>
+                                        <tr><td>
+                                            <?php foreach($exam_group as $vo){ ?>
+                                                    <?php if($vo['id'] == 0){ ?>
+                                                        {$vo.group_title}
+                                                    <?php }elseif(in_array($vo['id'],$group_ids)){ ?>
+                                                        <div style='float:left;padding:5px'>
+                                                            <input type="checkbox" name='group_id[]' id='group_id{$vo.id}' value="{$vo['id']}" checked="" />
+                                                            <label for='group_id{$vo['id']}'>{$vo['group_title']}</label>
+                                                        </div>
+                                                    <?php }else{ ?>
+                                                        <div style='float:left;padding:5px'>
+                                                            <input type="checkbox" name='group_id[]' id='group_id{$vo.id}' value="{$vo['id']}" />
+                                                            <label for='group_id{$vo['id']}'>{$vo['group_title']}</label>
+                                                        </div>
+                                                    <?php } ?>
+                                            <?php } ?>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">选择标签：</label>
+                            <div class="input-group col-sm-4">
+                                <div class="checked i-checks">
+                                    <table class='table table-bordered'>
+                                        <tr><td>
+                                            <?php foreach($exam_tags as $vo){ ?>
+                                                    <?php if($vo['id'] == 0){ ?>
+                                                        {$vo.tag}
+                                                    <?php }elseif(in_array($vo['id'],$tag_ids)){ ?>
+                                                        <div style='float:left;padding:5px'>
+                                                            <input type="checkbox" name='tags[]' id='tags{$vo['id']}' value="{$vo['id']}" checked="" />
+                                                            <label for='tags{$vo['id']}'>{$vo['tag']}</label>
+                                                        </div>
+                                                    <?php }else{ ?>
+                                                        <div style='float:left;padding:5px'>
+                                                            <input type="checkbox" name='tags[]' id='tags{$vo['id']}' value="{$vo['id']}" />
+                                                            <label for='tags{$vo['id']}'>{$vo['tag']}</label>
+                                                        </div>
+                                                    <?php } ?>
+                                            <?php } ?>
+                                        </td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">考题名称：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="question" type="text" class="form-control" name="question" required="" aria-required="true" value="{$exam.question}">
+                            </div>
+                        </div>
+                       <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">A选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option1" type="text" class="form-control" name="option1" required="" aria-required="true" value="{$exam.option1}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">B选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option2" type="text" class="form-control" name="option2" required="" aria-required="true" value="{$exam.option2}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">C选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option3" type="text" class="form-control" name="option3" required="" aria-required="true" value="{$exam.option3}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">D选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option4" type="text" class="form-control" name="option4" required="" aria-required="true" value="{$exam.option4}">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">状&nbsp;态：</label>
+                            <div class="col-sm-6">
+                                <div class="radio i-checks">
+                                    <input type="radio" name='status' value="1" {if condition="$exam['status'] eq 1 "}checked{/if}/>开启&nbsp;&nbsp;
+                                    <input type="radio" name='status' value="0" {if condition="$exam['status'] eq 0 "}checked{/if}/>关闭
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> 保存</button>&nbsp;&nbsp;&nbsp;
+                                <a class="btn btn-danger" href="javascript:history.go(-1);"><i class="fa fa-close"></i> 返回</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{include file="public/footer" /}
+<script type="text/javascript">
+    //提交
+    $(function(){
+        $('#serviceEdit').ajaxForm({
+            beforeSubmit: checkForm, 
+            success: complete, 
+            dataType: 'json'
+        });
+        
+        function checkForm(){
+            if( '' == $.trim($('#question').val())){
+                layer.msg('请输入试卷标题',{icon:2,time:1500,shade: 0.1}, function(index){
+                layer.close(index);
+                });
+                return false;
+            }
+            
+            
+        }
+
+
+        function complete(data){
+            if(data.code==1){
+                layer.msg(data.msg, {icon: 6,time:1500,shade: 0.1}, function(index){
+                    window.location.href="{:url('exam/index')}";
+                });
+            }else{
+                layer.msg(data.msg, {icon: 5,time:1500,shade: 0.1});
+                return false;   
+            }
+        }
+     
+    });
+
+
+
+    //IOS开关样式配置
+   var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, {
+            color: '#1AB394'
+        });
+    var config = {
+        '.chosen-select': {},                    
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+</script>
+</body>
+</html>

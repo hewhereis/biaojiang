@@ -1,0 +1,110 @@
+{include file="public/header" /}
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style>
+    .file-item {
+        float: left;
+        position: relative;
+        width: 110px;
+        height: 110px;
+        margin: 0 20px 20px 0;
+        padding: 4px;
+    }
+
+    .file-item .info {
+        overflow: hidden;
+    }
+
+    .uploader-list {
+        width: 100%;
+        overflow: hidden;
+    }
+</style>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <a href="{:url('examgroupadd')}">
+                <div class="col-sm-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>添加考题试卷</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{:url('addrandomgroup')}">
+                <div class="col-sm-3">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>添加随机考题试卷</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    {include file="public/footer" /}
+    <script type="text/javascript">
+        //提交
+        $(function () {
+            $('#serviceAdd').ajaxForm({
+                beforeSubmit: checkForm,
+                success: complete,
+                dataType: 'json'
+            });
+
+            function checkForm() {
+                if ('' == $.trim($('#group_title').val())) {
+                    layer.msg('请输入试卷名称', {
+                        icon: 2,
+                        time: 1500,
+                        shade: 0.1
+                    }, function (index) {
+                        layer.close(index);
+                    });
+                    return false;
+                }
+            }
+
+
+            function complete(data) {
+                console.log(data);
+                if (data.code == 1) {
+                    layer.msg(data.msg, {
+                        icon: 6,
+                        time: 1500,
+                        shade: 0.1
+                    }, function (index) {
+                        var ids = data.data;
+                        window.location.href = "lastadd/id/" + ids;
+                    });
+                } else {
+                    layer.msg(data.msg, {
+                        icon: 5,
+                        time: 1500,
+                        shade: 0.1
+                    });
+                    return false;
+                }
+            }
+
+        });
+
+
+
+        //IOS开关样式配置
+        var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, {
+            color: '#1AB394'
+        });
+        var config = {
+            '.chosen-select': {},
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+    </script>
+</body>
+
+</html>

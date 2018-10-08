@@ -1,0 +1,264 @@
+{include file="public/style_header" }
+<style>
+	.a_s {
+		width: 20px;
+		height: 20px;
+		border: 1px solid #00B83F;
+		color: #00B83F;
+		padding: 2px;
+	}
+	.bg-b {
+		background: #00B83F;
+	}
+	.text-default {
+		color: #ffffff;
+		padding-right: 3px;
+		padding-left: 3px;
+	}
+	.b_a {
+		border: 1px solid #ff5200;
+		color: #ff5200;
+		width: 85px;
+		float: left;
+		padding-bottom: 5px;
+		padding-top: 5px;
+		text-align: center;
+	}
+	.b_gorage {
+		background: #ff5200;
+		color: #ffffff;
+		padding-left: 2%;
+		padding-right: 2%;
+	}
+	.b-sefr {
+		background: #ffffff;
+		padding: 20px;
+		margin-left: -10px;
+		color: #000000;
+	}
+	.h_s img {
+		height: 200px;
+	}
+	.h_s span {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+		color: #ffffff;
+		font-size: 26px;
+	}
+
+</style>
+<!--/*标题*/-->
+<div class="The-test-panel-head"><span class="pl-10">基本信息</span></div>
+<input type="hidden" id="worker_id" value="">
+<div class="The-test-panel-body pb-0" style="min-height:1000px;">
+	<div class="row pr-20 b-se b-se_l  b-sefr" >
+		<div class="col-sm-8 col-xs-8">
+				<div class="" style="line-height:40px" >
+					<div class="row">
+						<div class="col-xs-6 col-sm-3">用户名:</div>
+						<div class="col-xs-6 col-sm-6">{$list.username}</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6 col-sm-3">真实姓名:</div>
+						<div class="col-xs-6 col-sm-6">
+						<?php if($list['real_name']==''):?>
+						-
+						<?php else:?>
+						{$list.real_name}
+						<?php endif;?>
+						
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6 col-sm-3">注册类型:</div>
+						<div class="col-xs-6 col-sm-6">
+						客户
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6 col-sm-3">所在地:</div>
+						<div class="col-xs-6 col-sm-6">
+						<?php if($list['province']==''):?>
+						-
+						<?php else:?>
+						{$list.province}
+						<?php endif;?>
+						
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6 col-sm-3">详细地址:</div>
+						<div class="col-xs-6 col-sm-6">
+						<?php if($list['city']==''):?>
+						-
+						<?php else:?>
+						{$list.province}-{$list.city}-{$list.town}-{$list.location}
+						<?php endif;?>
+					
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-6 col-sm-3">手机号:</div>
+						<div class="col-xs-6 col-sm-6">
+						<?php if($list['phone']==''):?>
+						-
+						<?php else:?>
+						{$list.phone}
+						<?php endif;?>
+						</div>
+					</div>
+					
+				
+				<div class="row">
+					<div class="col-xs-12">
+						<button class="btn btn-orange border-radius" id="xiugai">编辑</button>
+					</div>
+				</div>
+			</div>
+			</div>
+		<div class="col-md-4 text-center col-xs-4 pl-20">
+                <a href="javascript:;">
+                     <img src="__DsQINiu__{$list.img}" class="img-circle"  width='200' height='200' onerror="this.src='__PUBLIC__static/index/images/zhenxiang.png'"/> 
+                </a><br> <a href="__PUBLIC__mase_headportrait" class="">修改头像</a>
+            </div>
+	</div>
+	<form id="demoa" name="demoa" id="demoa" method="post" action="__PUBLIC__ajax_client_modify" >
+		<div class="b-se hidden b-sefr" style="line-height: 45px">
+			<div class="row">
+				<div class="col-xs-6 col-sm-2"><span style="color:red">*</span>用户名:</div>
+				<div class="col-xs-6 col-sm-4">
+					<input type="text" id="contac" class="form-control" name="uname" value="{$list.username}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-sm-2"><span style="color:red">*</span>真实姓名:</div>
+				<div class="col-xs-6 col-sm-4"><input type="text" id="there_is_a_pre_survey" class="form-control" name="ranme" value="{$list.real_name}">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6 col-sm-2"><span style="color:red">*</span>服务地区:</div>
+				<div class="col-xs-6 col-sm-8">
+					<div class="row">
+						<div data-toggle="distpicker">
+							<div class="col-sm-4 mb-10 ">
+								<select data-province="{$list.province}" class="form-control" name="province10" id="province10">
+								</select>
+							</div>
+							<div class="col-sm-4 mb-10">
+								<select data-city="{$list.city}" class="form-control" name="city10" id="city10"></select>
+							</div>
+							<div class="col-sm-4 mb-10 ">
+								<select data-district="{$list.town}" class="form-control" name="district10" id="district10"></select>
+							</div>
+							<div class="col-sm-12 mb-10">
+								<input type="text" name="location" class='form-control' id='location' placeholder="请输入您的详细信息~" value='{$list.location}'>
+							</div>
+						</div>
+					</div>
+				</div>
+                </div>
+                <div class="row">
+					<div class="col-sm-2 col-xs-6 col-sm-offset-4">
+                        <input type="submit" class="btn border-radius btn-success" value="确认">
+					</div>
+					<div class="col-sm-2 col-xs-6">
+                        <input type="button" id="quxiao" class="btn border-radius btn-default" value="取消"></div></div>
+		</div>
+	</form>
+</div>
+	<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<script>
+    $(".k").click(function() {
+        $(this).addClass("activee");
+        $(this).siblings("").removeClass("activee");
+        if($(this).index()==1){
+            $(".b-se_l").addClass("hidden")
+            $(".b-se_k").removeClass("hidden");
+
+            $(".messamge").addClass("hidden");
+            $(".list_lh").addClass("hidden");
+
+
+        }else  if($(this).index()==0){
+            $(".b-se_k").addClass("hidden")
+            $(".b-se_l").removeClass("hidden");
+
+            $(".messamge").removeClass("hidden");
+            $(".list_lh").removeClass("hidden");
+        
+        }
+    });
+    $("#xiugai").click(function () {
+        $(".b-se").eq(0).addClass("hidden");
+        $(".b-se").eq(1).removeClass("hidden");
+
+    });
+    $("#quxiao").click(function () {
+        $(".b-se").eq(1).addClass("hidden");
+        $(".b-se").eq(0).removeClass("hidden");
+
+    });
+    $(".b_a img").css("width", "20px");
+    $(document).ready(function() {
+        $('#demoa').ajaxForm({
+            success: complete, // 这是提交后的方法
+            dataType: 'json',
+            beforeSubmit:function () {
+                var op={icon:2,time:1500,shade: 0.1,shade:0};
+                if( '' == $.trim($('#contac').val())){
+                    parent.layer.msg('请填写用户名',op, function(index){
+                        layer.close(index);
+                    });
+                    return false;
+                }
+				if( '' == $.trim($('#there_is_a_pre_survey').val())){
+                    parent.layer.msg('请填写真实姓名',op, function(index){
+                        layer.close(index);
+                    });
+                    return false;
+                }
+				if( '' == $.trim($('#province10').val())){
+                    parent.layer.msg('请填写所在地区省',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+				if( '' == $.trim($('#city10').val())){
+                    parent.layer.msg('请填写所在地区市',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+				if( '' == $.trim($('#district10').val())){
+                    parent.layer.msg('请填写所在地区区',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+				if( '' == $.trim($('#location').val())){
+                    parent.layer.msg('请填写详细地址·',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+            }
+        });
+        function complete(data){
+			if(data.code==200){
+				 parent.layer.msg(data.msg, {icon: 6,time:1500}, function(index){
+                    $(".b-se").eq(1).addClass("hidden");
+					$(".b-se").eq(0).removeClass("hidden");
+                    window.location.reload(true);
+                });
+            }else{
+               parent.layer.msg(data.msg, {icon: 5,time:1500});
+                return false;   
+            }
+
+
+        }
+    });
+</script>

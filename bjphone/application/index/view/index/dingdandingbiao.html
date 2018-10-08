@@ -1,0 +1,195 @@
+{include file='public/header'}  
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>  
+<script type="text/x-template" id='mian'>
+  <div class='Dingdan'>
+      <div class="weui-cells weui-cells_form border-none">
+         <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label label">订单编号：</label></div>
+            <div class="weui-cell__bd">
+               <span class='weui-input label'>5465461646843</span>
+            </div>
+         </div>
+         <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label label">您的称呼：</label></div>
+            <div class="weui-cell__bd">
+               <span class='weui-input label'>黄晓</span>
+               <div class='raido label'>
+                  <label for="nan"  v-show='sex==1'>先生</label>
+                  <label for="nv" v-show='sex==2'>女士</label>
+               </div>
+            </div>
+         </div>
+         <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label label">详细地址：</label></div>
+            <div class="weui-cell__bd">
+               <span class='weui-input label'>上海嘉定区安亭镇方泰路</span>
+            </div>
+         </div>
+         <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label label">楼号-门牌号：</label></div>
+            <div class="weui-cell__bd">
+               <span class='weui-input label'>上海嘉定区安亭镇方泰路</span>
+            </div>
+         </div>
+         <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label label">服务时间：</label></div>
+            <div class="weui-cell__bd label">
+               <span> 2017-10-19 13:57</span>
+            </div>
+         </div>
+         <div class="weui-cell bg"></div>
+         <div class="weui-table">
+            <div class="weui-table-tr">
+               <div class="weui-cell-item"><span>项目</span></div>
+               <div class="weui-cell-item"><span>项目预算价</span></div>
+               <div class="weui-cell-item"><span>故障详情</span></div>
+            </div>
+            <div class='weui-table-th'>
+               <div class="weui-cell-item"><span>安装</span></div>
+               <div class="weui-cell-item">￥<span>58</span></div>
+               <div class="weui-cell-item"><a href="" class='a-link'><span>查看详情>></span></a></div>
+            </div>
+            <div class='weui-table-th'>
+               <div class="weui-cell-item"><span>加急服务</span></div>
+               <div class="weui-cell-item"><span></span></div>
+               <div class="weui-cell-item"><span></span></div>
+            </div>
+         </div>
+         <div class='weui-table'>
+            <div class='weui-text label'>
+               <span>合 计：</span>
+               <span>￥</span><span>20.00</span>
+               <span class='tip'>（含12%的税费）</span>
+            </div>
+         </div>
+         <div class="weui-cell bg"></div>
+         <div class="weui-card">
+            <div class="weui-card-coneten">
+               <div class="weui-card-top">
+                  <div class="photo">
+                     <img class='img' src="__indexStatic__/images/pic_160.png" alt="" width='37' height='37'>
+                  </div>
+                  <div class='info'>
+                     <p class='p'>
+                        <span class='name'>王小二师傅</span>  
+                        <span class='icon renzhen'></span>
+                        <span class='icon bao'></span>
+                     </p>
+                     <p class='p'>
+                        <span class='b-price'>师傅报价：</span>
+                        <span class='price'>￥<span >2000</span></span>
+                     </p>
+                     <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary ok">雇佣师傅</a>
+                  </div>
+               </div>
+               <div class="weui-card-bottom">
+                  <div class='class'>
+                     <span>服务类型：</span>
+                     <span>店铺维修</span>
+                  </div>
+                  <div class='message'>
+                     <span>抢单留言：</span>
+                     <span>这个项目比较适合我！客户报价合理，离我住的地方也很近</span>
+                     <a href="" class='golook'>查看详细>></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="weui-cell bg"></div>
+         <div class="weui-card">
+            <div class="weui-card-coneten">
+               <div class="weui-card-top">
+                  <div class="photo">
+                     <img class='img' src="__indexStatic__/images/pic_160.png" alt="" width='37' height='37'>
+                  </div>
+                  <div class='info'>
+                     <p class='p'>
+                        <span class='name'>王小二师傅</span>  
+                        <span class='icon renzhen'></span>
+                        <span class='icon bao'></span>
+                     </p>
+                     <p class='p'>
+                        <span class='b-price'>师傅报价：</span>
+                        <span class='price'>￥<span >2000</span></span>
+                     </p>
+                     <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary ok">雇佣师傅</a>
+                  </div>
+               </div>
+               <div class="weui-card-bottom">
+                  <div class='class'>
+                     <span>服务类型：</span>
+                     <span>店铺维修</span>
+                  </div>
+                  <div class='message'>
+                     <span>抢单留言：</span>
+                     <span>这个项目比较适合我！客户报价合理，离我住的地方也很近</span>
+                     <a href="" class='golook'>查看详细>></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+  </div>
+</script>
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+    var data = {
+      counter: {$list},
+      sex:2
+    }
+    Vue.component('mian', {
+      template: '#mian',
+      data: function () {
+        return data
+      },
+      methods: {
+        getdate:function(){
+          var x=new Date();
+          var n=x.getFullYear(); //获取当前日期
+          var y=x.getMonth()+1; //获取当前日期
+          var r=x.getDate(); //获取当前日期
+          return n+"-"+y+"-"+r;
+        }
+      },
+      mounted:function() {
+        $('#time').datetimePicker({
+          min:this.getdate()
+        });
+      }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "订单定标"
+        }
+      },
+      methods:{
+         goback:function(){
+            window.history.go(-1)
+         }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+</script>

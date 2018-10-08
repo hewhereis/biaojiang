@@ -1,0 +1,243 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main order_status_parent">
+  
+    <!--/*主题*/-->
+    <div class="container " >
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+             <small><a href="__PUBLIC__orders/client">订单管理</a></small>
+			<span>>></span>
+            <small>订单状态</small>
+        </h5>
+    </div>
+
+    <div class="container ">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-md-10 col-xs-8">客户订单状态</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 The-test-panel-body pl-0 pr-0 pb-0 pt-0 text-center">
+                <ul class="ul ">
+                    <li class="active">订单状态</li>
+                    <li >订单详情</li>
+                </ul>
+
+                <div class="panel-body Control_style order_status">
+                    <ul class="Teacher_learning_ul ">
+                        		<?php foreach ($orderstep as $k) { ?>
+								<li style="color:#A1A1A1">
+									<ul class="The_list_of_floating">
+									   
+										<li class="round">
+											<div class="gray_z">
+												<div class="bg_gray_z"></div>
+											</div>
+										</li>
+										<li><?php echo $k['step_name']?></li>
+									</ul>
+								</li>			
+								<li class="Vertical_lines_orange  Vertical_lines_left_gray"></li>
+						<?php } ?>	
+						
+						
+						<?php foreach ($ordersteps as $ks) { ?>
+								<li>
+									<ul class="The_list_of_floating">
+										<li class="round">
+											<div class="orange">
+												<div class="bg_orange"></div>
+											</div>
+										</li>
+										
+										<?php if($step_link==null):?>
+										<li class=""><a href="javascript:;" id="work_sign">
+												<?php echo $ks['step_name']?></a></li>
+										<?php elseif($ks['step_id']==4 && $ks['num']==0 && $ks['b_id']==2):?>
+										<li class=""><a href="javascript:;" id="work_sign">
+												<?php echo $ks['step_name']?></a></li>
+										<?php else :?>
+										<li class=""><a href="
+												<?php $ds_order_number = $ks['order_number'];
+												$ds_step_id            = $ks['d_wid'];
+												$ds_step_link          =$step_link;
+												$ds_link               = sprintf("$ds_step_link",$ds_order_number,$ds_step_id);
+												echo $ds_link;?>" id="work_sign">
+												<?php echo $ks['step_name']?></a></li>
+										<?php endif?>
+									</ul>
+								</li>
+						<?php } ?>	
+						<?php foreach ($orderstepso as $k) { ?>
+						<li class="Vertical_lines_orange  Vertical_lines_left_gray"></li>
+								<li style="color:#5A5858">
+									<ul class="The_list_of_floating">
+									   
+										<li class="round">
+											<div class="gray_z">
+												<div class="bg_gray_z"></div>
+											</div>
+										</li>
+										<li><?php echo $k['step_name']?></li>
+									</ul>
+								</li>			
+								
+						<?php } ?>	
+                    </ul>
+				<?php foreach ($orderstatus as $v) { ?>
+                    <ul class="hide">
+                        <li class="line-height-40">
+                            <form class="form-horizontal" id="">
+                                <div class="col-md-12 col-sm-12 col-xs-12 " id='navigatesRigth'>
+                                    <div class="well text-left well-sm">
+                                        <span>订单号:{$v.order_number}</span>
+                                        <span class=" pl-0"><b class="text-orange">
+										<?php if($v['status']==1):?>待定标
+										<?php elseif($v['status']==2):?>待付款
+										<?php elseif($v['status']==3):?>待完工
+										<?php elseif($v['status']==4):?>待验收
+										<?php elseif($v['status']==5):?>待评价
+										<?php elseif($v['status']==6):?>追加评价
+										<?php elseif($v['status']==7):?>交易完成
+										<?php elseif($v['status']==8):?>订单关闭
+										<?php endif;?>
+										</b>￥{$v.amount_total}</span>
+                                    </div>
+                                    <div style="width: auto;text-align:left;border: 1px solid #dddddd;padding: 20px;position: relative;top: -20px;">
+                                        <!--品牌-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 mt-10">品牌</label>
+                                            <div class="col-md-10">
+                                                <?php if($v['service_type_id']==1):?>
+												    <input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['i_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==2):?>
+													<input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['m_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==3):?>
+												<?php elseif ($v['service_type_id']==4):?>
+													<input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['s_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==5):?>
+													<input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['d_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==6):?>
+												    <input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['coam_brand'] ?>"/>
+												<?php endif;?>
+                                            </div>
+                                        </div>
+                                        <!--地址-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 mt-10 ">地址</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="site" name="site" readonly  unselectable="on"  class="form-control" value="<?php echo $v['full_location']?> <?php echo $v['location_ext'] ?>"/>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="col-md-2 mt-10 ">客户联系电话</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="contact_number" readonly  unselectable="on"  name="contact_number" class="form-control" value="<?php echo $v['contact_phone'] ?>"/>
+                                            </div>
+
+                                        </div>
+                                        <!--计划施工日期-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 mt-10 ">计划施工日期</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="intended_date" readonly  unselectable="on" name="intended_date" class="form-control" value="<?php if($v['order_time']==''):?><?php else:?><?php echo date('Y-m-d H:i:s', $v['order_time']);?><?php endif;?>"/>
+                                            </div>
+																									
+                                        </div>
+                                        <!--实际完成日期-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 mt-10 ">实际完成日期</label>
+                                            <div class="col-md-10">
+                                             <input type="text" name="actual_finishing_date" readonly  unselectable="on" id="actual_finishing_date" class="form-control" value="<?php if($v['end_time']==''):?><?php else:?><?php echo date('Y-m-d H:i:s', $v['end_time']);?><?php endif;?>"/>
+											 
+                                            </div>
+
+                                        </div>
+                                        <!--师傅名称-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 mt-10 ">师傅名称</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="The_teacher_name" readonly  unselectable="on" name="The_teacher_name" class="form-control" value="<?php echo $v['uname'] ?>"/>
+                                            </div>
+
+                                        </div>
+                                        <!--师傅工号-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 ">师傅工号</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="Master_work_number" readonly  unselectable="on" name="Master_work_number" class="form-control" value="<?php echo $v['b_job'] ?>"/>
+                                            </div>
+                                        </div>
+                                        <!--师傅联系电话-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 ">师傅联系电话</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="Master_contact_number" readonly  unselectable="on" name="Master_contact_number" class="form-control" value="<?php echo $v['b_phone'] ?>"/>
+                                            </div>
+                                        </div>
+                                        <!--师傅报告-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 ">项目名称</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="The_master_report" readonly  unselectable="on"  name="The_master_report" class="form-control" 
+												value="<?php if($v['service_type_id']==1):?>安装
+												<?php elseif($v['service_type_id']==2):?>维修
+												<?php elseif($v['service_type_id']==3):?>品质监理
+												<?php elseif($v['service_type_id']==4):?>勘测
+												<?php elseif($v['service_type_id']==5):?>更换灯片
+												<?php elseif($v['service_type_id']==6):?>围板搭建与拆除
+												<?php endif;?>" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div >
+                            </form>
+                        </li>
+                    </ul>
+				 <?php } ?>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+<script>
+    $(".The-test-panel-body>ul>li").click(function () {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        $(".panel-body>ul").eq($(this).index()).addClass('show');
+        $(".panel-body>ul").eq($(this).index()).removeClass('hide');
+       $(".panel-body>ul").eq($(this).index()).siblings().addClass('hide');
+        $(".panel-body>ul").eq($(this).index()).siblings().removeClass('show')
+        if($(this).index()===0){
+            $(".Control_style").css({
+                padding:20,
+                border:"none"
+            });
+        }else{
+            $(".Control_style").css({
+                padding:0,
+                border:"none"
+            });
+            $("#navigatesRigth").css({
+                padding:0,
+                border:"none",
+            });
+            $("#navigatesRigth>div").css({
+                border:"none"
+            })
+        }
+    });
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+</script>
+{include file="public/footer" }

@@ -1,0 +1,173 @@
+{include file='public/header'}
+
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<template id="mian">
+	<div class="hedanbaogao">
+		<div class="xiangm">
+			<span class="xm">项目名称：</span>
+			<span class="az">安装-空调</span>
+			<button class="add">添加</button>
+		</div>
+		<div class="shangchuan1">
+			<div class="sczhaopian">
+				<span class="zhaopian">上传照片</span>
+				<a href="#"><span class="icon-close"></span></a>
+			</div>
+			    <!-- 上传专柜全景 -->
+             <div class="weui-flex shangchuan3">
+                <div class="weui-flex__item">
+                    <div class="border1">
+                        <div class="tupian">
+                            <img src="__indexStatic__/images/tupian.png" alt="">
+                        </div>
+                        <p class="text6">上传专柜全景</p>
+                    </div>
+                </div>
+                <div class="weui-flex__item">
+                    <div class="border2">
+                        <div class="tupian">
+                            <img src="__indexStatic__/images/tianjia.png" alt="">
+                        </div>
+                        <p class="text6">点击上传</p>
+                    </div>
+                </div>
+               
+            </div>
+		</div>
+		<div class="guzhang">
+			<div class="guzhang_border">
+				<input type="text" class="text1" id="text1" value="请描述故障" name="">
+			</div>
+		</div>
+		<div class="one">
+	    <div class="html">
+	    <div class="two">
+		<div class="shangchuan1 html">
+			<div class="sczhaopian">
+				<span class="zhaopian">上传照片</span>
+				<a href="#"><span class="icon-close"></span></a>
+			</div>
+			    <!-- 上传专柜全景 -->
+             <div class="weui-flex shangchuan3">
+                <div class="weui-flex__item">
+                    <div class="border1">
+                        <div class="tupian">
+                            <img src="__indexStatic__/images/tupian.png" alt="">
+                        </div>
+                        <p class="text6">上传专柜全景</p>
+                    </div>
+                </div>
+                <div class="weui-flex__item">
+                    <div class="border2">
+                        <div class="tupian">
+                            <img src="__indexStatic__/images/tianjia.png" alt="">
+                        </div>
+                        <p class="text6">点击上传</p>
+                    </div>
+                </div>
+               
+            </div>
+		</div>
+		<div class="guzhang">
+			<div class="guzhang_border">
+				<input type="text" class="text1" id="text1" value="请描述故障" name="">
+			</div>
+		</div>
+	    </div>
+        </div>
+	    </div>
+		<div class="weui-flex name">
+			<div class="weui-flex__item yezhu_name">
+				<span class="yezhu">业主签名：</span>
+				<span class="name1"><input type="text" class="text2" id="text2" name=""></span>
+			</div>
+			<div class="weui-flex__item shifu_name">
+				<span class="shifu">师傅签名：</span>
+				<span class="name2"><input type="text" class="text3" id="text3" name=""></span>
+			</div>
+		</div>
+		<div class="btn">
+			<a href="#"><span class="btn1">保存照片</span></a>
+			<a href="#"><div class="btn2">提交报告</div></a>
+		</div>
+	</div>
+
+
+</template>
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+
+
+  var data = {
+    sex: 1,
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+        var html=$(".one").html();
+      $(".add").click(function(){
+           $(".one").append(html);
+      });
+      $('.one').on('click','.icon-close',function(){
+    	$(this).parent('a').parent().parent().parent().remove(); 
+    });
+
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "核单报告表"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+
+  
+</script>

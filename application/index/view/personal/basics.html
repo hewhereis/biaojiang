@@ -1,0 +1,593 @@
+{include file="public/style_header" }
+<link rel="stylesheet" href="__PUBLIC__static/index/js/trm/">
+<style>
+    .a_s {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #00B83F;
+        color: #00B83F;
+        padding: 2px;
+    }
+    .bg-b {
+        background: #00B83F;
+    }
+    .text-default {
+        color: #ffffff;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    .b_a {
+         border: 1px solid #ff5200;
+        color: #ff5200;
+        float: left;
+       padding:5px;
+	   height 40px;
+	   overflow:hidden;
+	   min-width:80px;
+	   max-width:120;
+    }
+    .b_gorage {
+        background: #ff5200;
+        color: #ffffff;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .b-sefr {
+        background: #ffffff;
+        padding: 20px;
+        margin-left: -10px;
+        color: #000000;
+    }
+    .h_s img {
+        height: 200px;
+    }
+    .h_s span {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        color: #ffffff;
+        font-size: 26px;
+    }
+
+</style>
+<!--/*标题*/-->
+<div class="The-test-panel-head">
+    <span class="pl-10">基本信息</span>
+</div>
+<input type="hidden" id="worker_id" value="">
+<div class="The-test-panel-body pb-0">
+    <div class="row pr-20">
+        <div class="col-sm-4 text-center col-xs-12 pl-20">
+            <a href="javascript:;">
+                <img src="__DsQINiu__{$list.uimg}" class="img-circle"  onerror="this.src='__PUBLIC__static/index/images/zhenxiang.png'"/>
+            </a>
+            <a href="__PUBLIC__mase_headportrait" class="">修改头像</a>
+        </div>
+        <div style="min-height: 250px;line-height: 30px" class="col-sm-8 col-xs-12 pt-10 pl-20 border-orange border-radius">
+            <a class="text-orange h3 ">{$list.uname}&nbsp;</a><a class="text-orange">工号({$list.uid})</a>
+
+            <?php if($list['w_rev']!=2):?>
+
+            <?php else:?>
+            <br class="hidden-log hidden-sm hidden-md"> <a href="" class="a_s bg-b"><i class="layui-icon text-default"></i></a><a class="a_s" href="">实名认证</a>
+            <?php endif;?>
+
+            <div class="row mt-30 ">
+                <div class="col-sm-6 mb-20 col-xs-6">
+                        <span href="" class="b_a b_gorage">
+                            保障金
+                        </span>
+                    <span href="" class="b_a n_a">
+                            <img src="__PUBLIC__static/index/images/zc.png" alt="">
+                            <span class="ml-10">
+                                <?php if($list['w_guar']==''):?>
+                                -
+                                <?php else:?>
+                                ￥{$list.w_guar}
+                                <?php endif;?>
+                            </span>
+                        </span>
+                </div>
+                <div class="col-sm-6 mb-20 col-xs-6">
+                        <span href="" class="b_a b_gorage">
+                             综合评价
+                        </span>
+
+                    <span href="" class="b_a n_a">
+                            <img src="__PUBLIC__static/index/images/sx.png" alt="">
+                            <span class="ml-10">
+                                <?php if($list['score']==''):?>
+                                -
+                                <?php else:?>
+                                {$list.score}分
+                                <?php endif;?>
+                            </span>
+                        </span>
+                </div>
+            </div>
+            <div class="row mt-30">
+                <div class="col-sm-6 mb-20 col-xs-6">
+                        <span href="" class="b_a b_gorage">
+                            诚信分
+                        </span>
+                    <span href="" class="b_a n_a">
+                            <img src="__PUBLIC__static/index/images/zs.png" alt="">
+                            <span class="ml-10">
+                                <?php if($list['w_cred']==''):?>
+                                -
+                                <?php else:?>
+                                &nbsp;{$list.w_cred}分
+                                <?php endif;?>
+
+                            </span>
+                        </span>
+                </div>
+                <div class="col-sm-6 mb-20 col-xs-6">
+                        <span href="" class="b_a b_gorage">
+                            技术等级
+                        </span>
+                    <span href="" class="b_a n_a">
+                            <img src="__PUBLIC__static/index/images/wx.png" alt="">
+                            <span class="ml-10">
+                                <?php if($list['w_tech']==''):?>
+                                -
+                                <?php else:?>
+                                &nbsp;{$list.w_tech}级
+                                <?php endif;?>
+                            </span>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="border:2px solid #FF5200;margin-top:3%"></div>
+    <p style="color:black;margin-top:1%">基本资料</p>
+    <div class="b-se b-se_l  b-sefr" style="line-height: 45px">
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">真实姓名:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['urname']==''):?>
+                -
+                <?php else:?>
+                {$list.urname}
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">联系电话:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['uphone']==''):?>
+                -
+                <?php else:?>
+                {$list.uphone}
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-2">所在区域:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['uprovince']==''):?>
+                -
+                <?php else:?>
+                {$list.uprovince}-{$list.ucity}-{$list.utown}
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">服务介绍:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['w_jieshao']==''):?>
+                -
+                <?php else:?>
+                {$list.w_jieshao}
+                <?php endif;?>
+            </div>
+        </div>
+        <div style="border: 1px solid #dddddd;margin-bottom: 10px"></div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">服务类别:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if(empty($server)):?>
+                -
+                <?php else:?>
+                <?php
+                    foreach($server  as $k => $v)
+                {
+                echo $v['name'].',';
+                }
+                ?>
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">师傅技能:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if(empty($skill)):?>
+                -
+                <?php else:?>
+
+                <?php
+                    foreach($skill  as $k => $v)
+                {
+                echo $v['skill'].',';
+                }
+                ?>
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">服务地区:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['userv']==''):?>
+                -
+                <?php else:?>
+                {$list.userv}-{$list.userc}
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">服务时间:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['w_time']==''):?>
+                -
+                <?php else:?>
+                {$list.w_time}
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">员工人数:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['w_num']==''):?>
+                -
+                <?php else:?>
+                {$list.w_num}
+                <?php endif;?>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-2">货车情况:</div>
+            <div class="col-xs-12 col-sm-4">
+                <?php if($list['truck']==''):?>
+                -
+                <?php else:?>
+                {$list.truck}
+                <?php endif;?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-right">
+                <button class="btn btn-orange border-radius" id="xiugai">编辑</button>
+            </div>
+        </div>
+        <div class="h4">工程简历</div>
+        <?php if(!empty($project)){?>
+        {volist name="project" id="vos"}
+        <div class="panel panel-default">
+            <div class="panel-heading" style="line-height: 35px">
+                <span>{$vos['service_type_id']}</span> <span>|</span> <span>标匠</span>
+                <span>
+                    (项目时间:
+                    <?php echo date('Y-m-d',$vos['project_start_time'])?>
+                    )
+                </span>
+                <a href="javascript:;" class="pull-right text-primary delete pl-10 pr-10"  id="delete" num="{$vos['id']}">删除</a>
+
+                <a href="javascript:;" class="pull-right text-primary compile" no="1" id="compile" num="{$vos['id']}">编辑</a>
+            </div>
+            <div class="panel-body" style="line-height: 35px">
+                <div class="pull-left ml-20">
+                    <p>
+                        <?php if($vos['num']==0):?>
+                        认证数:没有认证数
+                        <?php else:?>
+                        认证数:{$vos['num']} 个人认证
+                        <?php endif;?>
+                    </p>
+                    <p>项目名称:{$vos['entry_name']} </p>
+                </div>
+                <div class="pull-right mr-50">
+                    <p>师傅技能: {$vos['skill']}</p>
+                    <p>服务品牌:{$vos['brand']} </p>
+                </div>
+            </div>
+        </div>
+        {/volist}
+
+        <?php }else{?>
+            <div class="">师傅还没有工程简历</div>
+        <?php }?>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="button" id="" no="2" num="{$list.uid}" class="btn btn-blue compile form-control border-radius" value="添加工程简历">
+            </div>
+        </div>
+        <script>
+            $(".delete").click(function () {
+                var id=$(this).attr("num");
+
+                parent.layer.confirm('你确定要删除吗？', {
+                    btn: ['确定','取消'] //按钮
+                }, function(index){
+                    $.ajax({
+                        type:"get",
+                        data:{order:id},
+                        url:"__PUBLIC__removetianjiagongcheng",
+                        success:function (data) {
+                            if(data.code==200){
+                                console.log(data)
+                                parent.layer.msg(data.msg, {icon: 1});
+                                parent.layer.close(index);
+
+                            }else{
+                                parent.layer.msg(data.msg);
+                                parent.layer.close(index);
+                            }
+                            window.location.href='__PUBLIC__work_basics';
+                        }
+                    })
+                });
+
+
+            })
+            $(".compile").click(function () {
+                var id=$(this).attr("num");var no=$(this).attr("no");
+                console.log(no)
+                var layer=layui.layer;
+                if(no=="1"){
+                   var  url="__PUBLIC__tianjiagongcheng/"+id+"/on/"+no;
+                }else{
+                    var  url="__PUBLIC__tianjiagongcheng/"+id+"/on/"+no;
+                }
+                parent.layer.open({
+                    type:2,
+                    area:["800px","800px"],
+                    title:"工程简历",
+                    shade:0,
+                    scrollbar:false,
+                    content:url,
+                    end: function() {
+                        location.reload();
+                    },
+                    success:function (inde) {
+
+                    }
+                });
+            });
+        </script>
+    </div>
+    <!--修改开始-->
+    <form id="demoa" name="demoa" id="demoa" method="post" action="__PUBLIC__ajax_mase_modify">
+        <div class="b-se hidden b-sefr" style="line-height: 45px">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2"><span style="color:red">*</span>用户名:</div>
+                <div class="col-xs-12 col-sm-4">
+                    <input type="text" id="contac" name="uname" class="form-control" value="{$list.uname}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2"><span style="color:red">*</span>真实姓名:</div>
+                <div class="col-xs-12 col-sm-4">
+                    <input type="text" id="contacs" name="ranme" readonly class="form-control" value="{$list.urname}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2"><span style="color:red">*</span>所在区域:</div>
+                        <div class="col-xs-12 col-sm-8">
+                            <div class="row">
+                                <div data-toggle="distpicker">
+                                    <div class="col-sm-4 mb-10 col-xs-12">
+                                        <select data-province="{$list.uprovince}" class="form-control" name="province10" id="province10"></select>
+                                    </div>
+                                    <div class="col-sm-4 mb-10 col-xs-12">
+                                        <select data-city="{$list.ucity}" class="form-control" name="city10" id="city10"></select>
+                                    </div>
+                                    <div class="col-sm-4 mb-10 col-xs-12">
+                                        <select data-district="{$list.utown}" class="form-control" name="district10" id="district10"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2"><span style="color:red">*</span>服务类别:</div>
+                <div class="col-xs-12 col-sm-10" style="line-height: 15px">
+                    <?php foreach($ser as $vo){ ?>
+                    <?php if($vo['id'] ==0){ ?>
+                    {$vo.name}
+                    <?php }elseif(in_array($vo['id'],$s_id)){ ?>
+                    <div class="checkbox checkbox-success" style="display: inline-block;">
+                         <input type="checkbox" id="s_id{$vo['id']}" name="s_id[]" value="{$vo['id']}" checked />
+                         <label for="s_id{$vo['id']}">
+                             {$vo['name']}
+                         </label>
+                    </div>
+                   
+                    <?php }else{ ?>
+
+                    <div class="checkbox checkbox-success" style="display: inline-block;">
+                             <input type="checkbox" id="s_id{$vo['id']}" name="s_id[]" value="{$vo['id']}"  />
+                             <label for="s_id{$vo['id']}">
+                                 {$vo['name']}
+                             </label>
+                    </div>
+                    <?php } ?>
+
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row" Style="line-height: 15px">
+                <div class="col-xs-12 col-sm-2"><span style="color:red">*</span>师傅技能:</div>
+                <div class="col-xs-12 col-sm-10">
+                    <?php foreach($ski as $vo){ ?>
+                    <?php if($vo['id'] ==0){ ?>
+                    {$vo.skill}
+                    <?php }elseif(in_array($vo['id'],$c_id)){ ?>
+                    <div class="checkbox checkbox-success" style="display: inline-block;">
+                        <input type="checkbox" id="c_id{$vo['id']}" name="c_id[]" value="{$vo['id']}" checked />
+                         <label for="c_id{$vo['id']}">
+                             {$vo['skill']}
+                         </label>
+                    </div>
+                    
+
+                    <?php }else{ ?>
+                    <div class="checkbox checkbox-success" style="display: inline-block;">
+                        <input type="checkbox" id="c_id" name="c_id[]" value="{$vo['id']}" />
+                         <label for="c_id{$vo['id']}">
+                             {$vo['skill']}
+                         </label>
+                    </div>
+                   
+
+                    <?php } ?>
+
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2"><span style="color:red">*</span>服务地区:</div>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="row">
+                        <div data-toggle="distpicker">
+                            <div class="col-sm-4 mb-10 col-xs-12 ">
+                                <select data-province="{$list.userv}" class="form-control" name="location_ext" id="location_ext"></select>
+                            </div>
+                            <div class="col-sm-4 mb-10 col-xs-12">
+                                <select data-city="{$list.userc}" class="form-control" name="location_ext1" id="location_ext1"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2">&nbsp;服务介绍:</div>
+                        <div class="col-xs-12 col-sm-8"><input type="text" id="there_is_a_pre_survey" name="fuwujs" class="form-control" value="{$list.w_jieshao}"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">&nbsp;服务时间:</div>
+                <div class="col-xs-12 col-sm-4"><input type="text" id="form_datetime" class="form-control" name="fuwusj" placeholder="例:周一至周日(8:30~23:00)" value="{$list.w_time}"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">&nbsp;员工人数:</div>
+                <div class="col-xs-12 col-sm-4"><input type="text" id="number_of" class="form-control" name="ygrs" value="{$list.w_num}"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">&nbsp;货车情况:</div>
+                <div class="col-xs-12 col-sm-4"><input type="text" id="province4" class="form-control" name="huoche" placeholder="例:1辆|中型|1吨" value="{$list.truck}"></div>
+            </div>
+            <div class="row mt-20">
+                <div class="col-sm-2 col-xs-6 col-sm-offset-4">
+                    <input type="submit" class="btn btn-success border-radius" value="确认">
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                    <input type="button" id="quxiao" class="btn btn-default border-radius" value="取消">
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--修改end-->
+</div>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<script>
+    $(".k").click(function() {
+        $(this).addClass("activee");
+        $(this).siblings("").removeClass("activee");
+        if($(this).index()==1){
+            $(".b-se_l").addClass("hidden")
+            $(".b-se_k").removeClass("hidden");
+            $(".b-se").eq(1).addClass("hidden");
+
+            $(".messamge").addClass("hidden");
+            $(".list_lh").addClass("hidden");
+
+
+        }else  if($(this).index()==0){
+            $(".b-se_k").addClass("hidden")
+            $(".b-se_l").removeClass("hidden");
+
+            $(".messamge").removeClass("hidden");
+            $(".list_lh").removeClass("hidden");
+
+        }
+    });
+    $("#xiugai").click(function () {
+        $(".b-se").eq(0).addClass("hidden");
+        $(".b-se").eq(1).removeClass("hidden");
+
+    });
+    $("#quxiao").click(function () {
+        $(".b-se").eq(1).addClass("hidden");
+        $(".b-se").eq(0).removeClass("hidden");
+
+    });
+    $(".b_a img").css("width", "20px");
+    $(document).ready(function() {
+        $('#demoa').ajaxForm({
+            success: complete, // 这是提交后的方法
+            dataType: 'json',
+            beforeSubmit:function () {
+                var op={icon:2,time:1500,shade: 0.1,shade:0};
+                if( '' == $.trim($('#contac').val())){
+                    alertmsg.msgk("contac","请填写用户名");
+                    return false;
+                }
+                if( '' == $.trim($('#contacs').val())){
+                    alertmsg.msgk("contacs","请填写真实姓名");
+                    return false;
+                }
+                if( '' == $.trim($('#province10').val())){
+                    alertmsg.msgk("province10","请填写所在地区省");
+                    return false;
+                }
+                if( '' == $.trim($('#city10').val())){
+                    alertmsg.msgk("city10","请填写所在地区市");
+                    return false;
+                }
+                if( '' == $.trim($('#district10').val())){
+                    alertmsg.msgk("district10","请填写所在地区区");
+                    return false;
+                }
+
+                if( '' == $.trim($('#location_ext').val())){
+                    alertmsg.msgk("location_ext","请填写服务地区省");
+                    return false;
+                }
+                if( '' == $.trim($('#location_ext1').val())){
+                    alertmsg.msgk("location_ext1","请填写服务地区市");
+                    return false;
+                }
+                if( '' == $.trim($('#number_of').val())){
+                    alertmsg.msgk("number_of","请填写员工人数");
+                    return false;
+                }
+            }
+        });
+        function complete(data){
+            if(data.code==200){
+               parent.layer.msg(data.msg, {icon: 6,time:1500}, function(index){
+                    $(".b-se").eq(1).addClass("hidden");
+                    $(".b-se").eq(0).removeClass("hidden");
+                    window.location.reload(true);
+                });
+            }else{
+                parent.layer.msg(data.msg, {icon: 5,time:1500});
+                return false;
+            }
+        }
+    });
+
+</script>

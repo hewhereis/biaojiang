@@ -1,0 +1,568 @@
+<!--nav-->
+{include file="public/header" }
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style>
+    .The-test-panel-body .row{
+        padding-left: 10px;
+    }
+</style>
+<form id="myForm" class="" method="post" action="">
+    <!--main-->
+    <div class="main install_order_details">
+        <!--/*主题*/-->
+        <div class="container pl-0_media pr-0-media">
+            <h5 class="page-header bx">
+                <span class=pl-10>当前位置：</span>
+                <small>安装下单页面详情</small>
+                <span>>></span>
+            </h5>
+        </div>
+        <div class="container ">
+            <!--/*标题*/-->
+            <div class="The-test-panel-head">
+                <div class="pl-20">
+                    安装下单页面详情
+                </div>
+            </div>
+            <div class="The-test-panel-body pl-0">
+                        <div class="row form-group">
+                            <!--服务类别-->
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <label class="col-sm-3 col-xs-5">服务类别</label>
+                                    <div class="col-sm-8 col-xs-7">
+                                        <input type="text" id="maintain"  disabled  class="form-control" value="安装">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--预约开始时间-->
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <label for="input_date" class="col-sm-3 col-xs-5">预约施工时间</label>
+                                    <div class="col-sm-8 col-xs-7">
+                                        <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                            <input onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD'})" size="16" type="text" class="form-control" id="form_datetime" value="{$a['start_at']}" name="input_date">
+                                            <span class="add-on"><i class="icon-remove"></i></span>
+                                            <span class="add-on"><i class="icon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row hidden">
+                                    <div class="col-md-10 mt-5 mb-10 text-center text-orange ">
+                                        预约时间不能为空
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <!--服务大类-->
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <label class="col-sm-3 col-xs-5">商品大类</label>
+                                    <div class="col-sm-8 col-xs-7">
+                                        <select class="form-control" disabled id="product_categories" lai-ignore name="product_categories" id="product_categories">
+                                            <option value="{$a['category']}">{$co1}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <label class="col-sm-3 col-xs-5">商品小类</label>
+                                    <div class="col-sm-8 col-xs-7">
+                                        <select class="form-control " disabled lai-ignore name="product_categories1" id="product_categories1">
+                                            <option value="{$a['commodity']}">{$co2}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                <div class="row form-group">
+                    <!--服务大类-->
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <label class="col-sm-3 col-xs-5">品牌</label>
+                            <div class="col-sm-8 col-xs-7">
+                                <input type="text" disabled value="{$a.brand}" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                        <?php if($a['pre_trans']==1){?>
+                        <div class="row pl-20 pt-10">
+                            <div class="col-sm-2 col-xs-12 mb-10">
+                                <div class="checkbox checkbox-success">
+                                    <input checked id="de" type="checkbox">
+                                    <label for="de">需先行发货 {$a['trans_address']}</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-10 col-xs-12">
+                                <div class=" row">
+                                    <label class="col-sm-4 col-md-2  col-xs-12 mt-10" for="">提货地址</label>
+                                    <div class="col-sm-8 col-md-8 col-xs-12" >
+                                        <div id="" class="row">
+                                            <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                                                <label class="sr-only" for="province">Province</label>
+												<input type="text" value="{$a['trans_address']}" class="form-control" name="" >  
+                                            </div>
+                                            <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                                                <label class="sr-only" for="city">City</label>
+												<input type="text" value="{$a['trans_addressb']}" class="form-control" name="" >
+                                                
+                                            </div>
+                                            <div class="form-group col-xs-6 col-sm-6 col-md-3">
+                                                <label class="sr-only" for="district">District</label>
+												<input type="text" value="{$a['trans_addressa']}" class="form-control" name="" >
+                                            </div>
+                                            <div class="form-group col-xs-12 col-md-3 col-sm-12">
+                                                <input type="text" value="{$a['trans_addressc']}" class="form-control" name="" placeholder="请详细填写提货地址">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        
+                        <div class="row pt-10 pl-20">
+                         <?php if($a['pre_survey']==1){ ?>
+                            <div class="col-sm-2">
+                                <div class="checkbox checkbox-success">
+                                    <input checked type="checkbox" name="installation[pre_survey]"  id="pre_survey" lay-skin="primary" lay-verify="pre_survey" lay-filter="pre_survey" value="" title="是否有前置勘测单">
+                                    <label for="pre_survey">是否有前置勘测单</label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <label class="col-sm-3 col-xs-4 mt-10" for="">勘测单号</label>
+                                    <div class="col-sm-8 col-xs-8">
+                                        <input type="text"  value="{$a['pre_survey_num']}" id="there_is_a_pre_survey " name="there_is_a_pre_survey" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        <?php }?>
+                        </div>
+                    <div class="border-bottom-1"></div>
+                    <div class="row pl-20 pt-10">
+                        <div class="col-md-3 col-xs-12 col-sm-4">
+                            安装模式
+                        </div>
+                        <?php if($a['assistance_mode']==1){?>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="hidden" value="$a['assistance_mode']">
+                                <input type="radio"  checked name="Turnkey_mode" id="Turnkey_mode">
+                                <label for="Turnkey_mode">全包模式</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="radio"  name="assistance_mode" id="assistance_mode">
+                                <label for="assistance_mode">
+                                    协助模式
+                                </label>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <?php if($a['assistance_mode']==0){?>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="hidden" value="$a['assistance_mode']">
+                                <input type="radio"   name="Turnkey_mode" id="Turnkey_mode">
+                                <label for="Turnkey_mode">
+                                    全包模式
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="radio" checked  name="assistance_mode" id="assistance_mode">
+                                <label for="assistance_mode">
+                                    协助模式
+                                </label>
+                            </div>
+                        </div>
+                        <?php } ?>
+                    </div>
+
+                    <div class="row pl-20 pt-10">
+                        <div class="col-md-3  col-xs-12 col-sm-4">
+                            物流提货
+                        </div>
+                        <?php if($a['special_delivery']==1){?>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="radio" checked id="less-than-assistance_mode" name="less-than-carload_freight">
+                                <label for="less-than-assistance_mode"">零担</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="radio" name="Special_delivery" id="Special_delivery">
+                                <label for="Special_delivery">专车发货</label>
+                            </div>
+                        </div>
+                        <?php } ?>
+                       <?php if($a['special_delivery']==0){?>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="radio"  id="less-than-assistance_mode" name="less-than-carload_freight">
+                                <label for="assistance_mode">零担</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2 col-xs-6 col-sm-4">
+                            <div class="radio radio-success">
+                                <input type="radio" checked name="Special_delivery" id="Special_delivery">
+                                <label for="Special_delivery">专车发货</label>
+                            </div>
+                        </div>
+                        <?php } ?>
+                </div>
+                <div class="row pl-20 pt-10">
+                    <div class="col-md-3 col-xs-12 col-sm-4">
+                        是否需要师傅自带板车
+                    </div>
+                    <?php if($a['self_car']==1){?>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input id="s_shi" checked name="s" type="radio">
+                            <label for="s_shi">是</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input id="s_fou" name="s" type="radio">
+                            <label for="s_fou">否</label>
+                        </div>
+
+                    </div>
+                    <?php } ?>
+                    <?php if($a['self_car']==0){?>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input id="s_shi"  name="s" type="radio">
+                            <label for="s_shi">是</label>
+                        </div>
+
+                    </div>
+                    <div  class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input id="s_fou " checked name="s" type="radio">
+                            <label for="s_fou">否</label>
+                        </div>
+
+                    </div>
+                    <?php } ?>
+                </div>
+                <div class="row  pl-20 pt-10">
+                    <div class="col-md-3 col-xs-12 col-sm-4">
+                        是否需要师傅
+                        代缴工程押金
+                    </div>
+                    <?php if($a['self_deposit']==1){?>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="y" checked id="y_shi" type="radio">
+                            <label for="y_shi">是</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="y" id="y_fou" type="radio">
+                            <label for="y_fou">否</label>
+                        </div>
+
+                    </div>
+                    <?php } ?>
+                    <?php if($a['self_deposit']==0){?>
+
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="y"  id="y_shi" type="radio">
+                            <label for="y_shi">是</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="y" checked id="y_fou" type="radio">
+                            <label for="y_fou">否</label>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+                <div class="border-bottom-1 mb-20 mt-10"></div>
+                <?php if($a['assistance_mode']==0){?>
+                <div class="row pl-20 pb-30">
+                    <div class="col-md-2 col-xs-12 mt-90_sm mt-30_s col-sm-2 ">
+                        安装人员
+                    </div>
+                    <div class="col-sm-10 col-xs-12 line-height-30">
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="col-md-3 mt-10" for="woodworking">
+                                    木工
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control" value="{$a['woodworking']}" name="woodworking" id="woodworking" placeholder="位" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="col-md-3 mt-10" for="electrician">
+                                    电工
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control" value="{$a['electrician']}" id="electrician" name="electrician" placeholder="位" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="col-md-3 mt-10" for="brick_layer">
+                                    瓦工
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control" value="{$a['brick_layer']}" name="brick_layer" id="brick_layer" placeholder="位" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="col-md-3 mt-10" for="Oiler">
+                                    油工
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control" value="{$a['oiler']}" id="Oiler" name="Oiler" placeholder="位" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="col-md-3 mt-10" for="hamal">
+                                    搬运工
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control" value="{$a['hamal']}" name="hamal" id="hamal" placeholder="位" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-xs-6">
+                                <label class="col-md-3 mt-10" for="reslt">
+                                    其他
+                                </label>
+                                <div class="col-md-8">
+                                    <input class="form-control" value="{$a['reslt']}" name="reslt" id="reslt" placeholder="位" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-bottom-1 mt-10"></div>
+                <?php } ?>
+                <div class="row pl-20" >
+                    <div class="mb-10 col-xs-12">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-12">
+                                安装进度计划表(图)
+                            </div>
+                            <?php if($a['Up']){ ?>
+                            <div class="col-sm-4 col-xs-6">
+                                <a href= "__DsQINiu__{$a.Up}"   target="_blank"  style="background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;" class="text-blue" id="">查看并保存</a>
+                            </div>
+                           
+                            <?php }elseif($a['Up']==0){ ?>
+                           <div class="col-sm-4 col-xs-6">
+                                <a href= "javascript:;" num="0" class="text-blue" id="There_is_no_schedule">无计划表</a>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class="mb-10 col-xs-12" >
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3">
+                                安装图纸(图)
+                            </div>
+                            <?php if($a['drawings']){ ?>
+                            <div class="col-xs-6 col-sm-4">
+                              
+								 <a href= "__DsQINiu__{$a.drawings}"   target="_blank"  style="background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;" class="text-blue" id="">查看并保存</a>
+                            </div>
+                           
+                            <?php }elseif($a['drawings']==0){ ?>
+                            <div class="col-xs-6 col-sm-4">
+                                <a href= "javascript:;" num="0" class="text-blue">无图纸</a>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <div class=" mb-10 col-xs-12 mt-10">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3">
+                                安装验收单(图)
+                            </div>
+							  <div class="col-xs-6 col-sm-4">
+                            <?php if($a['check_list']){ ?>
+                           
+							<a href= "__DsQINiu__{$a.check_list}"   target="_blank"  style="background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;" class="text-blue" id="">查看并保存</a>
+                             </div>
+                            
+                            <?php }elseif($a['check_list']==0){ ?>
+							
+                                <a href= "javascript:;" num="0" class=" text-blue">无验收单</a>
+                            
+                            <?php } ?>
+                        </div>
+                    </div>
+					
+                </div>
+               
+                <div class="row  pl-20 pt-20">
+                    <div class="col-md-3 col-xs-12 col-sm-4">
+                        完工后垃圾处理方式
+                    </div>
+                    <?php if($a['self_trash']==1){?>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="c" checked id="c_shi" type="radio">
+                            <label for="c_shi">商场处理</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="c" id="c_fou" type="radio">
+                            <label for="c_fou">师傅处理</label>
+                        </div>
+                    </div>
+                    <?php } ?>
+                    <?php if($a['self_trash']==0){?>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="c" id="c_shi" type="radio">
+                            <label for="c_shi">商场处理</label>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 col-xs-6 col-sm-4">
+                        <div class="radio radio-success">
+                            <input name="c" checked id="c_fou" type="radio">
+                            <label for="c_fou">师傅处理</label>
+                        </div>
+
+                    </div>
+                    <?php } ?>
+                </div>
+                <div class="row pb-20   Increase_the_project_titlemb-10">
+                    <!--商场办证-->
+                    <div class="col-md-12 col-sm-12 mb-20 ">
+                        <div class="row">
+                            <div class="col-md-1 " style="margin-top:1%">离场办证</div>
+                            <?php if($a['departure_card']==1){?>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="master_worker" value="1" checked name="departure_card" checked>
+                                    <label for="master_worker">师傅代办</label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="clientele"  value="2"  name="departure_card">
+                                    <label for="clientele">客户办理</label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="do_without" value="3"  name="departure_card">
+                                    <label for="do_without">不需要办证</label>
+                                </div>
+
+                            </div>
+                            <?php } ?>
+                            <?php if($a['departure_card']==2){?>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="master_worker" value="1"  name="departure_card" >
+                                    <label for="master_worker">师傅代办</label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="clientele"  value="2" checked name="departure_card" checked>
+                                    <label for="clientele">客户办理</label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="do_without" value="3"  name="departure_card">
+                                    <label for="do_without">不需要办证</label>
+                                </div>
+
+                            </div>
+                            <?php } ?>
+                            <?php if($a['departure_card']==3){?>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="master_worker" value="1"  name="departure_card" >
+                                    <label for="master_worker">师傅代办</label>
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="clientele"  value="2"  name="departure_card">
+                                    <label for="clientele">客户办理</label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="radio radio-success">
+                                    <input type="radio" id="do_without" value="3" checked name="departure_card" checked>&nbsp;
+                                    <label for="do_without">不需要办证</label>
+                                </div>
+
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row pb-20 pl-10">
+                <div class="col-md-3 col-sm-4 col-xs-6 col-sm-offset-4 text-center mt-20">
+                    <a href="javascript:;" id="search" class="btn btn-blue form-control border-radius"  onclick="javascript:history.back(-1);">返回</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<script>
+
+    $("input:not(:button)").prop("disabled",true);
+    $("select").prop("disabled",true);
+	 function GetRequest() {
+		var url = location.search; //获取url中"?"符后的字串
+		var theRequest = new Object();
+		if (url.indexOf("?") != -1) {
+			var str = url.substr(1);
+			strs = str.split("&");
+			for(var i = 0; i < strs.length; i ++) {
+				theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+			}
+		}
+		return theRequest;
+	}
+	 var da=GetRequest()
+	 if(da.dd==2){
+		$("#search").hide();
+	}
+</script>
+{include file="public/footer" }

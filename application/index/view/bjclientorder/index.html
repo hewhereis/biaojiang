@@ -1,0 +1,62 @@
+<!--下单流程-->
+{include file="public/header" }
+<!--main-->
+<div class="main Bjclientorder " >
+    <div style="background: #ffffff" class="container">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>关于我们</small><span>>></span>
+        </h5>
+    <div class="row">
+        <div class="col-xs-12 text-center" >
+            <div class="po">
+
+                <img src="__PUBLIC__static/index/images/bjclie_1.png" alt="">
+                <ul class="ukl">
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="">
+                <ul class="uk">
+                    <li class="show">
+                        <img src="__PUBLIC__static/index/images/a_1.jpg" class="img-responsive " style="width: 60%;margin: 0 auto" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<style>
+    /*下单流程*/
+    #bs-example-navbar-collapse-1>ul>li:nth-child(4)>a{
+        color: #ff5200;
+    }
+</style>
+<script>
+    $(".ukl>li").click(function () {
+        var limg=$(".uk>li").find('img').attr('src');
+        var m=limg.split("a_")[1].split(".")[0];
+        m=$(this).index()+1;
+        m="_"+m+".";
+       var src=limg.split("_")[0].concat(m).concat(limg.split("a_")[1].split(".")[1]);
+        $(".uk>li").find('img').attr('src',src);
+       var uimg=$(this).parent().siblings("img").attr("src").split(".")[0].split("_")[1];
+        uimg=$(this).index()+1;
+        uimg="__PUBLIC__static/index/images/bjclie_"+uimg+".png";
+        $(this).parent().siblings("img").attr("src",uimg)
+    });
+</script>
+{include file="public/footer" }

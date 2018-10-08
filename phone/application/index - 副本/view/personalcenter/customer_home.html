@@ -1,0 +1,201 @@
+{include file='public/headerblack'}
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+    <div class="ClientCenter">
+        <div class="CenterTop">
+            <div class="centerTopLeft">
+                <div class="photo">
+                    <img src="__DsQINiu__{$customer['img']}"  onerror="this.src='__PUBLIC__static/index/images/tuyi.png'" alt="" width="60" height="60">
+                </div>
+            </div>
+            <div class="centerTopRight">
+                <div class="userName">
+                    <span>{$customer['username']}</span>
+                </div>
+               <div class="userPhone">
+                    <span>{$customer['phone']}</span>
+                </div>
+                <div class="editInfo">
+                    <a href="__PUBLIC__cus_information">
+                        <span>资料</span>
+                        <i class='icon-keyboard_arrow_right'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="centerMenu">
+            <div class="centerMenuTab">
+                <a href="__PUBLIC__">
+                    <span>快捷下单</span>
+                </a>
+            </div>
+            <div class="centerMenuTab">
+                <a href="">
+                    <span>商城购物</span>
+                </a>
+            </div>
+        </div>
+        <div class="centerMenuList">
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/purse@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>我的钱包</span>
+                            </div>
+                            <div class="centerMenuList-item-info-right">
+                                <span>提现，余额，收入明细</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/bills@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>账单明细</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/evaluate@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>评价管理</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+              
+                <a href="" class="centerMenuList-item">
+                        <div class='centerMenuList-item-Content'>
+                            <div class="centerMenuList-item-photo">
+                                <img src="__indexStatic__images/complaint@2x.png" alt="" width='30' height='30'>
+                            </div>
+                            <div class="centerMenuList-item-info">
+                                <div class="centerMenuList-item-info-left">
+                                    <span>投诉管理</span>
+                                </div>
+                                <i class='icon-keyboard_arrow_right'></i>
+                            </div>
+                        </div>
+                    </a>
+                   
+            </div>
+            <div class="centerMenuListInfo">
+                    <a href="" class="centerMenuList-item">
+                        <div class='centerMenuList-item-Content'>
+                            <div class="centerMenuList-item-photo">
+                                <img src="__indexStatic__images/apply@2x.png" alt="" width='30' height='30'>
+                            </div>
+                            <div class="centerMenuList-item-info">
+                                <div class="centerMenuList-item-info-left">
+                                    <span>申请月结</span>
+                                </div>
+                                <i class='icon-keyboard_arrow_right'></i>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="centerMenuList-item">
+                        <div class='centerMenuList-item-Content'>
+                            <div class="centerMenuList-item-photo">
+                                <img src="__indexStatic__images/bill@2x.png" alt="" width='30' height='30'>
+                            </div>
+                            <div class="centerMenuList-item-info">
+                                <div class="centerMenuList-item-info-left">
+                                    <span>密码管理</span>
+                                </div>
+								 <div class="centerMenuList-item-info-right">
+                                <span>登录，支付，钱包密码</span>
+								</div>
+                                <i class='icon-keyboard_arrow_right'></i>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="" class="centerMenuList-item">
+                            <div class='centerMenuList-item-Content'>
+                                <div class="centerMenuList-item-photo">
+                                    <img src="__indexStatic__images/address@2x.png" alt="" width='30' height='30'>
+                                </div>
+                                <div class="centerMenuList-item-info">
+                                    <div class="centerMenuList-item-info-left">
+                                        <span>地址管理</span>
+                                    </div>
+                                    <i class='icon-keyboard_arrow_right'></i>
+                                </div>
+                            </div>
+                        </a>
+                </div>
+               
+                    <div class="centerMenuListInfo">
+                            <a href="__PUBLIC__logout" class="centerMenuList-item">
+                                <div class='centerMenuList-item-Content'>
+                                    <div class="centerMenuList-item-photo">
+                                        <img src="__indexStatic__images/setting@2x.png" alt="" width='30' height='30'>
+                                    </div>
+                                    <div class="centerMenuList-item-info">
+                                        <div class="centerMenuList-item-info-left">
+                                            <span>退出当前账户</span>
+                                        </div>
+                                        <i class='icon-keyboard_arrow_right'></i>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            
+                        </div>
+        </div>
+    </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {
+        userName: "那年花儿开",
+        userPhoto: "__indexStatic__images/pic_160.png"
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {
+
+        },
+        mounted: function () {}
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function () {
+            return {}
+        }
+    })
+    new Vue({
+        el: '.app',
+        data: data
+    })
+</script>

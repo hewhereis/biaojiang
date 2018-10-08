@@ -1,0 +1,408 @@
+<!--师傅安装确认表-->
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style type="text/css">
+    .webuploader-pick{
+        background: #fff;
+    }
+</style>
+<div class="main">
+    
+    <div class="container pl-0_media pr-0-media " >
+        <h5 class="page-header bx">
+            <span class="pl-10">当前位置：</span>
+            <small>师傅安装确认表</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12 ">师傅安装确认表</div>
+        </div>
+        <form id="fault_details" method="post" action="__PUBLIC__install_img_send">
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12">
+                    <!--客户信息-->
+                    <div class="row  border-bottom-1 ">
+                         <!--店铺联系-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label for="input_date" class="col-sm-3 mt-10">联系人</label>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                        <input size="16" type="text" value="{$orders['contact_name']}" disabled class="form-control" id="store_contact" value="" name="store_contact" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--联系人电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">联系人电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" value="{$orders['contact_phone']}" name="phone_number_of_the_contact" disabled required id="phone_number_of_the_contact" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--项目地址-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">店铺地址</label>
+                                <div class="col-md-9">
+                                    <input type="text" value="{$orders['location_ext']}" name="project_address" disabled required id=" project_address" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工师傅-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工师傅</label>
+                                <div class="col-md-9">
+                                    <input type="text " value="{$orders['real_name']}" name="Construction_of_the_teacher" disabled required id="Construction_of_the_teacher" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--施工联系人-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工师傅电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" value="{$orders['phone']}" name="Construction_contact" disabled id="Construction_contact" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row 1 border-bottom-1">
+                        <div id="zengjia" class="col-md-12  mb-30 mt-20">
+                            <p>
+                                <i class="fa fa-instagram"></i>上传图片
+                            </p>
+                            <div class="row border-bottom-1">
+                                <div class="col-md-2 col-sm-2 mt-30">
+                                    <a href="javascript:;" class="btn border-radius btn-default">门头照片</a>
+                                </div>
+                                <div class="col-md-3 col-sm-3" id="mentou">
+                                    <input type="hidden" name="img3" id="mentouzhaopi" value="{$kens['img3']}">  
+
+                                    <img id="img_data" class="pull-left_on_xs mt-0_xs" onerror="this.src='__PUBLIC__static/index/images/tj.png'"  style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$kens['img3']}"/>
+                                </div>
+                            </div>
+                            <div class="row border-bottom-1 mt-30">
+                                <div class="col-md-2 col-sm-2 mt-30">
+
+                                    <a href="javascript:;" class="btn border-radius btn-default">专柜全景</a>
+                                </div>
+                                <div class="col-md-3 col-sm-3" id="zhuangui">
+                                    <input type="hidden" name="img4" id="zhuanguiquanjin" value="{$kens['img4']}"> 
+                                    <img  onerror="this.src='__PUBLIC__static/index/images/tj.png'" class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$kens['img4']}"/>
+                                </div>
+                            </div>
+                            <div  class="row border-bottom-1 mt-10">
+                                <div class="col-md-2 col-sm-2 mt-30">
+                                    <a href="javascript:;" class="btn border-radius btn-default">安装进度表</a>
+                                </div>
+                                <div class="col-md-4 col-sm-4" id="jindu">
+                                    <input type="hidden" name="img5" id="anzhuangjindubiao" value="{$kens['img5']}">
+                                    <img id="" onerror="this.src='__PUBLIC__static/index/images/tj.png'" class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$kens['img5']}"/>
+                                </div>
+                                <div class="col-md-2 col-sm-2 mt-30">
+
+                                    <a href="javascript:;" class="btn border-radius btn-default">安装签收单</a>
+                                </div>
+                                <div class="col-md-4 col-sm-4" id="qianshou">
+                                    <input type="hidden" name="img6" id="weixiuqianshoudan" value="{$kens['img6']}">
+                                    <img id="" onerror="this.src='__PUBLIC__static/index/images/tj.png'" class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$kens['img6']}"/>
+                                </div>
+                            </div>
+                            
+
+
+                                <?php foreach($ken as $index=>$kenss){ ?>
+                                    <div  class="row   mt-10">
+                                        <div class="col-md-2 col-sm-2 mt-30">
+                                            <a href="javascript:;" class="btn border-radius btn-default">安装前</a>
+                                        </div>
+                                        <div class="col-md-4 col-xs-12" id="qian{$index}">
+                                            <input type="hidden" name="img1[]" value="{$kenss['img1']}">
+                                            <img id="" onerror="this.src='__PUBLIC__static/index/images/tj.png'" class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$kenss['img1']}"/>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 mt-30">
+                                            <a href="javascript:;"  class="btn border-radius btn-default">安装后</a>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4" id="huo{$index}">
+                                            <input type="hidden" name="img2[]" value="{$kenss['img2']}">
+                                            <img id="" onerror="this.src='__PUBLIC__static/index/images/tj.png'" class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$kenss['img2']}"/>
+                                        </div>
+                                    </div>
+                                    <div class="row border-bottom-1 pb-10">
+                                        <div class="col-md-10 col-xs-9 col-sm-9">
+                                            <input type="text" value="{$kenss['text']}" placeholder="请详细描述故障详情" name="text[]" class="form-control  mt-30 pr-30">
+                                        </div>
+                                        <div class="col-md-2 col-xs-3 mt-40 col-sm-3">
+                                        	<?php if(empty($kens['is_ok'])){ ?>
+                                        	<?php if($index+1==$count){ ?>
+                                            <i id="" class="fa miaoxie fa-plus-square" aria-hidden="true"></i>
+                                             <?php }else{ ?>
+                                             <i id="" class="fa miaoxie_s fa-minus-square-o" aria-hidden="true"></i>
+                                              <?php } ?>
+                                              <?php } ?>
+                                        </div>
+                                    </div>
+
+                                <?php }?>
+                                
+                        </div>
+                    </div>
+                     <?php if(!empty($kens['is_ok'])){ ?>
+                    <div class="row mt-30">
+                        <div class="col-md-2 col-xs-6 col-sm-2">
+                            <a href="javascript:;" class="btn border-radius btn-default">客户签字</a>
+                        </div>
+                        <div class="col-md-4 col-xs-6 col-sm-4">
+                            <img id=""  class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__PUBLIC__public/{$kens['img7']}"/>
+                        </div>
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <a href="javascript:;" class="btn border-radius btn-default">服务确认证码</a>
+                        </div>
+                        <div class="col-md-4 mt-10-media_xs col-xs-6 col-sm-4">
+                            <input type="text" value="" name="querenma" id="yanzengm"  class="form-control border-radius">
+                        </div>
+                    </div>
+                      <?php } ?>
+                    <!--提交按钮-->
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center  mt-20">
+                            <button  class="btn border-radius btn-success form-control">确认</button>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div> 
+            
+            <input type="hidden"  name="order_number" value="{$order}">
+            <input type="hidden" id="is_ok" name="is_ok" value="{$kens['is_ok']}">
+            <input type="hidden" id="link" name="link" value="__PUBLIC__kehuqurenbiao/{$order}">
+            
+        </form>
+    </div>
+</div>
+<script>
+
+
+    $(function () {
+    	var i={$count};
+        var is_ok={$is_ok};	
+        if(is_ok==""){
+//        门头照片
+        WebUploader.create({
+            auto: true,// 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+            duplicate: true,// 重复上传图片，true为可重复false为不可重复
+            pick: '#mentou',// 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function (file, data, response) {
+                $("#mentou").find("input[type=hidden]").val(data._raw);
+                $("#mentou").find("img").attr("src","__DsQINiu__"+data._raw);
+            },
+        });
+
+//        专柜全景
+        WebUploader.create({
+            auto: true,// 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+            duplicate: true,// 重复上传图片，true为可重复false为不可重复
+            pick: '#zhuangui',// 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function (file, data, response) {
+                $("#zhuangui").find("input[type=hidden]").val(data._raw);
+                $("#zhuangui").find("img").attr("src","__DsQINiu__"+data._raw);
+            },
+        });
+
+//        安装进度表
+        WebUploader.create({
+            auto: true,// 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+            duplicate: true,// 重复上传图片，true为可重复false为不可重复
+            pick: '#jindu',// 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function (file, data, response) {
+                $("#jindu").find("input[type=hidden]").val(data._raw);
+                $("#jindu").find("img").attr("src","__DsQINiu__"+data._raw);
+            },
+        });
+
+//        签收单
+        WebUploader.create({
+            auto: true,// 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+            duplicate: true,// 重复上传图片，true为可重复false为不可重复
+            pick: '#qianshou',// 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function (file, data, response) {
+                $("#qianshou").find("input[type=hidden]").val(data._raw);
+                $("#qianshou").find("img").attr("src","__DsQINiu__"+data._raw);
+            },
+        });
+//--------------------------------------------------
+        //        增加维修前 和维修后
+        var template=function (i) {
+            //        安装前
+            WebUploader.create({
+                auto: true,// 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+                duplicate: true,// 重复上传图片，true为可重复false为不可重复
+                pick: '#qian'+i,// 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function (file, data, response) {
+                    $("#qian"+i).find("img").attr("src","__DsQINiu__"+data._raw);
+                    $("#qian"+i).find("input[type=hidden]").val(data._raw);
+                },
+            });
+//        安装后
+            WebUploader.create({
+                auto: true,// 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+                duplicate: true,// 重复上传图片，true为可重复false为不可重复
+                pick: '#huo'+i,// 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function (file, data, response) {
+                    $("#huo"+i).find("img").attr("src","__DsQINiu__"+data._raw);
+                    $("#huo"+i).find("input[type=hidden]").val(data._raw);
+                },
+            });
+        }
+        
+       
+        var increase=function () {
+            var html='{include file="coaming/sel" }';
+            html=html.replace(/qian/g,"qian"+i);
+            html=html.replace(/huo/g,"huo"+i);
+            $("#zengjia").append(html);
+            template(i);
+            i++;
+        }
+        if(i){
+			
+        }else{
+        	if(is_ok==""){
+
+        		increase()
+        	}
+        	
+        }
+        
+        $("#zengjia").on("click",".miaoxie",function () {
+            increase();
+            $(this).removeClass("miaoxie");
+            $(this).addClass("miaoxie_s"); 
+            $(this).addClass("fa-minus-square-o");  
+            $(this).removeClass("fa-plus-square");
+        })
+        for(var k=0;k<i+1;k++){
+            template(k);
+            }
+            }
+    });
+
+    //----------------------------------------
+    //删除
+    $("#zengjia").on("click",".miaoxie_s",function () {
+        $(this).parent().parent().prev().remove();
+
+        $(this).parent().parent().remove()
+    })
+
+    // ----------------------------------------------------
+    //请求数据 发送数据
+    $('#fault_details').ajaxForm({
+        beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+        success: complete, // 这是提交后的方法
+        dataType: 'json'
+    });
+
+    // 发送数据 提交前
+    function   checkForm(){
+           if ('' == $.trim($('#mentouzhaopi').val())) {
+                msg("请上传门头照片",2);
+                return false;  
+            }
+            if ('' == $.trim($('#zhuanguiquanjin').val())) {
+                msg("请上传专柜全景",2);
+                return false;  
+            }
+            if ('' == $.trim($('#anzhuangjindubiao').val())) {
+                msg("请上传安装进度表",2);
+                return false;  
+            }
+            if ('' == $.trim($('#weixiuqianshoudan').val())) {
+                msg("请上传安装签收单",2);
+                return false;  
+            }
+            if($("#is_ok").val()==1){
+            if ('' == $.trim($('#yanzengm').val())) {
+                msg("请填写服务确证码",2);
+                return false;  
+            }
+
+            }
+             
+            
+
+    }
+
+    // 发送数据 提交后
+
+    function   complete(data){
+
+        if(data.code==200){
+                msg(data.msg,1)
+                window.location.href="__PUBLIC__orders/master";
+
+        }else if(data.code==201){
+                msg(data.msg,2)
+        }
+    }
+   
+
+    //
+</script>
+
+{include file="public/footer" }

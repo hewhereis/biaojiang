@@ -1,0 +1,168 @@
+<{include file="frontend/header.html" }>
+ 
+    <!--header end-->
+    <!--main-->
+    <div class='main'>
+        <div class='container'>
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>信息登记</small><span>>></span>
+            </h5>
+            <div class="col-sm-8 col-sm-offset-2">
+                <form class='form-horizontal' id='form' method='get' enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for='brand' class='control-label col-md-2 col-xs-3'>品牌</label>
+                        <div class='col-md-10 col-xs-9'>
+                            <input type="text" name="brand" id="brand" class='form-control' value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for='tag' class='control-label col-md-2 col-xs-3'>标签(备注)</label>
+                        <div class='col-md-10 col-xs-9'>
+                            <input type="text" name="tag" id="tag" class='form-control' value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for='referrer' class='control-label col-md-2 col-xs-3'>邀请人手机号</label>
+                        <div class='col-md-10 col-xs-9'>
+                            <input type="text" name="referrer" id="referrer" class='form-control' value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for='tag' class='control-label col-md-3 col-xs-12 mb-10'>店铺地址</label>
+                        <div class='col-md-2 col-xs-12 col-md-offset-1 mb-10'>
+                            <select name='province_id' id='province' class='form-control'></select>
+                        </div>
+                        <div class='col-md-2 col-xs-12 hide'>
+                            <select name='city_id' id='city' class='form-control mb-10'></select>
+                        </div>
+                        <div class='col-md-2 col-xs-12 hide'>
+                            <select name='country_id' id='country' class='form-control mb-10'></select>
+                        </div>
+                        <div class='col-md-2 col-xs-12 hide'>
+                            <select name='town_id' id='town' class='form-control mb-10'></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for='location_ext' class='control-label col-md-2 col-xs-3'>详细地址</label>
+                        <div class='col-md-10 col-xs-9'>
+                            <input type="text" name="location_ext" id="location_ext" class='form-control' value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <div class='col-sm-2 col-xs-5'>
+                        <label for='idImg' class='control-label btn btn-primary mb-10'><i class='glyphicon glyphicon-plus'></i>品牌LOGO</label>
+                        </div>
+                        <div class='col-sm-10 col-xs-12'>
+                            <input type="file" accept="image/*" class=' fileInput o1 hide' id="idImg" value="" />
+                            <input type="hidden" name="brand_logo" class='hide idImg1' value="" />
+                            <div class='ajax-response1'></div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='pull-right'>
+                            <button class='btn btn-orange btn-sm' type='button'>提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--main end-->
+    <!-- ===============================================
+	============== Page Specific Scripts ===============
+	================================================ -->
+    <script>
+    jQuery(document).ready(function($) {
+        $('#form').bootstrapValidator({
+            message: '这个值是无效的.',
+            feedbackIcons: { /*input状态样式图片*/
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                brand: {
+                    message: '真实姓名!',
+                    validators: {
+                        notEmpty: {
+                            message: '真实姓名不能为空！'
+                        },
+                        stringLength: {
+                            min: 2,
+                            message: '真实姓名不能为空必须大于2位！',
+                        },
+                    }
+                },
+                cert_id: {
+                    message: '身份证!',
+                    validators: {
+                        notEmpty: {
+                            message: '身份证不能为空！'
+                        },
+                        stringLength: {
+                            min: 15,
+                            max: 18,
+                            message: '身份证号必须是15到18位！',
+                        },
+                        regexp: {
+                            regexp: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+                            message: '身份证格式不正确！'
+                        }
+                    },
+                },
+                credit_card: {
+                    message: '银行卡号!',
+                    validators: {
+                        notEmpty: {
+                            message: '银行卡号不能为空！'
+                        },
+                        regexp: {
+                            regexp: /^(\d{16}|\d{19})$/,
+                            message: '银行卡号格式不正确',
+                        },
+                    },
+                },
+                credit_card_phone: {
+                    message: '手机验证失败!',
+                    validators: {
+                        notEmpty: {
+                            message: '手机不能为空！'
+                        },
+                        stringLength: {
+                            min: 11,
+                            max: 11,
+                            message: '手机长度必须是11位！',
+                        },
+                        regexp: {
+                            regexp: /^1[34578]{1}\d{9}$/,
+                            message: '手机号格式不正确！'
+                        },
+                    },
+                },
+                idImgmust1: {
+                    validators: {
+                        notEmpty: {
+                            message: '请上传身份证图片！！'
+                        }
+                    }
+                },
+                acceptTerms: {
+                    validators: {
+                        notEmpty: {
+                            message: ' '
+                        }
+                    }
+                },
+
+            }
+        });
+        img("o1");//上传图片
+        linkageLocations('province'); // 4级联动省级
+        linkageChange('province','city',2);// 市级
+        linkageChange('city','country',3);// 县级
+        linkageChange('country','town',4);// 镇级
+    });
+    </script>
+    <!--/ Page Specific Scripts -->
+    <{include file="frontend/footer.html" }>

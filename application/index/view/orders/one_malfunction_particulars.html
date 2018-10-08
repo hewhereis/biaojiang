@@ -1,0 +1,233 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main fault_details">
+    <!--/*主题*/-->
+    <div class="container " >
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>单个故障详情</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <div class="container ml-10_media mr-10_media ">
+        <!--/*标题*/-->
+        <form action="" id="one_malfunction_particulars">
+            <div class="row The-test-panel-head">
+                <div class="col-xs-6 ">
+                    单个故障详情
+                </div>
+                <div class="col-xs-6 text-right">
+                    订单号{$data['order_number']}
+                </div>
+            </div>
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12">
+                    <!--服务类别-->
+                    <div  class="row 1 ">
+                        <!--服务类别-->
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-2 mt-10">服务类别</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="maintain" disabled required class="form-control" value="维修">
+                                </div>
+                            </div>
+                        </div>
+                        <!--品牌-->
+                        <div class="col-md-6">
+                            <div class="form-group mb-5 row">
+                                <label class="col-md-2 mt-10 mb-10">品牌</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="" disabled required name="" class="form-control mb-10" value="{$data.brand}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--服务大类-->
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-2 mt-10">商品大类</label>
+                                <div class="col-md-6">
+                                    <select  class="form-control" name="product_categories" id="product_categories">
+                                        <option value="0">{$res1['name']}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row hidden mt-0">
+                                <div class="col-md-10 mb-10 mt-5 text-center text-orange">商品大类必须选择一个</div>
+                            </div>
+                        </div>
+
+                        <!--商品型号-->
+                        <div class="col-md-6">
+                            <div class="form-group mb-5 row">
+                                <label class="col-md-2 mt-10 mb-10">商品型号</label>
+                                <div class="col-md-3">
+                                    <input type="text" id="marwqquey" disabled required name="marwqquey" class="form-control mb-10" value="{$data['type']}">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <input type="text" id="" disabled  name="" class="form-control" value="{$data['qty']}">
+                                </div>
+                                <div class="col-md-1">
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row border-bottom-1">
+                        <!--服务类-->
+                        <div class="col-md-6">
+                            <div class="form-group mb-5 row">
+                                <label class="col-md-2 mt-10">商品小类</label>
+                                <div class="col-md-6">
+                                    <select class="form-control mb-10" name="" id="product_categoriesx_xiao">
+                                        <option value="0" >{$res2['name']}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row hidden ">
+                                <div class="col-md-10 mb-10 text-center text-orange ">商品小类必须选择一个</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--故障详情复选-->
+                    <div class="row 1 border-bottom-1 line-height-30">
+                        <!--故障详情-->
+                        <div class="col-md-3 mb-10 ml-40 mt-20">
+                            <div class="btn btn-default">故障概述</div>
+                        </div>
+                        <div class="col-md-8  ml-10 mt-20">
+                            <div class="row form-group">
+
+                                <?php foreach($arr as $vo){?>
+                                <div class="col-md-4">
+                                    <input checked disabled required type="checkbox" id="site_survey_measurement">{$vo['name']}
+                                </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!--故障描述-->
+
+                    <div class="row mt-20 l_lin">
+                        <div class="col-sm-3 ">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-8 mb-10">
+                                    <input type="text" class="form-control" disabled required value="{$data.img_describe}">
+                                </div>
+                                <div class="col-md-12 col-xs-8" id="imgPickerz1">
+                                    <input type="hidden" id="data_photoz1" name="bimg[]">
+                                    <img src="__DsQINiu__{$data.photo_trouble_position}" id="img_dataz1" class="mt-0_xs" onerror="this.src='__PUBLIC__static/index/images/zhenxiang.png'"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-sm-3">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-8 mb-10">
+                                    <input type="text" class="form-control" disabled required value="{$data.img_describe2}">
+                                </div>
+                                <div class="col-md-12 col-xs-8" id="imgPickerz2">
+                                    <input type="hidden" id="data_photoz2" name="cimg[]">
+                                    <img src="__DsQINiu__{$data.photo_trouble_detail1}" id="img_dataz2" class="mt-0_xs" onerror="this.src='__PUBLIC__static/index/images/zhenxiang.png'"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-sm-12 mb-10 col-xs-8">
+                                    <input type="text" class="form-control" disabled required value="{$data.img_describe3}">
+                                </div>
+                                <div class="col-md-12 col-xs-8" id="imgPickerz3">
+                                    <input type="hidden" id="data_photoz3" name="dimg[]">
+                                    <img src="__DsQINiu__{$data.photo_trouble_detail2}" id="img_dataz3" class="mt-0_xs" onerror="this.src='__PUBLIC__static/index/images/zhenxiang.png'"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row border-bottom-1 mb-10 pb-30  l_lin mt-30" >
+                        <!--故障描述-->
+                        <label class="col-md-2 col-md-offset-1 col-xs-4 ">故障详情描述</label>
+                        <div class="col-md-8 col-xs-8">
+                            <input id="malfunction2" disabled placeholder="请详细描述你的故障详细" type="text" class="form-control" name="malfunction[]" value="{$data['trouble_description']}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--离职办证-->
+                        <div class="col-md-12 mb-20 pl-20">
+                            <div class="row">
+                                <div class="col-md-1 ">商场办证</div>
+                                <?php if($data['departure_permit']==1){?>
+                                <div class="col-md-2"><input type="radio" id="master_worker" value="1" checked name="departure_card" checked>&nbsp;&nbsp;师傅代办</div>
+
+                                <?php } ?>
+                                <?php if($data['departure_permit']==2){?>
+
+                                <div class="col-md-2"><input type="radio" id="clientele"  value="2" checked name="departure_card" checked>&nbsp;&nbsp;客户办理</div>
+
+                                <?php } ?>
+                                <?php if($data['departure_permit']==3){?>
+
+                                <div class="col-md-2"><input type="radio" id="do_without" value="3" checked name="departure_card" checked>&nbsp;&nbsp;不需要办证</div>
+                                <?php } ?>
+                            </div>
+
+                        </div>
+						
+						<div class="col-md-12 mb-20 pl-20">
+                            <div class="row">
+                                <div class="col-md-1" style="width:10%;">维修验收单</div>
+                                <?php if(empty($data['img_ysd'])):?>
+								无维修验收单
+								<?php else: ?>
+ <a href= "__DsQINiu__{$data.img_ysd}"   target="_blank"  style="background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;" class="text-blue" id="">查看并保存</a>
+								<?php endif;?>
+                              
+                            </div>
+
+                        </div>
+						
+						
+                    </div>
+                </div>
+            </div>
+            <!--按钮-->
+               <div class="row">
+                <div class="col-md-12 text-center mt-10">
+                    <input type="button" id="search" name="Submit" class="btn btn-success" value="返回" onclick="javascript:history.back(-1);">
+                </div>
+                <script>
+                    function GetRequest() {
+                        var url = location.search; //获取url中"?"符后的字串
+                        var theRequest = new Object();
+                        if (url.indexOf("?") != -1) {
+                            var str = url.substr(1);
+                            strs = str.split("&");
+                            for(var i = 0; i < strs.length; i ++) {
+                                theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                            }
+                        }
+                        return theRequest;
+                    }
+                    var da=GetRequest()
+                    if(da.dd==2){
+                        $("#search").hide();
+                    }
+                </script>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div class="controller">
+
+</div>
+
+{include file="public/footer" }

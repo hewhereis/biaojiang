@@ -1,0 +1,145 @@
+{include file="public/header" /}
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <!-- Panel Other -->
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>发票列表</h5>
+        </div>
+        <div class="ibox-content">
+            <!--搜索框开始-->           
+            <div class="row">
+                <div class="col-sm-12">   
+                    <form name="admin_list_sea" class="form-search" method="post" action="{:url('Invoice/invoice_liebiao')}">
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="key" class="form-control" name="key" value="{$val}" placeholder="请输入订单号" />   
+                                <span class="input-group-btn"> 
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> 搜索</button> 
+                                </span>
+                            </div>
+                        </div>
+                    </form>                         
+                </div>
+            </div>
+            <!--搜索框结束-->
+            <div class="hr-line-dashed"></div>
+            <div class="example-wrap">
+                <div class="example">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="long-tr">
+                                <th width="4%">ID</th>
+                                <th width="6%">订单号</th>
+                                <th width="6%">项目名称</th>
+                                <th width="6%">发票类型</th>
+                                <th width="6%">纳税人识别号</th>
+                                <th width="7%">开户银行</th>
+                                <th width="6%">开户账号</th>
+                                <th width="8%">公司注册地址</th>
+                                <th width="8%">公司电话</th>
+                                <th width="9%">发票抬头</th>
+                                <th width="6%">公司营业执照</th>
+                                <th width="6%">纳税人资格证明</th>
+                                <th width="6%">操作</th>
+                            </tr>
+                        </thead>
+                        <script id="list-template" type="text/html">
+                        {{# for(var i=0;i<d.length;i++){  }}
+                            <tr class="long-td">
+                                <td>{{d[i].id}}</td>
+                                <td>{{d[i].order_number}}</td>
+                                <td>{{d[i].service_name}}</td>
+                                <td>{{d[i].invoice_type}}</td>
+                                <td>{{d[i].shibiehao}}</td>
+                                <td>{{d[i].opening_bank}}</td>
+                                <td>{{d[i].opening_account}}</td>  
+                                <td>{{d[i].company_address}}{{d[i].company_xiangxi}}</td>
+                                <td>{{d[i].company_phone}}</td>  
+                                <td>{{d[i].invoice_title}}</td>
+                                    
+                                <td><img src="__DsQINiu__{{d[i].company_img}}" style=" height:80px; weight:80px"></td>   
+                                <td><img src="__DsQINiu__{{d[i].taxpayer_img}}" style=" height:80px; weight:80px"></td>                           
+								<td>                             
+                                    <a class="red" href="javascript:;" onclick="member_status('{{d[i].order_number}}');">
+                                        <div ><span class="label label-info" id="fapiao" >开票</span></div>
+                                    </a>
+                                </td>
+                            </tr>
+                           {{# } }}
+                        </script>
+                        <tbody id="list-content"></tbody>
+                    </table>
+                    <div id="AjaxPage" style=" text-align: right;"></div>
+                    <div id="allpage" style=" text-align: right;"></div>
+                </div>
+            </div>
+            <!-- End Example Pagination -->
+        </div>
+    </div>
+</div>
+<!-- End Panel Other -->
+</div>
+
+<!-- 加载动画 -->
+<div class="spiner-example">
+    <div class="sk-spinner sk-spinner-three-bounce">
+        <div class="sk-bounce1"></div>
+        <div class="sk-bounce2"></div>
+        <div class="sk-bounce3"></div>
+    </div>
+</div>
+
+{include file="public/footer" /}
+
+<script type="text/javascript">
+   //laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr){
+        var key=$('#key').val();
+        $.getJSON('{:url("Invoice/invoice_liebiao")}', {page: curr || 1,key:key}, function(data){
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画 
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+            }else{
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+
+</script>
+<script>
+function member_status(order_number){
+    $.ajax({
+        url:'invoice_liebiao_ajax',
+        data:{order_number:order_number},
+        dataType:'json',
+        type:'post',
+        success:function(data){
+            if(data.code==200){
+                $('#fapiao').html('已开票');
+            }
+        }
+    })
+    
+}
+</script>
+</body>
+</html>

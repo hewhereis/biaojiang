@@ -1,0 +1,102 @@
+
+{include file="public/style_header"}
+<style type="text/css">
+@media screen and (min-width: 992px){
+	#content{
+		margin-top:2em;
+	}
+	#text{
+		padding-left: 4%;
+	}
+	#btn{
+		padding:0.7em 6em;
+		margin-top: 3em;
+		margin-bottom: 33em;
+	}
+}
+@media screen and (max-width: 768px){
+	#btn{
+		padding:0.7em 3em;
+		margin-top: 2em;
+		margin-bottom: 3em;
+		margin-left: 20%;
+	}
+}
+
+</style>
+
+		<div class="panel border-aspx">
+				        <div class="panel-heading bg-orange">
+					        <div class="panel-title">
+					            	设置密码
+					        </div>
+					    </div>
+					    <div class="panel-body ">
+					   <div class="row mb-20" id="content">
+							<div class="col-sm-2 col-xs-6 mt-10" id="text">
+								已验证手机：
+							</div>
+							<div class="col-sm-8 col-xs-12">
+								<input type="text" class="form-control" value="" placeholder="请输入手机号码" id="phone" name="phone">
+							</div>
+						</div>
+				    <!-- 手机验证码 -->
+				       <div class="row mb-20" id="content">
+                <div class="col-sm-2 mt-10" id="text">
+                  生日：
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="请输入生日" name="birth" id="birth" value="">
+                </div>
+              </div>
+					<!-- 钱包密码 -->
+					    <div class="row mb-20" id="content">
+					    	<div class="col-sm-2 mt-10" id="text">
+					    		邮箱：
+					    	</div>
+					    	<div class="col-sm-8">
+					    		<input type="text" class="form-control" placeholder="请输入邮箱" name="email" id="email" value="">
+					    	</div>
+					    </div>
+					<!-- 确认新密码 -->
+					    <div class="row mb-20" id="content">
+					    	<div class="col-sm-2 mt-10" id="text">
+					    		密码：
+					    	</div>
+					    	<div class="col-sm-8">
+					    		<input type="text" class="form-control" placeholder="再次输入新密码" id="password" name="password" value="">
+					    	</div>
+					    </div>
+					    <div class="row mb-20">
+					        <div class="col-sm-4"></div>
+					    	<div class="col-sm-3">
+					    		<button class="btn btn-info border-radius" id="btn" onclick="btn()">确认</button>
+					    	</div>
+					    </div>
+
+					    </div>
+						
+				</div>
+<script>
+ function btn(){
+   var phone = $('#phone').val();
+   var birth = $('#birth').val();
+   var email = $('#email').val();
+   var password = $('#password').val();
+   $.ajax({
+     url:'__PUBLIC__indexss',
+     data:{phone:phone,birth:birth,email:email,password:password},
+     dataType:'json',
+     type:'post',
+     success:function(data){
+        if(data.code==1){
+          alert(data.msg);
+        }else{
+          alert(data.msg);
+        }
+     }
+   })
+ }
+
+</script>
+

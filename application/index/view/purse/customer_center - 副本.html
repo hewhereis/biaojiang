@@ -1,0 +1,314 @@
+{include file="public/header" }
+<div class="main">
+    <div class="container">
+        <div class='container' style='position:relative;'>
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>客户个人中心</small><span>>></span>
+            </h5>
+        <input type="hidden" id="worker_id" value="{$worker_id}">
+        <div class="panel panel-orange">
+            <div class="panel-heading">
+                    客户个人中心
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-3">
+                   <div class='' id='left'>
+                        <span class='btn text-elg text-orange hidden-lg hidden-md' style='' id='menu_btn'>
+                           <i class="fa fa-times hide text-orange" aria-hidden="true"></i>
+                           <i class="fa fa-bars text-orange" aria-hidden="true"></i>
+                        </span>
+                    <div class='row'>
+                     <div class='col-md-12 col-xs-12'>
+                       <ul class="list-group">
+                        <li class="list-group-item bg-orange text-center text-md">
+                            <a href="">我的任务</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">施工管理</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">评价管理</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">投诉管理</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">退款管理</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">分享推荐</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">钱包余额</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">服务保障金</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">钱包密码</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">提现</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">充值</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">基本资料</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">安全设置</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">账号绑定</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">我的消息</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">技能考试</a>
+                        </li>
+                        <li class="list-group-item text-center text-md">
+                            <a href="">学习中心</a>
+                        </li>
+                       </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                <div class="col-md-9">
+                    <div class="panel panel-orange">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                 钱包余额
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <span style="font-size: 1.5em">可用余额（元）</span>
+                            <div class="row">
+                                <div class="col-md-6 mt-10 pl-30">
+                                    <span style="color:#000;font-size: 3em;font-family:Sans-serif ;font-weight: bold">{$balance}</span>
+                                </div>
+                                <div class="col-md-2 mt-10">
+                                    <a class="btn btn-info border-radius" href="__PUBLIC__personal_center_pay" style="padding:0.8em 3.5em">充值</a>
+                                </div>
+                                <!-- <div class="col-md-2 mt-10">
+                                    <a class="btn btn-defalute border-radius" href="__PUBLIC__withdrawals" style="padding:0.8em 3.5em">提现</a>
+                                </div> -->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5 pl-30">
+                                <?php if(empty($guarantee)){?>
+                                    <span>
+                                        含服务保证金0.00元,
+                                        <a href="__PUBLIC__faith_deposit">查看保险金账户></a>
+                                    </span>
+                                    <?php }else{ ?>
+                                       <span>
+                                        含服务保证金{$guarantee}元,
+                                        <a href="__PUBLIC__faith_deposit">查看保险金账户></a>
+                                    </span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <hr>
+                        <!-- 交易记录 -->
+                            <div class="row">
+                                <div class="col-md-5 pl-30">
+                                    <span style="font-size:1.5em">交易记录</span>
+                                </div>
+                            </div>
+                             <hr>
+                        <!-- 交易时间 -->
+                       
+                            <div class="row">
+                                <div class="col-md-2 pt-10 pl-30">
+                                    交易时间：
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" name="start" id="start"  class="form-control" value="" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                                </div>
+                                <div class="col-md-1 text-center">
+                                    <span>——</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" name="end" id="end" class="form-control" value="" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                                </div>
+                            </div>
+                        <!-- 资金流向 -->
+                           <!--  <div class="row mt-20">
+                                <div class="col-md-2 pl-30 pt-10">
+                                    资金流向：
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="button" name="" class="btn form-control border-radius" value="全部">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="button" name="" class="btn form-control border-radius" value="收入">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="button" name="" class="btn form-control border-radius" value="支出">
+                                </div>
+                            </div> -->
+                        <!-- 订单编号 -->
+                            <div class="row mt-20">
+                                <div class="col-md-2 pt-10 pl-30">
+                                    订单编号：
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" name="number" id="number" class="form-control" placeholder ="请输入订单号查询">
+                                </div>
+                                <div class="col-md-2">
+                                <input type="button" value="查询" class="btn btn-info border-radius form-control" id="selects" style="background-color:#5bc0de;color:#fff">
+                                </div>
+                            </div>
+                          <!--   订单 -->
+                            <div class="row mt-30">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th>订单编号</th>
+                                                <th>服务类型</th>
+                                                <th>订单开始时间</th>
+                                                <th>订单结束时间</th>
+                                                <th>交易金额</th>
+                                            </tr>
+                                         <tbody id= "orders">
+                                          
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="row mt-20">
+                                <div class="col-md-12  text-right">
+
+                                         <div id="AjaxPage" style="" text-align: right;"></div>
+            
+                                </div> -->
+                                <!-- <nav aria-label="page navigation"> -->
+                                    <!-- <ul class="pagination">
+                                        <li> -->
+                                            <!-- <a href="#" aria-label="previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a> -->
+                                        <!-- </li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li> -->
+                                         
+                                            <!-- <a href="#" aria-label="next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a> -->
+                                        <!-- </li>
+                                    </ul> -->
+                                <!-- </nav> -->
+                            <!-- </div> -->
+                            <div class="col-md-8 col-md-offset-3 mt-20  hidden-sm  text-right " style="margin-top:1%">
+                                <div id="AjaxPage" style=" text-align: right;"></div>
+
+                            </div>
+                            <div class="row mt-">
+                            
+                                <div class="col-md-10 text-left">
+                                    <button class="btn btn-info border-radius" style="padding:0.4em 3em">
+                                        导出
+                                    </button>
+                                    </div>
+                                
+                            </div>
+
+                        </div> 
+                    </div>
+                </div>
+             </div> 
+             <a id="list-content"></a>
+          </div>        
+    </div>
+</div>
+<script>
+    $('#selects').click(function(){
+      aj();
+    })
+var aj=function (curr) {
+    var start = $('#start').val();
+    var end = $('#end').val();
+    var number = $('#number').val();
+    $.ajax({
+        type:"post",
+        data:{start:start,end:end,number:number,page:curr || 1},
+        url:'__PUBLIC__purse_center',
+        success:function (data) {
+                var allpage = data.allpage;
+                var data= data.order;
+                var html='';
+                if(data==''){
+                    $("#orders").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+                }else{
+                    for (var i in data) {
+                html=html+"<tr><td>"+data[i].order_number+"</td><td>"+data[i].service_type_id+"</td><td>"+data[i].order_time+"</td><td>"+data[i].end_time+"</td><td>"+data[i].amount_engineer+"</td></tr>";
+            }
+            $('#orders').html(html);
+            AjaxPage(curr,allpage);
+             }
+            
+        },
+        error:function (data) {
+            console.log(data)
+        }
+    })
+}
+aj();
+</script>
+<script>
+   //laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr,zo){
+        $.getJSON('__PUBLIC__purse_center', {page: curr || 1}, function(data){      
+          var html='';
+            for (var i in data) {
+                html=html+"<tr><td>"+data[i].order_number+"</td><td>"+data[i].service_type_id+"</td><td>"+data[i].order_time+"</td><td>"+data[i].end_time+"</td><td>"+data[i].amount_engineer+"</td></tr>";
+            }
+            $('#orders').html(html);
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:zo || '{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                          }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            
+        });
+    }
+aj();
+function AjaxPage (curr,zo) {
+     var laypage=layui.laypage;
+     laypage({
+         cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+         pages:zo||'{$allpage}',//总页数
+         skip: true,//是否开启跳页
+         skin: '#1AB5B7',//分页组件颜色
+         curr:curr || 1,
+         groups: 3,//连续显示分页数
+         jump: function(obj, first){
+             $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+             if(!first){
+                 aj(obj.curr);
+             }
+         }
+     });
+ }
+</script>>
+{include file="public/footer"}

@@ -1,0 +1,329 @@
+{include file='public/header'}
+<style>
+#app {
+    width: 100%;
+    height: 100%
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+}
+</style>
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+    <div style='width:100%;height:100%'>
+        <div class='examing'>
+            <div class="examProblem">
+                <div class="ProblemTitle">
+                    <div class="ProblemTitle-tag" v-if="tag==1">
+                        <span class='ProblemTitle-tag multiple'>多选题</span>
+                    </div>
+                    <div class="ProblemTitle-tag" v-if="tag==2">
+                        <span class='ProblemTitle-tag one'>单选题</span>
+                    </div>
+                    <div class="ProblemTitle-tag" v-if="tag==3">
+                        <span class='ProblemTitle-tag pd'>判断题</span>
+                    </div>
+                    <div class="ProblemTitle-text">
+                        {{exams.question}}
+                    </div>
+                </div>
+                <div class="ProblemOptions">
+                    <div class="ProblemOptionsSelect" on="false" value=1 @click="Checked(1)">
+                        <div class="tag">
+                            <div class="ProblemOptions-tag A"></div>
+                        </div>
+                        <div class="ProblemOptions-text">{{exams.option1}}</div>
+                    </div>
+                    <div class="ProblemOptionsSelect" on="false" value=2 @click="Checked(2)">
+                        <div class="tag">
+                            <div class="ProblemOptions-tag B"></div>
+                        </div>
+                        <div class="ProblemOptions-text">{{exams.option2}}</div>
+                    </div>
+                    <div class="ProblemOptionsSelect" on="false" value=3 @click="Checked(3)">
+                        <div class="tag">
+                            <div class="ProblemOptions-tag C"></div>
+                        </div>
+                        <div class="ProblemOptions-text">{{exams.option3}}</div>
+                    </div>
+                    <div class="ProblemOptionsSelect" on="false" value=4 @click="Checked(4)">
+                        <div class="tag">
+                            <div class="ProblemOptions-tag D"></div>
+                        </div>
+                        <div class="ProblemOptions-text">{{exams.option4}}</div>
+                    </div>
+                </div>
+                <div class="affrim">
+                    <button type="button" class='UserAffrimBtns' @click="confirm()">确认答案</button>
+                </div>
+            </div>
+        </div>
+        <div class="examingButtom">
+            <div class="handExam">
+                <div class="hand"></div>
+                <span @click="confirms()">交卷</span>
+            </div>
+            <div class="selectRight">
+                <div class="right"></div>
+                <span>{{examRight}}</span>
+            </div>
+            <div class="selectError">
+                <div class="error"></div>
+                <span>{{examError}}</span>
+            </div>
+            <div class="selectList" @click="setExamNumListShow">
+                <div class="list"></div>
+                <span v-if="!examNumListShow">{{examList}}</span>
+                <span v-if="!examNumListShow">/</span>
+                <span v-if="!examNumListShow">{{examListCount.length}}</span>
+                <span v-if="examNumListShow" style='width:40px;margin-left:5px'>关闭</span>
+            </div>
+        </div>
+        <div class="examNumList" v-show="examNumListShow">
+            <div class="listMain">
+                <ul class='numList'>
+                    <li v-for="(item,index) in examListCount" class='numList-item' :class="{on:index==0}" @click="goNextExam(item,index)">{{index+1}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+{include file='public/footer'}
+<script>
+var data = {
+    tag: 2,
+    examNumListShow: false,
+    onselect: [],
+    examRight: 0,
+    examError: 0,
+    examList: 1,
+    examfirst:{$examfirst},
+    examListCount: {$examids},
+    exams: {},
+    examsids:1,
+    examGroupId:{$examGroupId},
+    examRecordId:{$examRecordId},
+}
+Vue.component('mian', {
+        template: '#mian',
+        data: function() {
+            return data
+        },
+        methods: {
+             inArray:function(type,arr,val){
+                var type = type?type:false
+                var i = arr.length;
+                if(i === 0){
+                    if(type){
+                        return -1;
+                    }
+                    return false;
+                }else{
+                    while(i--){
+                        if(arr[i] === val){
+                            if(type){
+                                return i;
+                            }
+                            return true;
+                        }
+                    }
+                    if(type){
+                        return -1;
+                    }
+                    return false;
+                }
+            },
+            goNextExam: function(index,list) {
+                this.examList = list+1;
+                this.examids = index;
+                this.setExamNumListShow();
+                _this = this;
+                $.get('__PUBLIC__examcenter/exam/'+index,function(res){
+                    _this.exams = res.data
+                })
+            },
+            sub_goNextExam:function(index){
+                
+                $.get('__PUBLIC__examcenter/exam/'+index,function(res){
+                    _this.exams = res.data
+                })
+            },
+            setExamNumListShow: function() {
+                this.examNumListShow = !this.examNumListShow
+            },
+            confirm:function(){
+                $(".ProblemOptionsSelect").removeClass("Checked");
+                 var_this=this;
+                 if(_this.onselect == ''){
+                    alert('请先选择答案')
+                    return;
+                 }
+                 $.ajax({
+                   type:'POST',
+                   dataType:'json',
+                   url:'__PUBLIC__examination_submit',
+                   data:{correct:_this.onselect,examids:_this.examListCount[_this.examList-1],examGroupId:_this.examGroupId,examRecordId:_this.examRecordId},
+                   success:function(data){
+                    if(data.code === 200){
+                        _this.examRight+=1;
+                    }
+                    if(data.code === 400){
+                        _this.examError+=1;
+                    }
+                       _this.onselect=''
+                    if(_this.examList == _this.examListCount.length ){
+                        alert('已是最后一题');
+                        if((_this.examError+_this.examRight) == _this.examListCount.length){
+                            _this.confirms()
+                        }
+                    }else{
+                        _this.examList +=1;
+                        _this.examids = _this.examListCount[_this.examList];
+                        _this.sub_goNextExam(_this.examListCount[_this.examList]);
+                    }
+                   },
+                 });
+            },
+            confirms:function(){
+         
+                 var _this=this;
+                 $.showLoading();
+                 $.ajax({
+                  type:'POST',
+                  dataType:'json',
+                  url:'__PUBLIC__master_assignment',
+                  data:{examRight:_this.examRight, examListCount:_this. examListCount,examGroupId:_this.examGroupId, examRecordId:_this. examRecordId},
+                  success:function(data){
+                      if(data.code==200){
+                          $.hideLoading();
+                          $.toast(data.msg,function(){
+                            window.location.href="__PUBLIC__master_score";
+                          },3000);
+                      }else{
+                        $.hideLoading();
+                        $.toast("交卷成功");
+                      }                     
+                  },
+                  error:function(){
+
+                  },
+                 });
+               
+            },
+
+            Checked: function(val) {
+                switch (this.tag) {
+                    case 1:
+                        if (!this.inArray(false,this.onselect,val)) {
+                            this.onselect.push(val);
+                        } else {
+                            var onselectIndex = this.inArray(true,this.onselect,val);
+                            this.onselect.splice(onselectIndex, 1)
+                        }
+                        break;
+                    case 2:
+                        this.onselect = val;
+                        break;
+                    case 3:
+                        break;
+                }
+            },
+        },
+        beforeMount:function(){
+            _this=this
+            _this.examids = _this.examfirst;
+            $.get('__PUBLIC__examcenter/exam/'+_this.examfirst,function(res){
+                 _this.exams = res.data
+            })
+        },
+        mounted: function() {
+            var _self = this;
+            (function() {
+                if (_self.tag == 1) {
+                    $(".ProblemOptionsSelect").click(function() {
+                        var online = $(this).attr("on")
+                        if (online === "false") {
+                            $(this).addClass("Checked")
+                            $(this).attr("on", "true")
+                        } else {
+                            $(this).removeClass("Checked")
+                            $(this).attr("on", "false")
+                        }
+                    })
+                } else {
+                    $(".ProblemOptionsSelect").click(function() {
+                        $(this).addClass("Checked").siblings('.ProblemOptionsSelect').removeClass("Checked")
+                    })
+                }
+
+            })()
+        },
+        computed: {
+
+        }
+    })
+    //头
+Vue.component('headers', {
+    template: '#header',
+    data: function() {
+        return {
+            title: '倒计时  30:00'
+        }
+    },
+    methods: {
+        goback: function() {
+            window.history.go(-1)
+        }
+    },
+    mounted: function() {
+        // var times = new examTime();
+        var _self = this;
+        (function() {
+            var ONEEXAMTIME = 30
+            var KAOSHIJIESHU = false
+            if (sessionStorage.time === 0) {
+                clearInterval(examTimes)
+            }
+            var examTimes = setInterval(function() {
+                if (sessionStorage.Times && sessionStorage.time) {
+                    sessionStorage.Times--;
+                    if (sessionStorage.Times == 0) {
+                        --sessionStorage.time;
+                        sessionStorage.Times = 60;
+                        if (sessionStorage.time < 0) {
+                            alert("考试结束")
+                            sessionStorage.Times = 0;
+                            sessionStorage.time = 0;
+                            clearInterval(examTimes)
+                        }
+                    }
+                } else {
+                    sessionStorage.Times = 60
+                    sessionStorage.time = ONEEXAMTIME - 1
+                    sessionStorage.ExamType = KAOSHIJIESHU
+                }
+            }, 1000)
+
+            setInterval(function() {
+                _self.title = "倒计时 " + sessionStorage.time + ":" + sessionStorage.Times;
+            }, 1000)
+        })()
+    }
+})
+
+Vue.component('footers', {
+    template: '#footers',
+    data: function() {
+        return {}
+    }
+})
+new Vue({
+    el: '.app'
+})
+</script>

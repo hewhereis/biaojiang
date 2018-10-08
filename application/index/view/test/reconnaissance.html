@@ -1,0 +1,600 @@
+<!--nav-->
+{include file="public/header" }
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<style>
+	.btn-numbox {
+
+		margin-top: 0px;
+	}
+	.btn-numbox li {
+		float: left;
+	}
+	.btn-numbox li .number,
+	.kucun {
+		display: inline-block;
+		font-size: 12px;
+		color: #808080;
+		vertical-align: sub;
+	}
+	.btn-numbox .count {
+		overflow: hidden;
+		margin: 0 16px 0 -20px;
+	}
+	.btn-numbox .count .num-jian,
+	.input-num,
+	.num-jia {
+		display: inline-block;
+		width: 28px;
+		height: 32px;
+		line-height: 28px;
+		text-align: center;
+		font-size: 18px;
+		color: #999;
+		cursor: pointer;
+		border: 1px solid #e6e6e6;
+	}
+
+	.btn-numbox .count .num-jia {
+		margin-left: 1px;
+	}
+
+	.btn-numbox .count .input-num {
+		width: 58px;
+		height: 32px;
+		color: #333;
+		border-left: 0;
+		border-right: 0;
+	}
+	.xin{
+		position: relative;
+		top: 3px;
+	}
+	@media (min-width: 776px ) {
+		.metaclass{
+			margin-top: 60px;
+		}
+	}
+	.file-item {
+		float: left;
+		position: relative;
+		width: 110px;
+		height: 110px;
+		margin: 0 20px 20px 0;
+	}
+
+	.file-item .info {
+		overflow: hidden;
+	}
+
+	.uploader-list {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.webuploader-pick {
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+		background: #fff;
+		padding: 0;
+		color: #fff;
+		text-align: center;
+		border-radius: 3px;
+		overflow: hidden;
+	}
+
+	.dele1 {
+		line-height: 40px;
+	}
+
+	.count * {
+		line-height: 28px;
+	}
+
+	.j {
+		border-bottom: 1px solid #dddddd;
+		margin: 0px 0px 0px -10px;
+	}
+
+	.jk {
+		padding: 10px 10px 10px 10px;
+	}
+
+	.l_lin {
+		padding-top: 30px;
+	}
+
+	.jkdele1 {
+		padding-top: 20px;
+	}
+
+</style>
+<div class="container main">
+	<h5 class="page-header bx">
+		<span>当前位置：</span>
+		<small>勘测任务</small>
+		<span>>></span>
+	</h5>
+	<div class="The-test-panel-head">
+		<span class="ml-10">勘测任务提交</span>
+	</div>
+	<form autocomplete="off" id="myForm"  method="post" action="">
+		<div class="The-test-panel-body">
+
+			<div style="line-height: 40px">
+					<!--判断是否登录-->
+					<?php if(empty($_SESSION['think']['ds_username'])){ ?>
+						<div class="row">
+							<label style="float:left;" class="pl-50">您还未登录,登录后给您更好的服务</label>
+							<div class="col-md-6 pl-40 "><a href="__PUBLIC__auth" class="text-orange">登录>></a></div>
+						</div>
+						<!--一条线-->
+						<div class="j"></div>
+					<?php } ?>
+						<div class="row mt-10">
+							<!-- 登入后的状态 -->
+							<?php if(!empty($_SESSION['think']['ds_username'])): ?>
+								<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">客户ID</label>
+									<div class="col-md-8 col-xs-10"><input type="text" readonly unselectable="on" id="client" name="uid" class="form-control ds-uid" value="<?php echo $_SESSION['think']['id'] ?>">
+										<input type="text" style="display:none" id="uname" name="uname" class="form-control ds-uid" value="<?php echo $_SESSION['think']['ds_username'] ?>">
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+							<?php endif; ?>
+								<div class="col-md-6">
+									<div class=" row">
+										<label class="col-md-3 col-xs-12" name="market_cer">商城名称</label>
+										<div class="col-md-8 col-xs-10">
+											<input type="text" autocomplete="off" name="designation" id="designation" class="form-control">
+										</div>
+										<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+									</div>
+								</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">联系人</label>
+									<div class="col-md-8 col-xs-10">
+										<input type="text" name="linkman_contacts" id="linkman_contacts" class="form-control">
+									</div>
+									<label class="col-xs-1" ><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="row">
+									<label for="input_date" class="col-md-3 col-xs-12">预约施工时间</label>
+									<div class="col-md-8 col-xs-10">
+										<div class="input-append date form_datetime" id="input_date">
+											<input class="layui-input" autocomplete="off" id="form_datetime" class="form-control" placeholder="" name="input_date" onclick="layui.laydate({elem: this, format:'YYYY-MM-DD hh:mm:ss',istime: true,min: laydate.now()})">
+										</div>
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">联系电话</label>
+									<div class="col-md-8 col-xs-10">
+										<input type="text" autocomplete="off" name="telephone" id="telephone" class="form-control">
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">店铺地址</label>
+									<div class="col-md-8 col-xs-10">
+										<div id="distpicker5" class="row">
+											<div class="col-md-4 mb-10">
+												<label class="sr-only" for="province10">Province</label>
+												<select class="form-control" id="province10" name="province"></select>
+											</div>
+											<div class="col-md-4 mb-10">
+												<label class="sr-only" for="city10">City</label>
+												<select class="form-control" id="city10" name="city"></select>
+											</div>
+											<div class="col-md-4 mb-10">
+												<label class="sr-only" for="district10">District</label>
+												<select class="form-control" id="district10" name="district"></select>
+											</div>
+										</div>
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row pb-20">
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">品牌</label>
+									<div class="col-md-8 col-xs-10">
+										<select name="brand[]" id="brand" class="form-control js-example-tags" autocomplete="off">
+											{volist name="brand" id="v"}
+											<option value="{$v.brand}">{$v.brand}</option>
+											{/volist}
+										</select>
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12"> <b class='text-orange xin'></b></label>
+									<div class="col-md-8 col-xs-10">
+										<input type="text" autocomplete="off" name="address" id="address" placeholder="请输入详细地址，精确到街道、门牌号" class="form-control">
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+						</div>
+						<!--一条线-->
+						<div class="j"></div>
+
+						<div class="row mt-20">
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">商品类型</label>
+									<div class="col-md-8 col-xs-10">
+										<select class="form-control" id="merchandise" name="merchandise">
+											<option value="1">1054</option>
+										</select>
+									</div>
+									<label class="col-xs-1" ><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="row">
+									<label for="input_date" class="col-md-3 col-xs-12">施工时长(时)</label>
+									<div class="col-md-8 col-xs-10">
+										<div class="input-append date form_datetime" id="" >
+											<input class="layui-input" autocomplete="off" id="construction" class="form-control"  name="construction ">
+										</div>
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">勘测面积(m*<sup>2</sup>)</label>
+									<div class="col-md-8 col-xs-10">
+										<input type="text" name="Surveys" id="Surveys" class="form-control">
+									</div>
+									<label class="col-xs-1" ><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="row">
+									<label for="input_date" class="col-md-3 col-xs-12">完工期限</label>
+									<div class="col-md-8 col-xs-10">
+										<div class="input-append date form_datetime" id="" >
+											<input class="layui-input" autocomplete="off" id="completion" class="form-control"  name="completion" onclick="layui.laydate({elem: this, format:'YYYY-MM-DD',istime: true,min: laydate.now()})">
+										</div>
+									</div>
+									<label class="col-xs-1"><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<label class="col-md-3 col-xs-12">空间高度(米)</label>
+									<div class="col-md-8 col-xs-10">
+										<input type="text" name="highly" id="highly" class="form-control">
+									</div>
+									<label class="col-xs-1" ><b class='text-orange xin'>*</b></label>
+								</div>
+							</div>
+						</div>
+
+						<!--一条线-->
+						<div class="j"></div>
+
+						<div class="row mt-10 mb-10" >
+							<div class="col-md-2  pl-20 col-xs-12">
+								是否具备的条件
+							</div>
+							<div class="col-md-2 col-xs-12" style="line-height: 17px">
+								<div class="radio radio-success ">
+									<input value="1" type="radio" id="tizi"  name="condition">
+									<label for="tizi">梯子</label>
+								</div>
+							</div>
+							<div class="col-md-2 col-xs-12" style="line-height: 17px">
+								<div class="radio radio-success ">
+									<input value="2" type="radio" id="jiaoshoujia" name="condition">
+									<label for="jiaoshoujia">脚手架</label>
+								</div>
+							</div>
+							<div class="col-md-2 col-xs-12" style="line-height: 17px">
+								<div class="radio radio-success ">
+									<input value="3" type="radio" id="bujubei" name="condition">
+									<label for="bujubei">不具备</label>
+								</div>
+							</div>
+						</div>
+
+						<!--一条线-->
+						<div class="j"></div>
+
+						<div class="row mt-10 mb-10">
+							<div class="col-md-2  pl-20 col-xs-12">上传勘测场地勘测表</div>
+
+							<div class="col-md-2 col-xs-12" id="survey">
+								<input type="button"  class="btn btn-blue  border-radius" value="点击上传">
+							</div>
+
+							<input type="hidden" name="survey">
+
+							<div class="col-md-2 col-xs-12">
+								<input type="button" id="wsurvey" class="btn  form-control border-radius" value="无报告">
+							</div>
+						</div>
+				</div>
+
+			<div class="row l_lin" style="background: #fce8d8;padding: 0px;padding-top: 10px;margin: 0;margin-left: -10px">
+
+					<div class="col-md-2  col-xs-12" >
+						商场办证 <b class='text-orange xin'>*</b>
+					</div>
+
+					<div class="col-md-2 col-xs-12">
+						<div class="radio mt-0  radio-success">
+							<input value="1" type="radio" id="master_worker" checked name="departure_card">
+							<label for="master_worker">师傅代办</label>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-xs-12">
+						<div class="radio mt-0 radio-success">
+							<input value="2" type="radio" id="clientele" name="departure_card">
+							<label for="clientele">客户办理</label>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-xs-12">
+						<div class="radio mt-0 radio-success">
+							<input value="3" type="radio" id="do_without" name="departure_card">
+							<label for="do_without">不需要办证</label>
+						</div>
+					</div>
+
+				</div>
+
+			<div class="row l_lin">
+					<div class="col-md-2" >
+						<label class="">上传图片</label>
+					</div>
+					<div class="col-md-4" id="imgPickers">
+						<input type="hidden" id="data_photos" name="aimg">
+						<img id="img_datas" class="mt-0_xs images-responsive" style="width: 200px;height: 200px" c src="__PUBLIC__static/index/images/tj.png" />
+					</div>
+				</div>
+
+			<div class="row mb-30 mt-20">
+					<div class="col-md-10">
+						<div class="row">
+							<label class="col-md-2 col-xs-12">特殊要求</label>
+							<div class="col-md-8 col-xs-10">
+								<textarea name="requirements" placeholder="请填写你的特殊要求,有利于师傅准确估价" class="form-control" id="requirements" style="max-height: 450px"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--一条线-->
+			<div class="j"></div>
+
+			<div class="row j pb-20">
+					<div class="col-md-12 mt-20">
+						<div class="checkbox-warning checkbox">
+							<input type="checkbox"  value="1"   id="nuclear_list_in_advance">
+							<label for="nuclear_list_in_advance">需现场调查，进一步核实</label>
+						</div>
+					</div>
+					<div class="col-md-3 mt-20">
+						<div class="checkbox checkbox-primary">
+							<input type="checkbox"  id="ds-s"    value="1" >
+							<label for="ds-s">使用平台月结服务</label>
+						</div>
+						<input type="password" autocomplete="off"  name="pwd" placeholder="月结客户使用的密码" id="year_service_ordere_pwd" class="form-control" style="opacity: 0">
+					</div>
+				</div>
+
+			<div class="row pt-20">
+					<!--协议-->
+					<div class="col-xs-6 " style="color:red;">
+						注： <b class='text-orange xin'>*</b> 表示必填项
+					</div>
+				</div>
+		</div>
+
+		<div class="row">
+				<div class="col-md-12">
+					<div class="mt-10 checkbox checkbox-success">
+						<a id="yezhuxieyi" href="javascript:;" class="" id="yz">《业主协议》</a>
+						<input type="radio" id="agreement">
+						<label for="agreement">我同意协议</label>
+					</div>
+				</div>
+			</div>
+
+		<div class="row">
+				<div class="col-xs-3 col-xs-offset-4 text-center mt-20">
+					<button id="xiandan" type="submit" disabled class="btn btn-blue form-control border-radius ">发布任务</button>
+				</div>
+			</div>
+	</form>
+	</div>
+<script>
+    $(".js-example-tags").select2({tags: true});
+    $(".select2-container").css("width", "100%");
+
+    $(".select2-selection").css("border","none")
+	$("#select2-brand-container").addClass("form-control").css({
+        lineHeight:"22px"
+	})
+$(document).ready(function () {
+	//同意勾选
+	var l = true;
+	$("#agreement").click(function () {
+		if ($(this).prop("checked") === true && l) {
+			$(this).prop("checked", true);$("#xiandan").prop("disabled", false);l = false;
+		} else {
+			$(this).prop("checked", false);l = true;$("#xiandan").prop("disabled", true);
+		}
+	});
+//        月结勾选
+	$("#ds-s").change(function () {
+		if ($(this).prop("checked") === true) {
+			$("#year_service_ordere_pwd").css("opacity", '1');$("#quick_consulting").css("opacity", "0");} else {$("#year_service_ordere_pwd").css("opacity", '0');$("#quick_consulting").css("opacity", "1");
+            }
+	});
+        $("#yezhuxieyi").click(function () {
+            var   layer=layui.layer;parent.layer.open({type:2, title:"业主协议", btn:['我同意',"我再看看"], content:" __PUBLIC__yezhuxieyi", area:["80%","80%"], yes:function(index,layero){
+
+                    $("#agreement").prop("checked",'true');layer.close(index);$("#xiandan").prop("disabled",false);$("#quick_consulting").prop("disabled",false);
+                },
+                btn2:function(index,layero){
+                    $("#agreement").prop("checked",false);layer.close(index);$("#xiandan").prop("disabled",true);$("#quick_consulting").prop("disabled",true);
+                }
+            })
+        })
+        $('#myForm').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+        function checkForm() {
+				var  designation= alertmsg.msgk("designation","请填写商城名称")
+				if(!designation){
+					return false;
+				}
+				var  linkman_contacts= alertmsg.msgk("linkman_contacts","请填写联系人")
+				if(!linkman_contacts){
+					return false;
+				}
+				var  form_datetime= alertmsg.msgk("form_datetime","请填写预约时间完成")
+				if(!form_datetime){
+					return false;
+				}
+				var  telephone= alertmsg.msgk("telephone","请填写联系电话")
+				if(!telephone){
+					return false;
+				}
+				var  province10= alertmsg.msgk("province10","请填写店铺地址")
+				if(!province10){
+					return false;
+				}
+				var  city10= alertmsg.msgk("city10","请填写店铺地址")
+				if(!city10){
+					return false;
+				}
+				var  district10= alertmsg.msgk("district10","请填写店铺地址")
+				if(!district10){
+					return false;
+				}
+				var  address= alertmsg.msgk("address","请填写店铺地址")
+				if(!address){
+					return false;
+				}
+				var  brand= alertmsg.msgk("brand","请填写品牌")
+				if(!brand){
+					return false;
+				}
+
+
+            	var  merchandise= alertmsg.msgk("merchandise","请填写商品类型")
+            	if(!merchandise){
+                return false;
+           		 }
+				var  construction = alertmsg.msgk("construction ","请填写施工时长")
+				if(!construction ){
+					return false;
+				}
+				var  Surveys= alertmsg.msgk("Surveys","请填写勘测面积")
+				if(!Surveys){
+					return false;
+				}
+				var  completion= alertmsg.msgk("completion","请填写完工期限")
+				if(!completion){
+					return false;
+				}
+				var  highly= alertmsg.msgk("highly","请填写空间高度")
+				if(!highly){
+					return false;
+				}
+
+
+
+            var   condition=$("input[name=condition]:checked").val();
+            if(!condition){
+                layer.msg("请选择是否具备的条件", { icon: 2, time: 1500, shade: 0 });
+                $("input[name=condition]").focus();
+                return false;
+            }
+            var construction= $("#construction").val();
+            construction= construction+"时";
+            $("#construction").val(construction)
+
+            }
+            function complete() {
+            }
+            $("#wsurvey").click(function () {
+                $("#survey").siblings("input[type=hidden]").val("");
+            })
+    WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+        duplicate: true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#survey',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function (file, data, response) {
+            $("#survey").siblings("input[type=hidden]").val(data._raw);
+            layer.msg("上传成功", { icon: 1, time: 1500, shade: 0 });
+
+        }
+    });
+        WebUploader.create({
+            auto: true,// 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+            duplicate: true,// 重复上传图片，true为可重复false为不可重复
+            pick: '#imgPickers',// 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function (file, data, response) {
+                $("#data_photos").val(data._raw);
+                $("#img_datas").attr('src', '__TUN__/face/' + data._raw).show();
+            }
+        });
+    });
+</script>
+{include file="public/footer" }

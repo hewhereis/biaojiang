@@ -1,0 +1,191 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main consult_pay">
+    <!-- header-img-->
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media" >
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>咨询付款</small>
+            <span>>></span>
+        </h5>
+    </div>
+
+    <div class="container  ">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12">
+                <span>订单号</span>
+                <span>{$order_number}</span>
+            </div>
+        </div>
+        <div class="row The-test-panel-body pl-0 pr-0">
+            <div class="col-md-12 ">
+                <!--信息-->
+                <div class="row">
+                    <div class="col-md-2 col-sm-3 col-xs-4">
+                        <img src="thumb_path{$order.img}"  style="height: 77px;" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-md-10 col-xs-8 col-xs-8">
+                        <ul>
+                            <li>
+                                <span class="h5">师傅工号</span>：<span>{$order.uid}号</span>
+                            </li>
+                            <li class="line-height-30">
+                                <span class="h5">平台等级</span>：<span>
+                                  <?php for($i=0;$i<$order["platform_level"];$i++){ ?>                                    
+                                     <i class='fa fa-star text-red' aria-hidden='true'></i>
+                                  <?php } ?>             
+                                </span>
+                            </li>
+                            <li><span class="h5">客户评分</span>：<span class="text-orange">{$order.rating}分</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--商品类别简历-->
+                <div class="row line-height-30 mt-30">
+                    <div class="col-md-2 col-sm-3  text-right  col-xs-5">
+                        商品类别简历
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12 ">
+                        <div class="row">
+                        {volist name="cate" id="vv"}
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <div class="form-control border-aspx border-radius text-center">{$vv[$cate1]}_{$vv[$cate2]}</div>
+                            </div>
+                         {/volist}   
+                        </div>
+                    </div>
+                </div>
+                <!--服务类别简历-->
+                <div class="row border-bottom-1 pb-10 line-height-30 mt-30">
+                    <div class="col-md-2 col-sm-3  text-right  col-xs-5">
+                        服务类别简历
+                    </div>
+                    <div class="col-md-10 col-sm-9 col-xs-12 ">
+                        <div class="row">
+                        {volist name="data" id="v"}
+                        {volist name="v" id="vo"}
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <div class="form-control border-aspx border-radius text-center">{$vo.name}</div>
+                            </div>
+                          {/volist} 
+                          {/volist} 
+                        </div>
+                    </div>
+                </div>
+                <!--平台优惠劵-->
+                <div class="row border-bottom-1">
+                    <div class="col-md-8 pt-10 pb-10   col-md-offset-1  line-height-30">
+                        <p >
+                            <input class="" type="checkbox">使用平台优惠卷
+                        </p>
+                        <p>
+                            <span>订单编号:&nbsp;</span><span>&nbsp;  {$order_number}</span>
+                        </p>
+                        <p><span>咨询费:&nbsp;</span><span>&nbsp;{$arr.amount_consulting}&nbsp;元</span></p>
+                    </div>
+                </div>
+                <!--付款-->
+                <div class="row">
+                    <div class="col-md-4 mt-20 mb-20 col-xs-offset-4  col-xs-6">
+                        <a  class="form-control btn btn-orange" herf="javascript" onclick="consult_payment({$arr.amount_consulting},{$order_number})" >付款</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+
+    layui.use('form', function(){
+        var form = layui.form();
+        form.render();
+    });
+    $('#jilt_single').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 6,
+                        message: '最大长度6位最小长度2位',
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    },
+                    stringLength: {
+                        min: 2,
+                        max: 6,
+                        message: '最大长度6位最小长度2位',
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+
+                }
+            }
+        }
+    });
+    $('#validateBtn').click(function() {
+
+        $('#jilt_single').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+
+    });
+    $('input[type="text"]').focus(function() {
+        $('#jilt_single').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+
+    });
+   	function consult_payment(total,number){
+	  $.ajax({
+			  url:'__PUBLIC__is_weixin',
+			  type:'post',
+			  data:{},
+			  dataType:'json',
+			  success:function(data){
+			     if(data==true){
+				  location.href="http://www.bj-wang.com/wxpay/pay?total="+total+"&&number="+number;
+				    }else{                      
+						 $.ajax({
+						  url:'__PUBLIC__consults',
+						  type:'post',
+						  data:{total:total,number:number},
+						  dataType:'json',
+						  success:function(data){ 
+							   if(data.code==200){
+							     location.href="http://www.bj-wang.com/wxpay/scan/number/"+number;
+							   }
+				  
+						}     
+					  })
+				    }
+			  
+			     }
+			})
+	}
+</script>
+{include file="public/footer" }

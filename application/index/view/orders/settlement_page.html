@@ -1,0 +1,233 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="main settlement_page">
+    <!--header-img-->
+    <!-- 面包屑导航-->
+    <div class="container ">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>结算页面</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+            <input id="number" hidden="hidden" value="{$order_number}">
+            <div class="Inquiries_orders_page" id="navigatesLeft">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default height ">
+                            <div class="panel-heading bg-orange">
+                                <span>客户结算(订单号：{$order_number})</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div  class="panel-body">
+                    <!--客户名称信息-->
+                    <div class="form-group">
+                        <label class="col-sm-2  mt-10 text-right">客户名称</label>
+                        <div class="col-sm-10 ">
+                            <input type="text" class="form-control" disabled name="customer_name" value="{$order['contact_name']}" id="customer_name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 mt-10  text-right">目标地址</label>
+                        <div class="col-sm-10 ">
+                            <input type="text" disabled class="form-control" name="target_address" value="{$order['full_location']}" id="target_address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_date" class="col-sm-2 text-right">预约施工时间</label>
+                        <div class="layui-inline col-xs-12   col-sm-10 relative_order_calibrate">
+                            <input id="input_date" disabled class="form-control" name="Appointment_start_time" value="{$order['start_time']|date='Y-m-d H:i',###}">
+
+                        </div>
+                    </div>
+                    <!--项目信息展示-->
+                    <table class="table table-bordered ">
+                        <thead>
+                        <tr>
+                            <th>项目</th>
+                            <th>本订单收费</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($cate as $vo){ ?>
+                        <tr>
+                            <td>{$vo[$cate1]}_{$vo[$cate2]}</td>
+                            <td>{$vo['tender_cost']}</td>
+                        </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                    <!--师傅信息-->
+                    <div class="mb-30"></div>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>师傅工号</th>
+                            <th>预计工作时长(h)</th>
+                            <th>预计费用</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr>
+                            <td>{$result['worker_id']}</td>
+                            <td></td>
+                            <td>{$total}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <!--合计总价-->
+                </div>
+                <div class="border-bottom-1 mt-20"></div>
+                <div class="row">
+                    <div class="col-md-12 pl-20 pr-20 mt-10  line-height-30">
+                        <!--平台优惠卷-->
+                        <!--   <p>
+                              <input type="checkbox"> &nbsp;使用平台优惠卷
+                          </p> -->
+                        <!--订单编号-->
+                        <p>
+                            <span>订单编号</span>:&nbsp;{$orders_id}
+                        </p>
+                        <!--合计-->
+                        <p >
+                            <span>合计</span>：&nbsp;<span id="total">{$total}</span>元
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--按钮确认页面-->
+            <div class="row">
+                <div class="col-md-5 col-md-offset-4 mt-30 text-center mb-10">
+                    <a class="btn btn-orange border-radius form-control" herf="javascript:;" onclick="payment({$total},'{$order_number}')" id="payment">付款</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right mt-20">
+                    <div class="col-md-2 pull-right text-right">
+                       
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+
+
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+
+
+    });
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+    var cu=true;
+    $(".popup_message>a").click(function (e) {
+        e.preventDefault();
+        if(cu){
+            $(this).siblings('ul').removeClass('on');
+            cu=false;
+        }else{
+            $(this).siblings('ul').addClass('on');
+            cu=true;
+        }
+    });
+
+    //order_calibrate
+    $('#order_calibrate').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $('input').focus(function () {
+        $('#order_calibrate').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+    })
+    //提交总价钱
+    function payment(total,order_number){
+        $.ajax({
+            url:'__PUBLIC__is_weixin',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(data){
+                if(data==true){
+                    location.href="http://www.bj-wang.com/wxpay/pay?total="+total+"&&number="+order_number;
+                }else{
+                    $.ajax({
+                        url:'__PUBLIC__total',
+                        type:'post',
+                        data:{total:total,number:order_number},
+                        dataType:'json',
+                        success:function(data){
+                            if(data.code==200){
+                                location.href="http://www.bj-wang.com/wxpay/scan/number/"+order_number;
+                            }
+
+                        }
+                    })
+
+                }
+
+            }
+        })
+    }
+</script>
+{include file='public/footer'}

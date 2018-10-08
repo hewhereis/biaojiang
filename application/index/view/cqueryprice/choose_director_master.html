@@ -1,0 +1,180 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main choose_director_master">
+    <div class="container mr-0_medai ml-0_medai pl-0_media pr-0-media" >
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>挑选主任师傅</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <!--/*主题*/-->
+    <div class="container ">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12 ">挑选主任师傅咨询</div>
+        </div>
+         <input value="<?php echo date('Y-m-d H:i:s')?>" hidden="hidden" id="sending_time">
+         <input value="{$uid}" hidden="hidden" id="uid">
+        <div class="row The-test-panel-body pb-30 pl-0 pr-0">
+            <div class="col-md-12">
+                <!--挑选师傅-->
+                <div class="row pb-30 border-bottom-1">
+                    <!--挑选师傅按钮-->
+                    <div class="col-xs-6 col-md-2 mb-10">
+                        <a class="btn btn-success form-control" href="__PUBLIC__master_filters/{$order_number}/cid/{$data}/sid/0">挑选主任师傅 </a>
+                    </div>
+                    <form action="" id="defaultForm">
+                    <input type="hidden" id="number" value="{$order_number}">
+                        <!--表单-->
+                        <div class="col-xs-8">
+                            <div class="form-group row">
+                                <div class="col-xs-12">
+                                    <input type="text" id="job_number" value="{$worker_id}" name="job_number" class="form-control" placeholder ="请输入师傅工号">
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="worker_id" value="{$worker_id}">
+                        <!--验证-->
+                        <div class="col-xs-2">
+                        <input type="button" id="verification" class="btn btn-default"  value="验证">
+
+                        </div>
+                        <!--文字-->
+                        <div class="col-xs-12  mt-20 mb-20" style="font-size: 16px;color: #000000">
+                            <p>注：如果知道师傅工号可以直接输入工号。
+                                如果采用平台月结方式，必须选用平台签约师傅</p>
+
+                        </div>
+                    </form>
+
+                </div>
+                <!--服务保障-->
+                <div class="row">
+                    <div class="col-md-12 pl-50">
+                        <div class="row text-center">
+                            <div class="col-md-12">
+                                <img src="__PUBLIC__static/index/images/u17.png" class="img-responsive " alt=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--下一步咨询-->
+                <div class="row mt-40">
+                    <div class="col-md-4 col-md-offset-4">
+                        <a class='btn btn-default form-control' id='the_next_step_consultation'>下一步咨询</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var bj={
+        num:1,
+        wid:<?php echo input('wid');?>,
+        yanze:function (e) {
+            e.preventDefault();
+            var job_number = $('#job_number').val();
+            $.ajax({
+                url:'__PUBLIC__verification',
+                data:{job_number:job_number},
+                dataType:'json',
+                type:'post',
+                success:function(data){
+                    if(data.code==200){
+                        layer.msg(data.msg, {
+                            icon: 1,
+                            time: 1000
+                        });
+                        bj.num=0;
+                        bj.wid=job_number;
+                    }else{
+                        msg(data.msg,2,6,1000);
+                        bj.num=1;
+                    }
+                }
+            })
+        },
+        zixun:function (e) {
+            var job_number = $('#job_number').val();
+            var number = $('#number').val();
+            if(!job_number){
+                layui.use("layer",function () {
+                    var layer=layui.layer;
+                    layer.open({
+                        content:"当前没有师父要咨询,是否去挑选师傅",
+                        btn:['确认','取消'],
+                        yes:function () {
+                            window.location.href='__PUBLIC__master_filters/{$order_number}/cid/{$data}/sid/0'
+                        },
+                    })
+                })
+            }else if(bj.wid!==0) {
+                $.ajax({
+                    url:'__PUBLIC__status',
+                    data:{number:number,job_number:job_number},
+                    dataType:'json',
+                    type:'post',
+                    success:function(data){
+                        if(data.code==200){
+                            if(bj.num!==0){
+                                info();//给师傅发送消息
+                                window.location.href="__PUBLIC__director_master/"+number+'/wid/'+job_number;
+                            }else{
+                                info();//给师傅发送消息
+                                window.location.href="__PUBLIC__director_master/"+number+'/wid/'+job_number;
+                            }
+
+                        }
+                    }
+                })
+            }else{
+                msg('请先验证师傅工号',2,6,1000); 
+            }
+             //点击咨询给选择的师傅发送平台消息
+              function info(){
+                var message_type='2';
+                var source_id=$('#uid').val();
+                var receive_id=job_number;
+                var content='有客户给您发送消息咨询，请点击查看';
+                var sending_time = $('#sending_time').val();
+                var link = '__PUBLIC__Cqueryprice/' + number + '/wid/' + receive_id;
+                $.ajax({
+                    url: '__PUBLIC__api/message',
+                    dataType: 'json',
+                    data: {
+                        message_type:message_type,
+                        source_id:source_id,
+                        receive_id:receive_id,
+                        content:content,
+                        sending_time:sending_time,
+                        link:link
+                    },
+                    type: 'post',
+                    success: function(data) {
+                        
+                    }
+                })
+            }
+                    
+        }
+    }
+// $('#job_number').focusout(function (e) {
+//     bj.yanze(e);
+// });
+    $('#verification').click(function (e) {
+        bj.yanze(e);
+    });
+$("i.form-control-feedback").remove();
+$('#the_next_step_consultation').click(function(){
+    bj.zixun();
+});
+
+
+</script>
+
+{include file="public/footer" }

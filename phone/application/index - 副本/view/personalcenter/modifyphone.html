@@ -1,0 +1,177 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="shezhimima">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="phone" placeholder="请输入新手机号码" value="">
+                </div>
+
+            </div>
+            <div class="weui-cell bj-weui-cell">
+
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="code" placeholder="请输入手机验证码" value="">
+                </div>
+                <div class="weui-cell__hd">
+                    <a class='registerVCodeSpan' id="btnSendCode" onclick="sendMessage()" disabled=true>获取验证码</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-flex button">
+            <div class="weui-flex__item">
+                <button  type="button" class="weui-btn bj_button_orange" @click="ok">确定修改</button>
+            </div>
+        </div>
+
+    </div>
+</script>
+<script>
+//立即注册获取验证码
+var InterValObj; //timer变量，控制时间
+var count = 60; //间隔函数，1秒执行
+var curCount; //当前剩余秒数
+function sendMessage() {
+	var phone  =$('#phone').val();
+	if(!(/^1[34578]\d{9}$/.test(phone)) || phone==''){
+			$.toptip('手机号码有误，请重填', 'warning');
+			return false;
+		}　　 
+		$.showLoading();
+		$.ajax({
+			type: 'POST',
+			url:ds_public+'modify_vcode',
+			timeout:60*1000,
+			dataType: 'json',
+			data: {
+				phone: phone
+			},
+			success: function(data) {
+				if (data.code == 200) {
+					  $.hideLoading();
+					  $.toast(data.msg, 'success', function(){
+                            curCount = count;　　 //设置button效果，开始计时
+							$("#btnSendCode").attr("disabled",true);
+							$("#btnSendCode").css("pointer-events","none");
+							$("#btnSendCode").css("color","#ccc");
+							$("#btnSendCode").html(curCount + "秒后获取");
+							InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                        });
+				} else {
+				    $.hideLoading();
+					$.toptip(data.msg, 'error');
+					return false;
+				}
+			}
+		});
+	
+}
+
+
+//timer处理函数
+function SetRemainTime() {
+	if (curCount == 0) {
+		window.clearInterval(InterValObj); //停止计时器
+		$("#btnSendCode").removeAttr("disabled"); //启用按钮
+		$("#btnSendCode").css("pointer-events","auto");
+		$("#btnSendCode").css("color","##008cd0");
+		$("#btnSendCode").html("重新发送");
+	} else {
+		
+		curCount--;
+		$("#btnSendCode").html(curCount + "秒后获取");
+	}
+}
+
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "修改手机号",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                fuwuleixing:"",
+                fuwuquyu:"",
+                fuwushijian:"",
+                yuangongrenshu:"",
+                fuwushuliang:"",
+                houchedaxiao:"",
+                houcedunwei:"",
+                fuwujiesho:""
+            }
+        },
+        methods:{
+				ok: function(){
+				var phone=$('#phone').val();
+				var captcha=$('#code').val();
+					if(!(/^1[34578]\d{9}$/.test(phone)) || phone==''){
+						$.toptip('手机号码有误', 'error');
+						return false;
+					}
+					if(captcha==''){
+						$.toptip('验证码不能为空', 'error');
+						return false;
+					}
+					$.showLoading();
+					$.ajax({
+							url:ds_public+'modifyphone_ajax',
+							type:'post',
+							dataType:'json',
+							data:{phone:phone,captcha:captcha},
+							success:function(data){
+							if (data.code == 200) {
+								$.hideLoading();
+								$.toast(data.msg, function() {
+										  window.location.href = "__PUBLIC__cus_information";
+										});
+																			
+								}else{
+								
+									$.hideLoading();	
+									$.toptip(data.msg,'warning');
+										
+								
+							}
+							
+						}
+					});
+				
+				}
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

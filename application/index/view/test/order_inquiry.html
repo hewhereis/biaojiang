@@ -1,0 +1,285 @@
+<!--nav-->
+{include file="public/header" }
+<!--安装订单询价页面-->
+<div class="main install_order_enquiry">
+    <!--header-img-->
+    <div class="header-img mt-130">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <!-- 面包屑导航-->
+    <div class="container container-hidden">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>订单查询</small><span>>></span>
+        </h5>
+        <!-- 左边框-->
+        <div class="row mt-10 Inquiries_orders_page" id="navigatesLeft">
+            <form class="form-horizontal " id="order_inquiry">
+                <div class="clo-xs-12 " id='navigatesRigth'>
+                    <div class="panel panel-default height ">
+                        <div class="panel-heading bg-orange">
+                            <span>订单查询</span>
+                        </div>
+                    </div>
+                    <div class="panel-body Inquiries_orders_page_none">
+                        <!-- 日期-->
+                        <div class="row layui-form-pane">
+                            <div class="col-xs-12 layui-form-item">
+
+                                <div class="layui-input-inline layui-input-inline_Inquiries_orders_page_none">
+                                    <input class="layui-input"  name="LAY_demorange_s" placeholder="输入开始日期" id="LAY_demorange_s">
+                                </div>
+                                <span class="layui-form-label layui-input-inline_Inquiries_orders_page_none">—</span>
+                                <div class="layui-input-inline layui-input-inline_Inquiries_orders_page_none">
+                                    <input class="layui-input" name="LAY_demorange_e" placeholder="输入截止日期" id="LAY_demorange_e">
+                                </div>
+                            </div>
+                        </div>
+                        <!--表单-->
+                        <div class="row">
+                            <div class="layui-form-item col-xs-5">
+                                <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                            </div>
+                            <div class="col-xs-3">
+                                <button class="layui-btn layui-btn-danger border-radius">点击开始搜索</button>
+                            </div>
+                        </div>
+                        <!-- 信息查看-->
+                        <div class="row Inquiries_orders_page_none_hidden swiper-container" id="table">
+                            <table class="layui-table hidden-xs hidden-sm" lay-skin="line">
+                                <thead >
+                                <tr>
+                                    <td>订单编号</td>
+                                    <td>店铺申请</td>
+                                    <td>供应商</td>
+                                    <td>维修申请项</td>
+                                    <td>订单创始人</td>
+                                    <td>预报价</td>
+                                    <td>报价</td>
+                                    <td>状态</td>
+                                    <td>创建日期</td>
+                                    <td>最近更新日期</td>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                <tr>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                    <td>xxxxxxxxxx</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="layui-table hidden-md hidden-lg">
+                                <tbody>
+                                <tr>
+                                    <td>订单编号</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>申请店铺</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>供应商</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>维修申请人</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>订单申请人</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>订单创始人</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>预报价</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>报价</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>创建日期</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+                                <tr>
+                                    <td>最近更新日期</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                    <td>xxxxxxx</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right mt-20">
+                <div class="col-md-6">
+                    <a href="">首页</a>
+                    <a href="">[上一页]</a>
+                    <a href="">[下一页]</a>
+                    <a href="">[末页]</a>
+                </div>
+                <div class="col-md-2 pull-right text-right">
+                    当前 <i>2</i>/ <span>4</span>页
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    });
+    //    表单验证
+    $('#order_inquiry').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        LAY_demorange_s: {
+            brand: {
+                message: '开始日期',
+                validators: {
+                    notEmpty: {
+                        message: '开始日期名称不能为空'
+                    }
+                }
+            },
+            LAY_demorange_e:{
+                message: '截至日期',
+                validators: {
+                    notEmpty: {
+                        message: '截至日期不能为空'
+                    }
+                }
+            },
+            title:{
+                 message: '标题',
+              validators: {
+                 notEmpty: {
+                message: '标题不能为空'
+            }
+        }
+    }
+        }
+    });
+    $('input[type="text"]').focus(function() {
+        $('#order_inquiry').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+
+    });
+</script>
+{include file='public/footer'}

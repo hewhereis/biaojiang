@@ -1,0 +1,123 @@
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+<!--nav-->
+{include file="public/header" }
+<!--header-->
+<div class="main wfwb">
+ 
+    <div class="container container-hidden">
+        <!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>我的银行卡</small><span>>></span>
+        </h5>
+        <!-- 主题-->
+        <div class="row mt-10" id="navigatesLeft">
+            {include file="fenlei/purse_recharge_left" }
+            <div class="col-xs-12 right" id='navigatesRigth'>
+                <ul class="clearfix">
+                    <li>我的银行卡</li>
+                    <li>
+                        <input type="file" class='fileupload'/>
+                        <img src="__PUBLIC__static/index/images/add1.jpg" alt=""/>
+                    </li>
+                    <li >
+                        <img src="__PUBLIC__static/index/images/m_39101.jpg" id="img-so" alt=""/>
+                    </li>
+                </ul>
+            </div>
+        </div >
+    </div>
+</div>
+<script>
+
+    $("#money").focus(function () {
+        $("#ack_buttone").removeAttr('disabled');
+        $("#ack_buttone").addClass('bg-success');
+    });
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    });
+
+    function getPath(obj) {
+        if(obj)
+        {
+            if (window.navigator.userAgent.indexOf("MSIE")>=1)
+            {
+                obj.select();
+                return document.selection.createRange().text;
+            }
+            else if(window.navigator.userAgent.indexOf("Firefox")>=1)
+            {
+                if(obj.files)
+                {
+                    return obj.files.item(0).getAsDataURL();
+                }
+                return obj.value;
+            }
+            return obj.value;
+        }
+    }
+    //图片预览方法
+    function tpyl(file1,file2,img){
+        var file1=file1;
+        var file2=file2;
+        var img1=img;
+console.log($("."+file2))
+            $("."+file2).change(function() {
+                var $file = $(this);
+                var fileObj = $file[0];
+                var windowURL = window.URL || window.webkitURL;
+                var dataURL;
+                var $img = $("#"+img);
+                if(fileObj && fileObj.files && fileObj.files[0]) {
+                    dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                    $img.attr('src', dataURL);
+                    alert(0)
+                } else {
+                    dataURL = $file.val();
+                    var imgObj = document.getElementById(img);
+                    imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                    imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+                }
+            })
+    }
+    tpyl('222','fileupload','img-so');
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    })
+</script>
+{include file="public/footer" }

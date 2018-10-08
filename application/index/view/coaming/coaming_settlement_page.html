@@ -1,0 +1,212 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="main settlement_page">
+    <!-- 面包屑导航-->
+    <div class="container">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>结算页面</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+            <div class="Inquiries_orders_page" id="navigatesLeft">
+
+                <div id='navigatesRigth'>
+                    <div class="panel panel-default height ">
+                        <div class="panel-heading bg-orange">
+                            <span>客户结算</span>
+                        </div>
+                    </div>
+                    <div  class="panel-body pl-10">
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-2  mt-10 text-right">客户名称</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" name="customer_name" disabled id="customer_name" value="{$orders['contact_name']}" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 mt-10  text-right">目标地址</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" name="target_address" disabled id="target_address" value="{$orders['full_location']}" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 text-right">预约开始时间</label>
+                            <div class="layui-inline col-xs-12   col-sm-10 relative_order_calibrate">
+                                <input class="layui-input form-control" disabled name="Appointment_start_time" value="{$orders['start_time']|date='Y-m-d H:i',###}">
+
+                            </div>
+                        </div>
+                            <!--项目信息展示-->
+                            <table class="table table-bordered" >
+                                <thead>
+                                <tr>
+                                    <td>项目</td>
+                                    <td>本订单收费</td>
+                                </tr>
+                                </thead>
+                                <?php if($orders['step_type']==8){?>
+                                <tbody>
+                                <tr>
+                                    <td>{$coaming}</td>
+                                    <td>
+                                        {$budget['budget']}
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <?php }elseif($orders['step_type']==9){ ?>
+                                <tbody>
+                                <tr>
+                                    <td>{$coaming}</td>
+                                    <td>
+                                        {$total}
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <?php } ?>
+                            </table>
+                            <div class="mt-30"></div>
+                            <!--师傅信息-->
+                            <table class="table table-bordered" >
+                                <thead>
+                                <tr>
+                                    <td>师傅工号</td>
+                                    <td>预计工作时长(h)</td>
+                                    <td>预计费用</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{$result['worker_id']}</td>
+                                    <td></td>
+                                    <td>{$total}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                        <!--合计总价-->
+                        <div class="border-bottom-1 mt-20"></div>
+                        <div class="row">
+                            <div class="col-md-12 mt-10 pl-20  line-height-30">
+                                <!--平台优惠卷-->
+                                <!-- <p>
+                                    <input type="checkbox"> &nbsp;使用平台优惠卷
+                                </p> -->
+                                <!--订单编号-->
+                                <p>
+                                    <span>订单编号</span>:&nbsp;{$order_number}
+                                </p>
+                                <!--合计-->
+                                <p>
+                                    <span>合计</span>：&nbsp;{$total}元
+                                </p>
+                            </div>
+                        </div>
+
+                </div>
+
+                <!--按钮确认页面-->
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-4 mt-30 text-center mb-10">
+                        <a class="btn btn-orange border-radius form-control"  href="javascript:;" onclick="payment({$total},'{$order_number}')">付款</a>
+                    </div>
+                </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+    var cu=true;
+    $(".popup_message>a").click(function (e) {
+        e.preventDefault();
+        if(cu){
+            $(this).siblings('ul').removeClass('on');
+            cu=false;
+        }else{
+            $(this).siblings('ul').addClass('on');
+            cu=true;
+        }
+    });
+
+    //order_calibrate
+    $('#order_calibrate').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $('input').focus(function () {
+        $('#order_calibrate').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+    })
+</script>
+<script>
+    //提交总价钱
+    function payment(total,order_number){
+        $.ajax({
+            url:'__PUBLIC__is_weixin',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(data){
+                if(data==true){
+                    location.href="http://www.bj-wang.com/wxpay/pay?total="+total+"&&number="+order_number;
+                }else{
+                    $.ajax({
+                        url:'__PUBLIC__total',
+                        type:'post',
+                        data:{total:total,number:order_number},
+                        dataType:'json',
+                        success:function(data){
+                            if(data.code==200){
+                                location.href="http://www.bj-wang.com/wxpay/scan/number/"+order_number;
+                            }
+
+                        }
+                    })
+
+                }
+
+            }
+        })
+    }
+</script>
+{include file='public/footer'}

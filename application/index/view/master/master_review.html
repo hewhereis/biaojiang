@@ -1,0 +1,142 @@
+{include file="public/header"}
+    <div class='main'>
+    
+        <div class='container'>
+            <h5 class="page-header">
+                <span>当前位置：</span>
+                <small>认证详情<span>>></span></small>
+            </h5>
+	     <!-- row -->
+	     <div class='alert' id='review_status_code'><span id=''></span></div>
+		    <div class="row mb-20">
+		        <!-- col -->
+		        <div class="col-xs-3">
+					<label class='label label-info'>真实姓名</label>
+		        </div>
+		        <div class="col-xs-9">
+					<label class='form-control' id='real_name'></label>
+		        </div>
+		        <!-- /col -->
+		    </div>
+	    <!-- /row -->
+	    
+	    <!-- row -->
+		    <div class="row mb-20">
+		        <!-- col -->
+		        <div class="col-xs-3">
+					<label class='label label-info'>身份证号码</label>
+		        </div>
+		        <div class="col-xs-9">
+					<label class='form-control' id='id_card' ></label>
+		        </div>
+		        <!-- /col -->
+		    </div>
+	    <!-- /row -->
+	    
+	    <!-- row -->
+		    <div class="row mb-20">
+		        <!-- col -->
+		        <div class="col-xs-3">
+					<label class='label label-info'>银行卡</label>
+		        </div>
+		        <div class="col-xs-9">
+					<label class='form-control' id='credit_card'></label>
+		        </div>
+		        <!-- /col -->
+		    </div>
+	    <!-- /row -->
+	    
+	     <!-- row -->
+		    <div class="row mb-20">
+		        <!-- col -->
+		        <div class="col-xs-3">
+					<label class='label label-info'>手机号码</label>
+		        </div>
+		        <div class="col-xs-9">
+					<label class='form-control' id='credit_card_phone'></label>
+		        </div>
+		        <!-- /col -->
+		    </div>
+	    <!-- /row -->
+	    
+	    <!-- row -->
+		    <div class="row mb-20">
+		        <!-- col -->
+		        <div class="col-sm-4 mb-20">	        	
+					<img src="" id='id_front' class='img-responsive'/>
+		        </div>
+		        <div class="col-sm-4 mb-20">
+					<img src="" id='id_reverse' class='img-responsive'/>
+		        </div>
+		        <div class="col-sm-4 mb-20">
+					<img src="" id='id_hand' class='img-responsive'/>
+		        </div>
+		        <!-- /col -->
+		    </div>
+	    <!-- /row -->
+	    
+	    <!-- row -->
+		    <div class="row mb-20" id='alert'>
+	    		 
+		    </div>
+	    <!-- /row -->
+		</div>
+	<div>
+	<!-- ===============================================
+	============== Page Specific Scripts ===============
+	================================================ -->
+	<script>
+	   $(document).ready(function(){
+	   	$.ajax({
+			url: '',
+			type: 'GET',
+			dataType: 'json',
+			data: {},
+			success: function(response) {
+				$("#credit_card").html(response.credit_card); //银行卡号
+				$("#credit_card_phone").html(response.credit_card_phone); //银行卡手机
+				$("#id_card").html(response.id_card); //身份证号
+				$("#real_name").html(response.real_name);//真实姓名
+				$("#id_front").attr({'src':site_url+response.id_front}); //身份证图正面
+				$("#id_hand").attr({'src':site_url+response.id_hand});	//手持身份证图
+				$("#id_reverse").attr({'src':response.id_reverse}) //身份证图反面
+				$("#review_status_code").addClass("alert-"+response.review_status_code);		// alert颜色
+				$("#review_status_code").find('span').html(response.review_status_title);//状态
+				if(response.review_status==3){
+					var str="<div class='alert alert-danger' id='danger'><strong>注意:</strong><span id=''>很遗憾，您的信息可能不正确，请重新填写并上传审核</span></div><div class='col-sm-2 col-sm-offset-10 mb-20'><a class='btn btn-orange' id='reapply'>重新填写</a></div>";
+				$("#alert").html(str);
+				$("#reapply").on('click',function(){
+					ajax('',redirect.after_reapply);
+				});
+			}
+		},
+			error:function(response) {
+				
+			}
+			});
+	   });
+
+
+	   function ajax(url,redirect='',method='POST'){
+		 	$.ajax({
+			url: url,
+			type: method,
+			dataType: 'json',
+			data: {},
+			success:function(response){
+				if(response.type=="success"){
+					
+						window.location.href=redirect;
+				}else{
+					
+				}
+			},
+			error: function(response) {
+				
+			}
+		});
+	   }
+	</script>
+	<!--/ Page Specific Scripts -->
+
+{include file="public/footer"}

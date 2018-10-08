@@ -1,0 +1,236 @@
+.footer{
+	padding-bottom:px;
+}
+.weui-cells{
+	margin-top:0;
+}
+ .weui-cell_hd{
+	padding:5px 0;
+	font-size: 14px;
+	font-weight: normal;
+	color:#333;
+}
+ .weui-cell_bd{
+    font-size: 14px;
+    font-weight: normal;
+	color:#333;
+ }
+ .weui-cell_ft{
+ 	font-size: 14px;
+    font-weight: normal;
+	color:#333;
+ }
+ .weui-cell .radio{
+    float: right;
+ }
+
+    
+}
+ .weui-cell:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid #d9d9d9;
+    color: #d9d9d9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    left: 15px;
+    right: 15px
+}
+ .backgroundColor{
+ 	
+ 	background-color: #f7f7f7;
+ }
+ .zm{
+  padding:15px 15px;
+    font-size: 14px;
+    background-color: #F7F7F7;
+ }
+  .weui-table{
+  	width: 100%;
+  	text-align: center;
+  	font-size: 14px;
+  }
+  
+  }
+  a{
+  	color: #44698D;
+  }
+  
+  .total{
+  	margin-left: 15px;
+  }
+  .read_quality{
+  	padding-left: 15px;
+  	padding-top: 10px;
+  }
+  .xuanshifu{
+  	float: right;
+  	padding-right: 15px;
+  }
+  .xuanshifu_btn{
+  	background: -webkit-linear-gradient(left,#64D074 , #23AC39);
+    background: -o-linear-gradient(right,#23AC39,#64D074); 
+    background: -moz-linear-gradient(right,#23AC39,#64D074)); 
+    background: linear-gradient(to right,#23AC39,#64D074));
+  	background-color: #42BC55;
+  	padding:15px 50px;
+  	border-radius:6px;
+    color:#fff;
+    border:none;
+  }
+  .xie{
+  	margin-top:px;
+  	padding:10px 0;
+  	padding-left: 15px;
+  	background-color: #fff;
+  	text-align: right;
+  	font-size: 14px;
+  }
+ .pinglun{
+ 	padding-right: 15px;
+ }
+ .yuan{
+  background: -webkit-linear-gradient(#ff5700, #ff8b00);
+  background: -o-linear-gradient(#ff5700, #ff8b00); 
+  background: -moz-linear-gradient(#ff5700, #ff8b00);
+  background: linear-gradient(#ff5700, #ff8b00);
+ 	width:40px;
+ 	height: 40px;
+ 	background-color: #ff7700;
+ 	padding:0 0;
+ 	border-radius: 50%;
+ }
+ .heading{
+ 	font-size: 14px;
+ 	margin-left:10px;
+ }
+ .heading p{
+ 	color: #BFBFBF;
+ 	padding-top: 3px;
+ }
+ .content1 p{
+ 	padding:5px 15px;
+ 	font-size: 14px;
+ }
+ .liulan{
+ 	padding-left: 15px;
+ 	padding-top: 10px;
+ 	padding-bottom: 10px;
+ 	color: #BFBFBF;
+ 	font-size: 14px;
+ 	line-height: 25px;
+ }
+  .content2{
+ 	padding-bottom:15px;
+ 	padding-left:15px;
+ }
+ .tubiao{
+ 	float: right;
+ }
+ .one{
+ 	float: right;
+ 	padding-right: 50px;
+ 	font-size: 25px;
+ }
+ .icon-bubble2{
+ 	float: right;
+ 	padding-right: 15px;
+ 	font-size: 25px;
+ }
+ .icon-plus{
+ 	padding-left: 15px;
+ }
+ .heading2{
+ 	font-size:14px;
+ }
+  .pinglun2{
+  	font-size:14px;
+  	margin:0px 15px;
+  } 
+  .weui-textarea{
+  	border: 1px solid #bfbfbf;
+  	width:90%;
+  	line-height:30px;
+  	margin-left: 5%;
+  	margin-top: 20px;
+  	margin-bottom:10px;
+  } 
+  .two{
+     color: #fff;
+  }
+  .jia{
+  	height: 25px;
+  	width: 25px;
+  	border:1px solid #cacaca;
+  	padding: 0px;
+  	border-radius: 50%;
+  	margin-right: 10px;
+  	text-align: center;
+  	line-height: 25px;
+  	background-color:#4d7093; 
+  }
+  .pinglun_tu{
+  	padding-left: 10px;
+  	color: #FF5100;
+    position:relative;
+    top:3px;
+  }
+  .bianhao{
+    padding:10px 15px;
+    font-size: 14px;
+    border-bottom:1px solid #cacaca;
+    background-color: #F7F7F7;
+    color:#ABABAB;
+  }
+ .xiangmu{
+  margin:10px 5%;
+  height:130px;
+  background-color:#fff;
+  box-shadow:1px 1px 1px 1px #cacaca;
+  border-radius: 5px;
+ }
+ .xiangmu1{
+  padding:10px 15px;
+  color:#ff5200;
+  border-bottom:1px solid #f7f7f7;
+  font-size: 16px;
+ }
+ .content{
+  position: relative;
+  top: 20px;
+  font-size: 14px;
+  clear: right;
+  height:100px;
+  }
+  .time{
+    padding:10px;
+    font-size:14px;
+  }
+  .yusuanjia{
+    font-size:14px;
+    padding:10px;
+  }
+  .text10{
+    padding:0px 20px ;
+  }
+  .text11{
+    width:60px;
+    border-bottom:1px solid #ff5200;
+    outline:none;
+  }
+  .btn{
+    float:right;
+  }
+  .btn_ck{
+    color:#fff;
+    padding:8px 20px;
+    background:-webkit-linear-gradient(left,#ff9002,#ff5200);
+    border:none;
+    border-radius:3px;
+  }

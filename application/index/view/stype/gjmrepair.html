@@ -1,0 +1,110 @@
+<!--判断当前更换灯片为6时-->
+{{# if(d[i].step_type==6){ }}
+{{# if(d[i].amount_total==null){ }}
+{{# }else{ }}
+￥{{d[i].amount_total}}
+{{# } }}
+<br/>
+
+{{# if(d[i].service_type_id==1||d[i].service_type_id==2||d[i].service_type_id==5){ }}
+
+{{# if(d[i].status==1 || d[i].status==2 || d[i].status==3 || d[i].status==4){ }}
+{{# if(d[i].ampunt_addition==null){ }}
+<a href="__PUBLIC__order/additional/{{d[i].id}}" target="_blank" class="btn btn-xs btn-sm btn-primary">追加项目</a>
+{{# }else{ }}
+{{# } }}
+
+{{# }else{ }}
+{{# } }}
+
+{{# }else{ }}
+{{# } }}
+{{# if(d[i].status==1){ }}
+<a href="__PUBLIC__gjmguestbook/{{d[i].order_number}}" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">去选标</span>
+</a>
+{{# }if(d[i].status==2){ }}
+<a href="__PUBLIC__settlements/{{d[i].order_number}}/url/0" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">去付款</span>
+</a>
+{{# }if(d[i].status==3){ }}
+		{{# if(d[i].step_number==8){ }}
+				<a href="__PUBLIC__order/status/{{d[i].id}}" target="_blank">
+				<span class="btn btn-xs btn-sm btn-orange" >确认报告</span>
+				</a>
+			{{# } }}
+{{# }if(d[i].status==4){ }}
+<a href="__PUBLIC__order/status/{{d[i].id}}" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">去验收</span>
+</a>
+{{# }if(d[i].status==5){ }}
+<a href="__PUBLIC__client_evaluate/{{d[i].order_number}}" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">去评价</span>
+</a>
+{{# }if(d[i].status==6){ }}
+<a href="javascript:;" onclick="ad_state({{d[i].id}});" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">追加评价</span>
+</a>
+{{# } }}
+<!--判断当前更换灯片为7时-->
+{{# }if(d[i].step_type==7){ }}
+{{# if(d[i].amount_total==null){ }}
+{{# }else{ }}
+￥{{d[i].amount_total}}
+{{# } }}
+<br/>
+
+{{# if(d[i].service_type_id==1||d[i].service_type_id==2||d[i].service_type_id==5){ }}
+
+{{# if(d[i].status==1 || d[i].status==2 || d[i].status==3 || d[i].status==4){ }}
+{{# if(d[i].ampunt_addition==null){ }}
+<a href="__PUBLIC__order/additional/{{d[i].id}}" target="_blank" class="btn btn-xs btn-sm btn-primary">追加项目</a>
+{{# }else{ }}
+{{# } }}
+
+{{# }else{ }}
+{{# } }}
+
+{{# }else{ }}
+{{# } }}
+{{# if(d[i].status==1){ }}
+{{# if(d[i].step_number==2){ }}
+<a href="__PUBLIC__master_filters/{{d[i].order_number}}/cid/choose/sid/0" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">挑主任师傅</span>
+</a>
+{{# }if(d[i].step_number==3){ }}
+<a href="__PUBLIC__director_master/{{d[i].order_number}}/wid/3" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">咨询主任师傅</span>
+</a>
+{{# }if(d[i].step_number==4){ }}
+{{# if(d[i].d_num!=0){ }}
+<a href="__PUBLIC__common_master/{{d[i].order_number}}/wid/0" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">增加普通师傅</span>
+</a>
+{{# } }}
+{{# } }}
+
+{{# }if(d[i].status==2){ }}
+<a href="__PUBLIC__settlement/{{d[i].order_number}}/url/0" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">去付款</span>
+</a>
+{{# }if(d[i].status==3){ }}
+		{{# if(d[i].step_number==8){ }}
+				<a href="__PUBLIC__order/status/{{d[i].id}}" target="_blank">
+				<span class="btn btn-xs btn-sm btn-orange" >确认报告</span>
+				</a>
+			{{# } }}
+{{# }if(d[i].status==4){ }}
+<a href="__PUBLIC__order/status/{{d[i].id}}" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">去验收</span>
+</a>
+{{# }if(d[i].status==5){ }}
+<a href="__PUBLIC__client_evaluate/{{d[i].order_number}}" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">去评价</span>
+</a>
+{{# }if(d[i].status==6){ }}
+<a href="javascript:;" onclick="ad_state({{d[i].id}});" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">追加评价</span>
+</a>
+{{# } }}
+{{# } }}

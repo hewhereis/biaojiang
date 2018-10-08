@@ -1,0 +1,156 @@
+{include file='public/header'}
+<script src="__indexStatic__js/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" href="__indexStatic__js/webupload/style.css">
+<link rel="stylesheet" href="__indexStatic__js/webupload/webuploader.css">
+<style>
+	#app {
+		background: #F7F7F7
+	}
+
+	.webuploader-pick {
+		background: #fff
+	}
+</style>
+<div class='app'>
+	<headers></headers>
+	<mian></mian>
+	<menus></menus>
+	<script type="text/x-template" id='mian'>
+		<div class="weixiubaogaomaster">
+			<div class="weui-cells__title">请认真核对你的信息</div>
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<label class="weui-label label">店铺地址</label>
+					</div>
+					<div class="weui-cell__bd">
+						<span class="weui-input label-spans"></span>
+					</div>
+				</div>
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<label class="weui-label label">施工师傅</label>
+					</div>
+					<div class="weui-cell__bd">
+						<span class="weui-input label-spans"></span>
+					</div>
+				</div>
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<label class="weui-label label">施工公司</label>
+					</div>
+					<div class="weui-cell__bd">
+						<span class="weui-input label-spans"></span>
+					</div>
+				</div>
+				<div class="weui-cell">
+					<div class="weui-cell__hd">
+						<label class="weui-label label">完成时间</label>
+					</div>
+					<div class="weui-cell__bd">
+						<span class="weui-input label-spans"></span>
+					</div>
+					<i class='icon-calendar' style='position:relative;right:0'></i>
+				</div>
+			</div>
+			<div class="repeats" id='weuiCardsParent'>
+				<div class="weui-cards weuiCards">
+					<div class="weui-cards-header">
+						<a href="javascript:;" @click="addCards()" class="weui-btn weui-btn_mini weui-btn_default weui-cards-headerButton btn-orange"
+							data-add="weui-cards">新增</a>
+						<div class="weui-cards-title weui-cardsText-orange">上传图片</div>
+					</div>
+					<div class="weui-cards-body">
+						<div class="uploadImg">
+							<div class="uploadImgClick">
+								<span class="uploadsText">维修前</span>
+								<div class='inputflie'>
+									<img src="__indexStatic__images/uploads.png" alt="" width="80" height="80" style='display:block'>
+								</div>sign<div class="sign">
+
+								</div>
+							</div>
+							<div class="uploadImgClick">
+								<span class="uploadsText">维修后</span>
+								<div class='inputflie'>
+									<img src="__indexStatic__images/uploads.png" alt="" width="80" height="80" style='display:block'>
+								</div>
+							</div>
+						</div>
+						<div class="inputs">
+							<input type="text" class="inputsInput" placeholder="请输入描述">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sign">
+				<label for="sign" class='label'>主任师傅签名：</label>
+				<input type="text" class='signInput' id='sign'>
+			</div>
+			<!-- <div class="weui-gallery" style="display: block">
+				<span class="weui-gallery__img" style="background-image: url(__indexStatic__images/uploads.png);"></span>
+				<div class="weui-gallery__opr">
+					<a href="javascript:" class="weui-gallery__del">
+						<i class="weui-icon-delete weui-icon_gallery-delete"></i>
+					</a>
+				</div>
+			</div> -->
+		</div>
+	</script>
+</div>
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+	window.onload = function () {
+
+		var data = {
+			imgList: [],
+			size: 0
+		}
+		Vue.component('mian', {
+			template: '#mian',
+			data: function () {
+				return data
+			},
+			methods: {
+				addCards: function () {
+					var weuiCardsAndClose ='<div class="weui-cards weuiCards" style="margin-top:15px"><div class="weui-cards-header"><span class="weui-cards-header-close"><i class="icon-close"></i></span><div class="weui-cards-title weui-cardsText-orange">上传图片</div></div><div class="weui-cards-body"><div class="uploadImg"><div class="uploadImgClick"><span class="uploadsText">维修前</span><div class="inputflie"><img src="__indexStatic__images/uploads.png" alt="" width="80" height="80" style="display:block"></div></div><div class="uploadImgClick"><span class="uploadsText">维修后</span><div class="inputflie"><img src="__indexStatic__images/uploads.png" alt="" width="80" height="80" style="display:block"></div></div></div><div class="inputs"><input type="text" class="inputsInput" placeholder="请输入描述"></div></div></div>'
+					$("#weuiCardsParent").append(weuiCardsAndClose);
+				}
+			},
+			mounted: function () {
+				weuiCardsClose()
+			}
+		})
+		//头
+		Vue.component('headers', {
+			template: '#header',
+			data: function () {
+				return {
+					title: "维修报告"
+				}
+			},
+			methods: {
+				goback: function () {
+					window.history.go(-1)
+				}
+			}
+		})
+		Vue.component('menus', {
+			template: '#menu',
+			data: function () {
+				return {}
+			}
+		})
+		Vue.component('footers', {
+			template: '#footers',
+			data: function () {
+				return {}
+			}
+		})
+		new Vue({
+			el: '.app'
+		})
+	}
+</script>

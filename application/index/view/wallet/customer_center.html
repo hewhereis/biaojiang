@@ -1,0 +1,182 @@
+{include file="public/style_header" }
+<input type="hidden" id="uid" value="{$uid}">
+<div class="panel panel-orange">
+        <div class="panel-heading">
+            <div class="panel-title">
+                钱包余额
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row mb-20">
+                <div class="col-sm-6 col-xs-12 mt-10 pl-30">
+                    <span style="font-size: 1.5em">可用余额</span>   <span style="color:#000;font-size: 2em;font-family:Sans-serif ;font-weight: bold">{$balance}</span>（元）
+                </div>
+            </div>
+            <div class="row mb-20">
+                <div class="col-sm-5 col-xs-12 pl-30">
+
+                </div>
+            </div>
+            <div class="row mb-20">
+                <div class="col-sm-2 col-xs-12 mt-10" style="margin-left:2%">
+                    <a class="btn btn-info border-radius" href="__PUBLIC__wallet_center_pay" style="padding:0.8em 3.5em">充值</a>
+                </div>
+            </div>
+            <!-- 交易记录 -->
+            <div class="row">
+                <div class="col-sm-5 col-xs-12 pl-30">
+                    <span style="font-size:1.5em">交易记录</span>
+                </div>
+            </div>
+            <hr>
+            <!-- 交易时间 -->
+
+            <!-- <div class="row"> -->
+                <!-- <div class="col-sm-2 col-xs-12 pt-10 pl-30"> -->
+                    <!-- 交易时间： -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-3 col-xs-12"> -->
+                    <!-- <input type="text" name="start" id="start"  class="form-control" value="" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-1 col-xs-12 text-center"> -->
+                    <!-- <span>——</span> -->
+                <!-- </div> -->
+                <!-- <div class="col-sm-3 col-sm-offset-0 col-xs-12"> -->
+                    <!-- <input type="text" name="end" id="end" class="form-control" value="" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})"> -->
+                <!-- </div> -->
+            <!-- </div> -->
+            <div class="row mt-20">
+                <div class="col-sm-2 col-xs-12 pt-10 pb-30">
+                    订单编号：
+                </div>
+				  <form name="admin_list_sea" class="form-search" method="post" action="__PUBLIC__wallet_center">
+					<div class="col-sm-5 col-xs-8" style="margin-left:-8%">
+					 <input type="text" id="key" class="form-control" name="key" value="{$val}" placeholder="输入需查询的订单号" />   
+					</div>
+					<div class="col-sm-2 col-xs-4"  >
+						<input type="submit" value="查询" class="btn btn-info border-radius form-control" style="background-color:#5bc0de;color:#fff">
+					</div>
+				</form>   
+            </div>
+            <!--   订单 -->
+            <div class="row hidden-xs mt-30">
+                <div class="example-wrap">
+					<div class="example">
+					 <table class="table table-bordered table-hover">
+                        <thead>
+                             <tr>
+                                <th>订单编号</th>
+                                <th>服务类型</th>
+                                <th>订单开始时间</th>
+                                <th>订单结束时间</th>
+                                <th>交易金额</th>
+                            </tr>
+                        </thead>
+                        <script id="list-template" type="text/html">
+                            {{# for(var i=0;i<d.length;i++){  }}
+                            <tr class="long-td">
+                                <td>{{d[i].order_number}}</td>
+                                <td>
+								   {{# if(d[i].service_type_id==1){ }}
+                                        安装
+                                   {{# }else if(d[i].service_type_id==2){ }}
+                                        维修
+								   {{# }else if(d[i].service_type_id==4){ }}
+                                        勘测
+							       {{# }else if(d[i].service_type_id==5){ }}
+                                        更换灯片
+								   {{# }else if(d[i].service_type_id==6){ }}
+                                       围板搭建
+                                   {{# } }}
+								</td>
+								<td>
+								{{# if(d[i].start_time=='1970-01-01 08:00:00'){ }}
+								-
+								{{# }else { }}
+									{{d[i].start_time}}
+                                {{# } }}
+								</td>
+                                <td>
+								{{# if(d[i].end_time=='1970-01-01 08:00:00'){ }}
+								-
+								{{# }else { }}
+									{{d[i].end_time}}
+                                {{# } }}
+								</td>       
+								<td>{{d[i].amount_total}}</td>     
+
+                            </tr>
+                            {{# } }}
+                        </script>
+                        <tbody id="list-content"></tbody>
+                    </table>
+                     <div id="AjaxPage" style=" text-align: right;"></div>
+                     <div id="allpage" style=" text-align: right;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-3 mt-20   text-right " style="margin-top:1%">
+              
+			
+
+            </div>
+            <div class="row mt-">
+
+                <!-- <div class="col-md-10 text-left"> -->
+                    <!-- <button class="btn btn-info border-radius" style="padding:0.4em 3em"> -->
+                        <!-- 导出 -->
+                    <!-- </button> -->
+                <!-- </div> -->
+
+            </div>
+        </div>
+    </div>
+
+<!-- 加载动画 -->
+<div class="spiner-example">
+    <div class="sk-spinner sk-spinner-three-bounce">
+        <div class="sk-bounce1"></div>
+        <div class="sk-bounce2"></div>
+        <div class="sk-bounce3"></div>
+    </div>
+</div>
+<script src="__JS__/layer/layer.js"></script>
+<script src="__JS__/laypage/laypage.js"></script>
+<script src="__JS__/laytpl/laytpl.js"></script>
+<script src="__JS__/jquery.form.js"></script>
+<script src="__JS__/lunhui.js"></script>
+<script  type="text/javascript">
+    //laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr){
+        var key=$('#key').val();
+        $.getJSON('__PUBLIC__wallet_center', {page: curr || 1,key:key}, function(data){
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画 
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+            }else{
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+
+
+
+</script>

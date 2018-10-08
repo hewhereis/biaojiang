@@ -1,0 +1,177 @@
+{include file='public/header'}
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+
+  <div class='suaidanpeishifu'>
+    <div class="weui-cells weui-cells_form border-none">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">订单编号：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label-span'>5465461646843</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">您的称呼：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label-span'>黄晓</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">详细地址：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label-span'>上海嘉定区安亭镇方泰路</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">楼号-门牌号：</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label-span'>上海嘉定区安亭镇方泰路</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">服务时间：</label>
+        </div>
+        <div class="weui-cell__bd label-span">
+          <span> 2017-10-19 13:57</span>
+        </div>
+      </div>
+      <div class="weui-cell bg"></div>
+      <div class="weui-table">
+        <div class="weui-table-tr">
+          <div class="weui-cell-item">
+            <span>项目</span>
+          </div>
+          <div class="weui-cell-item">
+            <span>本平台建议价</span>
+          </div>
+          <div class="weui-cell-item">
+            <span>预算价</span>
+          </div>
+        </div>
+        <div class='weui-table-th'>
+          <div class="weui-cell-item">
+            <span>安装</span>
+          </div>
+          <div class="weui-cell-item">￥
+            <span>58</span>
+          </div>
+          <div class="weui-cell-item">
+            <a href="" class='a-link'>
+              <span>查看详情>></span>
+            </a>
+          </div>
+        </div>
+        <div class='weui-table-th'>
+          <div class="weui-cell-item">
+            <span>加急服务</span>
+          </div>
+          <div class="weui-cell-item">
+            <span></span>
+          </div>
+          <div class="weui-cell-item">
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">招募留言：</label>
+        </div>
+        <div class="weui-cell__bd label-span">
+          <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd select-after">
+              <select class="weui-select" name="select1">
+                <option selected="" value="1">微信号</option>
+                <option value="2">QQ号</option>
+                <option value="3">Email</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <div class='checkbox'>
+                        <input type='checkbox' id='checkbox1' name='checkboox[]'>
+                        <label for='checkbox1' class='label-span'>招标是否显示预算价</label>
+                    </div>
+                </div>
+        </div>
+      </div>
+    </div>
+    <div class="weui-flex-userbtn">
+      <div class="weui-flex-item">
+          <a href="javascript:;" class="weui-btn weui-btn_warn btn-orange">下单找师傅</a>
+      </div>
+    </div>
+  </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+    sex: 2
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      getdate: function () {
+        var x = new Date();
+        var n = x.getFullYear(); //获取当前日期
+        var y = x.getMonth() + 1; //获取当前日期
+        var r = x.getDate(); //获取当前日期
+        return n + "-" + y + "-" + r;
+      }
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdate()
+      });
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "甩单配师傅"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+</script>

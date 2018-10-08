@@ -1,0 +1,122 @@
+﻿{include file="public/style_header" }
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+
+
+
+<div class="panel panel-orange">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    个人头像
+                </div>
+            </div>
+            <div class="panel-body" style="min-height: 600px">
+			 <form id="demoa" name="demoa" id="demoa" method="post" action="__PUBLIC__ajax_mase_headportrait">
+			<div class="row">
+				<div class="col-sm-8 text-center">
+					<div style="width:90%;height:370px;border:1px solid #ddd;background:#F9F9F9;">
+					<div style="margin-top:35%"><div id="imgPicker" style="">选择您要上传的图片</div></div>
+					<p style="font-size:12px">仅支持JPG、JPEG、PNG格式，文件小于4M</p>
+				</div>
+				<input type="submit" class="btn btn-success" style="margin-left:-80%;margin-top:3%;width:20%" value="保存">
+				</div>
+				
+				<div class="col-sm-4">
+					
+					 <p>效果预览图</p>
+					 <div class="input-group col-sm-4" style="margin-top:3%">
+					   <input type="hidden" id="data_photo" name="photo" value="{$list.uimg}">
+						<div id="fileList" class="uploader-list" style="float:right"></div>
+						
+					   <img id="img_data" height="100px" style="float:left;margin-left:50px;margin-top:-10px;" onerror="this.src='__PUBLIC__static/index/images/zhenxiang.png'" src="__DsQINiu__{$list.uimg}"/>
+					   
+					 </div>
+					
+				</div>
+			</div>
+			</form>	
+			
+			
+                 
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+ 
+ <script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $('#demoa').ajaxForm({
+            success: complete, // 这是提交后的方法
+            dataType: 'json',
+         
+        });
+        function complete(data){
+            if(data.code==200){
+				 parent.layer.msg(data.msg, {icon: 6,time:1500}, function(index){
+                    
+					window.history.back();
+                });
+            }else{
+                parent.layer.msg(data.msg, {icon: 5,time:1500});
+                return false;   
+            }
+
+        }
+    });
+	
+	
+
+	
+	
+</script>
+<script type="text/javascript">
+    var $list = $('#fileList');
+    //上传图片,初始化WebUploader
+    var uploader = WebUploader.create({
+     
+        auto: true,// 选完文件后，是否自动上传。   
+         swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+		server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPicker',// 选择文件的按钮。可选。
+
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+
+        'onUploadSuccess': function(file, data, response) {
+            $("#data_photo").val(data._raw);
+            $("#img_data").attr('src', '__DsQINiu__' + data._raw).show();
+        }
+    });
+
+    uploader.on( 'fileQueued', function( file ) {
+        $list.html( '<div id="' + file.id + '" class="item">' +
+            '<h4 class="info">' + file.name + '</h4>' +
+            '<p class="state">正在上传...</p>' +
+        '</div>' );
+    });
+
+    // 文件上传成功
+    uploader.on( 'uploadSuccess', function( file ) {
+        $( '#'+file.id ).find('p.state').text('上传成功！');
+    });
+
+    // 文件上传失败，显示上传出错。
+    uploader.on( 'uploadError', function( file ) {
+        $( '#'+file.id ).find('p.state').text('上传出错!');
+    }); 
+
+
+</script>

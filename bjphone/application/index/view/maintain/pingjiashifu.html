@@ -1,0 +1,168 @@
+{include file="public/header_sy" }
+<div id="bj-app" class="pingjiashifu">
+    <form>
+        <si-headers></si-headers>
+        <si-content ></si-content>
+        <si-footer ></si-footer>
+    </form>
+</div>
+<script type="text/x-template" id="content">
+    <div class="content">
+        <div class="weui-flex pingjiakehu-height">
+            <div class="weui-flex__item  bj-title-left">师傅表现</div>
+        </div>
+        <div class="weui-flex" v-for="(item,indexs) in biaoxian">
+            <label :for="list.id" @click="biaoxianActive(ssr+list.id+index)"  class="weui-flex__item"   v-for="(list,index) in item">
+                    <div class="pingjiashifuyu" :class="{active:ins==list.id}" :id="ssr+list.id+index">
+                        <span class="text">{{list.text}}</span>
+                        <span class="icon-右下角勾选 title"></span>
+                    </div>
+                    <input type="checkbox" name="pingjian" :id="list.id" :value="list.text" v-model="inssaa">
+            </label>
+        </div>
+
+        <div class="weui-flex pingjiamanyi">
+            <div class="weui-flex__item" @click="pingjiamanyiActive(1)">
+                <span class="icon-满意-1 title"></span>
+
+                <span class="text" :class="{active:pingActive==1}">满意</span>
+            </div>
+            <div class="weui-flex__item" @click="pingjiamanyiActive(2)">
+                <span class="icon-一般 title"></span>
+                <span class="text" :class="{active:pingActive==2}">一般</span>
+                </div>
+            <div class="weui-flex__item" @click="pingjiamanyiActive(3)">
+                <span class="icon-不满意1 title"></span>
+                <span class="text" :class="{active:pingActive==3}">不满意</span>
+                </div>
+        </div>
+        <div class="weui-flex bj-input-left">
+            <div class="weui-flex__item">
+                <textarea name="" id="" cols="10" class="weui-textarea" rows="5" placeholder="留言"></textarea>
+            </div>
+        </div>
+        <div class="weui-flex taidu">
+            <div class="weui-flex__item text">师傅服务的态度</div>
+            <div class="weui-flex__item title">
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星-1"></span>
+            </div>
+            <div class="weui-flex__item text-right">
+               好
+            </div>
+        </div>
+        <div class="weui-flex taidu">
+            <div class="weui-flex__item text">师傅的施工质量</div>
+            <div class="weui-flex__item title">
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星-1"></span>
+            </div>
+            <div class="weui-flex__item text-right">
+                好
+            </div>
+        </div>
+        <div class="weui-flex taidu">
+            <div class="weui-flex__item text">师傅的工作制度</div>
+            <div class="weui-flex__item title">
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星"></span>
+                <span class="icon-五角星-1"></span>
+            </div>
+            <div class="weui-flex__item text-right">
+                好
+            </div>
+        </div>
+
+
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <button class="weui-btn bj_button_orange">确定</button>
+            </div>
+        </div>
+    </div>
+
+</script>
+<script type="text/x-template" id="footer">
+
+
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "评价师傅",
+                left:" ",
+                right:"",
+
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+                return {
+                    biaoxian:[[{text:"做事认真",id:"1"},{text:"技术不错",id:"2"},{text:"价格公道",id:"3"}],[{text:"办事效率高",id:"4"},{text:"服务态度好",id:"5"},{text:"上门时间快",id:"6"}]],
+                    pingActive:"",
+                    inssaa:[""],
+                    ins:"",
+                    ssr:"ar",
+                    lis:"",
+                    classs:["icon-五角星-1","icon-五角星-1","icon-五角星-1","icon-五角星-1","icon-五角星-1"]
+                }
+        },
+        methods:{
+            biaoxianActive:function (idnex) {
+                var rex="active"
+                console.log()
+
+            if(($("#"+idnex).siblings()).prop("checked")){
+                $("#"+idnex).addClass("active")
+            }else {
+                $("#"+idnex).removeClass("active")
+            }
+
+            },
+            pingjiamanyiActive:function (index) {
+                this.pingActive=index
+            },
+            moucse:function (index) {
+                this.classs[index]="icon-五角星";
+                console.log(this.classs)
+            }
+        }
+    });
+    Vue.component('si-footer', {
+        template: '#footer',
+        data: function () {
+            return {
+
+            }
+        },
+        methods:{
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>

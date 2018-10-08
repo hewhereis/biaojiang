@@ -1,0 +1,84 @@
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+<!--nav-->
+{include file="public/header" }
+<!--header-->
+<div class="main pay_the_deposit">
+    <!-- header-img-->
+    <div class="header-img ">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <div class="container container-hidden">
+        <!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>缴纳保证金</small><span>>></span>
+        </h5>
+        <!-- 主题-->
+        <div class="row mt-10" id="navigatesLeft">
+            {include file="fenlei/purse_recharge_left" }
+            <div class="col-xs-12 right" id='navigatesRigth'>
+                <ul>
+                    <li>诚信保证金</li>
+                    <li>
+                        <div class="form-group">
+                            <label for="">输入缴纳金额(元)</label>
+                            <input type="text" class="form-container" placeholder="输入缴纳金额"/>
+
+                        </div>
+                        <p>保证金的最低金额未2000元</p>
+                    </li>
+                    <li>
+                        <button class="btn btn-orange">下一步</button>
+                    </li>
+                </ul>
+            </div>
+        </div >
+
+    </div>
+</div>
+<style>
+
+</style>
+<style>
+
+
+</style>
+<script>
+    $("#money").focus(function () {
+        $("#ack_buttone").removeAttr('disabled');
+        $("#ack_buttone").addClass('bg-success');
+    });
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+</script>
+{include file="public/footer" }

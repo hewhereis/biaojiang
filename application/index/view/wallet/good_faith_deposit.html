@@ -1,0 +1,113 @@
+
+<!--nav-->
+{include file="public/style_header" }
+<!--header-->
+<div class="good_faith_deposit">
+    <div id='navigatesRigth'>
+        <ul class="text-center">
+            <li>诚信保证金</li>
+            <?php if(empty($guarantee)){?>
+            <li>
+                <a href=""><img src="__PUBLIC__static/index/images/protect.png" alt=""/></a>
+                <div >
+                    <p class="">缴纳保证金:<b class="text-orange">0.00</b>元</p>
+                    <p>你还未交纳保证金</p>
+                </div>
+            </li>
+            <?php }else{ ?>
+            <li>
+                <a href=""><img src="__PUBLIC__static/index/images/protect.png" alt=""/></a>
+                <div >
+                    <p class="">缴纳保证金:<b class="text-orange">{$guarantee}</b>元</p>
+                </div>
+            </li>
+            <?php } ?>
+            <li>
+                <a class="btn btn-orange" href="__PUBLIC__guarantee_pay" id="i_want_to_pay">我要缴纳</a>
+                <p>了解并同意 <a id="yezhuxieyi" href="javascript:;" class="text-info">《标匠平台用户保障服务协议》</a></p>
+            </li>
+            <li>
+                <div class="row pr-10 pl-10">
+                    <div class="col-md-12 ">
+                        <h4 class="text-center mt-20 mb-20">关于保证金</h4>
+                        <ol type="1" class="text-left">
+                            <li>
+                                保证金是根据《标匠平台用户保障服务协议》约定的条款和条件及标匠平台其他公示规则的规定缴存并冻结于您的账户，在您未履行用户保障服务承诺时用于对用户进行赔付的资金。
+                            </li>
+                            <li>
+                                师傅交纳保证金是对客户的一种保障，所以客户在下单的时候会优先选择交纳了保证金的师傅。
+                            </li>
+                            <li>
+                                师傅交纳保证金只收取12%的服务费，如果没有交纳保证金将收取15%的服务费。
+                            </li>
+                            <li>
+                                您的保证金缴纳之后，保证金金额将冻结在您的账户中，只要满60天都可以随时全额退回去，师傅大可安心。
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    @media (max-width: 776px) {
+        html{
+            font-size: 8px;
+        }
+    }
+</style>
+<script>
+    $("#money").focus(function () {
+        $("#ack_buttone").removeAttr('disabled');
+        $("#ack_buttone").addClass('bg-success');
+    });
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    });
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    });
+
+
+    $("#yezhuxieyi").click(function () {
+        parent.layer.open({
+            type:2,
+            title:"业主协议",
+            btn:['我同意',"我再看看"],
+            content:" __PUBLIC__baozhangjing",
+            area:["80%","80%"]
+        })
+
+    })
+</script>

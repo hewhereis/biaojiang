@@ -1,0 +1,111 @@
+{include file='public/header'}
+<div class="main">
+   <div class="container">
+   	   <div class='header'>
+   	   	   <h5 class="page-header bx">
+   	   	   	   <span>当前所在的位置</span>
+   	   	   	   <span>>></span>
+   	   	   	   <span>平台估价</span>
+   	   	   </h5>
+   	   </div>
+   	   <div class="row">
+   	   	    <div class="col-md-12">
+   	   	    	<div class="panel panel-orange">
+   	   	    		<div class="panel-heading">
+   	   	    			<div class="panel-title">
+   	   	    				<p class="panel-title-p">请确认你的订单:{$order_number}</p>
+   	   	    			</div>
+   	   	    		</div>
+   	   	    		
+   	   	    			<div class="panel-body"> 
+   	   	    			<div class='row'>
+		            	  <div class='col-md-8 col-md-offset-2'>
+   	   	    				<div class="content" style="margin-top:2em;">
+   	   	    				   <table class='table table-hover table-bordered table-responsive  table-striped'>
+   	   	    				      {volist name="list" id="vo"}
+   	   	    				       <tr>
+   	   	    				       	  <td>勘测品牌类型</td><td>{$vo.brand}</td>
+   	   	    				       </tr>
+   	   	    				       <tr>
+   	   	    				       	  <td>勘测面积</td><td>{$vo.survey_area}平方米</td>
+   	   	    				       </tr>
+   	   	    				       <tr>
+   	   	    				       	  <td>空间高度</td><td>{$vo.height}米</td>
+   	   	    				       </tr>
+   	   	    				   	   <tr>
+   	   	    				       	  <td>施工时间</td><td>{$vo.sg_time}</td>
+   	   	    				       </tr>
+   	   	    				   	   <tr>
+   	   	    				       	  <td>完工期限</td><td>{$vo.wg_time}</td>
+   	   	    				       </tr>
+   	   	    				   	    <tr>
+   	   	    				       	  <td>店铺地址</td><td>{$vo.full_location}-{$vo.address}</td>
+   	   	    				       </tr>
+   	   	    				   	   <tr>
+   	   	    				       	  <td>联系人</td><td>{$vo.contacts}</td>
+   	   	    				       </tr>
+   	   	    				   	    <tr>
+   	   	    				       	  <td>联系号码</td><td>{$vo.phone}</td>
+   	   	    				       </tr>
+   	   	    				   	   
+   	   	    				   	    <tr>
+   	   	    				       	  <td>特殊要求</td><td>{$vo.requirement}</td>
+   	   	    				       </tr>
+								   <tr>
+   	   	    				       	  <td>总价</td><td>{$vo.totals}</td>
+   	   	    				       </tr>
+									<input type="hidden" value="{$vo.totals}" id="totals">
+								  {/volist} 
+   	   	    				   </table>
+   	   	    				    <div class="submit text-center" >
+								    <label onclick="payment()"class="btn btn-info" style="background: #169BD5;padding:0.5em 3em;border-radius: 7%;margin-top:1em;float:right">
+										<span>去付款</span>
+								   </label>
+								   <input type="hidden" value="{$order_number}" id="order_number">
+								
+							   </div>
+                            </div>
+   	   	    			</div>
+   	   	    		</div> 
+   	   	    	</div>
+   	   	    </div>
+   	   </div>
+   	   
+   </div>
+</div>
+</div>
+<script>
+//提交总价钱
+    function payment(){
+	var order_number=$('#order_number').val();
+	var total=$('#totals').val();
+		
+        $.ajax({
+            url:'__PUBLIC__is_weixin',
+            type:'post',
+            data:{},
+            dataType:'json',
+            success:function(data){
+                if(data==true){
+                    location.href="http://www.bj-wang.com/wxpay/pay?total="+total+"&&number="+order_number;
+                }else{
+                    $.ajax({
+                        url:'__PUBLIC__total',
+                        type:'post',
+                        data:{total:total,number:order_number},
+                        dataType:'json',
+                        success:function(data){
+                            if(data.code==200){
+                                location.href="http://www.bj-wang.com/wxpay/scan/number/"+order_number;
+                            }
+
+                        }
+                    })
+
+                }
+
+            }
+        })
+    }
+</script>
+{include file='public/footer'}

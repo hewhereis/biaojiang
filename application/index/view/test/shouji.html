@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>
+    </title>
+    <link rel="icon" type="image/png" href="__PUBLIC__static/index/images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name='keywords' content="">
+    <meta name="author" content="">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/bootstrap.min.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/font-awesome.min.css">
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/awesome-bootstrap-checkbox.css">
+    <!-- Plugin -->
+    <!-- bootstrapValidator -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/js/bootstrapValidator/css/bootstrapValidator.min.css">
+    <!-- Main -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/main.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="__PUBLIC__static/index/css/custom.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--jQuery -->
+    <script src="__PUBLIC__static/index/js/jquery/jquery-1.11.2.min.js"></script>
+    <!--Bootstrap -->
+    <script src="__PUBLIC__static/index/js/bootstrap/bootstrap.min.js"></script>
+    <!-- bootstrapValidator -->
+    <script src="__PUBLIC__static/index/js/bootstrapValidator/bootstrapValidator.min.js"></script>
+    <script src="__PUBLIC__static/index/js/bootstrapValidator/zh_CN.js"></script>
+    <script src="__PUBLIC__static/index/js/tool.js"></script>
+    <script src="__PUBLIC__static/index/js/public.js"></script>
+    <script src="__PUBLIC__static/index/js/layui/lay/dest/layui.all.js" type="text/javascript"></script>
+</head>
+<style>
+    .border-radius{
+        border-radius: 3px;
+    }
+</style>
+<body class="">
+<div class='wrapper'>
+    <div class='inner-wrapper' style="border: 1px solid #ddd;margin: 10px;margin-top: 50px">
+        <div class="form-signin">
+            <div class="text-center">
+                <h3 class="text-light text-white"><img src="__PUBLIC__static/index/images/logo.png" class="logo"></h3>
+            </div>
+            <hr>
+            <div class="tab-content">
+                <!--用户登录-->
+                <div id="login" style="line-height: 3" class="tab-pane ">
+                    <form id='form1' method="post">
+                        <h3 class="text-center">用户注册</h3>
+                            <div class='mb-10'>
+                                <p>联系电话</p>
+                                <input type="text" name='phone' id="phonea" placeholder="" class="form-control border-radius" value="">
+                            </div>
+                            <div class='mt-10 mb-10'>
+
+                                <p class="mb-10 mt-10"> 请输入验证码</p>
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <input type="text" name="sms_captcha" id="passworda" class="form-control border-radius" placeholder="请输入短信验证码">
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <a class="btn btn-blue border-radius form-control" id="btnSendCode" onclick="sendMessage()" />点击获取</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <input name="type" value="1" checked type="radio">师傅
+                            </div>
+                            <div class="col-xs-4">
+                                <input name="type" value="2" type="radio">客户
+                            </div>
+                            <div class="col-xs-4">
+                                <input name="type" value="3" type="radio">服务商
+                            </div>
+                        </div>
+                        <div class="mt-100" style="margin-top: 30px">
+                            <button class="btn btn-sm btn-orange border-radius btn-block" id="signup-btn"  type="button">进入标匠</button>
+                        </div>
+                    </form>
+                </div>
+                <!--用户登录end-->
+                <!--用户注册-->
+                <div id="signup" class="tab-pane active">
+                    <form id='form3' method="post">
+                        <div class="text-center">
+                            <h3>用户登录</h3></div>
+                        <div class='mb-10'>
+                            <p>联系电话</p>
+                            <input type="text" name='phone' id="phone" placeholder="" class="form-control border-radius" value="">
+                        </div>
+                        <div class='mt-10 mb-10'>
+
+                            <p class="mb-10 mt-10"> 请输入密码</p>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <input type="password" name='password' id='password' placeholder="" class="form-control border-radius" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" style="margin-bottom: 20px">
+                            <a href="" class="text-blue">忘记密码</a>
+                        </div>
+                        <div class='ajax-response3'></div>
+                        <div class="button-3">
+                            <button class="btn btn-sm btn-orange btn-block" id="login-btn" type="button">登录</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <hr>
+            <div class="text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a class="text-muted" href="#signup" data-toggle="tab">登录</a>
+                    </li>
+                    <li>
+                        <a class="text-muted" href="#login" data-toggle="tab">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            //立即注册获取验证码
+            var InterValObj; //timer变量，控制时间
+            var count = 20; //间隔函数，1秒执行
+            var curCount; //当前剩余秒数
+            function sendMessage() {
+                var locading = layer.load(3);
+                var phone = $("#form1 #phonea").val();
+                if (!(/^1[34578]\d{9}$/.test(phone))) {
+                    layer.close(locading);
+                    msg('手机号码有误，请重填');
+                    return false;
+                } else {　　 //向后台发送处理数据
+                    $.ajax({
+                        type: 'POST',
+                        url: 'auth/vcode',
+                        data: {
+                            phone: phone
+                        },
+                        timeout:20*1000,
+                        dataType: 'json',
+                        error: function(data) {
+                            layer.close(locading);
+                            msg();
+                        },
+                        success: function(data) {
+                            layer.close(locading);
+                            if (data.code == 200) {
+                                layer.msg(data.msg, {
+                                    icon: 1,
+                                    time: 1000
+                                }, function() {
+                                    curCount = count;　　 //设置button效果，开始计时
+                                    $("#btnSendCode").attr("disabled", "true");
+                                    $("#btnSendCode").html("请在" + curCount + "秒内输入验证码");
+                                    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                                });
+                            } else {
+                                layer.close(locading);
+                                msg(data.msg,2,6,1000);
+                            }
+                        }
+                    });
+                }
+            }
+            //timer处理函数
+            function SetRemainTime() {
+                if (curCount == 0) {
+                    window.clearInterval(InterValObj); //停止计时器
+                    $("#btnSendCode").removeAttr("disabled"); //启用按钮
+                    $("#btnSendCode").html("重新发送验证码");
+                } else {
+                    console.log(curCount)
+                    curCount--;
+                    $("#btnSendCode").html("请在" + curCount + "秒内输入验证码");
+                }
+            }
+        </script>
+        <script>
+            jQuery(document).ready(function($) {
+                //所有input标签回车无效，当然，可以根据需求自定义
+                $("input").on('keypress', function(e) {
+                    var key = window.event ? e.keyCode : e.which;
+                    if (key.toString() == "13") {
+                        return false;
+                    }
+                });
+
+                //登陆
+                $('#login-btn').on('click', function() {
+                    var phone = $('#phone').val();
+
+                    var password = $('#password').val();
+
+                    if (!(/^1[34578]\d{9}$/.test(phone))) {
+                        msg('手机号码有误，请重填');
+                        return false;
+                    }
+                    if (password == "") {
+                        msg('密码不能为空');
+                        return false;
+                    }
+                        var locading = layer.load(3);
+                        var phone = $("#form3 input[name=phone]").val();
+                        var password = $("#form3 input[name=password]").val();
+                        $.ajax({
+                            type: 'POST',
+                            url: 'auth/login',
+                            data: {
+                                phone: phone,
+                                password: password
+                            },
+                            timeout:20*1000,
+                            dataType: 'json',
+                            success: function(data) {
+                                layer.close(locading);
+                                if (data.code == 200) {
+                                    layer.msg(data.msg, {
+                                        icon: 1,
+                                        time: 1000
+                                    }, function() {
+                                        if(data.type==1){
+                                            location.href = '{:url("index/index")}';
+                                        }else if(data.type==2){
+                                            location.href = 'master';
+                                        }else if(data.type==3){
+                                            location.href = '{:url("index/index")}';
+                                        }
+                                    });
+                                } else {
+                                    msg(data.msg,2,6,1000);
+                                }
+                            },
+                            error:function(data){
+                                layer.close(locading);
+                                msg();
+                            }
+                        })
+                });
+
+                //注册
+                $('#signup-btn').click(function() {
+                    var phone = $('#phonea').val();
+                    var password = $('#passworda').val();
+
+                    if (!(/^1[34578]\d{9}$/.test(phone))) {
+                        msg('手机号码有误，请重填');
+                        return false;
+                    }
+                    if (password == "") {
+                        msg('验证码不能为空');
+                        return false;
+                    }
+                    var locading = layer.load(3);
+                    $.ajax({
+                        url: 'auth/register',
+                        dataType: 'json',
+                        data: {
+                            phone: phone,
+                            password: password,
+                        },
+                        type: 'post',
+                        success: function(data) {
+                            layer.close(locading);
+                            if (data.code == 200) {
+                                layer.msg(data.msg, {
+                                    icon: 1,
+                                    time: 1000
+                                }, function() {
+                                    location.href = '{:url("index/index")}';
+                                });
+                            } else {
+                                msg(data.msg,2,6,1000);
+                            }
+                        },
+                        error:function(data){
+                            layer.close(locading);
+                            msg();
+                        }
+                    })
+                })
+
+            });
+        </script>
+    </div>
+</div>
+</body>
+
+</html>

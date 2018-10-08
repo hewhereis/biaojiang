@@ -1,0 +1,109 @@
+<!--nav-->
+{include file="public/header" }
+<div class="main">
+   
+    <!-- 面包屑导航-->
+    <div class="container container-hidden">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>安装订单询价页面</small><span>>></span>
+        </h5>
+        <!-- 左边框-->
+        <div class="row mt-10 Inquiries_orders_page" id="navigatesLeft">
+
+                <div class="clo-xs-12 " id='navigatesRigth'>
+                    <div class="panel panel-default height ">
+                        <div class="panel-heading bg-orange">
+                            <span>安装订单询价页面</span>
+                        </div>
+                    </div>
+                    <div class="panel-body Inquiries_orders_page_none pl-50 pr-30">
+
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label">预约开始时间</label>
+                                <div class="layui-inline col-md-10">
+                                    <input class="layui-input" placeholder="2017.01.01 08:08" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                                    <span>544444444</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <input type="checkbox"  id="">
+                                    加急服务
+                                </div>
+                                <div class="col-sm-10">
+                                    <input type="checkbox">
+                                    预先处理核单
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Remember me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default">Sign in</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right mt-20">
+                <div class="col-md-6">
+                    <a href="">首页</a>
+                    <a href="">[上一页]</a>
+                    <a href="">[下一页]</a>
+                    <a href="">[末页]</a>
+                </div>
+                <div class="col-md-2 pull-right text-right">
+                    当前 <i>2</i>/ <span>4</span>页
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+</script>
+{include file='public/footer'}

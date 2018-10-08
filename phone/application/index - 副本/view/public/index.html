@@ -1,0 +1,58 @@
+{include file='public/header'}  
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>  
+<script type="text/x-template" id='mian'>
+
+  <div class='index'>
+      
+  </div>
+</script>
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+    var data = {}
+    Vue.component('mian', {
+      template: '#mian',
+      data: function () {
+        return data
+      },
+      methods: {
+      },
+      mounted:function() {
+        });
+      }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "首页导航"
+        }
+      },
+      methods:{
+         goback:function(){
+            window.history.go(-1)
+         }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+</script>

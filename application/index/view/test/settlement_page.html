@@ -1,0 +1,205 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="main settlement_page">
+    <!--header-img-->
+    <div class="header-img mt-130">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <!-- 面包屑导航-->
+    <div class="container pr-0-media pl-0_media">
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>结算页面</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+            <div class="row mt-10 Inquiries_orders_page" id="navigatesLeft">
+
+                <div class="clo-xs-12 " id='navigatesRigth'>
+                    <div class="panel panel-default height ">
+                        <div class="panel-heading bg-orange">
+                            <span>客户结算</span>
+                        </div>
+                    </div>
+                    <div  class="panel-body border-bottom-1 pl-50 pr-30">
+                        <!--客户名称信息-->
+                        <div class="form-group">
+                            <label class="col-sm-2  mt-10 text-right">客户名称</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" class="form-control"  name="customer_name" id="customer_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 mt-10  text-right">目标地址</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" class="form-control" name="target_address" id="target_address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_date" class="col-sm-2 text-right">预约开始时间</label>
+                            <div class="layui-inline col-xs-12   col-sm-10 relative_order_calibrate">
+                                <input id="input_date" class="layui-input" name="Appointment_start_time"  onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD '})">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body  Inquiries_orders_page_none pl-50 pr-30">
+                        <!--项目信息展示-->
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td>项目</td>
+                                <td>原价</td>
+                                <td>本订单收费</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>项目1</td>
+                                <td>50</td>
+                                <td>
+                                   50
+                                </td>
+                            </tr>
+                              <tr>
+                                <td>项目1</td>
+                                <td>50</td>
+                                <td>
+                                    50
+                                </td>
+                            </tr>
+                              <tr>
+                                <td>项目1</td>
+                                <td>50</td>
+                                <td>
+                                    50
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="mt-30"></div>
+                       <!--师傅信息-->
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td>师傅工号</td>
+                                <td>预计工作时长(h)</td>
+                                <td>预计费用</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>xxxx</td>
+                                <td>1h</td>
+                                <td>40</td>
+                            </tr>
+                                <tr>
+                                <td>xxxx</td>
+                                <td>1h</td>
+                                <td>40</td>
+                            </tr>
+                                <tr>
+                                <td>xxxx</td>
+                                <td>1h</td>
+                                <td>40</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--合计总价-->
+                        <div class="border-top-1"></div>
+                        <div class="row">
+                            <div class="col-md-12 mt-10  line-height-30">
+                                <!--平台优惠卷-->
+                                <p>
+                                    <input type="checkbox"> &nbsp;使用平台优惠卷
+                                </p>
+                                <!--订单编号-->
+                                <p>
+                                    <span>订单编号</span>:&nbsp;xxxxxxxxxxxxx
+                                </p>
+                                <!--合计-->
+                                <p>
+                                    <span>合计</span>：&nbsp;2000+30%元
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--按钮确认页面-->
+            <div class="row">
+                <div class="col-md-5 col-md-offset-4 mt-30 text-center mb-10">
+                    <button class="btn btn-orange border-radius form-control" >付款</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right mt-20">
+                    <div class="col-md-2 pull-right text-right">
+                        <a href="  " class="text-blue">返回>></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+    var cu=true;
+    $(".popup_message>a").click(function (e) {
+        e.preventDefault();
+        if(cu){
+            $(this).siblings('ul').removeClass('on');
+            cu=false;
+        }else{
+            $(this).siblings('ul').addClass('on');
+            cu=true;
+        }
+    });
+
+    //order_calibrate
+    $('#order_calibrate').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $('input').focus(function () {
+        $('#order_calibrate').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+    })
+</script>
+{include file='public/footer'}

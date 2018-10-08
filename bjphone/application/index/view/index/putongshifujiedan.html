@@ -1,0 +1,164 @@
+{include file='public/header'}
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+  <script type="text/x-template" id='mian'>
+    <div class="putongshifujiedan">
+      <div class="weui-cells__title">订单号：192216646546546</div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">品牌</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label'></span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">客户名称</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label' </span>
+
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">店铺地址</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label'></span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">预约时间</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label'></span>
+        </div>
+      </div>
+      <div class="weui-cell bg"></div>
+      <div class="weui-table">
+        <div class="weui-table-tr">
+          <div class="weui-cell-item">
+            <span>项目</span>
+          </div>
+          <div class="weui-cell-item">
+            <span>项目1</span>
+          </div>
+          <div class="weui-cell-item">
+            <span>项目2</span>
+          </div>
+        </div>
+        <div class="weui-table-th">
+          <div class="weui-cell-item">
+            <a href="" class="a-link">
+              <span>查看详情</span>
+            </a>
+          </div>
+          <div class="weui-cell-item">
+            <a href="" class="a-link">
+              <span>查看详情</span>
+            </a>
+          </div>
+          <div class="weui-cell-item">
+            <a href="" class="a-link">
+              <span>查看详情</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="weui-cell bg"></div>
+      <div class="weui-cell">
+        <div class="weui-cell__bd">
+          <span class='weui-input'>服务需求及佣金</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">预计工作时长</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label'>2天</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">师傅技能需求</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label'>安装</span>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">佣金数额</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label'>500 元</span>
+        </div>
+      </div>
+      <div class="weui-cell" style='border-bottom:1px solid #d9d9d9;'>
+        <div class="weui-cell__hd">
+          <label class="weui-label label">项目要求</label>
+        </div>
+        <div class="weui-cell__bd">
+          <span class='weui-input label'>安装</span>
+        </div>
+      </div>
+      <div class="weui-flex" style='margin-top:20px'>
+        <div class="weui-flex__item">
+            <a href="javascript:;" class="weui-btn weui-btn_warn" style='background:#FFBE01;border-radius:0px'>确认接单</a>
+        </div>
+        <div class="weui-flex__item">
+            <a href="javascript:;" class="weui-btn weui-btn_warn" style='background:#FF7101;border-radius:0px'>拒绝接单</a>
+        </div>
+      </div>
+    </div>
+  </script>
+</div>
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {}
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {},
+    mounted: function () {}
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "普通师傅接单"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+</script>

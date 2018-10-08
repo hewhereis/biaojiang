@@ -1,0 +1,251 @@
+{include file='public/header'} 
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div> 
+<template id="mian">
+<form  name="myfroms" id="myforms" method="post" action="__PUBLIC__grab_pageajax">
+   <div class="qiangdan">
+      <div class="weui-cells weui-cells_form border-none">
+          <div class="weui-cell one">
+             <div class="weui-cell__hd"><label class="weui-label label">订单编号：</label></div>
+             <div class="weui-cell__bd">
+                <span class='weui-input label'>{$onumber}</span>
+				         <input hidden type="hidden" value="{$onumber}" id="onumber" name="onumber">
+             </div>
+          </div>
+            <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">客户名称</label></div>
+             <div class="weui-cell__bd">
+               
+				<span class="weui-input">{$list.uname}</span>
+            </div>
+          </div>
+          <div class="weui-cell">
+             <div class="weui-cell__hd"><label class="weui-label">店铺地址</label></div>
+             <div class="weui-cell__bd">
+				<span class="weui-input">{$list.address}</span>
+             </div>
+          </div>
+          <div class="weui-cell">
+              <div class="weui-cell__hd"><label class="weui-label">预约施工</label></div>
+              <div class="weui-cell__bd">
+				  <span class="weui-input">{$list.laddress}</span>
+              </div>
+           </div>
+      </div>
+      <div class="bg">
+	    <!--安装-->
+        <div class="xiangmu1" v-if='service_type_id==1' v-for="(item,index) in install_list">
+          <div class="xiangmu1_header">
+            安装-{{item.name}}
+          </div>
+          <div class="xiangmu1_body1">
+            <span>{$start_time}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="xiangmu1_body2">
+            <span>项目投标价</span>
+            <span class="toubiao">
+                <input type="text" class="hongxian" placeholder="请输入" name="price[]" v-model="jisuan[index]" onkeyup="value=value.replace(/[^\d]/g,'')">
+            </span>
+          </div>
+          <div class="xiangmu1_footer">
+           
+            <span class="xiangmu1_footer2">
+               <button type="button" class="chakan">查看</button>
+            </span>
+          </div>
+        </div>
+	  <!--维修-->
+        <div class="xiangmu1" v-if='service_type_id==2' v-for="(item,index) in repair_list">
+          <div class="xiangmu1_header">
+            维修-{{item.name}}
+          </div>
+          <div class="xiangmu1_body1">
+            <span>{$start_time}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="xiangmu1_body2">
+            <span>项目投标价</span>
+            <span class="toubiao">
+                <input type="text" class="hongxian" placeholder="请输入" name="price[]" v-model="jisuan[index]" onkeyup="value=value.replace(/[^\d]/g,'')">
+            </span>
+          </div>
+          <div class="xiangmu1_footer">
+           
+            <span class="xiangmu1_footer2">
+               <a  class="chakan" :href="'__PUBLIC__repair_details/'+item.id">查看</a>
+            </span>
+          </div>
+        </div>
+	    <!--更换-->
+        <div class="xiangmu1" v-if='service_type_id==5' v-for="(item,index) in replace_list">
+          <div class="xiangmu1_header">
+            更换换灯片
+          </div>
+          <div class="xiangmu1_body1">
+            <span>{$start_time}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="xiangmu1_body2">
+            <span>项目投标价</span>
+            <span class="toubiao">
+                <input type="text" class="hongxian" placeholder="请输入"  name="price[]" v-model="jisuan[index]" onkeyup="value=value.replace(/[^\d]/g,'')" >
+            </span>
+          </div>
+          <div class="xiangmu1_footer">
+           
+            <span class="xiangmu1_footer2">
+               <button type="button" class="chakan">查看</button>
+            </span>
+          </div>
+        </div>
+		
+		<!--围板-->
+        <div class="xiangmu1" v-if='service_type_id==6' v-for="(item,index) in coaming_list">
+          <div class="xiangmu1_header">
+            围板搭建和拆除
+          </div>
+          <div class="xiangmu1_body1">
+            <span>{$start_time}</span>
+            <span>（当地时间）</span>
+          </div>
+          <div class="xiangmu1_body2">
+            <span>项目投标价</span>
+            <span class="toubiao">
+                <input type="text" class="hongxian" placeholder="请输入" name="price[]" v-model="jisuan[index]" onkeyup="value=value.replace(/[^\d]/g,'')">
+            </span>
+          </div>
+          <div class="xiangmu1_footer">
+           
+            <span class="xiangmu1_footer2">
+               <button type="button" class="chakan">查看</button>
+            </span>
+          </div>
+        </div>
+		
+		 <div class="toubiao">
+          <div class="toubiaozongji">投标总计:</div>
+          <div class="money">
+           
+			<span>{{zongjia}}</span>
+          </div>
+        </div>
+      </div>
+	  <div class="qiangdanliuyan">
+        <div class="liuyan">抢单留言:</div>
+        <input type="text" class="text1" placeholder="请输入你对此项目的看法" name="content">
+      </div>
+      <div class="btn">
+        <button class="btn1"    id="pageajax">确认</button>
+      </div>
+   </div>
+</form>
+
+</template>
+{include file='public/menu'}
+{include file='public/footer'}
+<script>
+var order_number;
+
+    $(function(){
+        $('#myforms').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+        function checkForm(){
+            
+        }
+        function complete(data){
+          if(data.code==200){
+			    $.toast(data.msg,function(){
+             window.location.href="__PUBLIC__grab_single/"+order_number;
+          });
+		   }else{
+		      $.toptip(data.msg,'error');
+		  }
+        }
+    });
+   
+</script>
+
+<script>
+    var data = {
+	  install_list:{$install_list},
+	  repair_list:{$repair_list},
+	  coaming_list:{$coaming_list},
+	  replace_list:{$replace_list},
+	  service_type_id:{$service_type_id},
+      counter: 1,
+      sex:2,
+	  jisuan:[]
+    }
+    Vue.component('mian', {
+      template: '#mian',
+      data: function () {
+        return data
+      },
+      methods: {
+        getdate:function(){
+          var x=new Date();
+          var n=x.getFullYear(); //获取当前日期
+          var y=x.getMonth()+1; //获取当前日期
+          var r=x.getDate(); //获取当前日期
+          return n+"-"+y+"-"+r;
+        }
+      },
+      mounted:function() {
+         order_number=$("#onumber").val();
+        $('#time').datetimePicker({
+          min:this.getdate()
+        });
+      },
+	
+	  computed:{
+	  zongjia:function(){
+		
+		var _this=this;
+		var i=0;
+		_this.jisuan.forEach(function(item,index){
+		if(item!==""){
+		i+=parseInt(item)	
+		}
+			
+		})
+		return i;
+	  }
+	  }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "抢单"
+        }
+      },
+      methods:{
+         goback:function(){
+            window.history.go(-1)
+         }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+</script>

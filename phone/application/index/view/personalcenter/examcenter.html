@@ -1,0 +1,267 @@
+{include file='public/header'}
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+    <div class='examCenter'>
+        <div class="screen" v-if="hintShow1||hintShow2"></div>
+        <div class="examCenterTop">
+            <div class="examCenterTopLeft">
+                <!-- <div class="examCenterTopLeftUserPhoto" style="background:url(__indexStatic__images/pic_160.png) center no-repeat"></div> -->
+                <div class="examCenterTopLeftUserPhoto"></div>
+                <div class='examCenterTopLeftText'>
+                    <span class='examCenterTopLeftTextGrade'>平台等级：{$rule}级</span>
+                </div>
+            </div>
+            <div class="examCenterTopRight">
+                <div class='examCenterTopRightList'>
+                    <div class="examCenterTopRightList-item">
+                        <a href="">
+                            <div class="photo">
+                                <img width="45" height="45" src="__indexStatic__images/goexam1.png" alt="">
+                            </div>
+                            <div class="Text">
+                                参加考试： {$num} 次
+                                
+                            </div>
+                        </a>
+                    </div>
+                    <div class="examCenterTopRightList-item">
+                        <a href="">
+                            <div class="photo">
+                                <img width="45" height="45" src="__indexStatic__images/goexam2.png" alt="">
+                            </div>
+                            <div class="Text">
+                                通过率：{$average}%
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class='examCenterTopRightList'>
+                    <div class="examCenterTopRightList-item">
+                        <a href="">
+                            <div class="photo">
+                                <img width="45" height="45" src="__indexStatic__images/goexam3.png" alt="">
+                            </div>
+                            <div class="Text">
+                                共学习：50篇
+                            </div>
+                        </a>
+                    </div>
+                    <div class="examCenterTopRightList-item">
+                        <a href="">
+                            <div class="photo">
+                                <img width="45" height="45" src="__indexStatic__images/goexam4.png" alt="">
+                            </div>
+                            <div class="Text">
+                                学时：5小时
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cell bg"></div>
+        <div class="examCenterBody">
+            <div class="examCenterBodyTitle">
+                考试类型
+            </div>
+            <div class="examType">
+                <div class="examType-item on">
+                    <span>安装</span>
+                </div>
+                <div class="examType-item">
+                    <span>维修</span>
+                </div>
+                <div class="examType-item">
+                    <span>勘测</span>
+                </div>
+                <div class="examType-item items">
+                    <span>围板搭建</span>
+                </div>
+                <div class="examType-item items">
+                    <span>更换灯片</span>
+                </div>
+            </div>
+        </div>
+        <div class="examCenterBottom">
+            <div class="examCenterBottomList">
+                <div class="examCenterBottomList-item">
+                    <a href="">
+                        <div class="photo">
+                            <img width="36" height="36" src="__indexStatic__images/exam5.png" alt="">
+                        </div>
+                        <div class="TextOne">
+                            顺序练习
+                        </div>
+                        <div class="TextTwo">
+                            按顺序练习做题
+                        </div>
+                    </a>
+                </div>
+                <div class="examCenterBottomList-item right">
+                    <a href="">
+                        <div class="photo">
+                            <img width="36" height="36" src="__indexStatic__images/exam6.png" alt="">
+                        </div>
+                        <div class="TextOne">
+                            随机练习
+                        </div>
+                        <div class="TextTwo">
+                            所有题目一个不漏
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="examCenterBottomList">
+                <div class="examCenterBottomList-item">
+                    <a href="">
+                        <div class="photo">
+                            <img width="36" height="36" src="__indexStatic__images/exam7.png" alt="">
+                        </div>
+                        <div class="TextOne">
+                           攻克难题
+                        </div>
+                        <div class="TextTwo">
+                            准确把握考试难点
+                        </div>
+                    </a>
+                </div>
+                <div class="examCenterBottomList-item right">
+                    <a href="">
+                        <div class="photo">
+                            <img width="36" height="36" src="__indexStatic__images/exam8.png" alt="">
+                        </div>
+                        <div class="TextOne">
+                            错题练习
+                        </div>
+                        <div class="TextTwo">
+                            提高考试通过率
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="goExamcircle">
+             <input type="hidden" id="id"   value="{$id}">
+                  
+                    <div class='text'><a href="__PUBLIC__master_choice">去考试</a></div>
+
+                    <div class="circle One"></div>
+                    <div class="circle Two"></div>
+                    <div class="circle Three"></div>
+                </a>
+            </div>
+<!-- 552 243 84   -->
+            <div v-if="hintShow1" class="examHint">
+                <div class="hintShowtop">
+                    <div class="photo">
+                        <img src="__indexStatic__images/goClass.png" height='60' width='60' alt="">
+                    </div>
+                    <div class="text">
+                        亲爱的师傅，您等级不够，还不能找师傅带队施工！
+                    </div>
+                </div>
+                <div class="hintShowBottom">
+                    <div class="hintShowBottom-item on"><a href="">去升级</a></div>
+                    <div class="hintShowBottom-item"><a href="javascript:" @click="showhint" class='on'>晚点再说</a></div>
+                </div>
+            </div>
+
+            <div v-if="hintShow2" class="examHint">
+                    <div class="hintShowtop">
+                        <div class="photo">
+                            <img src="__indexStatic__images/goExams.png" height='60' width='60' alt="">
+                        </div>
+                        <div class="text">
+                            亲爱的师傅，您还未通过平台的考试，还不能接单呢
+                        </div>
+                    </div>
+                    <div class="hintShowBottom">
+                        <div class="hintShowBottom-item on"><a href="">去升级</a></div>
+                        <div class="hintShowBottom-item"><a href="javascript:" @click="showhint" class='on'>晚点再说</a></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {
+        hintShow1 : false,
+        hintShow2 : false,
+        // id:{$id},
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {
+            showhint:function(){
+                this.hintShow1 = !this.hintShow1
+                this.hintShow2 = !this.hintShow2
+            },
+
+            // kaosi:function(){
+            //     var  _this=this;
+            //     var id=$('#id').val;
+            //     $.showLoading();
+            //     $.ajax({
+            //         type:'POST',
+            //         dataType:'json',
+            //         url:''
+            //         data:{id:id}，
+
+            //       success:function(data){
+
+            //       },
+            //       error:function(data){
+
+            //       }, 
+            //     });
+
+
+            // }
+
+
+        },
+        mounted: function () {
+            (function () {
+                $(".examType .examType-item").click(function () {
+                    $(this).addClass('on').siblings('div').removeClass('on');
+                })
+            })()
+        }
+    })
+    //头
+    Vue.component('headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "考试中心"
+            }
+        },
+        methods: {
+            goback: function () {
+                window.history.go(-1)
+            }
+        }
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function () {
+            return {}
+        }
+    })
+    new Vue({
+        el: '.app',
+    })
+</script>

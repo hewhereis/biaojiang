@@ -1,0 +1,237 @@
+<script type="text/javascript" src="__PUBLIC__static/index/js/workerman/swfobject.js"></script>
+<script type="text/javascript" src="__PUBLIC__static/index/js/workerman/web_socket.js"></script>
+
+<script>
+WEB_SOCKET_DEBUG = true;
+var ws,ownername,ownerid, userid,orderid,username,userlist={};
+var ifshowalert=0;
+var username=null;
+
+$(function() {
+    usertype=  {$usertype};
+    orderid = "{$order_number}";
+    userid = "{$userid}";//$("#userid").html();
+    username="{$username}";//{:session("username")};
+    ownername="{$owner_name}";
+    ownerid="{$owner_id}";
+});
+// 连接服务端
+$(function connect() {
+    // 创建websocket
+    ws = new WebSocket("ws://"+"__WORKMAN__");
+    // 当socket连接打开时，输入用户名
+    ws.onopen = onopen;
+    // 当有消息时根据消息类型显示不同信息
+    ws.onmessage = onmessage;
+    ws.onclose = function() {
+        if(ifshowalert==0) {
+            alert("连接通讯服务器超时，重新连接!");
+            ifshowalert=1;
+        }
+        console.log("连接关闭，定时重连");
+        connect();
+    };
+    ws.onerror = function() {
+        console.log("出现错误");
+    };
+});
+function parseString(bigStr,splitstr)
+{
+    var obj={};
+    var keyvalue=[];
+    var key="",value="";
+    var paraString=bigStr.substring(0,bigStr.length).split(splitstr);
+    for(var i in paraString)
+    {
+        keyvalue=paraString[i].split(":");
+        key=keyvalue[0];
+        value=keyvalue[1];
+        obj[key]=value;
+    }
+    return obj;
+}
+
+// 连接建立时发送登录信息
+function onopen()
+{
+    if(!username)
+    {
+        //show_prompt();
+        $username="testuser";
+    }
+    //在连接的时候需要携带其用户id信息以及对应的订单号，只有该订单编号和用户id信息匹配，
+    // 并且订单在有效范围内而且用户是需要在线的，连接才可以成功。
+    // 连接成功以后 ，web socket需要通过web接口通报web服务器用户进入交易聊天状态。
+    // 如果用户退出聊天状态，websocket显性断开，需要调用web服务器接口告知web服务器该用户退出了聊天状态。
+    var login_data = '{"type":"login","userid":"'+userid+'","username":"'+username+'","usertype":"'+usertype+'","orderid":"'+orderid+'"}';
+    console.log("websocket握手成功，发送登录数据:"+login_data);
+    ws.send(login_data);
+}
+// 服务端发来消息时
+function onmessage(e)
+{
+   
+    var data = eval("("+e.data+")");
+    switch(data['type']){
+        // 服务端ping客户端
+        case 'ping':
+            ws.send('{"type":"pong"}');
+            break;;
+        // 登录 更新用户列表
+        case 'login':
+            //{"type":"login","client_id":xxx,"client_name":"xxx","client_list":"[...]","time":"xxx"}
+           // console.log(data);
+            var showuserid="";
+            
+       
+            say(data['userid'], data['username'],  data['username']+' 已经联线', data['time']);
+            if(data['userlist'])//user_list put the user list which is involved in the order.
+            {
+                userlist = data['userlist'];
+            }
+            console.log(data['username']+"登录成功");
+            console.log(userlist);
+            break;
+        // 发言
+        case 'say':
+            //{"type":"say","from_client_id":xxx,"to_client_id":"all/client_id","content":"xxx","time":"xxx"}
+            //调用解析函数，解析接收到来自服务器端的内容。
+            //content中的内容定义。
+            //{msgtype:typeval,msg:msgcontent}  其中typeval为 0  表示是交流内容；typeval为 1,表示是价格信息。
+            console.log(data);
+            var content=parseString(data["content"],",");
+            if(content.hasOwnProperty("msgtype")) {
+                //parse the content
+                if(content["msgtype"]=="1") {
+                    var diagmsg=SetElementValue(get_useid_byclientid(data),content["msg"]);
+                    if(diagmsg!="") say(get_useid_byclientid(data),
+                        get_username_byclientid(data),
+                        diagmsg,
+                        data['time']);
+                }else {
+                    if(content.hasOwnProperty("msg")) {
+                        // 对于普通类型,msgcontend 就是对话消息，可以用于直接显示。
+                        say(get_useid_byclientid(data), get_username_byclientid(data),content["msg"], data['time']);
+                    }
+                }
+            } else {
+                // 没有设置msgtype就当其是对话消息，直接显示。
+                say(get_useid_byclientid(data), get_username_byclientid(data), data['content'], data['time']);
+            }
+            break;
+        // 用户退出 更新用户列表
+        case 'logout':
+            //{"type":"logout","client_id":xxx,"time":"xxx"}
+            say(get_useid_byclientid(data), get_username_byclientid(data), data['username']+' 离开了', data['time']);
+            removeUseridFromUserlist(data['userid']);
+            break;
+    }
+}
+
+function SetElementValue(from_user_id,msg)
+{
+    var chatmsg=SetSelfElement(from_user_id,msg);
+    layui.use(['form', 'layedit', 'laydate'], function() {
+        var form = layui.form();
+        form.render();
+    });
+    return chatmsg;
+}
+
+//得到各部分的值，并且拼接成&xxxx=的格式。
+//对于价格类型的消息 msgcontend<={needcheck=0&numcraftman=n&item1name=item1price&item2name=item2price&diag=xxxx}
+function GetElementValue(ifonsite,ifmoremaster)
+{
+    var inteStr="";
+
+    inteStr="needcheck=1";
+    
+    
+    var strtmp=$("#normalmasternum").val();
+    if(strtmp=="") strtmp="0";
+    inteStr=inteStr+"&numcraftman="+strtmp;
+    
+   
+    $('.qian').each(function(index){
+        if($(this).attr('id').length>0)
+        {
+	
+         if(num.aa!=null){
+             inteStr=inteStr+"&"+$(this).attr('id')+"="+num.aa[index];
+         }
+            //find the target id and set it value.
+           
+			
+        }
+       
+        inteStr+='&ifitemter='+ifitemter;
+        inteStr+='&zongjia='+zongjia;
+		inteStr+='&zongjia1='+zongjia1;
+		
+    });
+    return inteStr;
+}
+function CheckIfOnline(userid)
+{
+    for(var p in userlist){
+        //在userlist中发现有该id说明
+        if(userlist[p]["userid"]==userid) return true;
+    }
+    return false;
+}
+
+function get_useid_byclientid(data)
+{
+    var fromclientinfo={};
+    var local_client_id=data.hasOwnProperty("from_client_id")?data["from_client_id"]:
+        data.hasOwnProperty("client_id")?data["client_id"]:"未知clientid";
+    if(userlist.hasOwnProperty(local_client_id))
+    {
+        fromclientinfo=userlist[local_client_id];
+    }
+    return fromclientinfo.hasOwnProperty("userid")?fromclientinfo["userid"]:"未知id";
+}
+
+function get_username_byclientid(data)
+{
+    var fromclientinfo={};
+    var local_client_id=data.hasOwnProperty("from_client_id")?data["from_client_id"]:
+        data.hasOwnProperty("client_id")?data["client_id"]:"未知clientid";
+    if(userlist.hasOwnProperty(local_client_id))
+    {
+        fromclientinfo=userlist[local_client_id];
+    }
+    return fromclientinfo.hasOwnProperty("username")?fromclientinfo["username"]:"未知名";
+}
+// 输入姓名
+function show_prompt(){
+    username = prompt('输入你的名字：', '');
+    if(!username || username=='null'){
+        username = '游客';
+    }
+}
+
+function SendContentOut(content)
+{
+    var to_userid = "all";
+    ws.send('{"type":"say","to_client_id":"'+to_userid+'","order":"'+orderid+'","content":"'+content+'"}');
+}
+// 发言
+function say(from_user_id, from_user_name, content, time){
+    //解析来自服务端的内容。
+    //如果from_client_id以及是当前订单的对手交易方或者是系统管理方，才把消息显示在对话框里面。
+    //和user_list里面的数据进行比较，确认本次发送过来的数据是师傅的还是客户的。
+
+    if(from_user_id==userid) {
+        $("#dialog").append("<div class='text-left'><img class='img' src='"+
+            "{$useridimageurl}"+
+            "' width='50px' height='50px'>"+
+            content+"</div>");
+    } else {
+        $("#dialog").append("<div class='text-right'><span>"+
+            content+"</span><img class='img' src='"+
+            "{$customerimageurl}"+"' width='50px' height='50px'></div>");
+    }
+}
+
+</script>

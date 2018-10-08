@@ -1,0 +1,226 @@
+{include file="public/header_sy" }
+ <script src='__indexStatic__js/city-picker.js'></script>
+<body>
+<div id="bj-app">
+    <div class="fuwuxinxi">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+
+
+    <div class="bg-primary-hieght"></div>
+        <div class="weui-cells_form">
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">服务类型:</label>
+                </div>
+             
+                 <div class="weui-cell__bd" id="malfunction" >
+                    <input class="weui-input label-span" type="text"  v-model="datau.malfunction"  id="fuwuleixing"  placeholder="选择服务类型">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">服务区域:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input"  type="text" name="fuwuquyu" v-model="datau.address_area" id="city-picker" placeholder="请填写服务区域">
+                </div>
+
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">服务时间:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input " id="fuwushijian" v-model="datau.fuwushijian"  type="text" placeholder="列：周一至周五"   >
+                </div>
+
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label  bj-label-color">员工人数:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text" id="yuangongrenshu" v-model="datau.yuangongrenshu"  placeholder="请填写员工人数">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label bj-label-color">货车数量:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input type="text" class="weui-input" id="fuwushuliang" v-model="datau.fuwushuliang" placeholder="请填写货车数量" >
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label bj-label-color">货车大小:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"  id="houchedaxiao" v-model="datau.houchedaxiao" placeholder="请填写货车大小">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label bj-label-color">货车吨位:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "    id="houcedunwei" type="text"  v-model="datau.houcedunwei"   placeholder="请填写货车吨位">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label bj-label-color">服务介绍:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text" id="fuwujiesho"  v-model="datau.fuwujiesho"  placeholder="请用一段话来描述你和你的服务">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "服务信息",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:"<span id='submits'>保存</span>"
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+
+            return {
+                datau:{
+             malfunction:"",
+             yuangongrenshu:'',
+              fuwushijian:'',
+             fuwushuliang:'',
+             houchedaxiao:'',
+             houcedunwei:'',
+             fuwujiesho:'', 
+            malfunctions:'',
+             address_area:""
+
+
+                },
+             ser:{$ser},
+             s_id:{$s_id} ,
+             datas:'',
+             
+            }
+        },
+        methods:{
+        fun1:function (val) {
+                this.datau.malfunction=val.titles;
+                this.datau.malfunctions=val.values;
+            },
+
+        },
+        mounted:function () {
+            var _thiss=this;
+              
+          $("#city-picker").cityPicker({
+                   title: "请选择服务区域",onChange:function(data){
+                      _thiss.datau.address_area=data.displayValue.join('-'); 
+                      
+                     }
+                  });
+             this.select("malfunction","选择服务类型",true,this.ser,this.fun1)
+            $("#submits").click(function () {
+                 // alert(111)
+                 
+                if(_thiss.datau.malfunction===""){
+                    
+                    $.toptip('请选择服务类型', 2000, 'error');
+                    return false
+                }
+                 if(_thiss.datau.address_area===""){
+                    $.toptip('请选择服务区域', 2000, 'error');
+                    return false
+                }
+                if(_thiss.datau.fuwushijian===""){
+                    $.toptip('请填写服务时间', 2000, 'error');
+                    return false
+                }
+             
+                if(_thiss.datau.yuangongrenshu===""){
+                    $.toptip('请填写员工人数', 2000, 'error');
+                    return false
+                }
+                if(_thiss.datau.fuwushuliang===""){
+                    $.toptip('请填写货车数量', 2000, 'error');
+                    return false
+                }
+                if(_thiss.datau.houchedaxiao===""){
+                    $.toptip('请填写货车大小', 2000, 'error');
+                    return false
+                }
+                   if(_thiss.datau.houcedunwei===""){
+                    $.toptip('请填写货车吨位', 2000, 'error');
+                    return false
+                }
+                   if(_thiss.datau.fuwujiesho===""){
+                    $.toptip('请填写服务介绍', 2000, 'error');
+                    return false
+                }
+              $.showLoading();
+              $.ajax({
+                    type:'POST',
+                    dataType:'json',
+                    url:'__PUBLIC__information_submits',
+                    data:{datas:_thiss._data},
+                    success:function (data){
+                         if(data.code==200){
+                          $.hideLoading();
+                          $.toast(data.msg,function(){
+                            window.location.href="__PUBLIC__customer_home";
+                          },3000);
+                      }else{
+                         $.hideLoading();
+                      
+                      }
+                    },
+
+                    error:function () {
+                         $.hideLoading();
+                    },
+                });
+            })
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

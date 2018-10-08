@@ -1,0 +1,59 @@
+{include file='public/header'}  
+<div class='app'>
+  <headers></headers>
+  <main></main>
+  <menus></menus>
+  <footers></footers>
+</div>  
+<template id='mian'>
+  <div>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">qq</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" pattern="[0-9]*" v-model="counter" placeholder="请输入qq号" value="">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+    var data = {
+      counter: {$list}
+    }
+    Vue.component('main', {
+      template: '#main',
+      data: function () {
+        return data
+      }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "订单定标"
+        }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+</script>

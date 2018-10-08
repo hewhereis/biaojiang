@@ -1,0 +1,257 @@
+{include file="public/header_sy" }
+<script src="__PUBLIC__static/index/js/city-picker.js"></script>
+<body>
+<div id="bj-app">
+    <div class="gerenxinxi">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+
+        <div class="weui-cells_form">
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" href="javascript:;" id="imgs">
+                    <div class="weui-cell__hd ">
+
+						 <img :src="'__DsQINiu__'+customer['img']"  onerror="this.src='__PUBLIC__static/index/images/tuyi.png'"  class="img" alt="" width="60" height="60">
+                    </div>
+                    <div class="weui-cell__bd text">
+                        修改头像
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="__PUBLIC__nickname">
+                    <div class="weui-cell__hd ">
+                        昵称
+                    </div>
+                    <div class="weui-cell__bd text">
+                        {{customer['username']}}
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="__PUBLIC__modifyphone">
+                    <div class="weui-cell__hd ">
+                        手机号
+                    </div>
+                    <div class="weui-cell__bd text">
+                        {{customer['phone']}}
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="__PUBLIC__modifyphone" v-if="type==2">
+                    <div class="weui-cell__hd ">
+                        紧急联系号码
+                    </div>
+                    <div class="weui-cell__bd text">
+                        {{customer['credit_card_phone']}}
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+
+                <a class="weui-cell weui-cell_access" href="javascript:;" id="selects" v-if="type==2">
+                    <div class="weui-cell__hd ">
+                        服务类型
+                    </div>
+                    <div class="weui-cell__bd text">
+                        <span v-for="item in customer['service_type_id']">
+                            {{item.title}}
+
+                        </span>
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+
+                <a class="weui-cell weui-cell_access" href="javascript:;" @click="xingbei">
+                    <div class="weui-cell__hd ">
+                        性别
+                    </div>
+                    <div class="weui-cell__bd text">
+
+                        <span v-if="customer['sex']==0||customer['sex']==null">保密</span>
+                        <span v-if="customer['sex']==2">女</span>
+                        <span v-if="customer['sex']==1">男</span>
+                    </div>
+                    <div class="weui-cell__ft">
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__hd ">
+                        姓名
+                    </div>
+                    <div class="weui-cell__bd text">
+                        {{customer['real_name']}}
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__hd ">
+                        所在地
+                    </div>
+                    <div class="weui-cell__bd text" id="city-picker">
+                        {{customer['province']}}{{customer['city']}}{{customer['town']}}
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="__PUBLIC__pwd">
+                    <div class="weui-cell__hd ">
+                        密码管理
+                    </div>
+                    <div class="weui-cell__bd text">
+                        登录密码和支付密码
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "个人信息",
+                 left:"<span class=\"icon-返回2\"></span><a href='__PUBLIC__customer_home' style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+
+                customer:{$customer},
+                type:{$type}
+            }
+        },
+        methods:{
+            head:function (fi,data) {
+              $.ajax({
+                 url:"__PUBLIC__head",
+                   data:{img:data._raw},
+                   type:"POST",
+                  success:function (data) {
+                       if(data.code===200){
+                           $.toptip(data.msg,"success");
+                           window.location.href="__PUBLIC__cus_information"
+                       }else{
+                           $.toptip(data.msg,"error");
+                       }
+                   }
+               })
+            },
+            fun2:function (data) {
+                $(".picker-button").click(function () {
+                    $.ajax({
+                        url:"__PUBLIC__head1",
+                        type:"POST",
+                        data:{service_type_id:data.values},
+                        success:function (data) {
+                                if(data.code==200){
+                                    window.location.href="__PUBLIC__cus_information"
+                                }else{
+
+                                }
+                        }
+                    })
+                })
+
+            },
+            ajaxxingbei:function (sex) {
+                $.ajax({
+                    url:"__PUBLIC__head2",
+                    type:"POST",
+                    data:{sex:sex},
+                    success:function (data) {
+                        if(data.code==200){
+                            window.location.href="__PUBLIC__cus_information"
+                        }else{
+
+                        }
+                    }
+                })
+            },
+            xingbei:function () {
+                var sex=this.customer.sex;
+                var tr=false;
+                var _this=this;
+                $.actions({
+                    actions: [{
+                        text: "男",
+                        onClick: function() {
+                            //do something
+                            sex=1
+                            _this.ajaxxingbei(sex)
+                        }
+                    },{
+                        text: "女",
+                        onClick: function() {
+                            //do something
+                            sex=2
+                            _this.ajaxxingbei(sex)
+                        }
+                    },{
+                    text: "保密",
+                        onClick: function(data) {
+                        //do something
+                            sex=0
+                            _this.ajaxxingbei(sex)
+                    }
+                }],
+                    onClose:function (data) {
+
+                    }
+                });
+
+            }
+        },
+        mounted:function () {
+            this.WebUploader("imgs",this.head)
+            this.select("selects","选择修改的服务类型",true,{$work_skillw},this.fun2);
+            $("#city-picker").cityPicker({
+                title: "请选择修改的地址",
+                onClose:function (data) {
+                    $.ajax({
+                        url:"__PUBLIC__head3",
+                        type:"POST",
+                        data:{dizhi:data.displayValue},
+                        success:function (data) {
+                            if(data.code==200){
+                                window.location.href="__PUBLIC__cus_information"
+                            }else{
+
+                            }
+                        }
+                    })
+                }
+            });
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>

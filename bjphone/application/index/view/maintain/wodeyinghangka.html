@@ -1,0 +1,105 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="fuwuxinxi">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">真实姓名:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text" v-model="fuwuleixing"  id="fuwuleixing" placeholder="请输入持卡人姓名" value="">
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">手机号</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="银行预留手机号" value="">
+                </div>
+
+            </div>
+        </div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">开户银行</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="请选择开户银行" value="">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">银行卡号</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="请输入银行卡号" value="">
+                </div>
+            </div>
+        </div>
+        <div style="color: #ff5200;font-size: 12px;text-align: center">
+            请确保手机姓名,手机号,银行开户人为同一个人
+        </div>
+        <div class="weui-flex button">
+            <div class="weui-flex__item">
+                <button  class="weui-btn bj_button_orange">添加银行卡</button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "我的银行卡",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                fuwuleixing:"",
+                fuwuquyu:"",
+                fuwushijian:"",
+                yuangongrenshu:"",
+                fuwushuliang:"",
+                houchedaxiao:"",
+                houcedunwei:"",
+                fuwujiesho:""
+            }
+        },
+        methods:{
+
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

@@ -1,0 +1,170 @@
+{include file='public/header'}
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<template id="mian">
+  <div>
+  <div class='header'>
+      <div class="header-wrapper">
+          <div class="header-left" @click='goback()'>
+              <i class='icon-arrow_lift'></i>
+              <span class='goback'>返回</span>
+          </div>
+          <div class="header-content">
+              <span class='text'>{{title}}</span>
+          </div>
+          <div class="header-right" style="line-height:40px;padding-right: 10px"><a href="__PUBLIC__addaddress" style="color:#fff">添加地址</a></div>
+      </div>
+  </div>
+	<div class="dizhiguanli"> 
+		<div class="bg">
+
+      <div class="box" v-for="(item,index) in list">  
+		    <div class="weui-cell content">
+          <div class="weui-cell_hd icon-home">
+          </div>
+          <div class="weui-cell_bd text">
+            <div class="text1">
+				      <p class="name">{{item.name}}</p>
+				      <p class="address">{{item.province}}{{item.city}}{{item.district}}{{item.location}}</p>
+				      <p class="phone_number">{{item.phone}}</p>
+			      </div>
+          </div>  
+        </div>
+        <div class="footer">
+          <span class="radio1" @click="moren(item.id)">
+             <input type="radio" :checked="item.default==1" name="radio1" id="radio1{{item.id}}" value="">
+            <label for="radio1{{item.id}}">默认地址</label>
+          </span>
+          <span class="bj_tu">
+            <a href="#">
+            <img class="bianji" src="__indexStatic__/images/bianji.png">
+            <span @click="url(item.id)">编辑</span>
+            </a>
+          </span>
+          <span class="icon-bin" @click="deletes(item.id)">删除</span>
+        </div>
+      </div>
+      
+      
+    </div>
+	</div>
+  </div>
+</template>
+
+
+
+
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+
+
+  var data = {
+    sex: 1,
+    title: "地址管理",
+    list:{$list}
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      },
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+      moren:function(id){
+         $.ajax({
+           url:'__PUBLIC__default_address',
+           data:{id:id},
+           type:'post',
+           dataType:'json',
+           success:function(data){
+              if(data.code==200){
+                 $.toast(data.msg);
+                  window.location.reload();
+              }else{
+                 $.toast(data.msg,'cancel');
+              }
+            }
+         })
+
+      },
+      deletes:function(id){
+        $.confirm({
+           title: '确认删除?',
+           text: '',
+            onOK: function () {
+         $.ajax({
+           url:'__PUBLIC__delete_address',
+           data:{id:id},
+           type:'post',
+           dataType:'json',
+           success:function(data){
+              if(data.code==200){
+                 $.toast(data.msg);
+                  window.location.reload();
+              }else{
+                 $.toast(data.msg,'cancel');
+              }
+            }
+         })
+       }
+      })
+    },
+      url:function(id){
+       window.location.href="__PUBLIC__edit_address/"+id;
+      }
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+      $(".cha").click(function(){
+           $(".box").remove();
+      });
+    }
+  })
+
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+
+  
+</script>
+
+
+
+
+
+
+
+
+        

@@ -1,0 +1,376 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<style>
+    .layui-form-checkbox{
+        height: 25px;
+        margin-left: 0;
+        margin-right: 0;
+        padding-right: 20px;
+    }
+</style>
+<div class="main client_consult_director_master">
+    <!--/*主题*/-->
+    <div class="container">
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>咨询主任师傅</small>
+            <span></span>
+        </h5>
+        <!--/*标题*/-->
+        <div class="The-test-panel-head">
+            <div  id="orderid" class="pl-20">客户咨询主任师傅</div>
+        </div>
+        <form action="" class="layui-form">
+            <input type="hidden" id="order_number" value="{$order_number}">
+            <input value="<?php echo date('Y-m-d H:i:s')?>" type="hidden" id="sending_time">
+            <input value="{$worker_id}" type="hidden" id="worker_id">
+            <input value="{$uid}" type="hidden" id="uid">
+            <div class="The-test-panel-body">
+                <!--主任师傅-->
+                <div class="row pb-30 ">
+                    <!--挑选师傅按钮-->
+                    <div class="col-xs-5 col-md-2 mb-10">
+                        <a href="">
+                            <img src="__PUBLIC__static/index/images/banner.jpg" class="media-img img-responsive " alt=""/>
+                        </a>
+                    </div>
+                    <!--表单-->
+                    <div class="col-sm-7 col-xs-7">
+                        <div class="row">
+                            <div class="col-md-3">
+                                主任师傅工号：
+                            </div>
+                            <div class="col-md-4 col-xs-8">{$worker_id}</div>
+                        </div>
+                        <!--建议师傅个数-->
+                        <div class="row  mt-20 ">
+                            <label class="col-md-3 mt-10">添加普通师傅个数：</label>
+                            <div class="col-md-4 col-xs-8">
+                                <input id="normalmasternum" disabled type="text" class="form-control" >
+                            </div>
+                            <div class="col-md-1 col-xs-4 mt-10 pl-0">位</div>
+                        </div>
+                        <div class="row mt-20">
+                        <?php if($gettime==1){?>
+                            <div class="col-md-3 mt-10" style="padding-left:2%;">
+                                <input id="time" checked disabled  type="checkbox"> 师傅已确定时间：
+                            </div>
+                         <?php }else{ ?>
+                           <div class="col-md-3 mt-10" style="padding-left:2%;">
+                                <input id="time"  disabled  type="checkbox"> 师傅已确定时间：
+                            </div>
+                         <?php } ?>   
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="" value="{$time}" readonly="" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="col-md-4 col-md-offset-4 hidden">
+                        <input type="button" class="btn btn-info border-radius form-control" name="" value="需求明确，师傅已给出价格" style="background-color:#31b0d5;color:#fff">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="panel panel-orange">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <span>订单编号：{$order_number}</span>
+                                  <span style="padding-left: 60%">
+                                    合计总价:<span class="zongjia">&nbsp;&nbsp;{$total}元</span>
+                                </span>
+                            </div>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td>项目</td>
+                                <td>项目报价</td>
+                                <td>项目详情</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($cate as $vo){ ?>
+                            <tr>
+                                <td  class="pt-20">{$vo[$cate1]}_{$vo[$cate2]}</td>
+                                <td class="pt-20"><input id="item{$vo['id']}" class='qian' readonly="" name='weixiu1' type='text' value="<?php if(!empty($offer)) {?>{$vo['tender_cost']}<?php } ?>"></td>
+                                <td >
+                                    <a href="__PUBLIC__one/{$vo['id']}" class="btn btn-default border-radius">点击查看</a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--聊天-->
+                <div class="row mt-40">
+                    <div class="col-md-12  pl-30   pr--1_medai pr-30">
+                        <div id="chitchat" style="border: 1px solid #dddddd">
+                            <div class='well' id="dialog">
+                                <div class="text-right">
+                                    <span>您好这里将展示对方给您消息</span>
+                                    <img class='img' src='__PUBLIC__static/index/images/img.jpg' width='50px' height='50px'>
+                                </div>
+                            </div>
+                            <div style="text-align:center;clear:both">
+                            </div>
+                            <div style="border-top: none" class="row  ml-0 mr-0 pt-30 mb-50 pb-30 form-group">
+                                <label class="col-md-2 col-sm-3 mt-10 text-orange text-right">给师父发送消息</label>
+                                <div class="col-md-8 col-sm-6 mb-10">
+
+                                    <?php if($price['pay']==0){ ?>
+                                    <select name="interest" lay-filter="aihao">
+                                        <option value="">直接选择或搜索选择</option>
+                                        <option value="麻烦看看需求是否还需补充">麻烦看看需求是否还需补充</option>
+                                        <option value="请确认是否能够承接">请确认是否能够承接</option>
+                                    </select>
+                                    <?php }else{ ?>
+                                    <input id="msg2remotetext" type="text" class="form-control show">
+                                    <?php } ?>
+
+                                </div>
+                                <div class="col-md-2 col-sm-3 mb-10">
+                                    <button id="send" type="button" class="btn btn-orange form-control border-radius">发送</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--按钮-->
+                    <div class="row">
+                       <?php if($price['pay']==0){ ?>
+                        <div class="col-md-12 text-center">
+                            <a href="__PUBLIC__pay/{$order_number}/wid/{$worker_id}" class="btn consultation border-radius btn-default" style="background-color:#31b0d5;color:#fff">付费咨询</a>
+                        </div>
+                       <?php } ?>
+                        <div class="col-md-12 text-center">
+                            <a href="__PUBLIC__choose/{$order_number}/wid/0" class="btn consultation border-radius btn-default main_master" >重选主任师傅</a>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <a href="__PUBLIC__settlement/{$order_number}/url/0" class="btn consultation border-radius btn-orange" id="confirm">提交订单，去结算</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<input type="hidden" id="zongjia1">
+{include file="cqueryprice/embedchat"}
+<script>
+    var usermsg = "麻烦看看需求是否还需补充";
+
+    layui.use(['form', 'layedit', 'laydate'], function () {
+        var form = layui.form();
+        form.render();
+        //监听提交
+        form.on('select(aihao)', function (data) {
+            //Get selected text when user change selected msg.
+            console.log(data.value);
+            if (data.value != "") usermsg = data.value;
+        });
+    });
+    // 提交对话内容到服务器。
+
+    function onSendData(usermsg) {
+        //得到交易对方的userid.
+        //get the content in the element and wrap into .
+        var content = "msgtype:0,msg:" + usermsg;
+        SendContentOut(content);
+    }
+
+    $('#send').click(function () {
+        if ($('#msg2remotetext').length > 0) {
+            usermsg = $('#msg2remotetext').val();
+        }
+        console.log("send out msg should be " + usermsg);
+        //检查对方是否已经登录，如果没有提示用户对方没有在线，需等待。
+        if (CheckIfOnline("{$worker_id}") == true) {
+            onSendData(usermsg);
+        } else {
+            say(userid, username, "对方还没有上线，请稍等！", Date.now());
+        }
+        if ($('#msg2remotetext').length > 0) {
+            $("#msg2remotetext").val("");
+            $("#msg2remotetext").focus();
+        }
+
+        var message_type = '2';
+        var source_id = $('#uid').val();
+        var receive_id = $('#worker_id').val();
+        var content = '有客户给您发送消息咨询，请点击查看';
+        var sending_time = $('#sending_time').val();
+        var order_number = $('#order_number').val();
+        var link = '__PUBLIC__Cqueryprice/' + order_number + '/wid/' + receive_id;
+        $.ajax({
+            url: '__PUBLIC__api/message',
+            dataType: 'json',
+            data: {
+                message_type: message_type,
+                source_id: source_id,
+                receive_id: receive_id,
+                content: content,
+                sending_time: sending_time,
+                link: link
+
+            },
+            type: 'post',
+            success: function (data) {
+                if (data.code == 200) {
+                    layer.msg("发送成功", {
+                        icon: 1,
+                        time: 1000
+                    });
+                } else {
+                    layer.msg("发送失败", {
+                        icon: 1,
+                        time: 1000
+                    });
+                }
+            },
+
+        })
+    });
+
+    function SetSelfElement(from_user_id, msg) {
+        //here, set the value of different element.
+        var items = {};
+        var keyvalue = [];
+        var key = "",
+                value = "";
+        var paraString = msg.split("&");
+        var chatmsg = "";
+        for (var i in paraString) {
+            keyvalue = paraString[i].split("=");
+            //查找名为keyvalue[0]的项目并且设置其值。
+            //对于价格类型的消息 msgcontend<={needcheck=0&numcraftman=n&item1name=item1price&item2name=item2price}
+            //if(from_user_id!=userid) //If need more effecttive, can comment out this line.
+            {
+                //The message from itself, don't change.
+                if (keyvalue[0] == "needcheck") { //是否需要核单
+                    if (keyvalue[1] == 1) {
+                        $("#checkonsitemsg").val("需要现场核实订单");
+                    } else {
+                        $("#checkonsitemsg").val("需求明确无需现场查看，师傅给出价格");
+                    }
+                } else if (keyvalue[0] == "numcraftman") {
+                    //普通师傅个数
+                    $("#normalmasternum").val(keyvalue[1]);
+                } else {
+                    $('.qian').each(function () {
+                        if ($(this).attr('id') == keyvalue[0]) {
+                            //The better and security way is to find the target id and reflush it from server.
+                            $(this).val(keyvalue[1]);
+                        }
+                    })
+                }
+                if (keyvalue[0] == "ifitemter") {
+                    if (keyvalue[1] == 1) {
+
+                        $("#time").prop("checked", true);
+
+                    } else {
+                        $("#time").prop("checked", false);
+                    }
+                }
+                if (keyvalue[0] == "zongjia") {
+
+                    $(".zongjia").text(keyvalue[1]);
+                }
+				if (keyvalue[0] == "zongjia1") {
+					
+                    $("#zongjia1").val(keyvalue[1]);
+                }
+            }
+            if (keyvalue[0] == "diag") {
+                chatmsg = keyvalue[1];
+            }
+        }
+        return chatmsg;
+    }
+</script>
+<script>
+    // 重新选择主任师傅
+    $('.main_master').click(function (e) {
+        e.preventDefault();
+        var order_number = $('#order_number').val();
+        $.ajax({
+            url: '__PUBLIC__reselect',
+            data: {
+                order_number: order_number
+            },
+            dataType: 'json',
+            type: 'post',
+            success: function (data) {
+                if (data.code == 200) {
+                    var number = data.number;
+                    window.location.href = "__PUBLIC__choose/" + number + "/wid/0";
+                } else {
+                    location.reload();
+                }
+            }
+        })
+    })
+    //点击添加普通师傅修改步骤
+    $('.common_master').click(function (e) {
+        e.preventDefault();
+        var order_number = $('#order_number').val();
+        $.ajax({
+            url: '__PUBLIC__change_number',
+            data: {
+                order_number: order_number
+            },
+            dataType: 'json',
+            type: 'post',
+            success: function (data) {
+                if (data.code == 200) {
+                    var number = data.number;
+                    window.location.href = "__PUBLIC__common_master/" + order_number + "/wid/0";
+                } else {
+                    location.reload();
+                }
+            }
+        })
+    })
+    $('#confirm').click(function (e) {
+        var aa = '';
+        e.preventDefault();
+        $('.qian').each(function () {
+            aa += $(this).val() + ',';
+        })
+        var order_number = $('#order_number').val();
+        var worker_id = $('#worker_id').val();
+        var price = $('input[name="weixiu1"]').val();
+		var zongjia1 = $('#zongjia1').val();
+        if( price==0.00 || price==''){
+            layer.msg('师傅还没有报价，还不能去结算',{icon:2,time:1000});
+            return false;
+        }
+        if ($("#time").prop("checked")) {
+            $.ajax({
+                url: '__PUBLIC__consult_confirm',
+                data: {
+                    aa: aa,
+                    order_number: order_number,
+                    worker_id: worker_id,
+					zongjia1:zongjia1
+                },
+                dataType: 'json',
+                type: 'post',
+                success: function (data) {
+                    if (data.code == 200) {
+                        window.location.href = "__PUBLIC__settlement/" + order_number + '/url/' + 0;
+                    }
+                }
+            })
+        } else {
+            layer.msg("师傅没有确认施工时间", {
+                icon: 2,
+                time: 1500
+            });
+        }
+
+
+    })
+</script>
+{include file="public/footer"}

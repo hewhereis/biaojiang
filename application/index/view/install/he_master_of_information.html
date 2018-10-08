@@ -1,0 +1,315 @@
+<!--安装确认表-->
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<style>
+.a_s{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #00B83F;
+    color: #00B83F;
+    padding: 2px;
+}
+    .bg-b{
+        background: #00B83F;
+    }
+    .text-default{
+        color: #ffffff;
+        padding-right: 3px;
+        padding-left: 3px;
+    }
+    .border-orange{
+        border: 1px solid #ff5200;
+
+    }
+    .b_a{
+        border: 1px solid #ff5200;
+        color: #ff5200;
+        padding-left: 20%;
+        padding-right: 20%;
+        padding-bottom: 8px;
+        padding-top: 8px;
+    }
+    .b_gorage{
+        background: #ff5200;
+        color: #ffffff;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .k{
+        height: 60px;
+        border: 1px solid #dddddd;
+    }
+    .k:first-child{
+        border-left: none;
+        border-right: none;
+    }
+.k:last-child{
+    border-right: none;
+    border-left: none;
+}
+.k.activee{
+        border: 1px solid #ff5200;
+    }
+    .b-sefr{
+        min-height: 700px;
+        background: #d7d7d7;
+        padding: 20px;
+        margin-left: -10px;
+        color: #000000;
+    }
+    .h_s{
+        position: relative;
+            margin-top: 10px;
+    }
+.h_s img{
+    height: 200px;
+}
+.h_s span{
+     position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #ffffff;
+    font-size: 26px;
+}
+</style>
+<div class="main">
+    <div class="container mt-20 pl-0_media pr-0-media " >
+        <h5 class="page-header bx">
+            <span class="pl-10">当前位置：</span>
+            <small>师傅信息</small>
+            <span>>></span>
+        </h5>
+    </div>
+
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="The-test-panel-head ">
+
+            <p class="pl-10 h5">师傅信息</p>
+        </div>
+        <form id="fault_details" action="">
+            <div class="The-test-panel-body pb-0">
+                <div class="row pr-20">
+                    <div class="col-md-4 col-xs-5 pl-20">
+                        <a  href="javascript:;">
+                            <img style="height: px;border-radius: 5px" src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                        </a>
+                    </div>
+                    <div style="min-height: 250px;line-height: 30px" class="col-md-8 col-xs-12 pt-10 pl-20 border-orange border-radius">
+                       <a class="text-orange h3 ">李千娜 </a><a class="text-orange">工号(2154)</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="" class="a_s bg-b"><i class="layui-icon text-default">&#xe612;</i></a><a  class="a_s" href="">实名认证</a>
+                        <div class="row mt-30">
+                            <div class="col-md-6">
+                                <a href="" class="b_a b_gorage">
+                                    保障金
+                                </a>
+                                <a href="" class="b_a">
+                                    <img src="__PUBLIC__static/index/images/zc.png" alt=""> 2000
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="" class="b_a b_gorage">
+                                    综合评价
+                                </a>
+                                <a href="" class="b_a">
+                                    <img src="__PUBLIC__static/index/images/sx.png" alt="">   2000
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-30">
+                            <div class="col-md-6">
+                                <a href="" class="b_a b_gorage">
+                                    诚信分
+                                </a>
+                                <a href="" class="b_a">
+                                    <img src="__PUBLIC__static/index/images/zs.png" alt="">   2000
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="" class="b_a b_gorage">
+                                    技术等级
+                                </a>
+                                <a href="" class="b_a">
+                                    <img src="__PUBLIC__static/index/images/wx.png" alt="">   2000
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row mt-30">
+                            <div class="col-md-6">
+                                <input type="button" value="直接雇佣" class="btn pl-20 pr-20 ml-20 btn-success border-radius">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="button" value="下单让师傅抢" class="btn pl-20 pr-20 btn-orange border-radius">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  pl-5 mt-20 text-center" style="padding-right: 13px;line-height: 60px">
+                    <div class="col-md-4 activee k">
+                        师傅信息
+                    </div>
+                    <div class="col-md-4 k">
+                        完工照片
+                    </div>
+                    <div class="col-md-4 k">
+                        用户评价
+                    </div>
+                </div>
+                <div class="b-se   b-sefr" style="line-height: 45px">
+                    <p>联系人：xxxx</p>
+                    <p>所在区域：xxxx</p>
+                    <p>服务介绍:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                    xxxx</p>
+                    <div style="border: 1px solid #dddddd"> </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            服务品牌:xxxx
+                        </div>
+                        <div class="col-md-6">员工人数:xxxx</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            服务类别:xxxx
+                        </div>
+                        <div class="col-md-6">
+                            服务时间:xxxx
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            服务地区:xxxx
+                        </div>
+                        <div class="col-md-6">
+                            货车情况:xxxx
+                        </div>
+                    </div>
+                    <div class="mb-20 mt-40" style="background: #ffffff;margin-left: -21px;margin-right:  -21px;padding-left: 10px;padding: 10px;border-top: 1px solid #ff5200;border-bottom: 1px solid #ff5200;border-left: 1px solid #dddddd;border-right: 1px solid #dddddd;">
+                        <img src="__PUBLIC__static/index/images/s_xitong.png" style="height: 40px;" alt="">
+                        最新动态</div>
+                    <div style="background: #ffffff;margin-left: -21px;margin-right:  -21px;: 10px;border-left: 1px solid #dddddd;border-right: 1px solid #dddddd;" class="pl-20 h4 pt-20 pb-30">
+                        完成订单 &nbsp;&nbsp;&nbsp; 维修(客户 钱 ***)  &nbsp;&nbsp;&nbsp;   2小时
+                    </div>
+                    <div style="background: #ffffff;margin-left: -21px;margin-right:  -21px;: 10px;border-left: 1px solid #dddddd;border-right: 1px solid #dddddd;" class="pl-20 h4 pt-20 pb-30">
+                        完成订单 &nbsp;&nbsp;&nbsp; 维修(客户 钱 ***)  &nbsp;&nbsp;&nbsp;   2小时
+                    </div>
+                </div>
+                <div  class="row hidden b-se mt-20 mr-10 ml-10">
+                    <div class="col-md-12 text-center">
+                        以下照片均为 <span class="text-orange">郭强</span> 师傅完成订单后提供的真实照片
+                    </div>
+                    <div class="col-md-4 text-center h_s">
+                        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                        <span>1</span>
+                        送货到家
+                    </div>
+                    <div class="col-md-4 text-center h_s">
+                        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                        <span>1</span>
+                        送货到家
+                    </div><div class="col-md-4 text-center h_s">
+                    <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                    <span>1</span>
+                    送货到家
+                </div>
+                    <div class="col-md-4 text-center h_s">
+                        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                        <span>1</span>
+                        送货到家
+                    </div>
+                    <div class="col-md-4 text-center h_s">
+                        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                        <span>1</span>
+                        送货到家
+                    </div>
+                    <div class="col-md-4 text-center h_s">
+                        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                        <span>1</span>
+                        送货到家
+                    </div>
+
+                </div>
+                <div class="b-se hidden">
+                   <div class="row mt-10 pl-10  mb-10">
+                       <div class="col-md-2  " style="border-right: 1px  solid #dddddd">
+                           <h4 class="h5 text-black" >综合评价</h4>
+                           <p>
+                               <i class="text-orange" style="font-size: 20px">54.4/</i><span class="text-orange">4分</span>
+                           </p>
+                           <p>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                               <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                           </p>
+                       </div>
+                       <div class="col-md-8">
+                          <span class="text-black">大家都在说:</span>  <span>暂无消息</span>
+                       </div>
+                   </div>
+                    <div class="row pt-10 pb-10  pl-10" style="border-top: 1px solid #dddddd ;border-bottom: 1px solid #dddddd;margin-right: 0px;margin-left: -10px">
+                        <div class="col-md-2">
+                            <input name="s" type="radio" >全部
+                        </div>
+                        <div class="col-md-2">
+                            <input name="s" type="radio" >好评(9)
+                        </div>
+                        <div class="col-md-2">
+                            <input name="s" type="radio" >中评(0)
+                        </div>
+                        <div class="col-md-2">
+                            <input name="s" type="radio" >差评(0)
+                        </div>
+                        <div class="col-md-2">
+                            <input name="s" type="radio" >有解释(5)
+                        </div>
+                    </div>
+                    <div class="pl-10 pr-10 pt-20">
+                        <p>
+                            <span class="text-black mr-10">易**(买家)</span>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <span class="ml-10">2017-08-07 12:25</span>
+                        </p>
+                        <p> 质量5 <span>(非常好)</span>  态度5 <span>(非常好)</span> 速度5 <span>(非常好)</span>   </p>
+                        <p>系统默认好评 (用户超过15天为评价) </p>
+                        <p> 服务类型: <span class="text-orange">送货到家并安装</span></p>
+                    </div>
+                    <div class="pl-10 pr-10 pt-20">
+                        <p>
+                            <span class="text-black mr-10">易**(买家)</span>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                            <span class="ml-10">2017-08-07 12:25</span>
+                        </p>
+                        <p> 质量5 <span>(非常好)</span>  态度5 <span>(非常好)</span> 速度5 <span>(非常好)</span>   </p>
+                        <p>系统默认好评 (用户超过15天为评价) </p>
+                        <p> 服务类型: <span class="text-orange">送货到家并安装</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+$(".k").click(function () {
+    $(this).addClass("activee");
+    $(this).siblings("").removeClass("activee");
+    $(".b-se").eq($(this).index()).siblings(".b-se").addClass('hidden')
+$(".b-se").eq($(this).index()).removeClass('hidden');
+});
+$(".b_a img").css("width","20px")
+</script>
+
+{include file="public/footer" }

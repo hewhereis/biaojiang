@@ -1,0 +1,89 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main">
+    <!-- header-img-->
+    <div class="header-img ">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <!-- header-->
+    <div class="container container-hidden The_wallet_top-up">
+<!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>我的钱包</small><span>>></span>
+        </h5>
+        <div class="row mt-10" id="navigatesLeft">
+            <!-- left-->
+            {include file="fenlei/purse_recharge_left" }
+            <!-- right0-->
+            <div class="col-md-12 right  col-xs-12" id='navigatesRigth'>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div>
+                            <p>
+                                <i class="fa fa-check-circle text-success"></i>
+                                <span>资金受到特别保护 请放心使用</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="panel-body pl-50 Recharge">
+                        <div class="media installation_height row">
+                            <p class="col-xs-12">账户余额&nbsp; <input type="number"/>&nbsp;元</p>
+                           <p class="col-xs-12">装入资金&nbsp;&nbsp;<input type="number"/>&nbsp;元</p>
+                            <div class="mt-50" style="margin-top: 120px">
+                                <span class="hidden-xs">  选择转入方式</span>
+                                <button class="btn btn-zkl btn-success">支付宝转入</button>
+                                <button class="btn btn-zkl  btn-success">微信转入</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div >
+
+    </div>
+</div>
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+<script>
+
+    //师傅首页的侧边栏
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+
+</script>
+{include file="public/footer" }

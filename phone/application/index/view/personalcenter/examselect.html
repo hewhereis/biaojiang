@@ -1,0 +1,100 @@
+{include file='public/header'}
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+    <div class='exam'>
+        <div class="examSelect">
+            <div class="examSelectList">
+                <div class="examSelectList-item" v-for="(item,index) in list" isopen="false">
+                    <div class='examSelectList-item-top'>
+                        <div class="examSelectList-itemLeft">
+                            <span>{{item.tag}}</span>
+                        </div>
+                        <div class="examSelectList-itemRight">
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                    <div class="examSelectList-item-bottom">
+                        <ul>
+                            <li v-for="(li,key) in item.lists"><span class='colorSpan'></span><a :href="'__PUBLIC__proceed_exam/'+li.id">{{li.group_title}} <span></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {
+        list: {$list},
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {
+            radom:function(){
+                var arr = '';
+                for (var i = 1; i <= 6; i++) {
+                    arr += (Math.floor(Math.random() * 10)).toString();
+                }
+                return arr
+            }
+        },
+        mounted: function () {
+            _self = this;
+            (function(){
+                var arrs = $(".colorSpan");
+                for(var i = 0 ;i<arrs.length;i++){
+                     $(".colorSpan").eq(i).css("background","#"+_self.radom())
+                }
+                
+                $(".examSelectList-item").click(function(){
+                    var isopen = $(this).attr('isopen');
+                    if(isopen === "false"){
+                        $(this).attr('isopen',"true");
+                        $(this).addClass("examSelectList-item-on")
+                    }else{
+                        $(this).attr('isopen',"false");
+                        $(this).removeClass("examSelectList-item-on")
+                    }
+                })
+
+            })()
+        }
+    })
+    //头
+    Vue.component('headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "考试选择"
+            }
+        },
+        methods: {
+            goback: function () {
+                window.history.go(-1)
+            }
+        }
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function () {
+            return {}
+        }
+    })
+    new Vue({
+        el: '.app',
+    })
+</script>

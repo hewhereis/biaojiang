@@ -1,0 +1,119 @@
+{include file='public/header'}
+<link rel="stylesheet" href="__PUBLIC__static/index/dist/css/share.min.css">
+	 <link rel="stylesheet" href="__PUBLIC__static/index/dist/css/style.css">
+<div class="main">
+	<div class="container">
+		<div class="row" style="border:1px solid #cacaca">
+		    <div class="page-header bx">
+			<span style="font-size: 1.3em">工程简历认证</span>
+		    </div>
+			<div class="col-md-7">
+				<div class="row">
+					<div class="col-md-2 mt-10">
+						项目名称
+					</div>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="" value="{$list.entry_name}">
+					</div>
+				</div>
+				<div class="row mt-20">
+					<div class="col-md-2 mt-10">
+						任职公司
+					</div>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="" value="{$list.company}">
+					</div>
+				</div>
+				<div class="row mt-20">
+					<div class="col-md-2 mt-10">
+						项目时间
+					</div>
+					<div class="col-md-4">
+						<input type="text" class="form-control" name="" value="{$list.project_start_time|date='Y-m-d',###}">
+					</div>
+					<div class="col-md-2">
+						<span>————</span>
+					</div>
+					<div class="col-md-4">
+						<input type="text" class="form-control" name="" value="{$list.project_end_time|date='Y-m-d',###}">
+					</div>
+				</div>
+				<div class="row mt-20">
+					<div class="col-md-2 mt-10">
+						服务类型
+					</div>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="" value="{$list.brand}">
+					</div>
+				</div>
+				<div class="row mt-20">
+					<div class="col-md-2 mt-10">
+						师傅技能
+					</div>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="" value="{$list.service_type_id}">
+					</div>
+				</div>
+				<div class="row mt-20 pb-30">
+					<div class="col-md-2 mt-10">
+						服务品牌
+					</div>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="" value="{$list.skill}">
+					</div>
+				</div>
+			</div>
+			<hr style="height:1px;border:none;border-top:1px dashed #cacaca;" />
+			<?php if($wid==$_SESSION['think']['id']){?>
+			<h4>分享链接</h4>
+             <div id="share-1"></div>
+			 <?php }else{ ?>
+			   <button type="button" class="btn border-radius btn-info" id="con" style="color:#fff" >确认认证</button>
+			 <?php } ?>
+		</div>
+	</div>
+</div>
+<input type="hidden" id="ids" value="{$id}">
+<input type="hidden" id="wid" value="{$wid}">
+<script src="__PUBLIC__static/index/dist/js/jquery.share.min.js"></script>
+<script>
+var ids = $('#ids').val();
+var wid = $('#wid').val();
+var $config = {
+    url                 : '__PUBLIC__resume_auth?id='+ids+'&&wid='+wid, // 网址，默认使用 window.location.href
+    source              : '', // 来源（QQ空间会用到）, 默认读取head标签：<meta name="site" content="http://overtrue" />
+    title               : '邀请朋友认证自己的工程简历', // 标题，默认读取 document.title 或者 <meta name="title" content="share.js" />
+    description         : '帮师傅认证工程简历，可以增加师傅的信誉度哦！', // 描述, 默认读取head标签：<meta name="description" content="PHP弱类型的实现原理分析" />
+    image               : '', // 图片, 默认取网页中第一个img标签
+    sites               : ['qq', 'weibo'], // 启用的站点
+    disabled            : ['google', 'facebook', 'twitter'], // 禁用的站点
+    wechatQrcodeTitle   : "微信扫一扫：分享", // 微信二维码提示文字
+    wechatQrcodeHelper  : '<p>微信里点“发现”，扫一下</p><p>二维码便可将本文分享至朋友圈。</p>',
+   };
+
+$('#share-1').share($config);
+
+</script>
+<script>
+$('#con').click(function(){
+var ids = $('#ids').val();
+var wid = $('#wid').val();
+$.ajax({
+url:'__PUBLIC__resumes',
+data:{ids:ids,wid:wid},
+dataType:'json',
+type:'post',
+success:function(data){
+     if(data.code==200){
+	   layer.msg(data.msg,{icon:1,time:1500},function(){
+	       window.location.href="__PUBLIC__";    
+		}) 
+	   }else{
+	     layer.msg(data.msg,{icon:1,time:1500});
+	   }
+     }
+  })
+})
+
+</script>
+{include file='public/footer'}

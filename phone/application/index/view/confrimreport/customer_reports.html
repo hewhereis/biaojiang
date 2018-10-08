@@ -1,0 +1,236 @@
+{include file='public/header'}  
+<script src='__indexStatic__js/city-picker.js'></script>
+ <link rel="stylesheet" type="text/css" href="__PUBLIC__static/index/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/index/webupload/style.css">
+</style>
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div> 
+<template id="mian">
+	<div class="shifu_weixiubaogaotianxie">
+		<div class="weui-cells weui-cells_form border-none">
+		    <div class="heading1">
+            	<span class="left">订单编号：</span>
+            	<span class="right">{{list.order_number}}</span>
+            </div>
+            <div class="heading">
+            	<span class="left">项目名称：</span>
+            	<span class="right">维修-{{list.l1_category_id}}</span>
+            </div>
+            <div class="heading">
+            	<span class="left">客户名称：</span>
+            	<span class="right">{{list.contact_name}}</span>
+            </div>
+            <div class="heading">
+            	<span class="left">客户电话：</span>
+            	<span class="right">{{list.contact_phone}}</span>
+            </div>
+            <div class="heading">
+            	<span class="left">店铺地址：</span>
+            	<span class="right"><input type="text" class="text" id="text" readonly="" name="text" v-model="list.full_location" value=""></span>
+            </div>
+            <!-- <div class="heading2">
+            	<span class="left">完成时间：</span>
+            	<span class="right">2017-10-20</span>
+            </div> -->
+		</div>
+    <div class="boox">
+		<div class="border">
+		    <!-- <div class="content1">
+		    	<span class="zuo1">施工公司:</span>
+		    	<span class="you1">上海标匠有限公司</span>
+		    </div> -->
+		    <div class="content">
+		    	<span class="zuo">施工师傅:</span>
+		    	<span class="you">{{list.real_name}}</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo2">施工联系人:</span>
+		    	<span class="you">{{list.real_name}}</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo3">施工方电话:</span>
+		    	<span class="you">{{list.phone}}</span>
+		    </div>
+		</div>
+    </div>
+		<div class="xgzhaopian">
+			<span class="icon-camera"></span>
+			<span class="zhaopian">上传照片</span>
+		</div>
+    <div class="weui-flex shangchuan">
+     <div class="weui-flex__item">
+      <div class="border1">
+        <div class="tupian" id="uploaderInput">
+          <img id="img_data" height="68" width="82" :src="'__DsQINiu__'+img[0].doorpics" alt="">
+        </div>
+        <p class="text6">上传门头照片</p>
+      </div>
+     </div>
+     <div class="weui-flex__item">
+      <div class="border1">
+        <div class="tupian" id="uploaderInput1">
+          <img id="img_data1" height="68" width="82" :src="'__DsQINiu__'+img[0].signrecvpics" alt="">
+        </div>
+        <p class="text6">上传维修签收单</p>
+      </div>
+     </div>
+    </div>
+    <!-- 上传专柜全景 -->
+    <div class="weui-flex shangchuan3">
+     <div class="weui-flex__item">
+      <div class="border1">
+        <div class="tupian" id="uploaderInput2">
+          <img id="img_data2" height="68" width="82" :src="'__DsQINiu__'+img[0].overviewpics" alt="">
+        </div>
+        <p class="text6">上传专柜全景</p>
+      </div>
+     </div>
+     <div class="weui-flex__item">
+      
+     </div>
+     <div class="weui-flex__item">
+       
+     </div>
+    </div>
+    <div class="box" >
+    <div class="duibi" >
+      <span class="icon-camera"></span>
+			<!-- <span class="qianhouduibi">维修前后对比照上传</span> -->
+			<div class="weui-flex shangchuan4" v-for="(item,index) in img.imgs">
+        <div class="weui-flex__item">
+          <div class="border1" >
+            <div class="tupian">
+               <img :src="'__DsQINiu__'+item.qian" height="68" width="80"  alt="">
+            </div>
+            <p class="text6">维修前</p>
+          </div>
+         </div>
+         <div class="weui-flex__item">
+          <div class="border1" >
+            <div class="tupian">
+            <input type="hidden" >
+              <img :src="'__DsQINiu__'+item.hou" height="68" width="80"   alt="">
+            </div>
+            <p class="text6">维修后</p>
+          </div>
+         </div>
+        </div>
+    </div>
+    </div> 
+    <div class="box">
+        <div class="duibi">
+           <div class="text2" >
+        <input type="text3" v-model="arr1" class="text3" name="texe3" id="text3" placeholder="请对故障进行详细描述">
+      </div>
+        </div>
+    </div>
+        <div class="weui-cells weui-cells_form tianjia">
+            <div class="weui-cell"  v-if="img[0].is_ok==0">
+                <a href="__PUBLIC__customer_reportse/{$order_number}" class="duibizhao">点击签字</a> 
+            </div>
+            <div class="weui-cell"  v-if="img[0].is_ok==1">
+                <img :src="'__PUBLIC__public/'+img[0].qianming">
+            </div>
+        </div>
+        <div class="btn" v-if="img[0].is_ok==0">
+        	<input type="button" value="确认" @click="confirm()" class="btn1" >
+          <input type="button" value="报告有问题" @click="problem()" class="btn1" >
+	      </div>
+          <div class="htmleaf-container">
+  </div>
+</template>
+<script type="text/javascript" src="__PUBLIC__static/index/webupload/webuploader.min.js"></script>
+<script src="__PUBLIC__static/index/js/jq-signature.js"></script>
+
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+    var datas = {
+      counter: 1,
+      sex:2,
+      append:[{}],
+      list:{$list},
+      arr:[],
+      arrs:[],
+      arr1:[],
+      order_number:'{$order_number}',
+      img:{$img}
+    }
+    Vue.component('mian', {
+      template: '#mian',
+      data: function () {
+        return datas
+      },
+      methods: {
+        confirm:function(){
+          var _this=this;
+          var link = '__PUBLIC__master_reports/'+_this.order_number;
+
+           $.ajax({
+            url:'__PUBLIC__confrim_reports',
+            data:{order_number:_this.order_number,link:link},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                 if(data.code==200){
+                  $.toast(data.msg,function(){
+                     window.location.href="__PUBLIC__customer_home";
+                  })
+                 }else{
+                   $.tiptop(data.msg);
+                 }
+             }
+           })
+        },
+        problem:function(){
+          var _this=this;
+          window.location.href="__PUBLIC__problem/"+_this.order_number;
+        }
+      },
+      mounted:function() {
+
+      }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "维修确认报告"
+        }
+      },
+      methods:{
+         goback:function(){
+            window.history.go(-1)
+         }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+
+
+
+</script>
+
+<script type="text/javascript">
+    
+
+
+  </script>

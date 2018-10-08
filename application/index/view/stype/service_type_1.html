@@ -1,0 +1,102 @@
+<table style="border: none" class="table table-bordered table-hover">
+	<script id="list-template" type="text/html">
+		{{# for(var i=0;i<d.length;i++){  }}
+		<div class="panel panel-default">
+			<div class="panel-heading  " style="z-index: 0">
+				<div>
+
+					<input type="checkbox" name="items" value="{{d[i].id}}" />
+					<!--<span>{{d[i].create_time}}</span>-->
+					<span>订单号:{{d[i].order_number}}</span>
+
+					<a href="javascript:;"class="glyphicon glyphicon-trash "style="float: right;top:5px;" onclick="del_ser({{d[i].id}})" ></a>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="media">
+					<div class="media-left">
+
+						<a  href="__PUBLIC__order/status/{{d[i].id}}"  target="_blank"  class="w-h-img">
+							<p class="">
+								师傅名称:{{# if(d[i].uname==null){ }}
+								{{# }else{ }}
+								{{d[i].uname}}
+								{{# } }}
+							</p>
+							<br/>
+							{{# if(d[i].service_type_id==1){ }}
+							<img src="__DsQINiu__{{d[i].install_img}}" class="img-circle"  onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/> 
+							{{# }if(d[i].service_type_id==2){ }}
+							<img src="__DsQINiu__{{d[i].m_img}}" class="img-circle"  onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>   
+							{{# }if(d[i].service_type_id==3){ }}
+							品质监理图片(表待完善)
+							{{# }if(d[i].service_type_id==4){ }}
+							<img src="__DsQINiu__{{d[i].sur_img}}" class="img-circle"  onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>   
+							{{# }if(d[i].service_type_id==5){ }}
+							<img src="__DsQINiu__{{d[i].d_img_describe}}" class="img-circle"  onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+							{{# }if(d[i].service_type_id==6){ }}
+							<img src="__DsQINiu__{{d[i].coam_img}}" class="img-circle"  onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+							{{# }else{ }}
+							{{# } }}
+						</a>
+					</div>
+					<div class="media-body">
+						<p><span>服务项目：</span>{{d[i].sname}}</p>
+						<p><span>品牌：</span>
+							{{# if(d[i].service_type_id==1){ }}
+							{{d[i].i_brand}}
+							{{# }if(d[i].service_type_id==2){ }}
+							{{d[i].m_brand}}
+							{{# }if(d[i].service_type_id==3){ }}
+							品质监理品牌(表待完善)
+							{{# }if(d[i].service_type_id==4){ }}
+							{{d[i].sur_brand}}
+							{{# }if(d[i].service_type_id==5){ }}
+							{{d[i].d_brand}}
+							{{# }if(d[i].service_type_id==6){ }}
+							{{d[i].coam_brand}}
+							{{# }else{ }}
+							{{# } }}
+						</p>
+						<p><span>地址：</span>{{d[i].full_location}} {{d[i].location_ext}}</p>
+						<a href="__PUBLIC__order/status/{{d[i].id}}" target="_blank" class="text-blue">查看订单状态>></a>
+					</div>
+					<div class="media-right text-center">
+						{{# if(d[i].status==1){ }}
+						<p>待定标</p>
+						{{# }if(d[i].status==2){ }}
+						<p>待付款</p>
+						{{# }if(d[i].status==3){ }}
+						<p>待完工</p>
+						{{# }if(d[i].status==4){ }}
+						<p>待验收</p>
+						{{# }if(d[i].status==5){ }}
+						<p>待评价</p>
+						{{# }if(d[i].status==6){ }}
+						<p>追加评价</p>
+						{{# }if(d[i].status==7){ }}
+						<p>交易完成</p>
+						{{# }if(d[i].status==8){ }}
+						<p>订单关闭</p>
+						{{# } }}
+						{{# if(d[i].service_type_id==1){ }}
+						{include file="stype/install_repair" }
+						{{# }if(d[i].service_type_id==2){ }}
+						{include file="stype/repair" }
+						{{# }if(d[i].service_type_id==3){ }}
+						3
+						{{# }if(d[i].service_type_id==4){ }}
+						{include file="stype/survey" }
+						{{# }if(d[i].service_type_id==5){ }}
+						{include file="stype/gjmrepair" }
+						{{# }if(d[i].service_type_id==6){ }}
+						{include file="stype/coaming_repair" }
+						{{# } }}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{# } }}
+	</script>
+	<tbody id="list-content"></tbody>
+</table>					

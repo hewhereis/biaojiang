@@ -1,0 +1,106 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="shezhimima">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+        <div class="ora "></div>
+        <div class="orange ora">
+            <p>请设置你的支付密码</p>
+        </div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">设置密码</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text" v-model="mima"   id="" placeholder="6-20位字符 ，必须数字字母结合" value="">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">确认密码</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text" v-model="mimas"  id="" placeholder="请再次输入密码" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-flex button">
+            <div class="weui-flex__item">
+                <button @click="submit"  class="weui-btn bj_button_orange">完成</button>
+            </div>
+        </div>
+        <div class="orange">
+            <p>1.设置密码不可以和登录密码一致</p>
+            <br>
+            <p>2.一个手机号只能绑定一个手机号</p>
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "支付密码",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                mimas:"",
+                mima:""
+            }
+        },
+        methods:{
+            submit:function () {
+                if(this.mima==""){
+                    $.toptip("请输入密码", 'error');
+                    return false
+                }
+                if(this.mimas==""){
+                    $.toptip("请输入确认密码", 'error');  return false
+                }
+                if(this.mimas!==this.mima){
+                    $.toptip("俩次密码输入不一样", 'error');  return false
+                }
+                $.ajax({
+                    type:"POST",
+                    url:"__PUBLIC__",
+                    data:{},
+                    success:function () {
+
+                    }
+                })
+            }
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

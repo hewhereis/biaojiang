@@ -1,0 +1,254 @@
+{include file='public/header'}
+<link rel="stylesheet" href="__indexStatic__css/style/liuyanpeishifu.css">
+<div class='app'>
+	<headers></headers>
+	<mian></mian>
+	<menus></menus>
+</div>
+<script type="text/template" id="mian">
+<div class="liuyanpeishifu">
+	<div class="bianhao">
+		<span>订单编号：</span>
+		<span>{$onumber}</span>
+		<input hidden type="hidden" value="{$onumber}" id="onumber">
+	</div>
+	<div class="weui-cells1 weui-cells_form">
+		<div class="weui-cell">
+			<div class="weui-cell_hd">
+				<label class="weui-label">客户名称</label>
+			</div>
+			<div class="weui-cell_bd" style='width:100%'>
+				<span class="weui-input">{$list.uname}</span>
+			</div>
+		</div>
+		<div class="weui-cell">
+			<div class="weui-cell_hd">
+				<label class="weui-label">店铺地址</label>
+			</div>
+			<div class="weui-cell_bd">
+				<input type="text" name="address" readonly="" id="address" value="{$list.address}">
+			</div>
+		</div>
+		<div class="weui-cell">
+			<div class="weui-cell_hd">
+				<div class="weui-label">
+					预约施工
+				</div>
+			</div>
+			<div class="weui-cell_bd">
+				<input type="text" name="menpaihao" readonly="" id="menpaihao" value="{$list.laddress}">
+			</div>
+		</div>
+		<div class="zm">
+			<span>招募留言：</span>
+			<?php if($list['service_type_id']==1): ?>
+			<span>{$list.ecomments}</span>
+			<?php elseif($list['service_type_id']==2):?>
+			<span>{$list.dcomments}</span>
+			<?php elseif($list['service_type_id']==5):?>
+			<span>{$list.gcomments}</span>
+			<?php elseif($list['service_type_id']==6):?>
+			<span>{$list.mcomments}</span>
+			<?php endif;?>
+		</div>
+	</div>
+	<!-- 安装 -->
+	<div class="backgroundColor" v-if='service_type_id==1' v-for="(item,index) in install_list">
+		<div class="xiangmu">
+			<div class="xiangmu1">
+				安装-{{item.name}}
+			</div>
+			<div class="time">
+				<span>{$start_time}</span>
+				<span>（当地时间）</span>
+			</div>
+			<div class="yusuanjia">
+				<span>项目预算价</span>
+				<span class="text10">{{item.budget}}</span>
+				<span class="btn"><button class="btn_ck" style="background-color:#58a22f ">查看</button></span>
+			</div>
+		</div>
+	</div>
+	<!-- 维修 -->
+	<div class="backgroundColor" v-if='service_type_id==2' v-for="(item,index) in repair_list">
+		<div class="xiangmu">
+			<div class="xiangmu1">
+				维修-{{item.name}}
+			</div>
+			<div class="time">
+				<span>{$start_time}</span>
+				<span>（当地时间）</span>
+			</div>
+			<div class="yusuanjia">
+				<span>客户招标价</span>
+				<span class="text10">{{item.budget}}</span>
+				<span class="btn" style="background-color:#58a22f "><a :href="'__PUBLIC__repair_details/'+item.id" class="btn_ck">查看</a></span>
+			</div>
+		</div>
+	</div>
+	<!-- 更换 -->
+	<div class="backgroundColor" v-if='service_type_id==5' v-for="(item,index) in replace_list">
+		<div class="xiangmu">
+			<div class="xiangmu1">
+				更换换灯片
+			</div>
+			<div class="time">
+				<span>{$start_time}</span>
+				<span>（当地时间）</span>
+			</div>
+			<div class="yusuanjia">
+				<span>项目预算价</span>
+				<span class="text10">{{item.budget}}</span>
+				<span class="btn"><button class="btn_ck">查看</button></span>
+			</div>
+		</div>
+	</div>
+	<!-- 围板 -->
+	<div class="backgroundColor" v-if='service_type_id==6' v-for="(item,index) in coaming_list">
+		<div class="xiangmu">
+			<div class="xiangmu1">
+			   围板搭建和拆除
+			</div>
+			<div class="time">
+				<span>{$start_time}</span>
+				<span>（当地时间）</span>
+			</div>
+			<div class="yusuanjia">
+				<span>项目预算价</span>
+				<span class="text10">{{item.budget}}</span>
+				<span class="btn"><button class="btn_ck">查看</button></span>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="xuanshifu">
+			<button class="xuanshifu_btn" @click="grab_sing">
+			抢单
+			</button>
+		</div>
+		<div class="total">
+			<?php if($list['service_type_id']==1): ?>
+			<span><span class="heji">合&nbsp;&nbsp;&nbsp;计:￥{$install_sum}</span></span>
+			<?php elseif($list['service_type_id']==2):?>
+			<span><span class="heji">合&nbsp;&nbsp;&nbsp;计:￥{$repair_sum}</span></span>
+			<?php elseif($list['service_type_id']==5):?>
+			<span><span class="heji">合&nbsp;&nbsp;&nbsp;计:￥{$replace_sum}</span></span>
+			<?php elseif($list['service_type_id']==6):?>
+			<span><span class="heji">合&nbsp;&nbsp;&nbsp;计:￥{$coaming_sum}</span></span>
+			<?php endif;?>
+		</div>
+		<div class="read_quality">
+		阅读量：{$list.rob_num}次
+		</div>
+	</div>
+	<div class="xie">
+		<div class="pinglun">
+			<span>写评论</span>
+			<span class="pinglun_tu">
+			<img src="__indexStatic__/images/xiepinglun.png">
+			</span>
+		</div>
+	</div>
+	<div class="weui-cell">
+		<div class="weui-cell_hd yuan">
+		</div>
+		<div class="weui-cell_bd heading">
+			<a href="#">布鲁没谁了</a>
+			<p>
+			今天01:10
+			</p>
+		</div>
+	</div>
+	<div class="content1">
+		<p>
+		这个项目离我家挺近，报价也合理，这个单我接了
+		</p>
+	</div>
+</div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+	install_list:{$install_list},
+	repair_list:{$repair_list},
+	coaming_list:{$coaming_list},
+	replace_list:{$replace_list},
+	service_type_id:{$service_type_id},
+    sex: 1
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+	   grab_sing: function(){
+		var onumber=$('#onumber').val();
+		$.showLoading();
+				$.ajax({
+					url:ds_public+'ds_single',
+					type:'post',
+					dataType:'json',
+					data:{
+					onumber:onumber
+					},
+					success:function(data){
+					if (data.code == 200) {
+							$.hideLoading();
+							window.location.href = "__PUBLIC__grab_page/"+onumber;
+						}else{
+						$.hideLoading();	
+						$.toptip(data.msg,'error');
+					}
+				}
+			});
+		},
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "订单撮合"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+</script>

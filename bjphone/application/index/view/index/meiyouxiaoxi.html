@@ -1,0 +1,60 @@
+{include file='public/header'}
+<style>
+#app{
+    height:100%;
+}
+</style>
+<div class='app' style='height:100%'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+    <script type="text/x-template" id='mian'>
+        <div class='xiaoxi' style='height:100%'>
+           <div class="infomationNone">
+               <img src="__indexStatic__images/infomation.png" alt="" width='200' height='200' > 
+               <p><span>您目前还没有任何消息</span></p>
+           </div>
+        </div>
+    </script>
+</div>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+var data = {}
+Vue.component('mian', {
+        template: '#mian',
+        data: function() {
+            return data
+        },
+        methods: {},
+        mounted: function() {}
+    })
+    //头
+Vue.component('headers', {
+    template: '#header',
+    data: function() {
+        return {
+            title: "消息页面"
+        }
+    },
+    methods: {
+        goback: function() {
+            window.history.go(-1)
+        }
+    }
+})
+Vue.component('menus', {
+    template: '#menu',
+    data: function() {
+        return {}
+    }
+})
+Vue.component('footers', {
+    template: '#footers',
+    data: function() {
+        return {}
+    }
+})
+new Vue({
+    el: '.app'
+})
+</script>

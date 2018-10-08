@@ -1,0 +1,233 @@
+{include file="public/style_header" }
+<style>
+        .ak{
+            padding: 10px;
+            box-sizing: border-box;
+            height: 250px;
+        }
+        .ak>div{
+           
+            position: relative;
+            
+        }
+        .ak_s{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #ffffff;
+            background: rgba(0,0,0,.3);
+            transition: bottom 1s;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+     .als{
+        height: 100%;
+        width: 100%;
+     }
+        .afa{
+            min-height: 40%;
+            margin-left: 35%;
+			margin-right: 50%;
+			margin-top: 21%;
+        }
+		.asv span{
+			display: block;
+		}
+
+			@media (max-width: 776px) {
+				.asv{
+					display: block;
+				}
+			}
+</style>
+</head>
+<span hidden="hidden">{:session('id')}{:session('ds_username')}{:session('type')}{:session('openid')}</span>
+<div style="width:100%;height: auto;position: absolute;">
+	<div class="panel mb-0 panel-default">
+	<div class="panel-heading pt-0 text-orange ">
+		<img src="__PUBLIC__static/index/images/s1.png" class="img-responsive pull-left " alt=""/>
+		<span class="text-orange" style="display: inline-block;margin-top: 5px">最新订单</span>
+	</div>
+	<div class="panel-body" style="border: none">
+		<!--最新订单表格-->
+		<div class="media ">
+			<?php if($list==''):?>
+				<p style="text-align:center">您暂时还没有最近订单哦</p>
+			<?php else:?>
+				<!-- 店铺图片-->
+			<span class="text-orange">订单号:{$list.order_number}</span>
+			<div class="media-left ">
+				<a href="__PUBLIC__order/status/{$list.id}" class="w-h-img" target="_blank">
+				<?php if($list['service_type_id']==1):?>
+				<img src="__DsQINiu__{$list.ins_img}" class="img-circle" onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+				<?php elseif($list['service_type_id']==2):?>
+				<img src="__DsQINiu__{$list.m_img}" class="img-circle" onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+				<?php elseif($list['service_type_id']==3):?>
+				品质监理图片
+				<?php elseif($list['service_type_id']==4):?>
+				<img src="__DsQINiu__{$list.sur_img}" class="img-circle" onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+				<?php elseif($list['service_type_id']==5):?>
+				<img src="__DsQINiu__{$list.g_photo_store}" class="img-circle" onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+				<?php elseif($list['service_type_id']==6):?>
+				<img src="__DsQINiu__{$list.coam_img}" class="img-circle" onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+				<?php endif; ?>
+				</a>
+			</div>
+			<?php if($list['service_type_id']==1):?>
+			<div class="media-body asv">
+					<span>服务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目&nbsp;: &nbsp;&nbsp;{$list.sname}</span>
+
+					<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;：&nbsp;&nbsp;{$list.full_location} {$list.location_ext}</span>
+					<?php if($list['start_time']==0){ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;无 </span>
+					<?php }else{ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;<?php echo date("Y-m-d",$list['start_time'])?> </span>
+					<?php } ?>
+				<span>订单&nbsp;&nbsp;&nbsp;预估价&nbsp;:&nbsp;&nbsp;￥{$list.ins_budget}</span>
+				<?php if($list['b_budget']==null):?>
+				<?php else:?>
+
+				<?php  endif;?>
+			</div>
+			<?php elseif($list['service_type_id']==2):?>
+			<div class="media-body asv">
+					<span>服务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目&nbsp;: &nbsp;&nbsp;{$list.sname}</span>
+
+					<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;：&nbsp;&nbsp;{$list.full_location} {$list.location_ext}</span>
+					<?php if($list['start_time']==0){ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;无 </span>
+					<?php }else{ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;<?php echo date("Y-m-d",$list['start_time'])?> </span>
+					<?php } ?>
+				<span>订单&nbsp;&nbsp;&nbsp;预估价&nbsp;:&nbsp;&nbsp;￥{$list.b_budget}</span>
+				<?php if($list['b_budget']==null):?>
+				<?php else:?>
+
+				<?php  endif;?>
+			</div>
+			
+			<?php elseif($list['service_type_id']==4):?>
+			<div class="media-body asv">
+					<span>服务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目&nbsp;: &nbsp;&nbsp;{$list.sname}</span>
+
+					<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;：&nbsp;&nbsp;{$list.full_location} {$list.location_ext}</span>
+					<?php if($list['start_time']==0){ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;无 </span>
+					<?php }else{ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;<?php echo date("Y-m-d",$list['start_time'])?> </span>
+					<?php } ?>
+				
+				<?php if($list['b_budget']==null):?>
+				<?php else:?>
+
+				<?php  endif;?>
+			</div>
+
+			<?php elseif($list['service_type_id']==5):?>
+			<div class="media-body asv">
+					<span>服务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目&nbsp;: &nbsp;&nbsp;{$list.sname}</span>
+
+					<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;：&nbsp;&nbsp;{$list.full_location} {$list.location_ext}</span>
+					<?php if($list['start_time']==0){ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;无 </span>
+					<?php }else{ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;<?php echo date("Y-m-d",$list['start_time'])?> </span>
+					<?php } ?>
+				<span>订单&nbsp;&nbsp;&nbsp;预估价&nbsp;:&nbsp;&nbsp;￥{$list.g_budget}</span>
+				<?php if($list['b_budget']==null):?>
+				<?php else:?>
+
+				<?php  endif;?>
+			</div>
+
+			<?php elseif($list['service_type_id']==6):?>
+			<div class="media-body asv">
+					<span>服务&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;项目&nbsp;: &nbsp;&nbsp;{$list.sname}</span>
+
+					<span>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;：&nbsp;&nbsp;{$list.full_location} {$list.location_ext}</span>
+					<?php if($list['start_time']==0){ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;无 </span>
+					<?php }else{ ?>
+					<span>预约施工时间&nbsp;:&nbsp;&nbsp;<?php echo date("Y-m-d",$list['start_time'])?> </span>
+					<?php } ?>
+				<span>订单&nbsp;&nbsp;&nbsp;预估价&nbsp;:&nbsp;&nbsp;￥{$list.coam_budget}</span>
+				<?php if($list['b_budget']==null):?>
+				<?php else:?>
+
+				<?php  endif;?>
+			</div>
+			<?php endif;?>
+			<?php endif;?>
+			
+		</div>
+	</div>
+	<div class="panel-heading text-orange " style="background: #fff;border-top: 1px solid #dddddd">
+		<img src="__PUBLIC__static/index/images/s2.png" class="img-responsive pull-left " alt=""/>
+		<span class="text-orange" style="display: inline-block;margin-top: 5px">快捷下单</span>
+	</div>
+</div>
+<!-- 最新订单店铺-->
+<div class="row ml-0 mr-0 mt-0 shop" style="border: 1px solid #dddddd;border-top: none; ">
+	<a class="col-sm-4  col-xs-12 ak" href="__PUBLIC__orders/index/sid/2/cid/3" target="_blank">
+	
+		<div>
+			<img src="__PUBLIC__static/index/images/ds_005.jpg" class="img-responsive als" alt=""/>
+			<div class="ak_s">
+				<img src="__PUBLIC__static/index/images/ds_b2.png" class="img-responsive afa" alt=""/>
+			</div>
+		</div>
+	
+	</a>
+	<a href="__PUBLIC__publish" target="_blank" class="col-sm-4  col-xs-12 ak">
+	
+		<div>
+			<img src="__PUBLIC__static/index/images/ds_001.jpg" class="img-responsive als" alt=""/>
+			<div class="ak_s">
+				<img src="__PUBLIC__static/index/images/ds_b6.png" class="img-responsive afa" alt=""/>
+			</div>
+		</div>
+	
+	</a>
+	<a href="__PUBLIC__survey" class="col-sm-4  col-xs-12 ak" target="_blank">
+	
+		<div>
+			<img src="__PUBLIC__static/index/images/ds_002.jpg" class="img-responsive als " alt=""/>
+			<div class="ak_s">
+				<img src="__PUBLIC__static/index/images/ds_b5.png" class="img-responsive afa">
+			</div>
+		</div>
+	
+	</a>
+	<a href="__PUBLIC__replacing_the_lamp" target="_blank" class="col-sm-4  col-xs-12 ak">
+	
+		<div>
+			<img src="__PUBLIC__static/index/images/ds_004.jpg" class="img-responsive als" alt=""/>
+			<div class="ak_s">
+				<img src="__PUBLIC__static/index/images/ds_b4.png" class="img-responsive afa" alt=""/>
+			</div>
+		
+	</div>
+	</a>
+	<a href="__PUBLIC__coaming_construct_dismantles" target="_blank" class="col-sm-4  col-xs-12 ak">
+	
+		<div>
+			<img src="__PUBLIC__static/index/images/ds_003.jpg" class="img-responsive als" alt=""/>
+			<div class="ak_s">
+				<img src="__PUBLIC__static/index/images/ds_b1.png" class="img-responsive afa" alt=""/>
+			</div>
+		</div>
+	
+	</a>
+	<a href="" target="_blank" class="col-sm-4 col-xs-12 ak">
+	
+		<div>
+			<img src="__PUBLIC__static/index/images/ds_006.jpg" class="img-responsive als" alt=""/>
+			<div class="ak_s">
+				<img src="__PUBLIC__static/index/images/ds_b3.png" class="img-responsive afa" alt=""/>
+			</div>
+		</div>
+	
+	</a>
+</div>
+</div>

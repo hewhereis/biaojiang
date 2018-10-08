@@ -1,0 +1,273 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="page">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <form autocomplete="off">
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">服务类型:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" v-model="datau.lei" id="lei" type="text"  placeholder="请选择你的服务类型">
+                </div>
+                <div class="weui-cell__hd">
+                    <span class="icon-更多"></span>
+                </div>
+
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">任职公司:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" name="renzhigongsi"  v-model="datau.renzhigongsi" id="renzhigongsi" placeholder="请填写您的任职公司">
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">开始时间:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" v-model="datau.time" id="time"  placeholder="请选择项目时间">
+                </div>
+                <div class="weui-cell__hd">
+                    <span class="icon-更多"></span>
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">结束时间:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" v-model="datau.times" id="times"  placeholder="请选择项目时间">
+                </div>
+                <div class="weui-cell__hd">
+                    <span class="icon-更多"></span>
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">项目名称:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" v-model="datau.little" id="little"  placeholder="请填写项目名称">
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label  bj-label-color">服务品牌:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" v-model="datau.brand" id="brand"  placeholder="请选择">
+                </div>
+                <div class="weui-cell__hd">
+                    <span class="icon-更多"></span>
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label  bj-label-color">师傅技能:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" v-model="datau.malfunction" id="malfunction"  placeholder="请选择">
+                </div>
+                <div class="weui-cell__hd">
+                    <span class="icon-更多"></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>
+<script>
+    //t头部模版声明三个变量
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "工程简历",
+                left:"<span class=\"icon-返回2\"></span>返回",
+                right:"<span id='baochun'>保存</span>"
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            },
+        }
+    });
+    //    声明中间 需要提交的v-model双向数据绑定
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                datau:{
+                malfunction:"",
+                lei:"",
+                leis:"",
+                brand:'',
+                brands:'',
+                little:"",
+                renzhigongsi:"",
+                time:"",
+                times:"",
+
+                 skills:'',
+
+            },
+            brand:{$brand},
+                ser:{$ser},
+              skill:{$skill},
+                datas:'',
+            }
+        },
+        methods: {
+//            fun1:function(val){
+//                $this.brand=val.titles;
+//                $this.brands=val.values;
+//            },
+
+            baochun: function () {
+                if (localStorage.baochun)
+                {
+                    var data=[localStorage.baochun];
+                    var str = JSON.stringify(this._data);
+                    data.push(str)
+                    localStorage.baochun=data;
+//                    console.log(localStorage.baochun)
+
+                }
+                else
+                {
+                    var str = JSON.stringify(this._data);
+                    var data=[str];
+                    console.log(data)
+                    localStorage.baochun=data;
+                }
+                window.location.href="__index__maintain";
+            },
+            quxiao:function () {
+                window.location.href="__index__page";
+            },
+            func1:function (data) {
+                this.datau.lei=data.titles;
+                this.datau.leis=data.values;
+            },
+            func2:function (data) {
+                this.datau.brand=data.titles;
+                this.datau.brands=data.values;
+            },
+            func3:function (data) {
+                this.datau.malfunction=data.titles;
+                this.datau.skills=data.values;
+            },
+            func4:function () {
+                console.log(this._data)
+            },
+        }
+        ,mounted:function () {
+            var _this=this;
+
+            $("#baochun").click(function () {
+//                alert(11)
+                if(_this.datau.lei===""){
+                      $.toptip('请选择服务类型', 2000, 'error');
+                    return false
+                }
+                if(_this.datau.renzhigongsi===""){
+                    $.toptip('请选择任职公司', 2000, 'error');
+                    return false
+                }
+                if(_this.datau.time===""){
+                    $.toptip('请填写开始时间', 2000, 'error');
+                    return false
+                }
+
+                if(_this.datau.times===""){
+                    $.toptip('请填写结束时间', 2000, 'error');
+                    return false
+                }
+                if(_this.datau.little===""){
+                    $.toptip('请填写项目名称', 2000, 'error');
+                    return false
+                }
+                if(_this.datau.brand===""){
+                    $.toptip('请填写服务品牌', 2000, 'error');
+                    return false
+                }
+                if(_this.datau.malfunction===""){
+                    $.toptip('请填写服务技能', 2000, 'error');
+                    return false
+                }
+
+                  $.showLoading();
+                  $.ajax({
+                      type:'POST',
+                      dataType:'json',
+                      url:'__PUBLIC__projectresume_submit',
+                      data:{datas:_this.datau},
+                      success:function (data) {
+                       if(data.code==200){
+                           $.hideLoading();
+                           $.toast(data.msg,function(){
+                               window.location.href="__PUBLIC__customer_home";
+                           },3000);
+                           }else{
+                           $.hideLoading();
+                       }
+                      },
+                      error:function () {
+
+                      },
+                  });
+//                _this.func4()
+            })
+            var weuiselect=function (element,text,arr,acrat,kai) {
+                $("#"+element).select({
+                    title: text,
+                    multi: kai,
+                    items: arr,
+                    onChange: acrat
+
+                });
+            };
+            $("#time").datetimePicker({
+                title:"请选择项目开始时间",
+                times: function () {
+                    return [
+                    ];
+                },
+                onChange: function (picker, values, displayValues) {
+                    _this.datau.time=values.join("-")
+                }
+            });
+            $("#times").datetimePicker({
+                title:"请选择项目结束时间",
+                times: function () {
+                    return [
+                    ];
+                },
+                onChange: function (picker, values, displayValues) {
+                    _this.datau.times=values.join("-")
+
+                }
+            });
+            this.select("brand","选择服务品牌",true,this.brand,this.func2)
+            this.select("lei","选择服务类型",true,this.ser,this.func1)
+            this.select("malfunction","选择服务技能",true,this.skill,this.func3)
+
+        },
+    });
+    new Vue({
+        el: '#bj-app',
+
+        methods:{
+        }
+    });
+</script>
+</body>

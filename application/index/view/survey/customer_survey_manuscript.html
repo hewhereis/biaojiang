@@ -1,0 +1,103 @@
+{include file='public/header'}
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style>
+.imgPickers{
+ margin:0 auto;
+
+}
+
+</style>
+
+<div class="main">
+	<div class="container">
+		<div class="panel panel-orange" style="margin-top:2%">
+			<div class="panel-heading" >
+				<div class="panel-title">
+					确认手稿
+				</div>
+			</div>
+			
+			<div class="panel-body">
+                <div class="imgPickers"  id="imgPickers">
+                   	<img src="__DsQINiu__{$list.img}" class="" onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'"/>
+                </div>
+				
+			    </div>
+				<?php if($list['is_ok']==1): ?>
+				<?php else:?>
+				<div class="footer-shang" style="margin-top:2%;margin-left:3%">
+					若勘测手稿无误，请点击确认<input type="button"  value="确认"  onclick="ds_ok()"  style="width:10%;margin-left:3%" class="btn btn-blue form-control">
+				</div>
+				<div class="footer-shang" style="margin-top:2%;margin-left:3%">
+					若勘测手稿有误，请反馈<input type="button"  value="反馈"  onclick="ds_feedback()" style="width:10%;margin-left:5.5%" class="btn btn-blue form-control">
+				</div>
+				<?php endif;?>
+				<input type="hidden" value="{$order_number}"  id="order_number">
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+function ds_ok(){
+	var order_number = $('#order_number').val();
+	var link ='__PUBLIC__orders/master';	
+			$.ajax({
+				url:'__PUBLIC__ajax_survey_confirm',
+				type:'post',
+				dataType:'json',
+				data:{
+					order_number:order_number,
+					link:link
+				
+				},
+				success:function(data){
+						if(data.code == 200){ 
+							 layer.msg(data.msg, {icon: 6,time:1500,shade:0}, function(index){
+								window.location.href="__PUBLIC__orders/client";
+							});
+						}else{
+							 layer.msg(data.msg, {icon: 5,time:1500,shade:0});
+							 return false;
+						}
+						
+					}
+					
+			});
+
+}
+
+function ds_feedback(){
+var order_number = $('#order_number').val();
+layer.prompt({title: '输入反馈内容，并确认', formType: 2,shade:0}, function(text, index){
+	$.ajax({
+				url:'__PUBLIC__ajax_survey_feedback',
+				type:'post',
+				dataType:'json',
+				data:{
+					order_number:order_number,
+					text:text
+					
+				},
+				success:function(data){
+						if(data.code == 200){ 
+							 layer.msg(data.msg, {icon: 6,time:2000,shade:0}, function(index){
+								window.location.href="__PUBLIC__orders/client";
+							});
+						}else{
+							 layer.msg(data.msg, {icon: 5,time:1500,shade:0});
+							 return false;
+						}
+						
+					}
+					
+			});
+});
+
+}
+</script>
+
+{include file='public/footer'}

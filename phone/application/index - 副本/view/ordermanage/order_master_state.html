@@ -1,0 +1,443 @@
+{include file="public/header_sy" }
+<div id="bj-app" class="shifudingdanzhuanvgtai">
+	<si-headers></si-headers>
+	<si-content></si-content>
+	<si-footer></si-footer>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+        <div class="weui-flex bj-top-bar">
+            <div class="weui-flex__item">
+                <a class="bj-weui-btn" :class="{active:dingdanzhuaangtaishow}"  @click="showdingdanzhuaangtai">订单状态</a>
+            </div>
+            <div class="weui-flex__item">
+                <a class="bj-weui-btn" :class="{active:dingdanxiangqingshow}"  @click="showdingdanxiangqing">订单详情</a>
+            </div>
+        </div>
+        <si-dingdanzhuaangtai v-show="dingdanzhuaangtaishow"></si-dingdanzhuaangtai>
+        <si-dingdanxiangqing v-show="dingdanxiangqingshow"></si-dingdanxiangqing>
+    </div>
+</script>
+<script type="text/x-template" id="dingdanzhuaangtai">
+<div class="dingdanzhuaangtai">
+	<!--过去-->
+	<?php foreach ($orderstep as $k) { ?>
+			<div class="weui-flex dingdanzhuaangtai-list">
+				<div class="weui-flex__item yuan">
+					<div class="yuan-item img">
+						<span ><img src="__PUBLIC__/static/index/images/ds_hid.png"></span>
+					</div>
+					<div class="condition activess"></div>
+				</div>
+				<div class="weui-flex__item purchasing ">
+					<div class="weui-flex bg-purchasing ">
+						<div class="weui-flex__item title">
+							<div class="weui-flex">
+								<div class="weui-flex-item left">
+									<h3>
+										<?php echo $k['step_name']?>
+									</h3>
+								</div>
+							</div>
+						</div>
+						<span class="jiantou"></span>
+					</div>
+				</div>
+			</div>
+	<?php }?>
+	<!--现在-->
+	<?php foreach ($ordersteps as $ks) { ?>
+		<input id="ds_order_number"  hidden="hidden" value="<?php echo $ks['id']?>">
+		<input id="ds_order_numbers"  hidden="hidden" value="<?php echo $ks['order_number']?>">
+		<input id="ds_uid"  hidden="hidden"value="<?php echo $_SESSION['think']['id']?>">
+		 <div class="weui-flex dingdanzhuaangtai-list">
+				<div class="weui-flex__item yuan">
+					<div class="yuan-item img" >
+						<span ><img src="__PUBLIC__/static/index/images/ds_show.png"></span>
+					</div>
+					<div class="condition "></div>
+				</div>
+				<div class="weui-flex__item purchasing">
+				<?php if($step_link==null):?>
+					<a href="javascript:;" id="{$step_onck}">
+						<div class="weui-flex bg-purchasing actives">
+							<div class="weui-flex__item title">
+								<div class="weui-flex">
+											<div class="weui-flex-item left">
+												<h3><?php echo $ks['step_name']?></h3>
+											</div>
+								</div>
+							</div>
+							<span class="jiantou"></span>
+						</div>
+					</a>
+				<?php else :?>
+					<a href="<?php $ds_order_number = $ks['order_number'];
+									$ds_step_id            = $ks['step_id'];
+									$ds_step_link          =$step_link;
+									$ds_link               = sprintf("$ds_step_link",$ds_order_number,$ds_step_id);
+									echo $ds_link;?>" id="work_sign">
+							
+						<div class="weui-flex bg-purchasing actives">
+							<div class="weui-flex__item title">
+								<div class="weui-flex">
+											<div class="weui-flex-item left">
+											<h3><?php echo $ks['step_name']?></h3></div>
+								</div>
+							</div>
+							<span class="jiantou"></span>
+					    </div>
+					</a>
+				<?php endif?>
+				</div>
+			</div>
+			
+	<?php } ?>	
+<!--将来-->
+	<?php foreach ($orderstepso as $k) { ?>
+	
+			<div class="weui-flex dingdanzhuaangtai-list">
+				<div class="weui-flex__item yuan">
+					<div class="yuan-item img">
+						<span ><img src="__PUBLIC__/static/index/images/ds_hid.png"></span>
+					</div>
+					<?php if($k['step_id']==$ds_max):?>
+					<?php else:?>
+					<div class="condition activess"></div>
+					<?php endif;?>
+				</div>
+				<div class="weui-flex__item purchasing ">
+					<div class="weui-flex bg-purchasing"  >
+						<div class="weui-flex__item title">
+							<div class="weui-flex">
+								<div class="weui-flex-item left">
+									<h3>
+										<?php echo $k['step_name']?>
+									</h3>
+								</div>
+							</div>
+						</div>
+						<span class="jiantou"></span>
+					</div>
+				</div>
+			</div>
+	<?php }?>
+</div>
+</script>
+<script type="text/x-template" id="dingdanxiangqing">
+<?php foreach ($orderstatus as $v) { ?>
+    <div class="dingdanxiangqing" style="margin-top:10%">
+        <div class="weui-flex dingdan">
+            <div class="weui-flex__item title-left">
+                订单号
+            </div>
+            <div class="weui-flex__item title-right">
+               {$v.order_number}
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <span class="title">品牌</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">    
+				<?php if($v['service_type_id']==1):?>
+					<input type="text" disabled  class="weui-input" value="<?php echo $v['i_brand'] ?>"/>
+				<?php elseif ($v['service_type_id']==2):?>
+					<input type="text" disabled  class="weui-input"value="<?php echo $v['m_brand'] ?>"/>
+				<?php elseif ($v['service_type_id']==3):?>
+				<?php elseif ($v['service_type_id']==4):?>
+					<input type="text" disabled  class="weui-input" value="<?php echo $v['s_brand'] ?>"/>
+				<?php elseif ($v['service_type_id']==5):?>
+					<input type="text" disabled  class="weui-input" value="<?php echo $v['d_brand'] ?>"/>
+				<?php elseif ($v['service_type_id']==6):?>
+					<input type="text" disabled  class="weui-input" value="<?php echo $v['coam_brand'] ?>"/>
+				<?php endif;?>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <span class="title">项目名称</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <input type="text" disabled class="weui-input" value="<?php echo $v['sname']?>">
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <span class="title">地址</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <input type="text" disabled  class="weui-input" value="<?php echo $v['full_location']?> <?php echo $v['location_ext'] ?>">
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <span class="title">客户名称</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <input type="text" disabled   class="weui-input" value="<?php echo $v['uname'] ?>">
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <span class="title">客户联系电话</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <input type="text" disabled class="weui-input" value="<?php echo $v['b_phone'] ?>">
+            </div>
+        </div>
+		<div class="weui-flex">
+            <div class="weui-flex__item">
+                <span class="title">计划施工日期</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <input type="text" disabled class="weui-input" value="<?php if($v['order_time']==''):?><?php else:?><?php echo date('Y-m-d H:i:s', $v['order_time']);?><?php endif;?>">
+            </div>
+        </div>
+		<div class="weui-flex">
+            <div class="weui-flex__item">
+                <span class="title">实际完工日期</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <input type="text" disabled class="weui-input" value="<?php if($v['end_time']==''):?><?php else:?><?php echo date('Y-m-d H:i:s', $v['end_time']);?><?php endif;?>">
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item" style="text-align: right">
+                <a href="">投诉>></a>
+            </div>
+        </div>
+		
+        
+    </div>
+	<?php } ?>
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "师傅订单状态",
+                left:" <span class=\"icon-返回2\"></span>返回",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+               
+				window.location.href="__PUBLIC__order_customer_home/";
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                dingdanzhuaangtaishow:true,
+                dingdanxiangqingshow:false
+            }
+        },
+        methods:{
+            showdingdanzhuaangtai:function () {
+                this.dingdanzhuaangtaishow=true
+                this.dingdanxiangqingshow=false
+            },
+            showdingdanxiangqing:function () {
+                this.dingdanzhuaangtaishow=false
+                this.dingdanxiangqingshow=true
+            }
+        }
+    });
+    Vue.component('si-dingdanzhuaangtai', {
+        template: '#dingdanzhuaangtai',
+        data: function () {
+        },
+        methods:{
+        }
+    });
+    Vue.component('si-dingdanxiangqing', {
+        template: '#dingdanxiangqing',
+        data: function () {
+        },
+        methods:{
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+        },
+        components:{
+        },
+        methods:{
+        }
+    })
+</script>
+<script>
+    $(".The-test-panel-body>ul>li").click(function () {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        $(".panel-body>ul").eq($(this).index()).addClass('show');
+        $(".panel-body>ul").eq($(this).index()).removeClass('hide');
+        $(".panel-body>ul").eq($(this).index()).siblings().addClass('hide');
+        $(".panel-body>ul").eq($(this).index()).siblings().removeClass('show');
+        if($(this).index()===0){
+            $(".Control_style").css({
+                padding:20,
+                border:"none"
+            });
+        }else{
+            $(".Control_style").css({
+                padding:0,
+               border:"none"
+            });
+            $("#navigatesRigth").css({
+                padding:0,
+                border:"none",
+            });
+            $("#navigatesRigth>div").css({
+                border:"none"
+            })
+        }
+
+    });
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+</script>
+ <script type="text/javascript">  
+            function browserRedirect() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) == "midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";  
+                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) == "android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";  
+               
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {  
+					var ds_order_number=$('#ds_order_number').val();
+                   location.href = '__PUBLIC__orderwork/sign/'+ds_order_number;
+				   
+				
+                } else {  
+                   layer.msg('请在手机上签到',{icon:2,time:1500,shade: 0.1});
+										
+                }  
+            }  
+			function browserRedirects() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) == "midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";  
+                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) == "android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";  
+               
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {  
+                   var ds_order_number=$('#ds_order_number').val();
+				  
+                   location.href = '__PUBLIC__orderwork/outsign/'+ds_order_number; 
+				
+                } else {  
+                   layer.msg('请在手机上签退',{icon:2,time:1500,shade: 0.1});
+										
+                }  
+            }  
+            
+			$("#work_sign").click(function () {
+			browserRedirect();  
+			})
+			
+			$("#work_sign_out").click(function () {
+			browserRedirects();  
+			})
+			
+			$("#work_contact_customer").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__master_contact_customer/'+ds_order_number; 
+			})
+			$("#work_hedan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__touching/'+ds_order_number; 
+			})
+			$("#install_work_hedan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__install_touching/'+ds_order_number; 
+			})
+			$("#coaming_work_hedan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__coaming_touching/'+ds_order_number; 
+			})
+			$("#work_weixiu").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__master_maintenance_reports/'+ds_order_number; 
+			})
+			$("#work_weiban").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__coaming_master_presentation/'+ds_order_number; 
+			})
+			$("#work_genghuan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__replace_master_presentation/'+ds_order_number; 
+			})
+			$("#gjmcoaming_work_hedan").click(function () {
+                var ds_order_number=$('#ds_order_numbers').val();
+                location.href = '__PUBLIC__gjmtouching/'+ds_order_number;
+            })
+            $("#work_zixun_wei").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__Cqueryprice/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			$("#work_zixun_cha").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__install_index/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			$("#work_zixun_change").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__gjminstall_index/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			$("#work_zixun_ban").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__coaming_index/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			//勘测手稿
+			$("#work_manuscript").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				location.href = '__PUBLIC__survey_manuscript/'+ds_order_number; 
+			})
+			//勘测报告
+			$("#work_presentation").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				location.href = '__PUBLIC__survey_master_presentation/'+ds_order_number; 
+			})
+			$("#work_anzhuang").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				location.href = '__PUBLIC__shifuqurenbiao/'+ds_order_number; 
+			})
+			
+</script>  
+</body>

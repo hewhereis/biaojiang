@@ -1,0 +1,10 @@
+{include file="public/header" }
+
+<div class="main">
+	{volist name='news' id='n'}
+	<div class="container">
+		{$n['content']}
+	</div>
+	{/volist}
+</div>
+{include file="public/footer" }

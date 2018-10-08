@@ -1,0 +1,183 @@
+{include file="public/header"}
+<style>
+    @media (max-width: 776px) {
+        .hc{
+            height: 300px;
+            overflow-x: hidden;
+        }
+    }
+</style>
+{include file="public/style_header"}
+<div class="main" id="sawr">
+    <div class="container">
+        <!--面包屑导航-->
+        <h5 class="page-header bx">
+            当前位置：
+            <small>师傅个人中心</small> >>
+        </h5>
+        <div class="panel panel-orange">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    师傅个人中心
+                </div>
+            </div>
+			<?php if ($examine['review_status'] == 0): ?>
+			 <p class="pt-10 pb-10 border-radius" style="background: #ff7b76;color: #fff;text-align: center;width:80%;margin:0 auto;margin-top:0.2%;color: #ffffff"><a style="color: #ffffff" href="__PUBLIC__approve">您还未实名认证,请前往认证</a> <span class="pull-right mr-10 x_d">x</span></p>
+			<?php
+elseif ($examine['review_status'] == 1): ?>
+			 <p class="pt-10 pb-10 border-radius" style="background: #ff7b76;color: #fff;text-align:center;width:80%;margin:0 auto;margin-top:0.2%;color: #ffffff"><a style="color: #ffffff" href="javascript:void(0);">您的实名认证,正在审核中....</a> <span class="pull-right mr-10 x_d">x</span></p>
+			<?php
+elseif ($examine['review_status'] == 3): ?>
+			 <p class="pt-10 pb-10 border-radius" style="background: #ff7b76;color: #fff;text-align: center;width:80%;margin:0 auto;margin-top:0.2%;color: #ffffff"><a href="__PUBLIC__approve" style="color: #ffffff">您的实名认证没有通过,请前往从新认证</a> <span class="pull-right mr-10 x_d">x</span></p>
+			<?php
+endif; ?>
+            <div class="panel-body">
+                    <div class="row">
+                        <div   class="col-md-3 left_p" id="leftr">
+						<div style="width:100%;text-align:center;font-size:2.3rem;background-color:#FA8955;color:white"><a style="color:white" href="__PUBLIC__core/master">我的标匠</a></div>
+                                <ul id="demo"  class="text-center hc">
+
+                                </ul>
+           <span class='btn text-elg text-orange hidden-lg hidden-md' style='position:absolute;z-index: 999;left:236px;top:-14px' id='menu_btn'>
+            <i class="fa fa-times hide text-orange" aria-hidden="true"></i>
+            <i class="fa fa-bars text-orange" aria-hidden="true"></i>
+        </span>
+                        </div>
+                        <div class="col-md-9">
+                            <iframe id="test" src="__PUBLIC__master/personalcenter" width="100%"  height="1900px" frameborder="0" name="ip" scrolling="no"></iframe>
+                        </div>
+                    </div>
+            </div>
+        </div>
+		  </div>
+        </div>
+<script>
+    function reinitIframe(){
+        var iframe = document.getElementById("test");
+        try{
+            var bHeight = iframe.contentWindow.document.body.scrollHeight;
+            var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            var height = Math.max(bHeight, dHeight);
+            iframe.height = height;
+            console.log(height);
+        }catch (ex){}
+    }
+    window.setInterval("reinitIframe()", 200);
+
+
+
+	layui.tree({
+		elem: '#demo',
+		target:"ip"
+		//传入元素选择器
+		 ,nodes: [//<!--{ //节点 -->
+			<!-- name: '交易管理' -->
+			<!-- ,children: [{ -->
+				<!-- name: '我的任务' -->
+			<!-- },{ -->
+				<!-- name: '施工管理' -->
+			<!-- },{ -->
+				<!-- name: '评价管理' -->
+			<!-- },{ -->
+				<!-- name: '投诉管理' -->
+			<!-- },{ -->
+				<!-- name: '退款管理' -->
+			<!-- },{ -->
+				<!-- name: '分享推荐' -->
+			<!-- }] -->
+		<!-- },-->
+		{
+			name: '账户管理',
+			
+			children: [{
+				name: '基本资料',
+				href:"__PUBLIC__work_basics",
+				target:"ip"
+			},{
+				name: '我的消息',
+				href:"__PUBLIC__messages/all"
+			}
+			]
+		},{ 
+			name: '我的钱包'
+			,children: [{
+				name: '钱包余额',
+				href:"__PUBLIC__purse_center",
+				
+			},{
+				name: '服务保证金',
+				href:"__PUBLIC__faith_deposit",
+			},{
+				name: '钱包充值',
+				href:"__PUBLIC__personal_center_pay",
+			}
+			]
+		},{
+			name: '学习培训'
+			,children: [{
+				name: '学习中心',
+				href:"__PUBLIC__studytrain/index",
+				
+			}
+			]
+		}]
+	});
+	// // ,{ 
+	// 			 name: '评价管理',
+	// 			 href:"__PUBLIC__pingjiaguanli",
+	// 		 }
+	$("i.layui-icon").remove();
+	$("#demo").addClass("list-group")
+	$("#demo>li").addClass("list-group-item");
+	var asm=true;
+	$("#demo>li>a").click(function () {
+		if(asm) {
+			$(this).siblings("ul").css("display", "block");
+			$(this).siblings("ul").removeClass("layui-show");
+			asm=false;
+		}else{
+			$(this).siblings("ul").css("display", "none");
+			$(this).siblings("ul").removeClass("layui-show");
+			asm=true;
+		}
+	});
+    var sfn=true;
+    $("#menu_btn").click(function () {
+        if(sfn){
+            $("#leftr").removeClass("left_p");
+
+            sfn=false;
+        }else{
+            $("#leftr").addClass("left_p");
+            sfn=true;
+        }
+    })
+	$("#demo>li a").width("100%");
+	$("#demo>li a").height("100%");
+	$("#demo>li>a").click(function (e) {
+		e.preventDefault();
+	});
+	$("#demo>li>ul>li").mouseover(function () {
+			$(this).find("cite").css("color","#fff")
+	});
+	$("#demo>li>ul>li").mouseleave(function () {
+		$(this).find("cite").css("color","#337ab7")
+	})
+	$("#demo>li:eq(0)>a").prepend("<i class='fa fa-list-alt' ></i>");
+	$("#demo>li:eq(1)>a").prepend("<i class='fa fa-folder'></i>");
+	$("#demo>li:eq(2)>a").prepend("<i class='fa fa-group'></i>");
+	$("#demo>li:eq(3)>a").prepend("<i class='fa fa-graduation-cap'></i>");
+</script>
+
+<script>
+    $(".x_d").mousemove(function () {
+        $(this).css("cursor","pointer");
+    });
+    $(".x_d").click(function () {
+        $(this).parent().css("display","none");
+    });
+	
+	$("#demo>li:eq(2)>ul>li>a:eq(0)").attr("target","__blank");
+	$("#demo>li:eq(0)>ul>li>a:eq(1)").attr("target","__blank");
+</script>
+{include file="public/footer" }

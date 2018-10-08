@@ -1,0 +1,209 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="main settlement_page">
+    <div class="container pr-0-media pl-0_media">
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>结算页面</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+            <div class="row mt-10 Inquiries_orders_page" id="navigatesLeft">
+
+                <div class="clo-xs-12 " id='navigatesRigth'>
+                    <div class="panel panel-default mb-0 height ">
+                        <div class="panel-heading  bg-orange">
+                            <span>客户结算</span>
+                        </div>
+                    </div>
+                    <div  class="panel-body   border-bottom-1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">订单号</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <span  class="form-control" style="border: none"   id=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">品牌</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control"  name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">客户名称</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control"  name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">店铺地址</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control"  name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-2  mt-10 text-right">预约时间</label>
+                                    <div class="col-sm-10 col-md-6 ">
+                                        <input type="text" class="form-control"  name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body Inquiries_orders_page_none">
+                        <div class="row border-bottom-1 pb-30">
+                            <div class="col-md-6 col-md-offset-3">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <td>项目</td>
+                                        <td>项目详情</td>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>项目1</td>
+                                        <td>
+                                            <a  class="btn border-radius btn-default" href="">查看详情</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">服务要求及押金</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <span class="form-control" style="border: none"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">预计施工时间</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <input type="text" class="form-control" name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">佣金额数</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <input type="text" class="form-control"  name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">师傅技能需求</label>
+                                <div class="col-sm-10 col-md-6 ">
+                                    <input type="text" class="form-control"   name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3  mt-10 text-right">主任师傅对项要求</label>
+                                <div class="col-sm-10 col-md-8 ">
+                                    <textarea type="text" class="form-control"   name="" id=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--按钮确认页面-->
+            <div class="row mt-30 ">
+                <div class="col-md-2 col-md-offset-3">
+                    <input type="button" class="form-control  btn-success btn " value="确认跟单">
+                </div>
+                <div class="col-md-2">
+                    <input type="button" class="form-control btn btn-orange" value="取消跟单">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+    var cu=true;
+    $(".popup_message>a").click(function (e) {
+        e.preventDefault();
+        if(cu){
+            $(this).siblings('ul').removeClass('on');
+            cu=false;
+        }else{
+            $(this).siblings('ul').addClass('on');
+            cu=true;
+        }
+    });
+
+    //order_calibrate
+    $('#order_calibrate').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $("input").css("border-radius","3px");
+</script>
+{include file='public/footer'}

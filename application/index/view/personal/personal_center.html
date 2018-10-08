@@ -1,0 +1,199 @@
+{include file="public/header" }
+<style type="text/css">
+    .one{
+        display: none;
+    }
+    #demo>li>a>cite{
+        font-size: 14px;
+        color: #5c6975;
+        font-weight: 600;
+    }
+    #demo{
+
+        line-height: 40px;
+    }
+    #demo>li{
+        padding: 0;
+
+    }
+    #demo>li:hover{
+        cursor: pointer;
+    }
+    #demo>li>a{
+        padding-left: 10px;
+    }
+    #demo>li>a>i{
+        color: #5c6975;
+        font-size: 16px;
+    }
+    #demo>li>ul{
+        margin: 0;
+    }
+    #demo>li>ul>li>a{
+        padding-left: 20px;
+    }
+    #demo>li>ul>li:first-child{
+        border-top: 1px solid #ddd;
+    }
+    #demo li{
+        border-bottom: 1px solid #ddd;
+
+    }
+    #demo>li:last-child{
+        border-bottom: none;
+    }
+    #demo>li>ul>li>a>cite{
+        color: #337ab7;
+    }
+    #demo>li>ul>li:hover{
+        background: #ff5200;
+        color: #fff;
+    }
+
+</style>>
+<div class="main">
+    <div class="container">
+        <!--面包屑导航-->
+        <h5 class="page-header bx">
+            当前位置：
+            <small>师傅个人中心</small> >>
+        </h5>
+        <div class="panel panel-orange">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    师傅个人中心
+                </div>
+            </div>
+            <div class="panel-body">
+                    <div class="row">
+                        <div   class="col-md-3">
+                                <ul id="demo" class="text-center">
+
+                                </ul>
+                        </div>
+                        <div class="col-md-9">
+                            <iframe src="__PUBLIC__basics" width="100%"  height="1500px"
+                                    frameborder="0" name="ip" scrolling="no"></iframe>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <script>
+            layui.tree({
+                elem: '#demo',
+                target:"ip"
+                //传入元素选择器
+                ,nodes: [{ //节点
+                    name: '交易管理'
+                    ,children: [{
+                        name: '我的任务'
+                    },{
+                        name: '施工管理'
+                    },{
+                        name: '评价管理'
+                    },{
+                        name: '投诉管理'
+                    },{
+                        name: '退款管理'
+                    },{
+                        name: '分享推荐'
+                    }]
+                },{
+                    name: '我的钱包'
+                    ,children: [{
+                        name: '钱包余额'
+                    },{
+                        name: '服务保障金'
+                    },{
+                        name: '钱包密码'
+                    },{
+                        name: '提现'
+                    },{
+                        name: '充值'
+                    },
+                    ]
+                },{
+                    name: '账户管理',
+                    href:"__PUBLIC__basics",
+
+                    children: [{
+                        name: '基本资料',
+                        href:"__PUBLIC__basics",
+                        target:"ip"
+                    },{
+                        name: '安全设置'
+                    },{
+                        name: '账号绑定'
+                    },{
+                        name: '我的消息'
+                    }
+                    ]
+                },{
+                    name: '学习培训'
+                    ,children: [{
+                        name: '学习培训'
+                    },{
+                        name: '学习中心'
+                    }
+                    ]
+                }]
+            });
+            $("i.layui-icon").remove();
+            $("#demo").addClass("list-group")
+            $("#demo>li").addClass("list-group-item");
+            var asm=true;
+            $("#demo>li>a").click(function () {
+                if(asm) {
+                    $(this).siblings("ul").css("display", "block");
+                    $(this).siblings("ul").removeClass("layui-show");
+                    asm=false;
+                }else{
+                    $(this).siblings("ul").css("display", "none");
+                    $(this).siblings("ul").removeClass("layui-show");
+                    asm=true;
+                }
+
+            });
+            $("#demo>li a").width("100%");
+            $("#demo>li a").height("100%");
+            $("#demo>li>a").click(function (e) {
+                e.preventDefault();
+            });
+            $("#demo>li>ul>li").mouseover(function () {
+                    $(this).find("cite").css("color","#fff")
+            });
+            $("#demo>li>ul>li").mouseleave(function () {
+                $(this).find("cite").css("color","#337ab7")
+            })
+            $("#demo>li:eq(0)>a").prepend("<i class='glyphicon glyphicon-shopping-cart'></i>");
+            $("#demo>li:eq(1)>a").prepend("<i class='fa fa-folder'></i>");
+            $("#demo>li:eq(2)>a").prepend("<i class='fa fa-group'></i>");
+            $("#demo>li:eq(3)>a").prepend("<i class='fa fa-graduation-cap'></i>");
+        </script>
+
+        <script type="text/javascript">
+
+
+
+            $('#list .one').first().show();
+            $('#mybar .col-md-4').click(function(){
+                $(this).find('div').find('input').attr('checked',true);
+                var index = $(this).index();
+                $('#list .one').eq(index).show().siblings('.one').hide();
+            });
+
+
+            var istrue = false;
+            $('#fanzao').click(function(){
+                if(!istrue){
+                    var html ="<div class='row' id='warning'><div class='col-md-12'><div class='alert-warning' role='alert' style='font-size:1.3em'>抱歉！暂不支持支付宝支付</div></div></div>"
+                    $('#one').append(html);
+                    istrue = true;
+                }else{
+                    $('#one').find('#warning').remove();
+                    istrue = false;
+                }
+            });
+        </script>
+
+        {include file="public/footer" }

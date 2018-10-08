@@ -1,0 +1,81 @@
+{include file='public/header'}
+<style>
+    #app {
+        height: 100%;
+    }
+</style>
+<div class='app' style='height:100%'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+    <script type="text/x-template" id='mian'>
+        <div class='xiaoxi'>
+            <div class="infomation">
+                <a href="__PUBLIC__infomationlist">
+                <div class="messages systemMessages">
+                    <div class="photo"><span class='messimg'><span class='newsmess' v-show="systemMessages"></span></span></div>
+                    <div class='messContent'>
+                        <h3 class='messTitle'>系统消息</h3>
+                        <span class='messhint'>您收到系统发来的消息，点击查看。</span>
+                    </div>
+                </div>
+            </a>
+            <a href="__PUBLIC__orderinfomationlist">
+                <div class="messages orderMessages">
+                    <div class="photo">
+                        <span class='messimg'><span class='newsmess' v-show="orderMessages"></span></span>
+                    </div>
+                    <div class='messContent'>
+                        <h3 class='messTitle'>订单消息</h3>
+                        <span class='messhint'>您收到系统发来的消息，点击查看。</span>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+    </script>
+</div>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {
+        systemMessages:{$system_messages},
+        orderMessages:{$order_messages}
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {},
+        mounted: function () {}
+    })
+    //头
+    Vue.component('headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "消息"
+            }
+        },
+        methods: {
+            goback: function () {
+                window.history.go(-1)
+            }
+        }
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function () {
+            return {}
+        }
+    })
+    new Vue({
+        el: '.app'
+    })
+</script>

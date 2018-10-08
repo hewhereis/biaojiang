@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="__PUBLIC__static/index/js/layui/css/layui.css">
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/bootstrap-datetimepicker.min.css">
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrapValidator/bootstrapValidator.min.css">
+		<link rel="stylesheet" href="__PUBLIC__static/index/js/bootstrapfileinput/css/fileinput.min.css">
+		<!-- Font awesome -->
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/font-awesome.min.css">
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/bootstrap/awesome-bootstrap-checkbox.css">
+		<!--swiper-->
+		<link rel="stylesheet" href="__PUBLIC__static/index/js/swiper/swiper.min.css">
+		<!-- Main -->
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/main.css">
+		<!-- Custom -->
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/custom.css">
+		<link rel="stylesheet" href="__PUBLIC__static/index/css/custom2.css">
+		<!--[if lt IE 9]>
+              <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+              <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+		<!--jQuery -->
+		<script src="__PUBLIC__static/index/js/jquery/jquery-1.11.2.min.js"></script>
+		<!--Bootstrap -->
+		<script src="__PUBLIC__static/index/js/bootstrap/bootstrap.min.js"></script>
+		<script src="__PUBLIC__static/index/js/bootstrap/bootstrap-datetimepicker.min.js"></script>
+		<script src="__PUBLIC__static/index/js/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+		<script src="__PUBLIC__static/index/js/bootstrapValidator/bootstrapValidator.min.js"></script>
+		<script src="__PUBLIC__static/index/js/bootstrapValidator/zh_CN.js"></script>
+		<script src="__PUBLIC__static/index/js/bootstrapfileinput/js/fileinput.min.js"></script>
+		<script src="__PUBLIC__static/index/js/bootstrapfileinput/js/locales/zh.js"></script>
+		<!--swiper-->
+		<script type="text/javascript" src="__PUBLIC__static/index/js/swiper/swiper.min.js"></script>
+		<!-- layui -->
+		<script src="__PUBLIC__static/index/js/layui/lay/dest/layui.all.js" type="text/javascript"></script>
+		<script src="__PUBLIC__static/index/js/placeholder/placeholder.min.js"></script>
+		<script src="__PUBLIC__static/index/js/tool.js"></script>
+		<script src="__PUBLIC__static/index/js/public.js"></script>
+		<script src="__PUBLIC__static/index/js/jquery.form.js"></script>
+		
+
+	</head>
+<style>
+    .akm{
+        position: relative;
+        margin: 4px 5px 0 0;
+        padding: 5px 19px 5px 4px;
+        float: left;
+        max-width: 144px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: 1px solid #e8e8e8;
+        height: 26px;
+        line-height: 18px;
+        color: #666;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+    .akm:hover{
+        border: 1px solid #f40;
+        cursor: pointer;
+    }
+    .cu:hover{
+        cursor: pointer;
+    }
+    .icon-btn-x {
+        position: absolute;
+        right: 6px;
+        top: 3px;
+        background-position: -73px -445px;
+        width: 7px;
+        height: 7px;
+    }
+    .icon-btn-x:hover{
+        color: red;
+    }
+    .layui-tab-title{
+        height: auto;
+    }
+    .thumbnail img{
+        width: 60%;
+        height: 40%;
+    }
+    .caption p{
+        width: 100%;
+        height: 15px;
+        overflow: hidden;
+    }
+
+</style>
+<body>
+
+		<div class="main install_master_filter" style="margin-top:1%;" >
+			<div class="container" >
+				<div class="pl-0 The-test-panel-body" style="border-top:1px solid #ccc">
+				<form name="admin_list_sea" class="form-search" method="post" action="__PUBLIC__sry_choose_master/{$order_number}">
+					<div class="pl-10 text-black">
+						<span id="acs"></span>
+						<input type="text" class="border-aspx"   id="key" name="key" value="{$val}" placeholder="师傅工号/师傅姓名" style="padding: 5px;min-width: 250px">
+						<input type="submit" id="summeit" class="border-radius bg-orange" style="padding: 5px;" value="搜索">
+					</div>
+					<br>
+				</form>
+					
+						<div style="border-top:1px solid #ccc"></div>
+						<div class="row pt-10 jineng">
+							<div class="col-md-1" style="margin-left:1%;width:100px;">
+								师傅技能:
+							</div>
+							<div class="col-md-5  text-center" style="margin-left:-3%">
+								{volist name="skills" id="vo"}
+								<ul style="float:left;margin-left:2%">
+									<li><a style="float:left" href="javascript:;" onclick="jineng({$vo.id})" >{$vo.skill}</a></li>
+								</ul>
+								{/volist}
+							</div>
+							<form  name="myfroms" id="myforms" method="get" action="__PUBLIC__sry_choose_master/{$order_number}">
+								<input type="hidden" name="jineng" id="jineng" value="{$jineng}" />
+						
+							</form>
+									
+						</div>
+						<div style="border-top:1px solid #ccc"></div>
+						
+					</div>
+				 
+						<div  style="border:1px solid #ccc">
+							<div class="row ls mt-10 mr-20">
+								<table class="table  table-hover">
+								<script id="list-template" type="text/html">
+								{{# for(var i=0;i<d.length;i++){  }}
+								
+									<div class="col-sm-6 zo cu col-xs-12 col-md-3" >
+										<div class="thumbnail thumbnails  mb-0"  num="">
+											
+										<img src="__DsQINiu__{{d[i].img}}" onerror="this.src='__PUBLIC__static/index/images/moren.jpg'" class="img-responsive"/> 
+										 
+											<div class="caption " style="line-height: 13px;font-size: 12px" >
+												<p>师傅名称:{{d[i].real_name}}</p>
+												<p>师傅工号:{{d[i].uid}}</p>
+												<p>师傅类型:{{(d[i].service)}}</p>
+												<p>师傅标签:{{(d[i].skills)}} </p>
+											</div>
+										</div>
+										<a href="javascript:;" onclick="ds_yao({{d[i].uid}})" class="bg-danger text-center pt-10 pb-10"  style="width: 100%;height: 100%;display: block" >邀请</a>
+										
+									</div>
+								{{# } }}
+								</script>
+								<tbody id="list-content"></tbody>
+								</table>
+							</div>
+							<div id="AjaxPage" class="mt-20" style=" text-align:right;"></div>
+							<div id="allpage" style="text-align:right; margin-right:2%"></div>
+						</div>
+						<input type="hidden" id='order_number' value='{$order_number}'>
+				
+				</div>
+			</div>
+
+<!-- 加载动画 -->
+<div class="spiner-example">
+    <div class="sk-spinner sk-spinner-three-bounce">
+        <div class="sk-bounce1"></div>
+        <div class="sk-bounce2"></div>
+        <div class="sk-bounce3"></div>
+    </div>
+</div>
+<script>
+function jineng(id){
+ $('#jineng').val(id);
+   document.getElementById("myforms").submit(); 
+}
+
+</script>
+<script>
+function ds_yao(uid){
+    var worker_id = uid;
+	var order_number = $('#order_number').val();
+	var link ='__PUBLIC__ds_scrvey_masterorder/'+order_number;	
+	   layer.prompt({title: '输入平台估价,并确认',formType:2,shade:0}, function(text, index){
+		
+			$.ajax({
+				url:'__PUBLIC__ajax_survey_invitation',
+				type:'post',
+				dataType:'json',
+				data:{
+					worker_id:worker_id,
+					cost:text,
+					order_number:order_number,
+					link:link
+				},
+				success:function(data){
+						if(data.code == 200){ 
+							 layer.msg(data.msg, {icon: 6,time:1500,shade:0}, function(index){
+								 window.location.reload();
+							});
+						}else{
+							 layer.msg(data.msg, {icon: 5,time:1500,shade:0});
+							 return false;
+						}
+						
+					}
+					
+			});
+		
+		
+	  
+	});  
+
+	
+}
+
+</script>
+<script type="text/javascript">
+    //laypage分页
+	var order_number = $('#order_number').val();
+    Ajaxpage();
+    function Ajaxpage(curr){
+        var key=$('#key').val();
+		 var jineng=$('#jineng').val();
+        $.getJSON('__PUBLIC__sry_choose_master/'+order_number, {page: curr || 1,key:key,jineng:jineng}, function(data){
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画 
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+            }else{
+				console.log(data)
+				for(var j=0; j<data.length;j++){
+				var service="";
+				var skills="";
+				var k=	data[j].service;
+				var w=	data[j].skills;
+				
+				for(var m=0;m<k.length;m++){
+					
+					service+=k[m].name+",";
+					data[j].service=service
+				}
+				for(var q=0;q<w.length;q++){
+					
+					skills+=w[q].skill+",";
+					data[j].skills=skills
+				}
+				}
+				
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+</script>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+
+<script src="__PUBLIC__static/admin/js/layer/layer.js"></script>
+<script src="__PUBLIC__static/admin/js/laypage/laypage.js"></script>
+<script src="__PUBLIC__static/admin/js/laytpl/laytpl.js"></script>
+<script src="__PUBLIC__static/admin/js/jquery.form.js"></script>
+<script src="__PUBLIC__static/admin/js/lunhui.js"></script>
+
+
+</body>
+</html>

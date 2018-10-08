@@ -1,0 +1,136 @@
+{include file='public/header'}  
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div> 
+<template id="mian">
+	<div class="kehu_zixunzhurenshifu">
+		<div class="weui-cell content">
+           <div class="weui-cell_hd yuan"></div>
+           <div class="weui-cell_bd heading">
+               <div class="p1">
+                  <span class="wang">王小二</span>
+                  <span class="gonghao">(工号2554)</span>
+                  <span class="cz">
+                      <button class="cxshifu">重选师傅</button>
+                  </span>
+                </div>
+               <p class="putong">添加普通师傅个数<span><input class="text1" type="text" name=""  value="100"></span>位</p>
+               <p class="time">
+               	   <span class="gou"><span class="icon-checkmark"></span></span>
+               	   <span>师傅已确认时间</span>
+               </p>
+            </div>
+        </div>
+        <div class="bg"></div>
+        <div class="weui-table">
+            <div class="weui-table-tr">
+               <div class="weui-cell-item"><span>项目</span></div>
+               <div class="weui-cell-item"><span>项目预算价</span></div>
+               <div class="weui-cell-item"><span>故障详情</span></div>
+            </div>
+            <div class='weui-table-th'>
+               <div class="weui-cell-item"><span>安装</span></div>
+               <div class="weui-cell-item"><span class="paojia">师傅还未报价</span></div>
+               <div class="weui-cell-item"><a href="" class='a-link'><span>查看详情>></span></a></div>
+            </div>
+         </div>
+         <div class="dingdanbiaohao">
+         	<span class="dingdan">订单编号:</span>
+         	<span class="bianhao">25252155485444</span>
+         </div>
+         <div class='weui-text label'>
+            <span>合&nbsp; 计：</span>
+            <span class="heji">￥</span><span class="heji">20.00</span>
+            <span class='tip'>（含12%的税费）</span>
+        </div>
+        <div class="bg2"></div>
+        <div class="xiaoxi">
+        	<div class="xianxi2">
+        		<span class="icon-crying"></span>
+        		<span class="xiaoxi3">暂无消息</span>
+        	</div>
+        </div>
+        <div class="xunwen">
+        	<span>
+        		<select class="xunwen2">
+        		    <option>请选择您询问师傅的话</option>
+        	    </select>
+        	</span>
+        	<span><button class="fasong">发送</button></span>
+        </div>
+        <div class="btn">
+        	<span class="btn_one">
+        		<button class="btn_one1">咨询付费</button>
+        	</span>
+        	<span class="btn_two">
+        		<button class="btn-two1">提交订单去结算</button>
+        	</span>
+        </div>
+        	
+	</div>
+</template>
+
+
+
+
+
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+    var data = {
+      counter: 1,
+      sex:2
+    }
+    Vue.component('mian', {
+      template: '#mian',
+      data: function () {
+        return data
+      },
+      methods: {
+        getdate:function(){
+          var x=new Date();
+          var n=x.getFullYear(); //获取当前日期
+          var y=x.getMonth()+1; //获取当前日期
+          var r=x.getDate(); //获取当前日期
+          return n+"-"+y+"-"+r;
+        }
+      },
+      mounted:function() {
+        $('#time').datetimePicker({
+          min:this.getdate()
+        });
+      }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "客户咨询主任师傅"
+        }
+      },
+      methods:{
+         goback:function(){
+            window.history.go(-1)
+         }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+</script>

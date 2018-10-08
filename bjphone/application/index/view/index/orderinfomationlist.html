@@ -1,0 +1,93 @@
+{include file='public/header'}
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+    <script type="text/x-template" id='mian'>
+        <div class='infomationList'>
+            <div class="messagesList">
+                <div class="messTime">
+                    <span class='messTimes'>2017-10-27 09:55:49</span>
+                </div>
+                <div class="messContent">
+                    <div class='messContentTitle'>你的订单消息</div>
+                    <div class="messContentInfo">
+                        <span>师傅提醒你去付款</span>
+                    </div>
+                    <div class='messContentDel'>
+                        <span class='delete'>删除</span>
+                    </div>
+                </div>
+            </div>
+            <div class="messagesList">
+                <div class="messTime">
+                    <span class='messTimes'>2017-10-27 09:55:49</span>
+                </div>
+                <div class="messContent">
+                    <div class='messContentTitle'>你的订单消息</div>
+                    <div class="messContentInfo">
+                        <span>师傅提醒你去付款</span>
+                    </div>
+                    <div class='messContentDel'>
+                        <span class='delete'>删除</span>
+                    </div>
+                </div>
+            </div>
+            <div class="messagesList">
+                <div class="messTime">
+                    <span class='messTimes'>2017-10-27 09:55:49</span>
+                </div>
+                <div class="messContent">
+                    <div class='messContentTitle'>你的订单消息</div>
+                    <div class="messContentInfo">
+                        <span>师傅提醒你去付款</span>
+                    </div>
+                    <div class='messContentDel'>
+                        <span class='delete'>删除</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {}
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {},
+        mounted: function () {}
+    })
+    //头
+    Vue.component('headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "消息"
+            }
+        },
+        methods: {
+            goback: function () {
+                window.history.go(-1)
+            }
+        }
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function () {
+            return {}
+        }
+    })
+    new Vue({
+        el: '.app'
+    })
+</script>

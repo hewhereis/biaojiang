@@ -1,0 +1,149 @@
+{include file='public/header'}
+ <script src='__indexStatic__js/city-picker.js'></script>
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+
+<template id="mian">
+  <div>
+  <div class='header'>
+      <div class="header-wrapper">
+          <div class="header-left" @click='goback()'>
+              <i class='icon-arrow_lift'></i>
+              <span class='goback'>返回</span>
+          </div>
+          <div class="header-content">
+              <span class='text'>{{title}}</span>
+          </div>
+          <div class="header-right" style="line-height:40px;padding-right: 10px"><a href="javascript:;" style="color:#fff"></a></div>
+      </div>
+  </div>
+  <div class="tianjiadizhi">
+    <div class="bg">
+      <div class="box">
+          <div class="content1">
+            <div class="name">姓名</div>
+            <input type="text" class="text1" id="" v-model="datas.name" value="" name="name">
+          </div>
+          <div class="content2">
+            <div class="phone">电话</div>
+            <input type="text" class="text2" placeholder="请写下您的联系方式" id="" v-model="datas.phone" value="" name="phone">
+          </div>
+          <div class="content3">
+            <div class="address">所在地区</div>
+            <input type="text" class="text3"  id="city-picker" value="" name="address_area" v-model="datas.address_area">
+          </div>
+          <div class="content5">
+            <input type="text" class="text5" placeholder="请写下您的详细地址" id="town-picker" v-model="datas.location" value="" name="address">
+          </div>
+      </div>
+      <div class="">
+        <input class="btn1" type="button" value="确认编辑" @click="addAddress">
+      </div>
+    </div>
+  </div>
+  </div>
+</template>
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+    sex: 1,
+    title: "编辑地址",
+    datas:{$list}
+
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      addAddress:function(){
+          if(this.datas.name===""){
+              $.toptip('请填写名称', 2000, 'error');
+              return false
+          }
+          if(this.datas.phone===""){
+              $.toptip('请填写联系人电话', 2000, 'error');
+              return false
+          }
+          if(this.datas.address_area===""){
+              $.toptip('请填写所在地址', 2000, 'error');
+              return false
+          }
+          if(this.datas.location===""){
+              $.toptip('请填写详细地址', 2000, 'error');
+              return false
+          }
+        var _this = this
+        $.ajax({
+          url:"__PUBLIC__edit_address_ajax",
+          dataType:"json",
+          data:_this.datas,
+          type:'post',
+          success:function(data){
+             if(data.code==200){
+                $.toast(data.msg);
+                window.location.href="__PUBLIC__address_admin";
+             }else{
+                $.toast(data.msg, "cancel");
+                window.location.href="__PUBLIC__address_admin";
+             }
+          }
+        })
+       
+      },
+      goback: function () {
+        window.history.go(-1)
+      },
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+    },
+    mounted: function () {
+       var  _this=this;
+      $('#time').datetimePicker({
+        min: _this.getdata(1)
+      });
+      $(".cha").click(function(){
+           $(".box").remove();
+      });
+        $("#city-picker").cityPicker({
+          title: "请选择所在地区",onChange:function(data){
+             _this.datas.address_area=data.displayValue.join('-')
+          }
+
+       });
+
+    }
+  })
+
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+
+  
+</script>

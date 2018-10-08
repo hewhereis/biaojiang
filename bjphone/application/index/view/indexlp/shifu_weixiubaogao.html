@@ -1,0 +1,198 @@
+{include file='public/header'}  
+
+</style>
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div> 
+<template id="mian">
+	<div class="shifu_weixiubaogaobiao">
+		<div class="weui-cells weui-cells_form border-none">
+		    <div class="heading1">
+            	<span class="left">订单编号：</span>
+            	<span class="right">202155555455455</span>
+            </div>
+            <div class="heading">
+            	<span class="left">项目名称：</span>
+            	<span class="right">维修-店铺天地墙</span>
+            </div>
+            <div class="heading">
+            	<span class="left">客户名称：</span>
+            	<span class="right">张三</span>
+            </div>
+            <div class="heading">
+            	<span class="left">客户电话：</span>
+            	<span class="right">12521424574</span>
+            </div>
+            <div class="heading">
+            	<span class="left">店铺地址：</span>
+            	<span class="right"><input type="text" class="text" id="text" readonly="" name="text" value="上海市嘉定区安亭镇方泰路25号"></span>
+            </div>
+            <div class="heading2">
+            	<span class="left">完成时间：</span>
+            	<span class="right">2017-10-20</span>
+            </div>
+		</div>
+		<div class="border">
+		    <div class="content1">
+		    	<span class="zuo1">施工公司:</span>
+		    	<span class="you1">上海标匠有限公司</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo">施工师傅:</span>
+		    	<span class="you">李师傅</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo2">施工联系人:</span>
+		    	<span class="you">张文文</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo3">施工方电话:</span>
+		    	<span class="you">15845856982</span>
+		    </div>
+		</div>
+		<div class="xgzhaopian">
+			<span class="icon-camera"></span>
+			<span class="zhaopian">相关照片</span>
+		</div>
+		<div class="weui-flex one">
+            <div class="weui-flex__item two">
+            	<div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+                <span class="mentouzhao">门头照</span>
+            </div>
+            <div class="weui-flex__item two">
+            	<div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+                <span class="mentouzhao">维修签收单</span>
+            </div>
+        </div> 
+        <div class="weui-flex one1">
+        	<div class="weui-flex__item two1">
+        		<div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+                <div class="zhuangui">专柜全景</div>
+        	</div>
+        	<div class="weui-flex__item two1">
+        		<div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+                <div class="zhuangui">专柜全景</div>
+        	</div>
+        	<div class="weui-flex__item two1">
+        		<div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+                <div class="zhuangui">专柜全景</div>
+        	</div>
+        	<div class="weui-flex__item two1">
+        		<div class="weui-uploader__input-box">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                </div>
+                <div class="zhuangui">专柜全景</div>
+        	</div>
+        </div>
+        <div class="duibi">
+        	<span class="icon-camera"></span>
+			<span class="qianhouduibi">维修前后对比照上传</span>
+			<div class="weui-flex duibi1">
+                <div class="weui-flex__item weixiuqian">
+            	    <div class="weui-uploader__input-box" id="one">
+                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    </div>
+                    <span class="weixiuqian1">维修前</span>
+                </div>
+                <div class="weui-flex__item weixiuhou">
+            	    <div class="weui-uploader__input-box">
+                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    </div>
+                    <span class="weixiuqian1">维修后</span>
+                </div>
+            </div>
+            <div class="text2">
+            	<input type="text3" readonly="" class="text3" name="texe3" id="text3" value="灯箱灯管已换">
+            </div>
+        </div> 
+        <div class="weui-cells weui-cells_form qianzi">
+            <div class="weui-cell qianzi2">
+                <div class="weui-cell__hd"><label class="weui-label">施工方签字:</label></div>
+                <div class="weui-cell__bd">
+                   <input class="weui-input" type="text" placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="fuwu">
+          <span>服务确认码：</span>
+          <div class="text4"><input type="text" name="text5" id="text5" class="text5" value="请填写正确的服务确认码"></div>
+        </div>
+        <div class="btn">
+        	<button class="btn1">确认</button>
+        </div>
+	</div>
+</template>
+
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+    var data = {
+      counter: 1,
+      sex:2
+    }
+    Vue.component('mian', {
+      template: '#mian',
+      data: function () {
+        return data
+      },
+      methods: {
+        getdate:function(){
+          var x=new Date();
+          var n=x.getFullYear(); //获取当前日期
+          var y=x.getMonth()+1; //获取当前日期
+          var r=x.getDate(); //获取当前日期
+          return n+"-"+y+"-"+r;
+        }
+      },
+      mounted:function() {
+        $('#time').datetimePicker({
+          min:this.getdate()
+        });
+      }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "维修确认报告"
+        }
+      },
+      methods:{
+         goback:function(){
+            window.history.go(-1)
+         }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+
+
+
+</script>

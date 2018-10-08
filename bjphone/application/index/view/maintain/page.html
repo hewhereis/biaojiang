@@ -1,0 +1,187 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="page">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <form>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">服务类型:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input bj-color-gray" type="text" disabled value="安装">
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">服务品牌:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" name="brand"  required id="brand" placeholder="请选择服务品牌">
+                </div>
+
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">服务类型:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text"  id="service"  placeholder="请选择服务类型">
+                </div>
+
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label  bj-label-color">故障概括:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input label-span" type="text" id="malfunction"  placeholder="">
+                </div>
+            </div>
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label bj-label-color">商品型号:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input type="text" class="page_xinhao" value=""  >
+                </div>
+                <div class="weui-cell__ft">
+                    <ul class="btn-numbox">
+                        <li>
+                            <ul class="count">
+                                <li>
+                                    <span id="num-jian"  @click="add(-1)"  class="num-jian">-</span>
+                                </li>
+                                <li style="margin-left: 5px;margin-right: 5px">
+                                    <input type="text" name="num" style="width:38px; "  v-model="msg" class="input-num" id="input-num"/>
+                                </li>
+                                <li>
+                                    <span id="num-jia"  @click="add(1)" class="num-jia">+</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="weui-flex">
+                <div class="weui-flex__item bj_shangchuan">
+                    <div class="weui-label">
+                            <i  class="icon-camera_c title icon-camera "></i>
+                            上传图片:
+                    </div>
+                </div>
+            </div>
+            <div class="weui-flex" style="min-height: 120px">
+                <div class=" " style="padding-top: 20px;padding-bottom: 20px;padding-left: 10px">
+                    <div class="weui-cell__hd">
+                        <ul class="weui-uploader__files" id="uploaderFiles">
+                            <li class="weui-uploader__file weui-uploader__file_status" >
+                                <div class="weui-uploader__file-content">
+                                    <i class="weui-icon-warn"></i>
+                                </div>
+                            </li>
+                            <li class="weui-uploader__file weui-uploader__file_status" >
+                                <div class="weui-uploader__file-content">50%</div>
+                            </li>
+                            <li class="weui-uploader__input-box" >
+                                <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="weui-flex">
+                <div class="weui-flex__item">
+                    <input class="weui-input bj-guzhang " v-model="accident"  type="text"  placeholder="请描述故障详情">
+                </div>
+            </div>
+            <div class="weui-flex">
+                <div class="weui-flex__item" >
+                </div>
+            </div>
+
+            <div class="weui-flex button">
+                <div class="weui-flex__item">
+                    <button  class="weui-btn bj_button_orange">保存</button>
+                </div>
+                <div class="weui-flex__item">
+                    <button  class="weui-btn bj_button_blue">取消</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "新增加项目",
+                left:"",
+                right:""
+            }
+        },
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                msg:[1],
+                service:'',
+                brand:'',
+                accident:'',
+                gren:'',
+                whm:'',
+            }
+        },
+        methods:{
+            add:function (wa) {
+                if(wa>0){
+                    this.msg++;
+                }else{
+                    this.msg--;
+                    if(this.msg<1){
+                        this.msg=0;
+                    }
+                }
+            },
+            adds:function (th) {
+            },
+            ea:function () {
+                this.arr.push({"1":1})
+            },
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+            $("#brand").picker({
+                title: "选择品牌",
+                cols: [ {
+                    textAlign: 'center',
+                    values: ['赵', '钱', '孙', '李', '周', '吴', '郑', '王']
+                    //如果你希望显示文案和实际值不同，可以在这里加一个displayValues: [.....]
+                },]
+            });
+            $("#brand").picker("close", function () {
+                alert(1)
+            });
+            $("#malfunction").select({
+                title: "选择故障概括",
+                multi: true,
+                items: ["法官", "医生", "猎人", "学生", "记者", "其他"]
+            });
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

@@ -1,0 +1,185 @@
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+{include file="public/header" }
+<div class="main">
+    <div class="header-img ">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <div class="container my_purse container-hidden">
+
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>我的钱包</small><span>>></span>
+        </h5>
+        <div class="row mt-10" id="navigatesLeft">
+            {include file="fenlei/purse_recharge_left" }
+            <div class="col-md-12 right col-xs-12" id='navigatesRigth'>
+
+
+                    <div class="panel-heading bg-orange">
+                                <span>我的钱包</span>
+                    </div>
+                    <div class="panel-body Recharge_s pl-20 pr-20">
+                        <p class="h4">可用余额(元)</p>
+                        <p class="h2 mt-20">
+                            <span>24400</span>
+
+                            <a href="" class="btn  pull-right pl-20 pr-20 ml-40 btn-default border-radius">提现</a>
+                            <a href="" class="btn pull-right pl-20 pr-20 ml-40 btn-blue border-radius">充值</a>
+                        </p>
+                        <span class="h5 pr-10"> 含服务保障金0.00元，</span><a href="">查看保障金账户></a>
+                        <div class="border-bottom-1"></div>
+                        <p class="h4">交易记录</p>
+                        <div class="border-bottom-1"></div>
+                        <div class="layui-form-pane" style="margin-top: 15px;">
+                            <div class="row">
+                                <label class="col-md-2">交易时间</label>
+                                <div class="col-md-4 form-group">
+                                    <input class="form-control" placeholder="" id="LAY_demorange_s">
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <input class="form-control" placeholder="" id="LAY_demorange_e">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">资金流向:</div>
+                            <div class="col-md-2">
+                                <input type="button" class="btn  btn-default border-radius" value="全部">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" class="btn  btn-default border-radius" value="收入">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button" class="btn  btn-default border-radius" value="支出">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">订单编号:</div>
+                            <div class="col-md-4">
+                                <input type="text" placeholder="请输入12位订单号进行查询" class="form-control border-radius">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="button"  class="btn btn-blue form-control  border-radius" value="搜索">
+                            </div>
+                        </div>
+                        <div class="border-bottom-1 mt-20"></div>
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <td>订单编号</td>
+                                    <td>服务类型</td>
+                                    <td>订单开始时间</td>
+                                    <td>订单结束时间</td>
+                                    <td>交易金额</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <tr>
+                                 <td>10545</td>
+                                 <td>安装</td>
+                                 <td>2075-32-20</td>
+                                 <td>54488489</td>
+                                 <td>十元</td>
+                             </tr>
+
+                             <tr>
+                                 <td>10545</td>
+                                 <td>安装</td>
+                                 <td>2075-32-20</td>
+                                 <td>54488489</td>
+                                 <td>十元</td>
+                             </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+            </div>
+        </div >
+    </div>
+</div>
+<style>
+
+.font-80{
+    font-size: 80px;
+}
+.Recharge div.style{
+    padding: 15px;
+    border: 1px solid;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: -1px;
+}
+
+</style>
+<script>
+    //师傅首页的侧边栏
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+
+</script>
+<script>layui.use('laydate', function(){
+    var laydate = layui.laydate;
+
+    var start = {
+        min: laydate.now()
+        ,max: '2099-06-16 23:59:59'
+        ,istoday: false
+        ,choose: function(datas){
+            end.min = datas; //开始日选好后，重置结束日的最小日期
+            end.start = datas //将结束日的初始值设定为开始日
+        }
+    };
+
+    var end = {
+        min: laydate.now()
+        ,max: '2099-06-16 23:59:59'
+        ,istoday: false
+        ,choose: function(datas){
+            start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+    };
+
+    document.getElementById('LAY_demorange_s').onclick = function(){
+        start.elem = this;
+        laydate(start);
+    }
+    document.getElementById('LAY_demorange_e').onclick = function(){
+        end.elem = this
+        laydate(end);
+    }
+
+});
+
+</script>
+{include file="public/footer" }

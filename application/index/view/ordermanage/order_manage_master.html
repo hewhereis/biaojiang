@@ -1,0 +1,79 @@
+{include file="public/header" }
+
+
+<div class="main order_manage_master">
+
+	<!--/*主题*/-->
+	<div class="container pl-0_media pr-0-media" >
+		<h5 class="page-header bx">
+			<span class="pl-10">当前位置：</span>
+			<small>我的订单</small>
+			<span>>></span>
+		</h5>
+	</div>
+	<!--定义主题-->
+	<div class="container">
+		<!--导航页面-->
+		<div class="The-test-panel-head">
+			<div class="row">
+				<div class="col-sm-3 col-md-2  line-height-30 pl-30 hidden-xs"> 我的订单</div>
+				<div class="col-xs-8 col-xs-offset-2 col-sm-8">
+					<form name="admin_list_sea" class="form-search" method="get" action="__PUBLIC__orders/master/daiclo">
+						<div class="row">
+							<div class="col-sm-4  col-xs-9 col-md-3 col-md-offset-6 col-sm-offset-1 seek">
+								<input type="text" id="key" name="key" value="{$val}" placeholder="输入店铺位置和订单号" class="border-aspx-fff ml-3_media form-control mr-10 pl-20"/>
+
+								<i class="glyphicon glyphicon-search"></i>
+							</div>
+							<div class="col-xs-3 col-md-1 col-sm-2">
+								<a style="border: 1px solid #DDDDDD" id="sar" href="__PUBLIC__orders/master/daiclo" class="btn border-radius btn-orange border-5-gray-b" target="order">搜索</a>
+							</div>
+						</div>
+						<script>
+                            var key_se;
+                            $("#sar").click(function (e) {
+                                key_se=$("#key").val();
+                            })
+						</script>
+					</form>
+				</div>
+
+			</div>
+		</div>
+		<div class="border-aspx pl-10 pr-10   pt-10">
+			<div class="row">
+				<!--右边栏-->
+				<div class="col-xs-12 mb-10">
+					{include file="fenlei/wknav"}
+					<!--订单信息-->
+				</div>
+				<div class="col-xs-12">
+					<iframe src="__PUBLIC__orders/master/quan" name="order"  frameborder="0" width="100%" scrolling="no"></iframe>
+					<input value="<?php echo date('Y-m-d H:i:s')?>" hidden="hidden" id="sending_time">
+					<!-- 分页条-->
+				</div>
+			</div>
+		</div>
+
+		</div>
+	</div>
+
+<script>
+
+
+
+
+    $("#DefineNavigationList>li>a").click(function (e) {
+        $(this).parent().siblings().removeClass('active');
+        $(this).parent().addClass('active');
+    })
+
+
+
+
+
+</script>
+
+{include file='public/footer'}
+
+

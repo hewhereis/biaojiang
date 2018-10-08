@@ -1,0 +1,187 @@
+{include file="public/header" /}
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>找师傅</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" name="serviceEdit" id="serviceEdit" method="post" action="">
+						<div class="panel-body pt-0">
+							<div class="row" style='border-bottom:1px solid #CDCDCD' >
+								<div class="col-sm-3 pt-20 pb-20" >
+									<label>
+										<span class='text-md'>订单号:{$order_number}
+									</label>
+									<label>
+										<span class='text-md'>&nbsp;&nbsp;您选择的师傅:
+									</label>
+								</div>
+								<div class="col-sm-9 masterOne_right" id="ds_aa" style='min-height:18px;margin-left:-7%'>
+									{volist name="sinv" id="vo"}
+										<a class='btn btn-warning mb-5 o'>师傅:{$vo.worker_id}号</a>
+										
+									{/volist}
+									
+								</div>
+							</div>
+
+				
+							<div class="row">
+							   
+								<div class="col-sm-12" style='margin-top:10px'>
+									
+								
+									<div class="row" style="margin-top:10px">
+										<div class="col-xs-3">
+											<label class="">师傅工号:</label>
+										</div>
+										<div class="col-xs-8">
+												<input type="text" id='worderID' value="" class='form-control'>
+										</div>
+									</div>
+									
+
+									<div class="row" style="margin-top:10px">
+										<div class="col-xs-3">
+											<label>平台估价:</label>
+										</div>
+										<div class="col-xs-8">
+											<input type="text" id='money' class='form-control'>
+										</div>
+									</div>
+
+									
+								</div>
+								<div class="col-sm-12">
+									<div class="row pt-20 pb-20" style="margin-top:10px">
+										<div class="col-xs-12">
+											<a href='' class='btn btn-success ds_add_master'>筛选师傅</a>
+											&nbsp;&nbsp
+											
+									
+											<a class='btn btn-info w' id='invite'>邀请</a>	
+											&nbsp;&nbsp
+											<a class="btn btn-danger" href="javascript:history.go(-1);"><i class="fa fa-close"></i> 返回</a>
+										</div>
+									</div>
+								</div>
+							</div>
+			</div>
+						<input type="hidden" id='order_number' value='{$order_number}'>
+                       
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-3">
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{include file="public/footer" /}
+<script>
+ $(".ds_add_master").click(function () {
+                var uid=$('#ds_uid').val();
+				var order_number = $('#order_number').val(); 
+                parent.layer.open({
+                    type:2,
+                    area:["1000px","890px"],	
+                    title:"邀请师傅",
+                    shade:0,
+					content: ['__PUBLIC__sry_choose_master/'+order_number, 'yes'],
+                    scrollbar:false,
+                    end: function() {
+                      location.reload();
+                    },
+                    yes: function(index) {
+					  
+		  
+					}
+                });
+            });
+</script>
+<script type="text/javascript">
+	$('#invite').click(function(){
+		var reg = /^[\d]+$/;
+		var worker_id = $('#worderID').val(); 
+		var cost = $('#money').val(); 
+		var order_number = $('#order_number').val(); 
+		var link ='__PUBLIC__ds_scrvey_masterorder/'+order_number;	
+	
+		if( '' == worker_id){
+                layer.msg('师傅工号不能为空',{icon:2,time:1500,shade: 0.1}, function(index){
+                layer.close(index);
+                });
+                return false;
+            }
+		if(!reg.test(cost)){
+			layer.msg('请填写正确的金额！',{icon:2,time:1500,shade: 0.1}, function(index){
+                layer.close(index);
+                });
+			 return false;
+		}
+		
+		
+		$.ajax({
+			url:'__PUBLIC__ajax_survey_invitation',
+			type:'post',
+			dataType:'json',
+			data:{
+				worker_id:worker_id,
+				cost:cost,
+				order_number:order_number,
+				link:link
+			},
+			success:function(data){
+                    if(data.code == 200){ 
+						 layer.msg(data.msg, {icon: 6,time:1500,shade: 0.1}, function(index){
+							 window.location.reload();
+						});
+                    }else{
+						 layer.msg(data.msg, {icon: 5,time:1500,shade: 0.1});
+						 return false;
+					}
+                    
+                }
+					
+		});
+
+		
+	});
+
+
+
+
+    //IOS开关样式配置
+   var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, {
+            color: '#1AB394'
+        });
+    var config = {
+        '.chosen-select': {},                    
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+</script>
+</body>
+</html>

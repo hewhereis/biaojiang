@@ -1,0 +1,86 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="gerenxinxi">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+
+        <div class="weui-cells_form">
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__hd ">
+                       
+						 <img src="__DsQINiu__{$customer['img']}"  onerror="this.src='__PUBLIC__static/index/images/tuyi.png'"  class="img" alt="" width="60" height="60">
+                    </div>
+                    <div class="weui-cell__bd text">
+                        修改头像
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+                <a class="weui-cell weui-cell_access" href="__PUBLIC__nickname">
+                    <div class="weui-cell__hd ">
+                        昵称
+                    </div>
+                    <div class="weui-cell__bd text">
+                        {$customer['username']}
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+                
+                <a class="weui-cell weui-cell_access" href="__PUBLIC__modifyphone">
+                    <div class="weui-cell__hd ">
+                        手机号
+                    </div>
+                    <div class="weui-cell__bd text">
+                        {$customer['phone']}
+                    </div>
+                    <div class="weui-cell__ft">
+
+                    </div>
+                </a>
+                
+              
+               
+            </div>
+            
+        </div>
+
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "个人信息",
+                 left:"<span class=\"icon-返回2\"></span><a href='__PUBLIC__customer_home' style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+            }
+        },
+        methods:{
+
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+        },
+        methods:{
+
+        }
+    })
+</script>
+</body>

@@ -1,0 +1,72 @@
+{include file='public/header'}
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+    <script type="text/x-template" id='mian'>
+        <div class='koufenmingxi'>
+            <div class='Mlist'>
+                <div class='Mlist-item' v-for="(items,index) in list">
+                    <div class="Mlist-item-photo">
+                        <img :src="items.img" alt="" width="50" height="50">
+                    </div>
+                    <div class='Mlist-item-info'>
+                        <div class='Mlist-item-info-top'>
+                            <span v-html="items.name"></span>
+                        </div>
+                        <div class='Mlist-item-info-bottom'>
+                            <span>原因</span>
+                            <span v-html="items.info"></span>
+                            <div class='Mlist-item-info-time'>
+                                <span v-html="items.time"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {
+        list:[{"img":"__indexStatic__images/pic_160.png","name":"上海朱师傅","time":"5天前","info":"超过48小时联系不上"},{"img":"__indexStatic__images/pic_160.png","name":"上海朱师傅","time":"5天前","info":"超过48小时联系不上"},{"img":"__indexStatic__images/pic_160.png","name":"上海朱师傅","time":"5天前","info":"超过48小时联系不上"}]
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function() {
+            return data
+        },
+        methods: {},
+        mounted: function() {}
+    })
+    //头
+    Vue.component('headers', {
+        template: '#header',
+        data: function() {
+            return {
+                title: "扣分明细"
+            }
+        },
+        methods: {
+            goback: function() {
+                window.history.go(-1)
+            }
+        }
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function() {
+            return {}
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function() {
+            return {}
+        }
+    })
+    new Vue({
+        el: '.app'
+    })
+</script>

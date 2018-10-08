@@ -1,0 +1,91 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="shezhimima">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+        <div class="ora "></div>
+        <div class="orange ora">
+            <p>为了安全,先进行手机验证</p>
+        </div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="请输入手机号" value="">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="请输入手机验证码" value="">
+                </div>
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">获取验证码</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-flex button">
+            <div class="weui-flex__item">
+                <button  class="weui-btn bj_button_orange">下一步</button>
+            </div>
+        </div>
+        <div class="orange">
+            <p>1.设置密码不可以和登录密码一致</p>
+            <br>
+            <p>2.一个手机号只能绑定一个手机号</p>
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "支付密码",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                fuwuleixing:"",
+                fuwuquyu:"",
+                fuwushijian:"",
+                yuangongrenshu:"",
+                fuwushuliang:"",
+                houchedaxiao:"",
+                houcedunwei:"",
+                fuwujiesho:""
+            }
+        },
+        methods:{
+
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

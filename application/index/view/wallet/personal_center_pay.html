@@ -1,0 +1,116 @@
+{include file="public/style_header" }
+<style type="text/css">
+.one {
+	display: none;
+}
+</style>
+<div class="panel panel-orange">
+	<div class="panel-heading">
+		<div class="panel-title">充值</div>
+	</div>
+	<div class="panel-body">
+		<span>请选择充值金额</span>
+		<br class="hidden-md hidden-lg hidden-sm">
+		<input type="text" name="" id="price" class="price form-control" placeholder ="请输入自定价格">
+		<br>
+		<br>
+		<span class="">请选择支付方式 </span>
+		<br class="hidden-md hidden-lg hidden-sm">
+		<input type="radio" name="radio1"  id="weixin" value="1">
+		<label for="weixin" href=""><img style="border:1px solid #cacaca;padding:0.3em 0em" src="__PUBLIC__static/index/images/weixinzhifu2.png" class="" alt=""></label>
+		<br class="hidden-md hidden-lg hidden-sm">
+		<!-- <input type="radio" name="radio1" id="zhifubao"  value="2"> -->
+
+		<!-- <label for="zhifubao" style="border:1px solid #cacaca;padding:0.3em 0em"><img src="__PUBLIC__static/index/images/zhifubao.png" class="" alt=""></label> -->
+		<div id="one"></div>
+		<p class="mt-30" style="font-size:1.4em;color:#000;">总金额：<span style="font-size:1.3em;color:#ff5200;font-weight:bold" id="total">￥0.00</span></p>
+		<br>
+
+		<button class="btn btn-info border-radius" id="confirm" style="padding:0.5em 3em">确认付款</button>
+		<input type="hidden" id="uid" value="{$uid}">
+	</div>
+</div>
+<script type="text/javascript">
+    $("input[name='radio1']").click(function () {
+
+        if($(this).val()==2){
+            var html='<div class="alert-warning" role="alert" style="font-size:1.3em">抱歉！暂不支持支付宝支付</div>';
+            $("#one").html(html);
+        }else{
+            $("#one").html("");
+        }
+    })
+</script>
+
+<script>
+$(".price").keyup(function () {
+
+		var At_the_time_variable=0;
+		$(".price").each(function (index,val) {
+			var n;
+			if($(val).val()==""){
+				n=0;
+			}else{
+			   n= $(val).val();
+			}
+			At_the_time_variable+=  parseFloat(n);
+			$("#total").html('￥'+At_the_time_variable);
+		});
+
+	})
+
+</script>
+<script>
+$('#confirm').click(function(){
+	var total_price = $("#total").html();
+	var price=total_price .split("￥");
+	var total = price[1];
+	var uid = $('#uid').val();
+	var weixin = $('input[name="radio1"]:checked').val();
+    if(total==0){
+        Tip("price","请填写充值金额");
+        return false;
+    }
+    if(total<1){
+         Tip("price","充值金额不能小于1元");
+        return false;
+    }
+    if(weixin!=1){
+        parent.layer.msg('请选择支付方式',{icon:2,time:2000});
+        return false;
+    }
+        $.ajax({
+			  url:'__PUBLIC__is_weixin',
+			  type:'post',
+			  data:{},
+			  dataType:'json',
+			  success:function(data){
+			     if(data==true){
+
+                     parent.location.href="http://www.bj-wang.com/wallet/jsapi?total="+total+"&&uid="+uid;
+				 }else{
+				  $.ajax({
+						  url:'__PUBLIC__price',
+						  type:'post',
+						  data:{total:total,uid:uid},
+						  dataType:'json',
+						  success:function(data){
+
+						  	var t = data.msg;
+							   if(data.code==200){
+                                   parent.location.href="http://www.bj-wang.com/wallet/scan/uid/"+uid+"/t/"+t;
+							   }
+						}     
+					})
+			
+				 }
+			  
+			}
+		})
+
+
+})
+
+
+
+</script>

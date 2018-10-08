@@ -1,0 +1,199 @@
+{include file="public/header" /}
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>添加试题</h5>
+                   
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal" name="serviceAdd" id="serviceAdd" method="post" action="{:url('examadd')}">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">选择试卷：</label>
+                            <div class="input-group col-sm-4">
+                                <div class="checked i-checks">
+                                    <table class='table table-bordered'>
+                                        <tr>
+                                        <td>
+                                            {volist name='exam_group' id='vo'}
+                                            {if $vo.id == 0}
+                                                {$vo.group_title}
+                                            {else /}
+                                            <div style='float:left;padding:5px'>
+                                                <input type="checkbox" name='group_id[]' id='groupid{$vo.id}' value="{$vo.id}" />
+                                                <label for='groupid{$vo.id}'>{$vo.group_title}</label>
+                                            </div>
+                                            {/if}
+                                            {/volist}
+                                        </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">试题名称：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="question" type="text" class="form-control" name="question" >
+                            </div>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">A选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option1" type="text" class="form-control" name="option1" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">B选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option2" type="text" class="form-control" name="option2" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">C选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option3" type="text" class="form-control" name="option3" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">D选项：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="option4" type="text" class="form-control" name="option4" >
+                            </div>
+                        </div>
+
+						<div class="hr-line-dashed"></div>
+                        <div class="form-group"> 
+                            <label class="col-sm-3 control-label">题序：</label>
+                            <div class="input-group col-sm-4">
+                                <input id="order" type="text" name='order' class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group"> 
+                            <label class="col-sm-3 control-label">正确答案：</label>
+                            <div class="input-group col-sm-4">
+                                <div class="radio i-checks">
+                                    <input type="radio" name='correct' value="1" />A&nbsp;&nbsp;
+                                    <input type="radio" name='correct' value="2" />B&nbsp;&nbsp;
+                                    <input type="radio" name='correct' value="3" />C&nbsp;&nbsp;
+                                    <input type="radio" name='correct' value="4" />D&nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">状&nbsp;态：</label>
+                            <div class="col-sm-6">
+                                <div class="radio i-checks">
+                                    <input type="radio" name='status' value="1" checked="checked"/>开启&nbsp;&nbsp;
+                                    <input type="radio" name='status' value="0" />关闭
+                                </div>
+                            </div>
+                        </div>
+                 
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">选择标签：</label>
+                            <div class="input-group col-sm-4">
+                                <div class="checked i-checks">
+                                    <table class='table table-bordered'>
+                                        <td>
+                                        {volist name='exam_tags' id='vv'}
+                                            {if $vv.id == 0}
+                                                {$vv.tag}
+                                            {else /}
+
+                                            <div style='float:left;padding:5px'>
+                                                <input type="checkbox" name='tags[]' id='tags{$vv.id}' value="{$vv.id}" />
+                                                <label for='tags{$vv.id}'>{$vv.tag}</label>
+                                            </div>
+                                            {/if}
+                                            {/volist}
+                                            </td>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                               <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> 保存</button>&nbsp;&nbsp;&nbsp;
+                                <a class="btn btn-danger" href="javascript:history.go(-1);"><i class="fa fa-close"></i> 返回</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="public/footer" /}
+<script type="text/javascript">
+    //提交
+    $(function(){
+        $('#serviceAdd').ajaxForm({
+            beforeSubmit: checkForm, 
+            success: complete, 
+            dataType: 'json'
+        });
+        
+        function checkForm(){
+            if( '' == $.trim($('#question').val())){
+                layer.msg('请输入试题名称',{icon:2,time:1500,shade: 0.1}, function(index){
+                layer.close(index);
+                });
+                return false;
+            }
+        }
+
+
+        function complete(data){
+            if(data.code==1){
+                layer.msg(data.msg, {icon: 6,time:1500,shade: 0.1}, function(index){
+                    window.location.href="{:url('exam/index')}";
+                });
+            }else{
+                layer.msg(data.msg, {icon: 5,time:1500,shade: 0.1});
+                return false;   
+            }
+        }
+     
+    });
+
+
+
+    //IOS开关样式配置
+   var elem = document.querySelector('.js-switch');
+        var switchery = new Switchery(elem, {
+            color: '#1AB394'
+        });
+    var config = {
+        '.chosen-select': {},                    
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+
+</script>
+</body>
+</html>

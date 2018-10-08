@@ -1,0 +1,264 @@
+{include file='public/header'}
+<style type="text/css">
+	#one{
+		font-size: 1.3em;
+	}
+	#two{
+		border-bottom:1px solid #cacaca;
+		padding-bottom: 1.5em;
+	}
+	#yinhang1{
+		border-bottom:2px solid #cacaca;
+		padding-bottom:1.5em;
+	}
+	#jianshe{
+		margin-top:1em;	
+	}
+	#jianshe_right{
+		text-align: right;
+		vertical-align: middle;
+		padding-top:0.5em;
+		color: #000;
+	}
+	#yinhang2{ 
+		margin-top: 1.3em;
+		border-bottom: 2px solid #cacaca;
+		padding-bottom: 1.5em;
+    }
+    #nongye{
+        text-align: right;
+        vertical-align: middle;
+        color: #000;
+    }
+    #yinhang3{ 
+		margin-top: 1.3em;
+		border-bottom: 1px solid #cacaca;
+		padding-bottom: 1.5em;
+    }
+    #youzheng{
+        text-align: right;
+        vertical-align: middle;
+        color: #000;
+    }
+    #tixian{
+    	margin-top: 2em;
+    }
+    #tijia{
+    	margin-top: 3em;
+    }
+    #tj_anniu{
+    	background-color:rgba(22, 155, 213, 1);
+    	color:#fff;
+    }
+    #hongse{
+    	color: red;
+    }
+    #fanren{
+    	margin-top: 1em;
+    }
+    #tianjia{
+     margin-top:2em;
+
+    }
+</style>
+
+
+<div class="main">
+	<div class="container">
+		<div class="panel panel-orange">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<p class="panel-title-p">
+						师傅个人中心
+					</p>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="" id="left">
+							<div class="row">
+								<div class="col-md-12 col-xs-12">
+									<ul class="list-group">
+										<li class="list-group-item bg-orange text-conter text-md">
+											我的任务
+										</li>
+										<li class="list-group-item text-center text-md">
+			    							<a href="">施工管理</a>
+			    						</li>
+			    						<li class="list-group-item text-center text-md">
+			    							<a href="">评价管理</a>
+			    						</li>
+			    						<li class="list-group-item text-center text-md">
+			    							<a href="">投诉管理</a>
+			    						</li>
+			    						<li class="list-group-item text-center text-md">
+			    							<a href="">分享推荐</a>
+			    						</li>
+			    						<li class="list-group-item text-center text-md">
+			    							<a href="">钱包密码</a>
+			    						</li>
+			    						<li class="list-group-item text-center text-md">
+			    							<a href="">基本资料</a>
+			    						</li>
+			    						<li class="list-group-item text-center text-md">
+			    							<a href="">学习中心</a>
+			    						</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="panel panel-orange">
+							<div class="panel-heading">
+								<div class="panel-title" id="one">
+									钱包提现
+								</div>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12" id="two">
+										<span>选择银行</span>
+									</div>
+								</div>
+								<div class="row" id="yinhang1">
+									<div class="col-md-12">
+										<div class="row" id="jianshe">
+											<div class="col-md-8">
+												<div class="">
+													<input type="radio" name="radio1" value="">
+													<img src="__PUBLIC__static/index/images/jianshe.png">
+												</div>
+											</div>
+											<div class="col-md-3" id="jianshe_right">
+												**1044|存储|快捷
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="yinhang2">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-8">
+												<div class="">
+													<input type="radio" name="radio1" value="">
+													<img src="__PUBLIC__static/index/images/nongye.png">
+												</div>
+											</div>
+											<div class="col-md-3" id="nongye">
+												**1044|存储|快捷
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="yinhang3">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-8 col-xs-12">
+											    <div class="">
+                                                <input type="radio" name="radio1" value="">
+												<img src="__PUBLIC__static/index/images/youzheng.png">
+												</div>
+											</div>
+											<div class="col-md-12 col-xs-12" id="youzheng">
+												**1044|存储|快捷
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="" id="qiahao">
+								  <div class="html">
+								    <div class="row mt-20">
+									   <div class="col-md-8 col-md-offset-2">
+										   <div class="">
+											   <input type="button" id="add" class="btn border-radius btn-defalute form-control" value="添加银行卡" >
+										   </div>
+									   </div>
+                                   </div>
+                            <!-- 输入你的银行卡号 -->
+                                    <!-- <div class='row'>
+                                    	<div class='col-md-8 col-md-offset-2 mt-10'>
+                                    		<input type='text' name='' class='form-control' placeholder='请输入你的银行卡账号'>
+                                    	</div>
+                                    </div>
+                                    <div class='row'>
+                                    	<div class='col-md-4'></div>
+                                    	<div class='col-md-4 mt-10'>
+                                    		<input type='button' class='btn btn-defalute form-control border-radius' style='background-color:rgba(22, 155, 213, 1);color: #fff;' name='' value="确定">
+                                    	</div>
+                                    </div> -->
+                                    
+                                  </div>
+								</div>
+								<div class="row" id="tixian">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-2 col-xs-3 pt-10 text-right">
+												提现金额
+											</div>
+											<div class="col-md-9 col-xs-7">
+												<input type="text" name="" class="form-control" placeholder="请输入你要体现的金额" value="">
+											</div>
+											<div class="col-md-1 col-xs-2 pt-10 pl-0">
+												元
+											</div>
+										</div>
+									</div>	
+									<div class="col-md-12" id="shuoming">
+										<div class="row">
+											<div class="col-md-2"></div>
+											<div class="col-md-7" id="fanren">
+												最多可提现<span id="hongse">200.00</span>元，具体请查看我的钱包。
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row" id="tianjia">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-3"></div>
+											<div class="col-md-5">
+												<input type="button" id="tj_anniu" name="" class="btn btn-primary border-radius form-control" value="2个小时内到账，确认提交">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="" id="button">
+	                           <input type="button" name="" class="btn btn-defalute" value="按钮">
+                            </div>
+                            <p>你消失吧</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="" id="button">
+	<input type="button" name="" class="btn btn-defalute">
+</div>
+<p>你消失吧</p>
+
+<script type="text/javascript">
+	$('#add').click(function(){
+		 html="<div class='row'><div class='col-md-8 col-md-offset-2 mt-10'><input type='text' name='' class='form-control' placeholder='请输入你的银行卡账号'></div></div><div class='row'><div class='col-md-4'></div><div class='col-md-4 mt-10'><input type='button' class='btn btn-defalute form-control border-radius' style='background-color:rgba(22, 155, 213, 1);color: #fff;' name='' value='下一步'></div></div>"
+
+          
+        $('#qiahao').append(html);
+	});
+
+
+
+
+     $("#button").click(function(){
+        $("p").hide();
+  });
+
+
+</script>
+{include file='public/footer'}

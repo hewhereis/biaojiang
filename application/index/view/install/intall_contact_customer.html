@@ -1,0 +1,67 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main payment_external">
+   
+    <!--/*主题*/-->
+    <div class="container " >
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>师傅确认订单页面</small>
+            <span>>></span>
+        </h5>
+    </div>
+
+    <div class="container   ">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12 ">联系客户</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 The-test-panel-body text-center">
+                <i class="glyphicon text-success glyphicon-ok-sign" style="font-size: 40px"></i><span  class="text-success" style="font-size: 20px;position: relative;top: -10px;left: 10px; ">接单成功!</span>
+               <h3 class="h3">客户联系方式</h3>
+                <h4 class="h4">18888888888</h4>
+                <h4 class="p mt-30">注:请在俩小时内联系客户，并选择前往维修时间</h4>
+            </div>
+        </div>
+        <div class="text-center row border-aspx pt-20 pb-20">
+            <p>客户己上传项目进度表 <a href="" class="text-blue">点击下载</a></p>
+            <p class="mt-10">客户己上传安装签收单 <a href="" class="text-blue">点击下载</a></p>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 The-test-panel-body text-left">
+               <div class="form-group row">
+                   <label for="" class="col-md-2 col-xs-5 col-sm-4 col-md-offset-4 h5">选择前往维修时间</label>
+                   <div class="col-md-3 col-sm-4 col-xs-5">
+                       <input class="layui-input" placeholder="自定义日期格式" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                   </div>
+                   <div class="col-md-2 col-sm-4 col-xs-2">
+                       <input type="button" class="btn border-radius btn-blue" value="确认">
+                   </div>
+               </div>
+                <div class="form-group row">
+                    <label for="" class="col-md-2 col-sm-4 col-xs-6 col-md-offset-4 h5">无法联系客户原因</label>
+                    <div class="col-md-3 col-sm-4 col-xs-6">
+                        <select name="quiz1" class="form-control">
+                            <option value="">无法接通</option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-5 mt-20">
+                <button class="form-control border-radius btn btn-success">查看订单 </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<script>
+</script>
+{include file="public/footer" }

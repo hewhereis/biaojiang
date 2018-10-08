@@ -1,0 +1,104 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="fuwuxinxi">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">手机号:</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text" v-model="fuwuleixing"  id="fuwuleixing" placeholder="请输入手机号" value="">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="请输入6位数字验证码" value="">
+                </div>
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">获取验证码</label>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">设置密码</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="6-20位字符 ，必须数字字母结合" value="">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color">确认密码</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   id="" placeholder="请再次输入密码" value="">
+                </div>
+
+            </div>
+        </div>
+        <div class="weui-flex button">
+            <div class="weui-flex__item">
+                <button  class="weui-btn bj_button_orange">确定</button>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "设置密码",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                fuwuleixing:"",
+                fuwuquyu:"",
+                fuwushijian:"",
+                yuangongrenshu:"",
+                fuwushuliang:"",
+                houchedaxiao:"",
+                houcedunwei:"",
+                fuwujiesho:""
+            }
+        },
+        methods:{
+
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

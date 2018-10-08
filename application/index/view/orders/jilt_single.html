@@ -1,0 +1,191 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main jilt_single">
+    <!--/*主题*/-->
+    <div class="container ">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>甩单配师傅</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <div class="container ml-10_media mr-10_media ">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12">
+                <span>订单号</span>
+                <span>{$order_number}</span>
+                <input id="number" hidden="hidden" value="{$order_number}">
+                <input value="<?php echo date('Y-m-d H:i:s')?>" hidden="hidden" id="sending_time">
+            </div>
+        </div>
+        <form class="form-signin layui-form" id="jilt_single" method="post">
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12 ">
+                    <!--所需总数-->
+                    <div class="row form-group">
+                        <label class="col-md-offset-2  col-md-2">客户名称</label>
+                        <div class="col-md-6">
+                            <input type="text" name="customer_name" disabled value="{$order['contact_name']}" class="form-control">
+                        </div>
+                    </div>
+                    <!--目标地址-->
+                    <div class="row form-group">
+                        <label class="col-md-offset-2 col-md-2 ">目标地址</label>
+                        <div class="col-md-6 ">
+                            <input type="text" name="target_address" disabled id="target_address" value="{$order['full_location']}" class="form-control">
+                        </div>
+                    </div>
+                    <!--预约开始时间-->
+                    <div class="row mb-10">
+                        <label class="col-md-offset-2 col-md-2 ">预约施工时间</label>
+                        <div class="col-md-6 form-group">
+                            <input class="layui-input form-control" disabled id="start_time" placeholder="自定义日期格式" value="{$order['start_time']|date='Y-m-d H:i',###}">
+                        </div>
+                    </div>
+                    <!--table-->
+                    <div class="row sheet border-bottom-1 border-top">
+                        <div class="col-md-8 mt-30  col-md-offset-2">
+                            <table class="table table-bordered table-responsive table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style='width:40%'>项目</th>
+                                        <th style='width:40%'>本平台建议价</th>
+                                        <th style='width:38%'>预算价</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($cate as $vo){ ?>
+                                    <tr>
+                                        <td>{$vo[$cate1]}_{$vo[$cate2]}_{$vo['id']}</td>
+                                        <td>客户自定义</td>
+                                        <td>
+                                            <input id="y{$vo['id']}" type="text" name="budget[]" class="budget" class="form-control" min="0" style='width:50px'>
+                                            <input type="hidden" class="vv" value="{$vo['id']}">
+                                        </td>
+                                    </tr>
+                                    <?php }
+                                ?>
+                                </tbody>
+                            </table>
+                            <div class="row mt-30 mb-20">
+                                <div class="col-xs-4 col-md-2">
+                                    
+                                    <a href="javascript:;" class="btn btn-default border-radius">招募留言</a>
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                    <select name="modules" class="form-control" lay-verify="required" id="modules">
+                                        <option value="施工工具齐全,无需师傅携带工具">施工工具齐全,无需师傅携带工具</option>
+                                        <option value="施工时间不限制，随时都可以">施工时间不限制，随时都可以</option>
+                                        <option value="交通便利,师傅出行方便">交通便利,师傅出行方便</option>
+                                        <option value="运输工具齐全,省时又省力">运输工具齐全,省时又省力</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--合计-->
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-2">
+                          
+                                <input type="checkbox" name="price" id="price" val="1">
+                                <label for="price">招标是否显示预算价</label>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 form-group col-md-offset-4 mt-20">
+                   
+                    <a href="javascript:;" id="validateBtn" class="btn btn-orange  border-radius form-control">下单找师傅</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+layui.use('form', function() {
+    var form = layui.form();
+    form.render();
+});
+var clickMess = function() {
+    var number = $('#number').val();
+    var message_type = '2';
+    var source_id = $('#uid').val();
+    var receive_id = '';
+    var content = '有客户发布订单';
+    var sending_time = $('#sending_time').val();
+    var link = "__PUBLIC__guestbook/" + number;
+    $.ajax({
+        url: '__PUBLIC__mess',
+        dataType: 'json',
+        data: {
+            message_type: message_type,
+            source_id: source_id,
+            receive_id: receive_id,
+            content: content,
+            sending_time: sending_time,
+            link: link
+        },
+        type: 'post',
+        success: function(data) {
+            if (data.code == 200) {
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                });
+            } else {
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                });
+            }
+        },
+    })
+}
+
+$('#validateBtn').click(function() {
+   
+    var cc = "";
+    var bb = "";
+
+    $('.budget').each(function() {
+        cc += $(this).val() + ',';
+    })
+
+    $('.vv').each(function() {
+        bb += $(this).val() + ',';
+    })
+    var modules = $('#modules').val();
+    var price = $('input[name="price"]:checked').val();
+    var number = $('#number').val();
+    $.ajax({
+        url: '__PUBLIC__rejection',
+        data: {
+            price: price,
+            number: number,
+            cc: cc,
+            bb: bb,
+            modules: modules
+        },
+        dataType: 'json',
+        type: 'post',
+        success: function(data) {
+            clickMess()
+            if (data.code == 200) {
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                }, function() {
+                    location.href = '__PUBLIC__guestbook/' + number;
+                });
+            } else {
+                msg(data.msg, 2, 6, 1000);
+            }
+        }
+    })
+})
+</script>
+{include file="public/footer" }

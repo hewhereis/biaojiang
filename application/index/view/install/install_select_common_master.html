@@ -1,0 +1,232 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main select_common_master">
+   
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media" >
+        <h5 class="page-header pl-10 bx">
+            <span>当前位置：</span>
+            <small>选普通师傅</small>
+            <span>>></span>
+        </h5>
+    </div>
+
+    <div class="container ">
+        <!--/*标题*/-->
+        <form class="layui-form" action="" method="post" id="select_common_master">
+            <div class="row The-test-panel-head">
+                <div class="col-xs-12 text-center">选普通师傅</div>
+            </div>
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12 pr-0-media">
+                    <!--所需总数-->
+                    <div class="row mr--1_medai border-bottom-1 pb-10 mb-10">
+                        <label class="col-md-2  text-center">需要总数</label>
+                        <div class="col-md-9">
+                            <input type="text" lay-verify="totality" name="totality" id="totality" value="" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <!--挑选主任师傅-->
+                    <div class="row">
+                        <!--挑选主任师傅左边框-->
+                        <div class="col-sm-8 col-xs-12">
+                            <div class="row ">
+                                <label class="col-md-3 text-center">
+                                    <a href="" class="btn btn-success border-radius">挑师傅</a>
+                                </label>
+                                <div class="col-md-9 ">
+                                    <input type="text" lay-verify="master_number" minlength="1" maxlength="100" required class="form-control" placeholder="主任师傅编号" name="master_number" id="master_number">
+                                </div>
+                            </div>
+                            <!--预计工作时长-->
+                            <div class="row">
+                                <label class="col-md-3 text-center">
+                                    预计工作时长
+                                </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" value="2小时" lay-verify="Estimated_working_hours" name="Estimated_working_hours" id="Estimated_working_hours">
+                                </div>
+                            </div>
+                            <!-- 所需技能-->
+                            <div class="row">
+                                <label class="col-md-3 text-center">
+                                    所需技能
+                                </label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="required_skills"  lay-verify="dwarfs" id="required_skills">
+                                        <option value="信息">信息</option>
+                                        <option value="信息">信息</option>
+                                        <option value="信息">信息</option>
+                                        <option value="信息">信息</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--所需费用-->
+                            <div class="row">
+                                <label class="col-md-3 text-center">
+                                    所需费用
+                                </label>
+                                <div class="col-md-9 mb-10">
+                                    <input type="text" lay-verify="expense_required" class="form-control" name="expense_required" id="expense_required">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <input type="button" class="btn btn-orange border-radius form-control" value="邀请师傅">
+                                </div>
+                            </div>
+                        </div>
+                        <!--挑选主任师傅头像-->
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-12 head_portrait">
+                                    <img src="__PUBLIC__static/index/images/banner.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-11 col-md-offset-1 border-aspx content mb-10">
+                                    师傅接受情况
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--减少师傅-->
+                </div>
+                <div class="row ">
+                    <div class="col-md-4 ml-10 mr-10">
+                        <input type="button" id="increase" class="btn btn-success border-radius form-control" value="增加师傅">
+                    </div>
+                </div>
+            </div>
+            <!--下一步-->
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <div class="row text-center">
+                        <div class="col-md-4 col-xs-offset-4">
+                            <button lay-submit="" lay-filter="demo1" class="btn btn-default border-radius form-control mt-10">下一步:结算</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form()
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+        form.render();
+        //监听提交
+        form.on('submit(demo1)', function(data){
+
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+        form.verify({
+            totality: function(value){
+                if(value===""){
+                    return '所需总数不能为空';
+                }
+            },
+            master_number: function(value){
+                if(value ===""){
+                    return '挑选师傅不能为空';
+                }
+            },
+            Estimated_working_hours:function (value) {
+                if(value===""){
+                    return '预计时长不能为空';
+                }
+            },
+            dwarfs:function (value) {
+                if(value===""){
+                    return "所需技能不能为空"
+                }
+            },
+            expense_required:function (value) {
+                if(value===""){
+                    return "预计费用不能为空";
+                }
+            }
+
+
+        });
+    });
+</script>
+<script>
+    //    <!--删除-->
+    $(".The-test-panel-body").on('click','.delete',function () {
+        console.log($(this).parent().parent().parent().remove());
+        mum--;
+        if(mum===0){
+            mum=0;
+        }
+    })
+    var shuzhi1=null;
+    var shuzhi=($("#totality").val())-($("#totality").val())+1;
+    $("#totality").focusout(function () {
+        shuzhi1=parseInt($(this).val());
+    });
+    var mum=0;
+    $("#increase").click(function () {
+        if(mum<shuzhi1){
+            var html='';
+            html+='<div class="col-md-12 border-top pt-30"><div class="row"><!--挑选主任师傅左边框--> <div class="col-sm-8 col-xs-12"> <div class="row"> <label class="col-md-3 text-center"> <a href="" class="btn btn-success border-radius">挑师傅</a> </label> <div class="col-md-9 "> <input type="text" class="form-control" placeholder="主任师傅编号"  lay-verify="master_number" name="master_number'+shuzhi+ '" id="master_number'+shuzhi+ '"> </div> </div><!--预计工作时长--> <div class="row"> <label class="col-md-3 text-center">预计工作时长 </label> <div class="col-md-9"> <input type="text" class="form-control" value="2小时"  lay-verify="Estimated_working_hours" name="Estimated_working_hours'+shuzhi+ '"  id="Estimated_working_hours'+shuzhi+ '"> </div> </div><!-- 所需技能--> <div class="row"> <label class="col-md-3 text-center">所需技能 </label> <div class="col-md-9"> <select class="form-control" lay-verify="dwarfs" name="required_skills'+shuzhi+ '" id="required_skills'+shuzhi+ '"> <option value="0">信息</option> <option value="2">信息</option> <option value="1">信息</option> <option value="3">信息</option> </select> </div> </div><!--所需费用--> <div class="row"> <label class="col-md-3 text-center">所需费用 </label> <div class="col-md-9 mb-10"> <input type="text" class="form-control" lay-verify="expense_required"  name="expense_required'+shuzhi+ '" id="expense_required'+shuzhi+ '"> </div> </div> <div class="row"> <div class="col-md-12 mb-10"> <input type="button" class="btn btn-orange border-radius form-control" value="邀请师傅"> </div> </div> </div><!--挑选主任师傅头像--> <div class="col-sm-4 col-xs-12"> <div class="row"> <div class="col-md-12 head_portrait"> <img src="__PUBLIC__static/index/images/banner.jpg" alt=""> </div> </div> <div class="row"> <div class="col-md-11 col-md-offset-1 border-aspx content mb-10">师傅接受情况 </div> </div> </div> </div><!--添加师傅--> <div class="row"> <div class="col-md-4 col-md-offset-4 "> <input  class="btn btn-orange border-radius form-control delete" type="button" value="减少师傅"> </div> </div> </div>';
+            $(".The-test-panel-body>div.row").eq(0).before(html);
+            mum++;
+            shuzhi++;
+            layui.use(['form', 'layedit', 'laydate'], function(){
+                var form = layui.form();
+                form.render();
+                //监听提交
+                form.on('submit(demo1)', function(data){
+                    console.log(data)
+                    layer.alert(JSON.stringify(data.field), {
+                        title: '最终的提交信息'
+                    })
+                    return false;
+                });
+                form.verify({
+                    master_number: function(value){
+                        if(value ===""){
+                            return '挑选师傅不能为空';
+                        }
+                    },
+                    Estimated_working_hours:function (value) {
+                        if(value===""){
+                            return '预计时长不能为空';
+                        }
+                    },
+                    dwarfs:function (value) {
+                        if(value===""){
+                            return "所需技能不能为空"
+                        }
+                    },
+                    expense_required:function (value) {
+                        if(value===""){
+                            return "预计费用不能为空";
+                        }
+                    }
+
+
+                });
+            });
+        }else{
+            alert("只能添加"+(shuzhi1 || 0));
+        }
+
+    })
+
+</script>
+{include file="public/footer" }

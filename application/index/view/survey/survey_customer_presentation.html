@@ -1,0 +1,310 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<style>
+    .col-sm-6:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+    .col-sm-4:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+
+    .main img{
+        cursor: url('__PUBLIC__static/index/images/seachh.png'),auto;
+		display:inline-block;
+    }
+    #imgseach{
+        cursor:pointer;
+        margin:0px auto;
+        display: block;
+}
+</style>
+<!--main-->
+<div class='modal fade' id='imgmodal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" style='font-size:2em'>&times;</span></button>
+            <img src="" id='imgseach' alt="">
+        </div>
+    </div>
+</div>
+<div class="main client_affirm_accomplish">
+    <script src="__PUBLIC__static/index/js/jq/flashcanvas.js"></script>
+    <script src="__PUBLIC__static/index/js/jq/jSignature.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+    <script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head" style="margin-top:2%">
+            <div class="col-xs-12 ">勘测施工报告</div>
+        </div>
+      
+            <input type="hidden" id="order_number" name="order_number" value="{$order_number}">
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12">
+                    <!--客户信息-->
+                    <div class="row  border-bottom-1 ">
+                        <!--项目名称-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">项目名称</label>
+                                <div class="col-md-9">
+                                    <input type="text" required name="project_name" id="project_name" disabled class="form-control" value='勘测'>
+                                </div>
+                            </div>
+                        </div>
+                        <!--店铺联系-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label for="input_date" class="col-sm-3 mt-10">店铺联系人</label>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                        <input size="16" type="text" class="form-control" id="store_contact" disabled value="{$order.contact_name}" name="store_contact">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--项目地址-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">项目地址</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="project_address" value="{$order.full_location}-{$order.location_ext}" disabled required id="project_address" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--联系人电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">店铺联系人电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="phone_number_of_the_contact" required value="{$order.contact_phone}" disabled id="phone_number_of_the_contact" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                      
+                        <!--施工师傅-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工师傅</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="construction_contact_number" id="construction_contact_number" disabled value="{$work_name.real_name}" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row 1 border-bottom-1">
+                        <div id="sa" class="col-md-12  mb-30 mt-20">
+                           
+                            <div class="row border-bottom-1">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo0" name="img0" value=''>
+                                            <div id="fileList0" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker0" style="float:left;margin-left:5%;margin-top:3%">
+                                                门头照片
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data0" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;"  src="__DsQINiu__{$list.img1}" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo1" name="img1" value=''>
+                                            <div id="fileList1" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker1" style="float:left;margin-left:5%;margin-top:3%">
+                                                落位图
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data1" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__DsQINiu__{$list.img2}"/>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="row border-bottom-1 mt-30">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo2" name="img2" value=''>
+                                            <div id="fileList2" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker2" style="float:left;margin-left:5%;margin-top:3%">
+                                                场地勘测表
+                                            </div></div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data2" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__DsQINiu__{$list.img3}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+         
+
+                     
+                         
+
+                        </div>
+                    </div>
+                  
+                   <?php if($list['is_ok']==1): ?>
+					    <img src="__PUBLIC__public/{$list.user_sign}">
+					<?php else:?>
+						<div class="row mt-30">
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+							
+                            <input type="button" class="btn df btn-default border-radius form-control" data-toggle='modal' data-target='#queren' value="客户方签字">
+                        </div>
+						
+                        <div class="col-md-4 col-xs-6 col-sm-4">
+                            <img  src="" alt="">
+                        </div>
+						
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control" onclick="ds_feedback()" value="报告有问题">
+                        </div>
+                      
+                    </div>
+					<br>
+                    <span style="color:red;">(*注:如报告没有问题请点击签字)</span>
+					<?php endif;?>
+ 
+                    
+                   
+			
+                   
+
+                </div>
+            </div>
+    </div>
+</div>
+<script src="__PUBLIC__static/index/js/jq/flashcanvas.js"></script>
+<script src="__PUBLIC__static/index/js/jq/jSignature.min.js"></script>
+	<div class='modal fade' id='queren'>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title">
+					客户签名
+				</div>
+			</div>
+			<div class='modal-body' id='jSignature' style='border:1px solid #aaf;'>
+			</div>
+			<div class="modal-footer">
+				<button class='btn btn-info' id='ok'>确定</button>
+				<button class='btn btn-danger' id='rest' data-dismiss='modal'>关闭</button>
+			</div>
+		</div>
+	</div>
+	</div>
+<script>
+    window.onload = function(){
+	
+      $('.main img').click(function(){
+          var imgUrl = $(this).attr('src'); 
+
+          $('#imgmodal').on('show.bs.modal', function (e) {
+                $('#imgseach').attr('src',imgUrl);
+            })
+         $('#imgmodal').modal('show');
+      });  
+    };
+    
+</script>
+<script>
+	var orderNumber = $('#order_number').val();
+	var links = '__PUBLIC__orders/master';
+	$jSignature = $('#jSignature');
+	$('#queren').on('shown.bs.modal', function() {
+	width = $jSignature.parent().width() - 20;
+	$jSignature.jSignature({
+		height: 200,
+		width: width,
+		lineWidth: "2",
+		signatureLine: false
+	});
+	});
+	$('#queren').on('hide.bs.modal', function() {
+		$jSignature.html('');
+	});
+	$('#ok').on('click', function() {
+		layer.confirm('您是确定好签名了吗？', {
+			btn: ['确定', '取消'] //按钮
+		}, function() {
+		AJAXsignatures =	function(url,file_data,folder_id,file_id,type,classname,links){
+		$.ajax({
+				url:url,
+				type: 'post',
+				dataType:'json',
+				data: {
+					file_data:file_data,
+					folder_id:folder_id,
+					file_id:file_id,
+					type:type,
+					links:links
+				},
+				success:function(response) {
+					console.log(response)
+					$('#'+classname).val(response.ids);
+				},
+				error: function(response) {
+				console.log(response)
+								}
+							});
+					}
+			var datapair = $jSignature.jSignature("getData", "image");
+			var i = new Image();
+			i.src = "data:" + datapair[0] + "," + datapair[1];
+			$(i).appendTo($("#oippp"));
+
+			if (i.src != '') {
+				AJAXsignatures('__PUBLIC__survey_signature', i.src, '6', orderNumber, 'qianming', 'user_sign',links);
+				 layer.msg('保存成功', {icon: 6,time:1500,shade:0}, function(index){
+							window.location.href="__PUBLIC__orders/client";	
+							});
+				$('#queren').modal('hide'); 
+			}
+		}, function() {
+			layer.close();
+		});
+
+	});
+</script>
+<script>
+function ds_feedback(){
+var order_number = $('#order_number').val();
+layer.prompt({title: '输入反馈内容，并确认', formType: 2,shade:0}, function(text, index){
+	$.ajax({
+				url:'__PUBLIC__ajax_survey_feedback',
+				type:'post',
+				dataType:'json',
+				data:{
+					order_number:order_number,
+					text:text
+					
+				},
+				success:function(data){
+						if(data.code == 200){ 
+							 layer.msg(data.msg, {icon: 6,time:2000,shade:0}, function(index){
+								layer.closeAll('page');
+							});
+						}else{
+							 layer.msg(data.msg, {icon: 5,time:1500,shade:0});
+							 return false;
+						}
+						
+					}
+					
+			});
+});
+
+}
+</script>
+
+{include file="public/footer" }

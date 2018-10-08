@@ -1,0 +1,185 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div>
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div class="weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">订单编号:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" disabled v-model="searal" value="">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">你的昵称:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" disabled   name="nickname" v-model="nickname" id="nickname">
+            </div>
+            <div class="weui-cell__ft" style="width: 100px;">
+                    <span style="color: red">{{xian}}</span>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">详细地址:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" disabled id="address" v-model="address">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">楼号-门牌号:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" disabled id="house" v-model="house">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">服务时间:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <span  class="weui-input bj-font-item-content">{{time | times}}</span>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item bg-primary-hieght">
+            </div>
+        </div>
+        <div class="weui-table">
+            <div class="weui-table-tr">
+                <div class="weui-cell-item"><span>项目</span></div>
+                <div class="weui-cell-item"><span>项目预算价</span></div>
+                <div class="weui-cell-item"><span>本订单收费</span></div>
+            </div>
+            <div class='weui-table-th'>
+                <div class="weui-cell-item"><span>安装</span></div>
+                <div class="weui-cell-item">￥<span>58</span></div>
+                <div class="weui-cell-item">
+                    100010
+                </div>
+            </div>
+            <div class='weui-table-th'>
+                <div class="weui-cell-item"><span>加急服务</span></div>
+                <div class="weui-cell-item"><span></span></div>
+                <div class="weui-cell-item"><span></span></div>
+            </div>
+        </div>
+        <div class="weui-flex">
+                <div class="weui-flex__item bg-primary-hieght">
+                </div>
+            </div>
+        <div class="weui-table">
+                <div class="weui-table-tr">
+                    <div class="weui-cell-item"><span>师傅工号</span></div>
+                    <div class="weui-cell-item"><span>项目预算价</span></div>
+                    <div class="weui-cell-item"><span>预计费用</span></div>
+                </div>
+                <div class='weui-table-th'>
+                    <div class="weui-cell-item"><span>安装</span></div>
+                    <div class="weui-cell-item">￥<span>58</span></div>
+                    <div class="weui-cell-item">
+                        100010
+                    </div>
+                </div>
+        <div class='weui-table-th'>
+            <div class="weui-cell-item"><span>加急服务</span></div>
+            <div class="weui-cell-item"><span></span></div>
+            <div class="weui-cell-item"><span></span></div>
+        </div>
+    </div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="x11">
+                <div class="weui-cell__bd">
+                    <input type="checkbox"  class="weui-check opacity-0" name="checkbox" id="x11">
+                    <span class="weui-icon-checked"></span>
+                </div>
+                <div class="weui-cell__ft">
+                    <span class="bj-label-color">使用月结服务</span>
+                </div>
+            </label>
+        </div>
+        <div class="bj-feiliv">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    合计:<span class="title">{{yuna | ke}}</span>
+                    (含{{sui | bk }}费率)
+                </div>
+            </div>
+        </div>
+        <div class="weui-flex ">
+            <div class="weui-flex__item">
+                <a  class="weui-btn bj_button_orange">去付款</a>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+  var va={
+      searal:"233333333333333333333333",
+      nickname:"张三",
+      house:"上海市嘉定区",
+      time:"10101010101010",
+      address:"上海市嘉定区",
+      yuna:"200",
+      sui:"200",
+      xian:"先生"
+  }
+  Vue.filter("ke", function(value) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+      return "￥"+value +".00";
+  });
+  Vue.filter("bk", function(value) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+      return value + "%";
+  });
+  Vue.filter("times", function(time) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+      if(time){
+          var oDate=new Date();
+          oDate.setTime(time);
+          var y=oDate.getFullYear();
+          var m=oDate.getMonth()+1;
+          var d=oDate.getDate();
+
+          var h=oDate.getHours();
+          var m=oDate.getMinutes();
+          var s=oDate.getSeconds();
+
+          return y+'-'+m+'-'+d+' '+h+':'+m+':'+s;
+      }
+  });
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "结算页面",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return va
+        },
+        methods:{
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+    })
+</script>
+</body>

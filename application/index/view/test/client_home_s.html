@@ -1,0 +1,186 @@
+{include file="public/header" }
+<div class="main order_manage_master">
+    <!-- 定义主题头部图片-->
+    <div class="header-img">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media" >
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>我的订单</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <!--定义主题-->
+    <div class="container" >
+        <!--表单搜索-->
+        <!--导航页面-->
+        <p class="pt-10 pb-10 border-radius" style="background: #ff7b76;color: #fff;text-align: center"><a href="">你还未登录</a> <span class="pull-right mr-10 x_d">x</span></p>
+        <div class="row The-test-panel-body border-no pl-10 pr-0_medai pr-10">
+            <div class="row mt-10" id="navigatesLeft">
+                <!--左边栏-->
+                <div class='left' id='left'>
+        <span class='btn text-elg text-orange hidden-lg hidden-md' style='position:absolute;z-index: 999;left:210px;' id='menu_btn'>
+            <i class="fa fa-times hide text-orange" aria-hidden="true"></i>
+            <i class="fa fa-bars text-orange" aria-hidden="true"></i>
+        </span>
+                    <div class='row'>
+                        <div class='col-xs-12'>
+                            <ul class="list-group">
+                                <li class="list-group-item bg-orange text-center text-md">
+
+                                    <a href="__PUBLIC__clien_home_ss" target="iframe_a">个人中心</a>
+                                </li>
+                                <li class="list-group-item  text-center text-md">
+
+                                    <a href="http://www.baidu.com" target="iframe_a">我的任务</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">我的钱包</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">地址管理</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">申请月结</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">交易记录</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">退款管理</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">投诉建议</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">帮助中心</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">账号安全</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">服务保障</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">消息中心</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">评价管理</a>
+                                </li>
+                                <li class="list-group-item text-center text-md">
+                                    <a href="">分享推荐</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--右边栏-->
+                <div class="col-md-12 co-sm-12 pl-0_media pr-0_medai col-xs-12   pl-20_medai right" style="min-height: 700px" id=''>
+
+                    <iframe src="clien_home_ss" scrolling="no"  style="min-height: 1000px;width: 100%;border: none" name="iframe_a">
+                        <p></p>
+                    </iframe>
+                </div >
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    $("#DefineNavigationList>li>a").click(function (e) {
+        e.preventDefault()
+        $(this).parent().siblings().removeClass('active');
+        $(this).parent().addClass('active');
+    })
+    //师傅首页的侧边栏
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    })
+</script>
+<script>
+    //全选
+    $(".panel-heading input[type='checkbox']").change(function () {
+        var checknbox=$(".panel-heading input[type='checkbox']");
+        checknbox.each(function (i,value) {
+            if($(value).prop("checked")===false){
+                $("#check_all").css('background',"#fff");
+                return false;
+            }else{
+                $("#check_all").css('background',"red");
+            }
+
+        })
+    });
+    $(function () {
+        var ty=true;
+        $("#check_all").click(function () {
+            if(ty){
+                var checknbox=$(".panel-heading input[type='checkbox']");
+                checknbox.each(function (i,value) {
+                    $(value).prop('checked',true);
+                    ty=false;
+                })
+            }else{
+                var checknbox=$(".panel-heading input[type='checkbox']");
+                checknbox.each(function (i,value) {
+                    $(value).prop('checked',false);
+                    ty=true;
+                })
+            }
+
+        })
+    })
+    $(".panel-heading span.glyphicon").click(function () {
+        $(this).parents('.panel-default').remove();
+    })
+    $("#Invert_Selection").click(function () {
+        var checknbox=$(".panel-heading input[type='checkbox']");
+        checknbox.each(function (i, v) {
+            $(v).parents('.panel-default').remove()
+        })
+    })
+
+</script>
+<script>
+    $(".x_d").mousemove(function () {
+        $(this).css("cursor","pointer");
+    });
+    $(".x_d").click(function () {
+        $(this).parent().css("display","none");
+    })
+</script>
+{include file='public/footer'}

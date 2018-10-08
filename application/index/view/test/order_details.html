@@ -1,0 +1,246 @@
+<!--nav-->
+{include file='public/header'}
+
+<div class="main">
+    <!--header-img-->
+    <div class='header-img'>
+        <img src="__PUBLIC__static/index/images/banner4.jpg" alt="" class='m-auto img-responsive'>
+    </div>
+    <!-- 面包屑导航-->
+    <div class="container ml--1_medai mr--1_medai  container-hidden">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>订单详情</small><span>>></span>
+        </h5>
+        <div class="row mt-10" id="navigatesLeft">
+            <!-- 左边框-->
+            {include file='public/left_order'}
+            <form class="form-horizontal" id="order_details">
+                <div class="col-md-112 col-sm-12 col-xs-12 right" id='navigatesRigth'>
+                    <div class="well well-sm">
+                        <span class="hidden-xs">2014-555-88-55-8</span>
+                        <span>订单号:104005540508</span>
+                        <span class=" pl-0"><b class="text-orange">待付款</b>￥65548.22</span>
+                    </div>
+                    <div style="width: auto;border: 1px solid #dddddd;padding: 20px;position: relative;top: -20px;">
+                        <!--品牌-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10">品牌</label>
+                            <div class="col-md-10">
+                                <input type="text" id="brand" name="brand" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--地址-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 ">地址</label>
+                            <div class="col-md-10">
+                                <input type="text" id="site" name="site" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--客户地址-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 ">客户地址</label>
+                            <div class="col-md-10">
+                                <input type="text" id="customer_address" name="customer_address" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 ">客户联系电话</label>
+                            <div class="col-md-10">
+                                <input type="text" id="contact_number" name="contact_number" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--计划施工日期-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 ">计划施工日期</label>
+                            <div class="col-md-10">
+                                <input type="text" id="intended_date" name="intended_date" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--实际完成日期-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 ">实际完成日期</label>
+                            <div class="col-md-10">
+                                <input type="text" name="actual_finishing_date" id="actual_finishing_date" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--师傅名称-->
+                        <div class="form-group">
+                            <label class="col-md-2 mt-10 ">师傅名称</label>
+                            <div class="col-md-10">
+                                <input type="text" id="The_teacher_name" name="The_teacher_name" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--师傅工号-->
+                        <div class="form-group">
+                            <label class="col-md-2 ">师傅工号</label>
+                            <div class="col-md-10">
+                                <input type="text" id="Master_work_number" name="Master_work_number" class="form-control"/>
+                            </div>
+                        </div>
+                        <!--师傅联系电话-->
+                        <div class="form-group">
+                            <label class="col-md-2 ">师傅联系电话</label>
+                            <div class="col-md-10">
+                                <input type="text" id="Master_contact_number" name="Master_contact_number" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <!--师傅报告-->
+                        <div class="form-group">
+                            <label class="col-md-2 ">师傅报告</label>
+                            <div class="col-md-10">
+                                <input type="text" id="The_master_report"  name="The_master_report" class="form-control"/>
+                            </div>
+
+                        </div>
+                        <div class="form-group" style="width: auto ;border-top: 1px solid #ddd;padding: 20px;padding-top: 40px ">
+                            <button class="btn btn-blue col-md-2 border-radius col-xs-6 col-xs-offset-1">查看抢单留言</button>
+                            <button class="btn btn-orange  col-md-offset-5 col-xs-6 col-xs-5 col-md-2 border-radius ">投诉</button>
+                        </div>
+                    </div>
+                </div >
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    });
+
+//表单验证
+    $('#order_details').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            brand: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            site:{
+                message: '地址',
+                validators: {
+                    notEmpty: {
+                        message: '地址不能为空'
+                    }
+                }
+            },
+            customer_address:{
+                message: '客户地址',
+                validators: {
+                    notEmpty: {
+                        message: '客户地址地址不能为空'
+                    }
+                }
+            },
+            contact_number:{
+                message: '客户联系电话',
+                validators: {
+                    notEmpty: {
+                        message: '客户联系电话地址不能为空'
+                    }
+                }
+            },
+            actual_finishing_date:{
+                message: '地址',
+                validators: {
+                    notEmpty: {
+                        message: '实际完成日期地址不能为空'
+                    }
+                }
+            },
+            intended_date:{
+                message: '计划施工日期',
+                validators: {
+                    notEmpty: {
+                        message: '计划施工日期地址不能为空'
+                    }
+                }
+            },
+            The_teacher_name:{
+                message: '师傅名称',
+                validators: {
+                    notEmpty: {
+                        message: '师傅名称地址不能为空'
+                    }
+                }
+            },
+            Master_work_number:{
+                message: '师傅工号',
+                validators: {
+                    notEmpty: {
+                        message: '师傅工号地址不能为空'
+                    }
+                }
+            },
+            Master_contact_number:{
+                message: '师傅联系电话',
+                validators: {
+                    notEmpty: {
+                        message: '师傅联系电话地址不能为空'
+                    }
+                }
+            },
+            The_master_report:{
+                message: '师傅报告',
+                validators: {
+                    notEmpty: {
+                        message: '师傅报告地址不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $('input[type="text"]').focus(function() {
+
+        $('#order_details').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+
+    });
+</script>
+{include file='public/footer'}

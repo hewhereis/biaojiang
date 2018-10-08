@@ -1,0 +1,375 @@
+{include file='public/header'}
+<style type="text/css">
+ .panel-body{
+ 	padding-bottom: 0;
+ }
+</style>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<script type="text/javascript" src="http://192.168.0.253/newbj/static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style type="text/css">
+	.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+     background: #FFF; 
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+	.The-test-panel-body .row{
+		padding-left: 10px;
+	}
+	
+</style>
+	<div class="container main">
+			<h5 class="page-header bx">
+				<span>当前所在位置</span>
+				<span>>></span>
+				<small>更换灯片</small>
+			</h5>
+			<div class="The-test-panel-head">
+			   <div class="pl-10">
+                  更换灯片订单详情
+			   </div>
+			</div>
+			<div class="The-test-panel-body pl-0">
+				<div class="row">
+							<div class="col-md-2 pt-10">
+								空间位置
+							</div>
+							<?php if($data['space']==0){?>
+									<div class="col-md-2">
+										<div class="radio radio-danger">
+											<input type="radio"  id="radio1" checked name="departure_car value="">
+											<label for="radio1" checked>室内</label>
+										</div>
+									</div>
+							<?php } ?>
+							<?php if($data['space']==1){?>
+							<div class="col-md-2">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio" id="radio2" checked name="departure_car value="">
+									<label for="radio2" checked>室外</label>
+								</div>
+							</div>
+							<?php } ?>
+
+				</div>
+				<div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								画面是否已到店
+							</div>
+							<?php if($data['shop']==0){?>
+							<div class="col-md-2">
+								<div class="radio radio-danger">
+			                        <input type="radio" name="radio1" id="radio3" checked name="departure_car value="">
+			                        <label for="radio3"  checked>
+			                            已到店
+			                        </label>
+			                    </div>
+							</div>
+					<?php  }  ?>
+					<?php if($data['shop']==1){?>
+							<div class=	"col-md-2">
+								<div class="radio radio-danger">
+			                        <input type="radio" name="radio1" id="radio4"   checked name="departure_car> value="">
+			                        <label for="radio4"  checked>未到店</label>
+			                    </div>
+
+							</div>
+					<?php } ?>
+				</div>
+				<div class="row mt-10">
+				<?php if(!empty($data['start_time'])){?>
+							<div class="col-md-2 pt-10">
+								画面预计到店时间
+							</div>
+							<div class="col-md-4">
+								<div class="input-group">
+								    <input type="text" name="" readonly="" class="form-control" id="" placeholder="请选择时间"
+								     value="{$data['start_time']|date="Y-m-d H:i:s",###}">
+
+								  
+								     <a class="btn btn-defalute input-group-addon">
+								    	<i class="fa fa-calendar" aria-hidden="true"></i>
+								    </a>
+			                    </div>
+			                </div>
+			     	<?php  }  ?>
+				</div>
+
+				<div class="row mt-10">
+
+					<div class="col-md-2 pt-10">
+						品 牌
+					</div>
+					<div class="col-md-5">
+						<input type="text" name="" readonly="" class="form-control" id="" value="{$data['brand']}">
+					</div>
+				</div>
+				<div class="row mt-10">
+
+					<div class="col-md-2 pt-10">
+						快递单号
+					</div>
+					<div class="col-md-5">
+						<input type="text" name="" readonly="" class="form-control" id="" value="{$data['orders_number']}" placeholder="请填写订单的快递单号，方便师傅及时前往">
+					</div>
+				</div>
+				<div class="border-top mt-10"></div>
+				<div class="row">
+					<div class="col-md-2 mt-10">
+						商品信息<b class='text-orange xin'>*</b>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 mt-10" id="picker1">
+						<img src="__DsQINiu__{$data['img_describe']}" id="img-date" class="img-responsive" alt="" />
+					</div>
+					<div class="col-md-10">
+						<div class="row mt-10">
+
+							<div class="col-md-2 mt-10 text-center">画面材质</div>
+							<?php if($data['material']==0) {?>
+							<div class="col-md-3">
+								<div class="radio radio-success">
+									<input type="radio" name="radio3" id="radio5" checked name="departure_car">
+									<label for="radio5" checked>玻璃/亚力克夹画</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($data['material']==1){?>
+							<div class="col-md-2">
+								<div class="radio radio-success">
+									<input type="radio" name="radio3" id="radio6"  checked name="departure_car" value="">
+									<label for="radio6" checked>弹簧挂画</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($data['material']==2){?>
+							<div class="col-md-2">
+								<div class="radio radio-success">
+									<input type="radio" name="radio3" id="radio7" checked name="departure_car" value="">
+									<label for="radio7" checked>橱窗灯饰</label>
+								</div>
+
+							</div>
+							<?php } ?>
+							<?php if($data['material']==2){?>
+							<div class="col-md-2">
+								<div class="radio radio-success">
+									<input type="radio" name="radio3" id="radio8" checked name="departure_car" value="">
+									<label for="radio8" checked>写真贴画</label>
+								</div>
+
+							</div>
+							<?php } ?>
+						</div>
+						<div class="row mt-20">
+							<div class="col-md-2 text-center mt-10">画面尺寸</div>
+							<div class="col-md-3">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="input-group">
+									        <input type="text" class="form-control" name=""  disabled  value="{$data['length']}" placeholder="长">
+								            <a class="btn btn-defalute input-group-addon">
+								                <i>cm</i>
+								            </a>
+								        </div>
+									</div>
+									<div class="col-md-2 text-center mt-5">×</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="input-group">
+									        <input type="text" class="form-control" name="" disabled value="{$data['wide']}" placeholder="宽">
+								            <a class="btn btn-defalute input-group-addon">
+								                <i>cm</i>
+								            </a>
+								        </div>
+									</div>
+									<div class="col-md-2 text-center mt-5">×</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="row">
+									<div class="col-md-10">
+										<div class="input-group">
+									        <input type="text" class="form-control" name="" disabled  value="{$data['high']}" placeholder="高">
+								            <a class="btn btn-defalute input-group-addon">
+								                <i>cm</i>
+								            </a>
+								        </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row mt-20">
+							<div class="col-md-2 text-center mt-10">
+								特殊要求
+							</div>
+							<div class="col-md-9">
+								<input type="text" class="form-control" placeholder="请填写特殊要求，有利于师傅更准确的估价" name="" disabled  value="{$data['comments']}">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-20">
+
+					<div class="col-md-9">
+
+					</div>
+				</div>
+				<div class="border-top mt-10"></div>
+				
+				
+				<div class="row mt-20">
+					<div class="col-md-3 mt-10">
+						更换画面验收单(图)
+					</div>
+					<?php if(empty($data['img_describe3'])):?>
+						<div class="col-md-2">
+							<label for="radio9" >无更换画面验收单(图)</label>
+					</div>
+					<?php else:?>
+					<a href= "__DsQINiu__{$data.img_describe3}" target="_blank" style="margin-left:1%;background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;" class="text-blue">查看并保存</a>
+					<?php endif;?>
+				</div>
+				<div class="row ">
+					<div class="col-md-3 mt-10">
+						画面位置(图)
+					</div>
+					<?php if(empty($data['img_describe2'])):?>
+						<div class="col-md-2">
+							<label for="radio9" >画面位置(图)</label>
+					</div>
+					<?php else:?>
+					<a href= "__DsQINiu__{$data.img_describe2}" target="_blank" style="margin-left:1%;background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;" class="text-blue">查看并保存</a>
+					<?php endif;?>
+				</div>
+				
+				
+				<div class="row ">
+					<div class="col-md-3 mt-10">
+						是否需要师傅现场勘测地形
+					</div>
+					<?php if($data['tender']==0) {?>
+					<div class="col-md-2">
+						<div class="radio radio-danger">
+							<input type="radio" checked name="radio4" id="radio9" value="">
+							<label for="radio9" >需要</label>
+						</div>
+					</div>
+					<?php } ?>
+					<?php if($data['tender']==1)  {?>
+					<div class="col-md-2">
+						<div class="radio radio-danger">
+							<input type="radio" checked name="radio4" id="radio10" value="">
+							<label for="radio10" >不需要</label>
+						</div>
+					</div>
+					<?php }  ?>
+				</div>
+				
+				
+				
+				
+				
+				<div class="row">
+					<div class="col-md-3 mt-10">
+						是否具备登高条件
+					</div>
+					<?php if($data['hight']==0) {?>
+					<div class="col-md-2">
+						<div class="radio radio-danger">
+							<input type="radio" checked name="radio5" id="radio11" value="">
+							<label for="radio11" >脚手架</label>
+						</div>
+					</div>
+					<?php }?>
+					<?php if($data['hight']==1) {?>
+					<div class="col-md-2">
+						<div class="radio radio-danger">
+							<input type="radio" checked name="radio5" id="radio12" value="">
+							<label for="radio12" >梯子</label>
+						</div>
+					</div>
+					<?php }  ?>
+				</div>
+				<div class="row">
+					<div class="col-md-2 mt-10">
+						商场办证
+					</div>
+					<?php if($data['departure_permit']==1) {?>
+					<div class="col-md-2" style="margin-left:7%">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" checked  name="radio6" id="radio13" value="">
+							<label for="radio13" >师傅代办</label>
+						</div>
+					</div>
+					<?php }?>
+					<?php if($data['departure_permit']==2) {?>
+					<div class="col-md-2" style="margin-left:7%">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" checked name="radio6" id="radio14" value="">
+							<label for="radio14" >客户办理</label></div>
+					</div>
+					<?php }?>
+					<?php if($data['departure_permit']==3) {?>
+					<div class="col-md-2" style="margin-left:7%">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" checked name="radio6" id="radio15" value="">
+							<label for="radio15" >不需要办理</label>
+						</div>
+					</div>
+					<?php }?>
+				</div>
+				<div class="row mt-10 mb-10">
+
+							<div class="col-md-2 mt-10">
+								选择施的工人数
+							</div>
+							<div class="col-md-3" style="margin-left:8%">
+                                <input type="text"  class="form-control" name="" disabled value="{$data['num']}" id="people" style="width:6em;padding-top:0.35em;padding-bottom:0.7em">
+							</div>
+
+
+
+				</div>
+
+			</div>
+		<div class="row mt-20">
+			<div class="col-md-2 col-md-offset-5 ">
+				<input type="button" id="search" name="Submit" class="btn btn-success" value="返回" onclick="javascript:history.back(-1);">
+				<script>
+                    function GetRequest() {
+                        var url = location.search; //获取url中"?"符后的字串
+                        var theRequest = new Object();
+                        if (url.indexOf("?") != -1) {
+                            var str = url.substr(1);
+                            strs = str.split("&");
+                            for(var i = 0; i < strs.length; i ++) {
+                                theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                            }
+                        }
+                        return theRequest;
+                    }
+                    var da=GetRequest()
+
+                    if(da.dd==2){
+                        $("#search").hide();
+                    }
+				</script>
+			</div>
+		</div>
+</div>
+<script>
+
+</script>
+
+{include file='public/footer'}

@@ -1,0 +1,369 @@
+{include file="public/header" }
+
+<div class="main">
+
+    <div class="container">
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>进行考试</small><span>>></span>
+            </h5>
+        <!--木工考试信息 和试题-->
+        <div class="row mt-10 ">
+            <div class="col-md-3">
+            <div class="text-center CarpenterLevelExamination">{$exam['group_title']}</div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul>
+                            <li class="color-orange">
+                                考生信息
+                            </li>
+                            <li class="mt-10 mb-10 " style='height:auto'>
+                                <img src="__DsQINiu__{$headimg}" class="img-responsive" alt=""/>
+                            </li>
+                            <li>
+                                姓名：{$realname}
+                            </li>
+                            <li>题目：共{$exam['count']}题</li>
+                            <li>时间：共计50分钟</li>
+                            <!-- <li>标准100分 60分合格</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 ml-10_media mr-10_media test-item-t border-aspx liner-height pl-20">
+                <div class="row color-orange">
+                    考试项目
+                </div>
+                <div class="row mt-20">
+                    <div class="col-md-10 col-md-offset-1 font-width-nineHundred">
+                        <span id='examorder'>1</span>.<span id='exam'>{$firstExam['question']}</span>（）
+                    </div>
+                </div>
+                <div class="row mt-10">
+                    <div class="col-md-10 col-md-offset-1">
+                        <ol class="ualpha">
+                            <li><span id='examoption1'>{$firstExam['option1']}</span></li>
+                            <li><span id='examoption2'>{$firstExam['option2']}</span></li>
+                            <li><span id='examoption3'>{$firstExam['option3']}</span></li>
+                            <li><span id='examoption4'>{$firstExam['option4']}</span></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr-20">
+                    <div class="col-xs-12 text-right">
+                        请选择:
+                        <button class="optionAll" order='1' vall='1' onclick="javascript:answer(this)">A</button>
+                        <button class="optionAll" order='1' vall='2' onclick="javascript:answer(this)">B</button>
+                        <button class="optionAll" order='1' vall='3' onclick="javascript:answer(this)">C</button>
+                        <button class="optionAll" order='1' vall='4' onclick="javascript:answer(this)">D</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 考试时间-->
+        <div class="row">
+            <div class="col-md-3 mt-10">
+                <div class="text-center CarpenterLevelExamination">
+                    <i class="color-orange">考试时间还剩：</i>
+                    <span class="font-width-nineHundred TimerTask">50：00</span>
+                </div>
+            </div>
+            <div class="col-md-5 mt-10">
+                <div class=" CarpenterLevelExamination">
+                    <i class="color-orange ml-10"></i><span class="font-width-nineHundred">此题为选择题，请选择你认为正确的答案</span>
+                </div>
+            </div>
+            <div class="col-md-4 mt-10">
+                <button class="btn btn-info bg-orange-hver" val='0' id='pre' disabled="">上一题</button>
+                <button class="btn btn-info bg-orange-hver" val='1' id='next'>下一题</button>
+                <button class="btn btn-orange bg-orange-hver" id='handExam'>交卷</button>
+            </div>
+        </div>
+        <!-- 选项-->
+        <div class="row mt-20">
+            <div class="col-md-12 mr-10 border-aspx liner-height ml-10 pl-30">
+
+                <div class="row color-orange">
+                    答题信息
+                </div>
+                <div class="row TheAnswerInformation" >
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .CarpenterLevelExamination+div>div>ul>li:nth-child(2){
+        height: 65px;
+    }
+    .test-item-t{
+        height:300px;
+    }
+    .test-item-t button{
+        width: 32px;
+    }
+    ol.ualpha {list-style-type: upper-alpha;list-style-position:inside;}
+    ol.ualpha li{
+        list-style-type: upper-alpha;list-style-position:inside;
+    }
+</style>
+<script>
+    $(window).ready(function() {
+        allExam = <?php print $allExam;?>;
+        if(allExam.length==1){
+        	// console.log(allExam.length);
+        	$('#next').attr({'disabled':true});
+        	$('#pre').attr({'disabled':true});
+        }
+            examlist=new Array();
+            window.localStorage.clear();
+        answer = function(obj){
+            examOrder = parseInt(obj.getAttribute('order'));
+            examOrderVal = obj.getAttribute('vall');
+            examlist[examOrder+'_exam'] = examOrderVal;
+            if(window.localStorage){
+                window.localStorage.setItem(examOrder,examOrderVal);
+                console.log(window.localStorage);
+            }else{
+                msg('您的浏览器不支持答题,请先更换浏览器,否则可能会造成0分！');
+            }
+        }
+        condemn = function(ids){
+            if(window.localStorage.getItem(ids)){
+               var vall = window.localStorage.getItem(ids)
+                $('button[vall='+vall+']').addClass('bg-orange');
+            }
+        }
+        exam =function(ids){
+            $('.optionAll').removeClass('bg-orange');
+            ++ids;
+            condemn(ids);
+            --ids
+            $exam = allExam[ids];
+            $('#examorder').html(++ids);
+            $('#examoption1').html($exam.option1);
+            $('#examoption2').html($exam.option2);
+            $('#examoption3').html($exam.option3);
+            $('#examoption4').html($exam.option4);
+            $('#exam').html($exam.question);
+            $('#pre').attr({'val':--ids});
+            $('#next').attr({'val':(++ids)});
+            $('.optionAll').attr({'order':ids});
+            if(ids==allExam.length){
+                $("#next").attr({'disabled':true});
+                $("#pre").prop("disabled", false);
+            }
+            if(ids==1){
+                $("#pre").attr({'disabled':true});
+                $("#next").prop("disabled", false);
+            }
+
+        }
+        $('#pre').click(function(){
+            var index = $(this).attr('val')-1;
+            if(index==0){
+                $(this).attr({'disabled':true});
+            }
+            exam(index);
+            $("#next").prop("disabled", false);
+        });
+        $('#next').click(function(){
+            var index = $(this).attr('val');
+            if(index==allExam.length-1){
+                $(this).attr({'disabled':true});
+            }
+            $("#pre").prop("disabled", false);
+            exam(index);
+        });
+        var ajax = function(){
+		var list = window.localStorage;
+			list1 = JSON.stringify(list);
+			// console.log(list1);
+            $.ajax({
+                url:'__PIBLIC__studytrain/proceed_exam/{$ids}',
+                dataType:'json',
+                type:'post',
+                data:{
+                    data:list1
+                },
+                success:function(data){
+                    if(data.code == 200){
+                        msg(data.msg,1);
+                       window.location.href='__PUBLIC__studytrain/success/'+(data.data+1000000001)+'/id/11111/uisip/help'; 
+                    }
+                },
+                error:function(data){
+
+                }
+            })
+        }
+        $('#handExam').click(function(){
+            var examNum = allExam.length - window.localStorage.length;
+                layer.confirm('是否确认交卷?', {
+                        btn: ['交卷','取消'] //按钮
+                    }, function(){
+                        ajax();
+                    }, function(){
+                        layer.close();
+                    });
+        });
+//-----------------------------------------------------------------------------------------------
+        img('fileupload');
+        $("#DefineNavigationList>li>a").click(function (e) {
+            e.preventDefault();
+            $(this).parent().siblings().removeClass('active');
+            $(this).parent().addClass('active');
+        });
+
+        $("#navigatesLeft>div>div>ul>li").click(function () {
+            if($(this).index()!=0){
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+            }
+        });
+        var mu=0;
+        $(".flex-center-center-col").click(function () {
+            if(mu%2!=0){
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                $(this).html('<span class="glyphicon glyphicon-th-list"></span>')
+            }else{
+
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+            }
+            mu++;
+        });
+        $(function () {
+            var widthvar= $(window).width();
+            if(widthvar>763&&widthvar<1016){
+                var mu=0;
+                $(".flex-center-center-col").click(function () {
+                    if(mu%2!=0){
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-th-list"></span>');
+                        $("#navigatesRigth").removeClass("col-sm-9");
+                        $("#navigatesRigth").addClass("col-sm-11");
+                    }else{
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+                        $("#navigatesRigth").removeClass("col-sm-11");
+                        $("#navigatesRigth").addClass("col-sm-9");
+                    }
+
+                    mu++;
+                });
+            }
+            if(widthvar>886){
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+            }else{
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+            }
+        })
+        $(window).resize(function () {
+            var width= $(window).width();
+            if(width>763&&width<1016){
+                $(".flex-center-center-col").click(function () {
+                    if(mu%2!=0){
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-th-list"></span>');
+                        $("#navigatesRigth").removeClass("col-sm-9");
+                        $("#navigatesRigth").addClass("col-sm-11");
+                    }else{
+
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+                        $("#navigatesRigth").removeClass("col-sm-11");
+                        $("#navigatesRigth").addClass("col-sm-9");
+                    }
+                    mu++;
+                });
+            }
+            if(width>987){
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                $('.flex-center-center-col').html('<span class="glyphicon glyphicon-remove"></span>')
+            }else{
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                $('.flex-center-center-col').html('<span class="glyphicon glyphicon-th-list"></span>');
+            }
+            ;
+            if(width>763&&width<1016){
+                $(".flex-center-center-col").click(function () {
+                    if(mu%2!=0){
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-th-list"></span>');
+                        $("#navigatesRigth").removeClass("col-sm-9");
+                        $("#navigatesRigth").addClass("col-sm-11");
+                    }else{
+
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+                        $("#navigatesRigth").removeClass("col-sm-11");
+                        $("#navigatesRigth").addClass("col-sm-9");
+                    }
+
+                    mu++;
+                });
+            }
+
+        });
+        $('.text-right>button').click(function(e){
+            click_sibling(e,$(this),'bg-orange')
+        });
+        var click_sibling= function (e,$this,bac) {
+            e.preventDefault();
+            $this.siblings().removeClass(bac);
+            $this.addClass(bac);
+        }
+//    定时器
+
+        $('.bg-orange-hver').click(function (e) {
+            click_sibling(e,$(this),'bg-orange')
+        });
+        var htmls='';
+        for(var i=1;i<{$exam['count']}+1;i++){
+            if(i==1){
+                htmls+= '<a class="active" onclick="exam('+(i-1)+')" style="cursor: pointer;">'+i+'</a>';
+            }else{
+                htmls+= '<a onclick="exam('+(i-1)+')" style="cursor: pointer;">'+i+'</a>';
+            }
+        }
+        $(".TheAnswerInformation").html(htmls);
+
+        $(".TheAnswerInformation").on('click','a', function (e) {
+            e.preventDefault();
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active')
+        })
+        var tmer=null;
+        function TimerTask(){
+            var f=49;
+            var s=60;
+            tmer=  setInterval(function () {
+
+                if(s>0){
+                    s--;
+                }else if(s===0&&f!=0){
+                    s=59;
+                    f--;
+                }else{
+                    msg('时间到了,正在为您提交试卷',1);
+                    ajax();
+                    clearInterval(tmer)
+                }
+                var ny=f+':'+s;
+                $('.TimerTask').html(ny);
+            },1000)
+        }
+        TimerTask()
+    })
+
+</script>
+<style>
+    .TheAnswerInformation a.active{
+        background: #ff5200;
+        color: #FFFFFF;
+    }
+</style>
+{include file='public/footer'}

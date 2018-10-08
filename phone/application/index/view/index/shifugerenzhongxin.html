@@ -1,0 +1,241 @@
+{include file='public/headerblack'}
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+    <div class="MasterCenter">
+        <div class="CenterTop">
+            <div class="centerTopLeft">
+                <div class="photo">
+                    <img :src="userPhoto" alt="" width="60" height="60">
+                </div>
+            </div>
+            <div class="centerTopRight">
+                <div class="userName">
+                    <span>{{userName}}</span>
+                </div>
+                <div class="userPhone">
+                    <span>{{userPhone}}</span>
+                </div>
+                <div class="editInfo">
+                    <a href="">
+                        <span>我的账户</span>
+                        <i class='icon-keyboard_arrow_right'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="centerMenu">
+            <div class="centerMenuTab">
+                <a href="">
+                    <span>快捷下单</span>
+                </a>
+            </div>
+            <div class="centerMenuTab">
+                <a href="">
+                    <span>商城购物</span>
+                </a>
+            </div>
+        </div>
+        <div class="centerMenuList">
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/goodPoint@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>诚信分</span>
+                            </div>
+                            <div class="centerMenuList-item-info-right">
+                                <span class='spanColor'>{{goodPoint}}分</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/purse@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>我的钱包</span>
+                            </div>
+                            <div class="centerMenuList-item-info-right">
+                                <span>提现、余额、收入明细</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/bills@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>账单明细</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/evaluate@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>评价解释</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/refund@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>退款管理</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/complaint@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>投诉记录</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/share@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>分享推荐</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/stution@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>学习中心</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/exam@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>在线考试</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/picture@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>商品图库</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="centerMenuListInfo">
+                <a href="" class="centerMenuList-item">
+                    <div class='centerMenuList-item-Content'>
+                        <div class="centerMenuList-item-photo">
+                            <img src="__indexStatic__images/setting@2x.png" alt="" width='30' height='30'>
+                        </div>
+                        <div class="centerMenuList-item-info">
+                            <div class="centerMenuList-item-info-left">
+                                <span>设置</span>
+                            </div>
+                            <i class='icon-keyboard_arrow_right'></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+<script>
+    var data = {
+        userName: "那年花儿开",
+        userPhone: "180****9113",
+        userPhoto: "__indexStatic__images/pic_160.png",
+        goodPoint:100
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {
+
+        },
+        mounted: function () {}
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function () {
+            return {}
+        }
+    })
+    new Vue({
+        el: '.app',
+        data: data
+    })
+</script>

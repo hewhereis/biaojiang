@@ -1,0 +1,467 @@
+{include file="public/header" }
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<script type="text/javascript" src="http://192.168.0.253/newbj/static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style type="text/css">
+	.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+     background: #FFF; 
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+</style>
+
+
+
+
+<div class="main">
+	<div class="container">
+		<div class="header">
+			<h5 class="page-header bx">
+				<span>当前所在位置</span>
+				<span>>></span>
+				<small>围板搭建/拆除</small>
+			</h5>
+		</div>
+		<div class="panel panel-orange">
+			<div class="panel-heading">
+			    <div class="panel-title">
+			    	<p class="panel-title-p">
+			    		围板搭建/拆除
+			    	</p>
+			    </div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+			    <!-- 搭建时间 -->
+						<div class="row">
+							<div class="col-md-2 pt-10">
+								搭建时间
+							</div>
+							<div class="col-md-2">
+								<div class="input-group">
+									<input type="text" name="" readonly="" class="form-control">
+									<a class="btn btn-defalute input-group-addon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio1" id="radio2" class="form-control">
+									<label for="radio2">白天</label>
+							    </div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio1" id="radio3" class="form-control">
+									<label for="radio3">晚上</label>
+								</div>
+							</div>	
+						</div>
+						<!-- 搭建时间 -->
+						<div class="row mt-20">
+							<div class="col-md-2 pt-10">
+								拆除时间
+							</div>
+							<div class="col-md-2">
+								<div class="input-group">
+									<input type="text" name="" readonly="" class="form-control">
+									<a class="btn btn-defalute input-group-addon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio2" class="form-control">
+									<label for="radio2">白天</label>
+							    </div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio3" class="form-control">
+									<label for="radio3">晚上</label>
+								</div>
+							</div>	
+						</div>
+						<!-- 上传围板搭建图纸 -->
+						<div class="row mt-20">
+							<div class="col-md-2 pt-10">
+								上传围板搭建图纸
+							</div>
+							<div class="col-md-2 ">
+								<button type="button" class="btn border-radius btn-primary" style="color:#fff;padding:0.5em 3em" id='add'><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;上传图纸</button>
+							</div>
+						</div>
+						<!-- 承包模式 -->
+						<div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								承包模式
+							</div>
+							<div class="col-md-2">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio4" value="">
+									<label for="radio4">全包</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio5" value="">
+									<label for="radio5">半包（协助模式）</label>
+								</div>
+							</div>
+						</div>
+						<!-- 物流提货 -->
+						<div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								物流提货
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio6" value="">
+									<label for="radio6">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio7" value="">
+									<label for="radio7">不需要</label>
+								</div>
+							</div>
+						</div>
+					<!-- 是否需要现场查看场地 -->
+					    <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要现场查看场地
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio8" value="">
+									<label for="radio8">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio9" value="">
+									<label for="radio9">否</label>
+								</div>
+							</div>
+						</div>
+                    <!-- 是否需要办理施工手续 -->
+                        <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要办理施工手续
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio10" value="">
+									<label for="radio10">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio11" value="">
+									<label for="radio11">否</label>
+								</div>
+							</div>
+						</div>
+				    <!-- 是否需要代缴工程押金 -->
+				        <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要代缴工程押金
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio12" value="">
+									<label for="radio12">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio13" value="">
+									<label for="radio13">不需要</label>
+								</div>
+							</div>
+						</div>
+				    <!-- 是否需要办证 -->
+				        <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要办证
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio7" id="radio14" value="">
+									<label for="radio14">师傅办证</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio7" id="radio15" value="">
+									<label for="radio15">客户办理</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio7" id="radio16" value="">
+									<label for="radio16">不需要办理</label>
+								</div>
+							</div>
+						</div>
+					<!-- 完工后垃圾处理方式 -->
+					    <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								完工后垃圾处理方式
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio17" value="">
+									<label for="radio17">商场处理</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio18" value="">
+									<label for="radio18">师傅处理</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <!-- 选择施工人数 -->
+                <div class="row" style="border-bottom:1px solid #cacaca;padding-bottom: 2em">
+					<div class="col-md-12 ">
+						<div class="row">
+							<div class="col-md-2 pt-10">
+								选择施工人数
+							</div>
+							<div class="col-md-3">
+								<div class="row">
+									<div class="col-md-3 col-xs-3 pl-10">
+										<button class="btn btn-defalute" style="background-color:#fff;border:1px solid #cacaca;padding: 0.1em 1.2em" id='addnumber'><i class="fa fa-plus" aria-hidden="true" style="font-size: 2em;color:#000"></i></button>
+									</div>
+									<div class="col-md-5 col-xs-4 pl-30">
+										<input type="text" name="" readonly="" id='peopleNumber' class="form-control" value='1'>
+									</div>
+									<div class="col-md-3 col-xs-3 pl-20">
+										<button class="btn btn-defalute" style="background-color:#fff;border:1px solid #cacaca;padding: 0.1em 1.1em" id='reducenumber'><i class="fa fa-minus" aria-hidden="true" style="font-size: 2em;color:#000"></i></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-10" style="border-bottom:1px solid #cacaca;padding-bottom: 2em">
+					<div class="col-md-12">
+					<!-- 上传围板塔建/拆除进度表 -->
+                        <div class="row">
+                        	<div class="col-md-3 pt-10">
+                        		上传围板搭建/拆除进度表
+                        	</div>
+                        	<div class="col-md-2 col-xs-6">
+                        		<a href="" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 1.7em">上传进度表</a>
+                        	</div>
+                        	<div class="col-md-2 col-xs-6">
+                        		<a href="" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 2.2em">无进度表</a>
+                        	</div>
+                        </div>
+                    <!-- 上传围板塔建/拆除验收单 -->
+                        <div class="row mt-20">
+                        	<div class="col-md-3 pt-10">
+                        		上传围板搭建/拆除验收单
+                        	</div>
+                        	<div class="col-md-2 col-xs-6">
+                        		<a href="" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 1.7em">上传验收单</a>
+                        	</div>
+                        	<div class="col-md-2 col-xs-6">
+                        		<a href="" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 2.2em">无验收单</a>
+                        	</div>
+                        </div>
+				    </div>
+				</div>
+				<div class="row mt-20">
+					<div class="col-md-12">
+					<!-- 联系人姓名 -->
+						<div class="row">
+							<div class="col-md-2">
+								联系人姓名
+							</div>
+							<div class="col-md-4">
+							    <input type="text" name="" class="form-control" value="">
+							</div>
+						</div>
+					<!-- 联系电话 -->
+					    <div class="row mt-10">
+							<div class="col-md-2">
+								联系电话
+							</div>
+							<div class="col-md-4">
+							    <input type="text" name="" class="form-control" value="">
+							</div>
+						</div>
+					<!-- 邮箱地址 -->
+					    <div class="row mt-10">
+							<div class="col-md-2">
+								邮箱地址
+							</div>
+							<div class="col-md-4">
+							    <input type="text" name="" class="form-control" value="">
+							</div>
+						</div>
+					<!-- 店铺地址 -->
+					    <div class="row mt-10">
+							<div class="col-md-2">
+								店铺地址
+							</div>
+							<div class="col-md-2">
+							    <select class="form-control">
+							    	<option>上海市</option>
+							    </select>
+							</div>
+							<div class="col-md-2">
+							    <select class="form-control">
+							    	<option>嘉定区</option>
+							    </select>
+							</div>
+							<div class="col-md-2">
+							    <select class="form-control">
+							    	<option>××××</option>
+							    </select>
+							</div>
+						</div>
+					    <div class="row mt-10">
+							<div class="col-md-2">
+								
+							</div>
+							<div class="col-md-6">
+							    <input type="text" name="" class="form-control" placeholder="请填写你的详细地址（楼层、店铺号）" value="">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-10" style="border-bottom:1px solid #cacaca;padding-bottom: 2em">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-2" style="padding-top:4em">
+								门头照
+							</div>
+							<div class="col-md-2" id="picture">
+							     <img src="__PUBLIC__static/index/images/mentou.png" class="img-responsive" id="img-data" alt=""">
+							</div>
+						</div>
+						<div class="row mt-20">
+							<div class="col-md-2" style="padding-top:2em">
+								<b>特殊要求</b>
+							</div>
+							<div class="col-md-9">
+								<textarea style="width:100%;height: 6em;border:1px solid #cacaca" placeholder="请填写特殊要求，有利于师傅更准确的估价"></textarea>
+							</div>
+						</div>
+						<div class="row mt-20" >
+							<div class="col-md-4">
+								<div class="checkbox checkbox-danger">
+									<input type="checkbox" name="checkbox1" id="checkbox2" value="">
+									<label for="checkbox2">需求待进一步明确，需预先核单</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4" id="pas">
+								<div class="checkbox checkbox-danger">
+									<input type="checkbox" name="checkbox1" id="checkbox3" value="">
+									<label for="checkbox3" id='label'>使用平台月结服务</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="border-bottom:1px solid #cacaca;padding-bottom: 2em">
+					<div class="col-md-12">
+						<div class="row pb-20 pl-10">
+						    <div class="col-md-3 col-sm-4 col-xs-6 col-sm-offset-1 text-center mt-20">
+							     <input type="button" id="quick_consulting" class="btn btn-blue form-control border-radius " value="直接下单">
+						    </div>
+						    <div class="col-md-3 col-sm-4 col-xs-6 col-sm-offset-3 text-center mt-20">
+							     <input type="button" id="quick_consulting" class="btn btn-blue form-control border-radius " value="快捷咨询">
+						    </div>
+					    </div>
+					</div>
+			    </div>
+                <div class="row">
+                    <div class="col-md-12">
+					    <div>
+						     <img src="__PUBLIC__static/index/images/u17.png" class="img-responsive " alt="" />
+					    </div>
+					</div>
+				</div>	
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+  window.onload =function(){
+	$('#addnumber').click(function(){
+	    	var val = $('#peopleNumber').val();
+	    	if(val==''){
+	    		val=0;
+	    	}
+	    ++val;
+	    $('#peopleNumber').val(val);
+	    });
+	    $('#reducenumber').click(function(){
+			var val = $('#peopleNumber').val();
+	    	if(val==''){
+	    		val=0;
+	    	}
+	    	if(val!=0){
+	    		--val;
+	    	}
+	    $('#peopleNumber').val(val);
+	    });
+
+
+	    var uploader = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#picture',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#img-data").attr('src', '__TUN__/face/' + data._raw).show();
+        }
+    });
+
+
+	   var istrue = false;
+		$('#label').click(function(){
+			if(!istrue){
+				var html ="<div class='row' id='yuejiepass'><div class='col-md-12'><input type='password' name='' class='form-control' placeholder='请输入月结客户下单密码'></div></div>"
+				$('#pas').append(html);
+				istrue = true;
+			}else{
+				$('#pas').find('#yuejiepass').remove();
+				istrue = false;
+			}
+		});
+
+
+	    }
+
+</script>
+
+{include file="public/footer" }

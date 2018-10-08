@@ -1,0 +1,302 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<style>
+    .col-sm-6:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+    .col-sm-4:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+</style>
+<div class="main client_affirm_accomplish">
+    <script src="__PUBLIC__static/index/js/jq/flashcanvas.js"></script>
+    <script src="__PUBLIC__static/index/js/jq/jSignature.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+    <script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head" style="margin-top:8%">
+            <div class="col-xs-12 ">围板搭建/拆除确认表</div>
+        </div>
+            <input type="hidden" id="order_number" name="order_number" value="{$order_number}">
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12">
+                    <!--客户信息-->
+                    <div class="row  border-bottom-1 ">
+                        <!--联系人-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">联系人</label>
+                                <div class="col-md-9">
+                                    <input type="text" required name="contact_name" id="contact_name" disabled class="form-control" value='{$order.contact_name}'>
+                                </div>
+                            </div>
+                        </div>
+                        <!--联系电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label for="input_date" class="col-sm-3 mt-10">联系电话</label>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                        <input size="16" type="text" class="form-control" id="contact_phone" disabled value="{$order.contact_phone}" name="store_contact">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--店铺地址-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">店铺地址</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="project_address" value="{$order.full_location}" disabled required id="project_address" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工师傅-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工师傅</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="project_worker" required value="{$order.real_name}" disabled id="project_worker" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                      
+                        <!--师傅电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">师傅电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="worker_phone" id="worker_phone" disabled value="{$order.phone}" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--搭建时间-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">搭建时间</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="constructdate_time" id="constructdate_time" disabled value="{$info['constructdate']|date='Y-m-d H:i:s',###}" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--拆除时间-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">拆除时间</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="dismantledate_time" id="dismantledate_time" disabled value="{$info['dismantledate']|date='Y-m-d H:i:s',###}" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row 1 border-bottom-1">
+                        <div id="sa" class="col-md-12  mb-30 mt-20">
+                            <p>
+                                <i class="fa fa-instagram"></i>围板搭建进度表
+                            </p>
+                            <div class="row border-bottom-1">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo0" name="img0" value=''>
+                                            <div id="fileList0" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker0" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>围板搭建进度表
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6" id=''>
+                                            <img id="img_data0" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;"  src="__DsQINiu__{$list.img1}" onerror="this.src='__PUBLIC__static/admin/images/no_img.jpg'" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo1" name="img1" value=''>
+                                            <div id="fileList1" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker1" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>围板搭建验收单
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data1" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;"  src="__DsQINiu__{$list.img2}"  onerror="this.src='__PUBLIC__static/admin/images/no_img.jpg'"/>
+								
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   <?php if($list['is_ok']==1):?>
+                    <div class="row mt-30">
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                           <img id="img_data2" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__public/{$list.user_sign}"/>
+                        </div>
+                        <div class="col-md-4 col-xs-6 col-sm-4">
+                            <img  src="" alt="">
+                        </div>
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control"  value="服务确认码">
+                        </div>
+                        <div class="col-md-4 mt-10-media_xs col-xs-6 col-sm-4">
+                        
+                            <input type="text" id='querenma' name='querenma' class='form-control' placeholder="客户已经确认！请填写服务确认码！">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center  mt-20">
+                            <input onclick="ds_que()" type="submit" value="确认" class="btn btn-success border-radius form-control">
+                        </div>
+                       
+                    </div>
+				  <?php else:?>
+ 
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center  mt-20">
+                            <input onclick="ds_ok()" type='button'  value="确认" class="btn btn-success border-radius form-control">
+                        </div>
+                       
+                    </div>
+                   
+				 <?php endif;?>
+                   
+
+                </div>
+            </div>
+    </div>
+</div>
+<script>
+    var $list = $('#fileList');
+    var $list1 = $('#fileList1');
+    var $list2 = $('#fileList2');
+	
+    WebUploader.create({
+        auto: true, // 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+        duplicate: true, // 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPicker0', // 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#data_photo0").val(data._raw);
+            $("#img_data0").attr('src', '__DsQINiu__' + data._raw).show();
+            msg("添加成功",1);
+        }
+    });
+    WebUploader.create({
+        auto: true, // 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+        duplicate: true, // 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPicker1', // 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#data_photo1").val(data._raw);
+            $("#img_data1").attr('src', '__DsQINiu__' + data._raw).show();
+            msg("添加成功",1);
+        }
+    });
+    
+</script>
+
+<script>
+function ds_ok(){
+		 var layer=layui.layer;
+		if($("#data_photo0").val()==""){
+			layer.tips('请上传门头照片。', '#imgPicker0', {
+				tips: [1, '#3595CC'],
+				time: 2000
+			});
+			return false;
+		}
+		if($("#data_photo1").val()==""){
+			layer.tips('请上传落位图', '#imgPicker1', {
+				tips: [1, '#3595CC'],
+				time: 2000
+			});
+			return false;
+		}
+		
+	
+
+	var order_number = $('#order_number').val();
+	var img1 =$('#data_photo0').val();
+	var img2 =$('#data_photo1').val();
+	var link ='__PUBLIC__coaming_customer_presentation/'+order_number;	
+			$.ajax({
+				url:'__PUBLIC__coaming_ajaxpresentation',
+				type:'post',
+				dataType:'json',
+				data:{
+					order_number:order_number,
+					img1:img1,
+					img2:img2,
+					link:link
+				},
+				success:function(data){
+						if(data.code == 200){ 
+							 layer.msg(data.msg, {icon: 6,time:1500,shade:0}, function(index){
+								window.location.href="__PUBLIC__orders/master";
+							});
+						}else{
+							 layer.msg(data.msg, {icon: 5,time:1500,shade:0});
+							 return false;
+						}
+						
+					}
+					
+			});
+
+}
+
+
+</script>
+<script>
+function ds_que(){
+	var querenma=$('#querenma').val();
+	var order_number=$('#order_number').val();
+	if(querenma==''){
+		 layer.msg('确认码不能为空', {icon: 5,time:1500,shade:0});
+		  return false;
+	}
+	
+	$.ajax({
+				url:'__PUBLIC__coaming_confirmma',
+				type:'post',
+				dataType:'json',
+				data:{
+					order_number:order_number,
+					querenma:querenma
+				},
+				success:function(data){
+						if(data.code == 200){ 
+							 layer.msg(data.msg, {icon: 6,time:1500,shade:0}, function(index){
+								window.location.href="__PUBLIC__orders/master";
+							});
+						}else{
+							 layer.msg(data.msg, {icon: 5,time:1500,shade:0});
+							 return false;
+						}
+						
+					}
+					
+			});
+	
+	
+}
+</script>
+
+{include file="public/footer" }

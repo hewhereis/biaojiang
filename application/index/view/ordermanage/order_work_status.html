@@ -1,0 +1,438 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main Master_order_status order_status_parent">
+  
+    <!--/*主题*/-->
+    <div class="container " >
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small><a href="__PUBLIC__orders/master">订单管理</a></small>
+			<span>>></span>
+            <small>订单状态</small>
+        </h5>
+    </div>
+	
+    <div class="container ml-10_media mr-10_media ">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-md-10 col-xs-8">师傅订单状态</div>
+           
+        </div>
+        <div class="row">
+            <div class="col-md-12 The-test-panel-body pl-0 pr-0 pb-0 pt-0 text-center">
+                <ul class="ul ">
+                    <li  class="active">订单状态</li>
+                    <li>订单详情</li>
+                </ul>
+
+                <div class="panel-body Control_style order_status">
+                    <ul class="Teacher_learning_ul ">
+                         <?php foreach ($orderstep as $k) { ?>
+								<li style="color:#A1A1A1">
+									<ul class="The_list_of_floating">
+									   
+										<li class="round">
+											<div class="gray_z">
+												<div class="bg_gray_z"></div>
+											</div>
+										</li>
+										<li><?php echo $k['step_name']?></li>
+									</ul>
+								</li>			
+								<li class="Vertical_lines_orange  Vertical_lines_left_gray"></li>
+						<?php } ?>	
+						
+						<?php foreach ($ordersteps as $ks) { ?>
+						<input id="ds_order_number"  hidden="hidden" value="<?php echo $ks['id']?>">
+						<input id="ds_order_numbers"  hidden="hidden" value="<?php echo $ks['order_number']?>">
+						<input id="ds_uid"  hidden="hidden"value="<?php echo $_SESSION['think']['id']?>">
+								<li>
+									<ul class="The_list_of_floating">
+										<li class="round">
+											<div class="orange">
+												<div class="bg_orange"></div>
+											</div>
+										</li>
+								
+								<?php if($step_link==null):?>
+								<li class=""><a href="javascript:;" id="{$step_onck}">
+										<?php echo $ks['step_name']?></a></li>
+								<?php else :?>
+								<li class=""><a href="
+										<?php $ds_order_number = $ks['order_number'];
+										$ds_step_id            = $ks['step_id'];
+										$ds_step_link          =$step_link;
+										$ds_link               = sprintf("$ds_step_link",$ds_order_number,$ds_step_id);
+										echo $ds_link;?>" id="work_sign">
+										<?php echo $ks['step_name']?></a></li>
+								<?php endif?>
+										
+									</ul>
+								</li>
+						<?php } ?>	
+						<?php foreach ($orderstepso as $k) { ?>
+						<li class="Vertical_lines_orange  Vertical_lines_left_gray"></li>
+								<li style="color:#5A5858">
+									<ul class="The_list_of_floating">
+									   
+										<li class="round">
+											<div class="gray_z">
+												<div class="bg_gray_z"></div>
+											</div>
+										</li>
+										<li><?php echo $k['step_name']?></li>
+									</ul>
+								</li>			
+								
+						<?php } ?>	
+                    </ul>
+					<?php foreach ($orderstatus as $v) { ?>
+                    <ul class="hide">
+                        <li class="line-height-40">
+                            <form class="form-horizontal" id="">
+                                <div class="col-md-12 col-sm-12 col-xs-12 " id='navigatesRigth'>
+                                    <div class="well text-left well-sm">
+                                        <span>订单号:{$v.order_number}</span>
+                                        <span class=" pl-0"><b class="text-orange">
+										<?php if($v['master_status']==1):?>待定标
+										<?php elseif($v['master_status']==2):?>待付款
+										<?php elseif($v['master_status']==3):?>待完工
+										<?php elseif($v['master_status']==4):?>待验收
+										<?php elseif($v['master_status']==5):?>待评价
+										<?php elseif($v['master_status']==6):?>追加评价
+										<?php elseif($v['master_status']==7):?>交易完成
+										<?php elseif($v['master_status']==8):?>订单关闭
+										<?php endif;?>
+										</b>￥{$v.amount_total}</span>
+                                    </div>
+                                    <div style="width: auto;text-align:left;border: 1px solid #dddddd;position: relative;top: -20px;">
+                                        <!--品牌-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 mt-10">品牌</label>
+                                            <div class="col-md-10">
+                                                <?php if($v['service_type_id']==1):?>
+												    <input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['i_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==2):?>
+													<input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['m_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==3):?>
+												<?php elseif ($v['service_type_id']==4):?>
+													<input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['s_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==5):?>
+													<input type="text" id="brand"  name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['d_brand'] ?>"/>
+												<?php elseif ($v['service_type_id']==6):?>
+												   <input type="text" id="brand" name="brand" readonly  unselectable="on"  class="form-control" value="<?php echo $v['coam_brand'] ?>"/>
+												<?php endif;?>
+                                            </div>
+                                        </div>
+                                        <!--地址-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 mt-10 ">地址</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="site" name="site" readonly  unselectable="on"  class="form-control" value="<?php echo $v['full_location']?> <?php echo $v['location_ext'] ?>"/>
+                                            </div>
+
+                                        </div>
+                                        <!--客户名称-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 mt-10 ">客户名称</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="The_teacher_name" readonly  unselectable="on" name="The_teacher_name" class="form-control" value="<?php echo $v['owner_name'] ?>"/>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 mt-10 ">客户联系电话</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="contact_number" readonly  unselectable="on"  name="contact_number" class="form-control" value="<?php echo $v['contact_phone'] ?>"/>
+                                            </div>
+
+                                        </div>
+                                        <!--计划施工日期-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 mt-10 ">计划施工日期</label>
+                                            <div class="col-md-10">
+                                               <input type="text" id="intended_date" readonly  unselectable="on" name="intended_date" class="form-control" value="<?php if($v['order_time']==''):?><?php else:?><?php echo date('Y-m-d H:i:s', $v['order_time']);?><?php endif;?>"/>
+                                            </div>
+
+                                        </div>
+                                        <!--实际完成日期-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 mt-10 ">实际完成日期</label>
+                                            <div class="col-md-10">
+                                             <input type="text" name="actual_finishing_date" readonly  unselectable="on" id="actual_finishing_date" class="form-control" value="<?php if($v['end_time']==''):?><?php else:?><?php echo date('Y-m-d H:i:s', $v['end_time']);?><?php endif;?>"/>
+											 
+                                            </div>
+
+                                        </div>
+                                        
+                                        <!--师傅工号-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 ">师傅工号</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="Master_work_number" readonly  unselectable="on" name="Master_work_number" class="form-control" value="<?php echo $v['b_job'] ?>"/>
+                                            </div>
+                                        </div>
+                                        <!--师傅联系电话-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 ">师傅联系电话</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="Master_contact_number" readonly  unselectable="on" name="Master_contact_number" class="form-control" value="<?php echo $v['b_phone'] ?>"/>
+                                            </div>
+                                        </div>
+                                        <!--师傅报告-->
+                                        <div class="form-group pl-20">
+                                            <label class="col-md-2 ">项目名称</label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="The_master_report" readonly  unselectable="on"  name="The_master_report" class="form-control" 
+												value="<?php if($v['service_type_id']==1):?>安装
+												<?php elseif($v['service_type_id']==2):?>维修
+												<?php elseif($v['service_type_id']==3):?>品质监理
+												<?php elseif($v['service_type_id']==4):?>勘测
+												<?php elseif($v['service_type_id']==5):?>更换灯片
+												<?php elseif($v['service_type_id']==6):?>围板搭建与拆除
+												<?php endif;?>" />
+                                            </div>
+                                        </div>
+										
+										<div style="height:60px;font-size:22px;color:#000;background:#ddd;margin-bottom:20px;line-height:50px;" class="pl-20">平台施工表单图片下载</div>
+										<?php if($v['service_type_id']==1):?>
+												<div class="row">
+													<div class="col-xs-4 col-xs-offset-1">
+														<img src="__PUBLIC__static/index/check/anzhaung-qs.jpg" style="height:400px;margin-bottom:10px">
+														<div>
+															 <a href= "__PUBLIC__static/index/check/anzhaung-qs.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+														</div>
+													</div>
+													<div class="col-xs-4 col-xs-offset-1">
+														<img src="__PUBLIC__static/index/check/jindu.jpg" style="height:400px;margin-bottom:10px">
+														<div>
+															 <a href= "__PUBLIC__static/index/check/jindu.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+														</div>
+													</div>
+												</div>
+												<?php elseif($v['service_type_id']==2):?>
+													<div class="row">
+													<div class="col-xs-4 col-xs-offset-1">
+														<img src="__PUBLIC__static/index/check/weixiu-ys.jpg" style="height:400px;margin-bottom:10px">
+														<div>
+															 <a href= "__PUBLIC__static/index/check/weixiu-ys.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+														</div>
+													</div>
+													
+												</div>
+												<?php elseif($v['service_type_id']==3):?>
+													
+												<?php elseif($v['service_type_id']==4):?>
+													<div class="row">
+													<div class="col-xs-4 col-xs-offset-1">
+														<img src="__PUBLIC__static/index/check/kance-bg.jpg" style="height:400px;margin-bottom:10px">
+														<div>
+															 <a href= "__PUBLIC__static/index/check/kance-bg.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+														</div>
+													</div>
+													<div class="col-xs-4 col-xs-offset-1">
+														<img src="__PUBLIC__static/index/check/kance-ch.jpg" style="height:400px;margin-bottom:10px">
+														<div>
+															 <a href= "__PUBLIC__static/index/check/kance-ch.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+														</div>
+													</div>
+												</div>
+												<?php elseif($v['service_type_id']==5):?>
+														<div class="row">
+														<div class="col-xs-4 col-xs-offset-1">
+															<img src="__PUBLIC__static/index/check/genghuan-ys.jpg" style="height:400px;margin-bottom:10px">
+															<div>
+																 <a href= "__PUBLIC__static/index/check/genghuan-ys.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+															</div>
+														</div>
+														
+													</div>
+												<?php elseif($v['service_type_id']==6):?>
+														<div class="row">
+														<div class="col-xs-4 col-xs-offset-1">
+															<img src="__PUBLIC__static/index/check/jindu.jpg" style="height:400px;margin-bottom:10px">
+															<div>
+																 <a href= "__PUBLIC__static/index/check/jindu.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+															</div>
+														</div>
+														<div class="col-xs-4 col-xs-offset-1">
+															<img src="__PUBLIC__static/index/check/anzhaung-qs.jpg" style="height:400px;margin-bottom:10px">
+															<div>
+																 <a href= "__PUBLIC__static/index/check/anzhaung-qs.jpg" target="_blank" class="btn btn-success border-radius form-control">查看并保存</a>
+															</div>
+														</div>
+													</div>
+										<?php endif;?>
+										
+										
+										
+										
+                                    </div>
+                                </div >
+                            </form>
+                        </li>
+                    </ul>
+				 <?php } ?>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
+<script>
+    $(".The-test-panel-body>ul>li").click(function () {
+        $(this).addClass('active');
+        $(this).siblings().removeClass('active');
+        $(".panel-body>ul").eq($(this).index()).addClass('show');
+        $(".panel-body>ul").eq($(this).index()).removeClass('hide');
+        $(".panel-body>ul").eq($(this).index()).siblings().addClass('hide');
+        $(".panel-body>ul").eq($(this).index()).siblings().removeClass('show');
+        if($(this).index()===0){
+            $(".Control_style").css({
+                padding:20,
+                border:"none"
+            });
+        }else{
+            $(".Control_style").css({
+                padding:0,
+               border:"none"
+            });
+            $("#navigatesRigth").css({
+                padding:0,
+                border:"none",
+            });
+            $("#navigatesRigth>div").css({
+                border:"none"
+            })
+        }
+
+    });
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+</script>
+ <script type="text/javascript">  
+  
+            function browserRedirect() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) == "midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";  
+                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) == "android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";  
+               
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {  
+					var ds_order_number=$('#ds_order_number').val();
+                   location.href = '__PUBLIC__orderwork/sign/'+ds_order_number;
+				   
+				
+                } else {  
+                   layer.msg('请在手机上签到',{icon:2,time:1500,shade: 0.1});
+										
+                }  
+            }  
+			function browserRedirects() {  
+                var sUserAgent = navigator.userAgent.toLowerCase();  
+                var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";  
+                var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";  
+                var bIsMidp = sUserAgent.match(/midp/i) == "midp";  
+                var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";  
+                var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";  
+                var bIsAndroid = sUserAgent.match(/android/i) == "android";  
+                var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";  
+                var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";  
+               
+                if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {  
+                   var ds_order_number=$('#ds_order_number').val();
+				  
+                   location.href = '__PUBLIC__orderwork/outsign/'+ds_order_number; 
+                } else {  
+                   layer.msg('请在手机上签退',{icon:2,time:1500,shade: 0.1});
+                }  
+            }  
+            
+			$("#work_sign").click(function () {
+			browserRedirect();  
+			})
+			
+			$("#work_sign_out").click(function () {
+			browserRedirects();  
+			})
+			
+			$("#work_contact_customer").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__master_contact_customer/'+ds_order_number; 
+			})
+			$("#work_hedan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__touching/'+ds_order_number; 
+			})
+			$("#install_work_hedan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__install_touching/'+ds_order_number; 
+			})
+			$("#coaming_work_hedan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__coaming_touching/'+ds_order_number; 
+			})
+			$("#work_weixiu").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__master_maintenance_reports/'+ds_order_number; 
+			})
+			$("#work_weiban").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__coaming_master_presentation/'+ds_order_number; 
+			})
+			$("#work_genghuan").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				 location.href = '__PUBLIC__replace_master_presentation/'+ds_order_number; 
+			})
+			$("#gjmcoaming_work_hedan").click(function () {
+                var ds_order_number=$('#ds_order_numbers').val();
+                location.href = '__PUBLIC__gjmtouching/'+ds_order_number;
+            })
+            $("#work_zixun_wei").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__Cqueryprice/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			$("#work_zixun_cha").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__install_index/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			$("#work_zixun_change").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__gjminstall_index/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			$("#work_zixun_ban").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				var ds_uid=$('#ds_uid').val();
+				 location.href = '__PUBLIC__coaming_index/'+ds_order_number+'/wid/'+ds_uid; 
+			})
+			//勘测手稿
+			$("#work_manuscript").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				location.href = '__PUBLIC__survey_manuscript/'+ds_order_number; 
+			})
+			//勘测报告
+			$("#work_presentation").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				location.href = '__PUBLIC__survey_master_presentation/'+ds_order_number; 
+			})
+			$("#work_anzhuang").click(function () {
+				var ds_order_number=$('#ds_order_numbers').val();
+				location.href = '__PUBLIC__shifuqurenbiao/'+ds_order_number; 
+			})
+			
+</script>  
+{include file="public/footer" }

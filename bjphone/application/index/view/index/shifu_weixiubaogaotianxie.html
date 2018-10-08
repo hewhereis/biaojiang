@@ -1,0 +1,204 @@
+{include file='public/header'}  
+
+</style>
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div> 
+<template id="mian">
+	<div class="shifu_weixiubaogaotianxie">
+		<div class="weui-cells weui-cells_form border-none">
+		    <div class="heading1">
+            	<span class="left">订单编号：</span>
+            	<span class="right">202155555455455</span>
+            </div>
+            <div class="heading">
+            	<span class="left">项目名称：</span>
+            	<span class="right">维修-店铺天地墙</span>
+            </div>
+            <div class="heading">
+            	<span class="left">客户名称：</span>
+            	<span class="right">张三</span>
+            </div>
+            <div class="heading">
+            	<span class="left">客户电话：</span>
+            	<span class="right">12521424574</span>
+            </div>
+            <div class="heading">
+            	<span class="left">店铺地址：</span>
+            	<span class="right"><input type="text" class="text" id="text" readonly="" name="text" value="上海市嘉定区安亭镇方泰路25号"></span>
+            </div>
+            <div class="heading2">
+            	<span class="left">完成时间：</span>
+            	<span class="right">2017-10-20</span>
+            </div>
+		</div>
+		<div class="border">
+		    <div class="content1">
+		    	<span class="zuo1">施工公司:</span>
+		    	<span class="you1">上海标匠有限公司</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo">施工师傅:</span>
+		    	<span class="you">李师傅</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo2">施工联系人:</span>
+		    	<span class="you">张文文</span>
+		    </div>
+		    <div class="content">
+		    	<span class="zuo3">施工方电话:</span>
+		    	<span class="you">15845856982</span>
+		    </div>
+		</div>
+		<div class="xgzhaopian">
+			<span class="icon-camera"></span>
+			<span class="zhaopian">上传照片</span>
+		</div>
+    <div class="weui-flex shangchuan">
+     <div class="weui-flex__item">
+      <div class="border1">
+        <div class="tupian">
+          <img src="__indexStatic__/images/tupian.png" alt="">
+        </div>
+        <p class="text6">上传门头照片</p>
+      </div>
+     </div>
+     <div class="weui-flex__item">
+      <div class="border1">
+        <div class="tupian">
+          <img src="__indexStatic__/images/tupian.png" alt="">
+        </div>
+        <p class="text6">上传维修签收单</p>
+      </div>
+     </div>
+    </div>
+    <!-- 上传专柜全景 -->
+    <div class="weui-flex shangchuan3">
+     <div class="weui-flex__item">
+      <div class="border1">
+        <div class="tupian">
+          <img src="__indexStatic__/images/tupian.png" alt="">
+        </div>
+        <p class="text6">上传专柜全景</p>
+      </div>
+     </div>
+     <div class="weui-flex__item">
+      <div class="border2">
+        <div class="tupian">
+          <img src="__indexStatic__/images/tianjia.png" alt="">
+        </div>
+        <p class="text6">点击上传</p>
+      </div>
+     </div>
+     <div class="weui-flex__item">
+       
+     </div>
+    </div>
+
+    <div class="duibi">
+      <span class="icon-camera"></span>
+			<span class="qianhouduibi">维修前后对比照上传</span>
+			<div class="weui-flex shangchuan4">
+        <div class="weui-flex__item">
+          <div class="border1">
+            <div class="tupian">
+              <img src="__indexStatic__/images/tupian.png" alt="">
+            </div>
+            <p class="text6">维修前</p>
+          </div>
+         </div>
+         <div class="weui-flex__item">
+          <div class="border1">
+            <div class="tupian">
+              <img src="__indexStatic__/images/tupian.png" alt="">
+            </div>
+            <p class="text6">维修后</p>
+          </div>
+         </div>
+        </div>
+      <div class="text2">
+        <input type="text3" readonly="" class="text3" name="texe3" id="text3" value="请对故障进行详细描述">
+      </div>
+    </div> 
+        <div class="weui-cells weui-cells_form tianjia">
+            <div class="weui-cell">
+                <span class="duibizhao">添加维修前后对比照</span>
+                <span class="weixiuzhao">
+                  <button class="btn0">
+
+                  添加普通师傅维修照片
+                  </button>
+                </span>
+            </div>
+        </div>
+        
+        <div class="btn">
+        	<button class="btn1">
+            确认
+          </button>
+	</div>
+</template>
+
+{include file='public/menu'}
+{include file='public/footer'}
+
+<script>
+    var data = {
+      counter: 1,
+      sex:2
+    }
+    Vue.component('mian', {
+      template: '#mian',
+      data: function () {
+        return data
+      },
+      methods: {
+        getdate:function(){
+          var x=new Date();
+          var n=x.getFullYear(); //获取当前日期
+          var y=x.getMonth()+1; //获取当前日期
+          var r=x.getDate(); //获取当前日期
+          return n+"-"+y+"-"+r;
+        }
+      },
+      mounted:function() {
+        $('#time').datetimePicker({
+          min:this.getdate()
+        });
+      }
+    })
+    //头
+    Vue.component('headers', {
+      template: '#header',
+      data: function () {
+        return {
+          title: "维修确认报告填写"
+        }
+      },
+      methods:{
+         goback:function(){
+            window.history.go(-1)
+         }
+      }
+    })
+    Vue.component('menus', {
+      template: '#menu',
+      data: function () {
+        return {}
+      }
+    })
+    Vue.component('footers', {
+      template: '#footers',
+      data: function () {
+        return {}
+      }
+    })
+    new Vue({
+      el: '.app'
+    })
+
+
+
+</script>

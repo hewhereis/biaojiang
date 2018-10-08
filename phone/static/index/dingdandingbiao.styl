@@ -1,0 +1,111 @@
+.Dingdan
+    font-size: 14px
+    .border-none
+        margin-top:0
+    .label
+        color:#333
+        font-weight:500
+        font-size: 14px
+    .weui-cell
+        .raido
+            float:right
+            label 
+                color:#ccc
+        &.bg
+            background: #E5E9EC
+            padding: 5px 15px;
+        &.height
+            height:43px
+    .weui-table
+        width:100%
+        margin-top:15px
+        margin-bottom:10px
+        .weui-table-tr,.weui-table-th
+            width:90%
+            height:43px
+            display: flex;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            margin:0px auto
+            background: #E5E9EC
+            border:1px solid #c0c0c0
+            .weui-cell-item
+                flex: 1
+                -webkit-box-flex: 1
+                -webkit-flex: 1
+                border-right:1px solid #c0c0c0
+                text-align: center
+                line-height:43px
+                font-size:14px
+                &:last-child
+                    border-right:0
+                .a-link
+                    color:#4d7093
+        .weui-table-th
+            background: #fff
+            border-top:0
+        .weui-text
+            width:90%
+            margin:0px auto
+            .tip
+                color:#666666
+                font-size:14px
+    .weui-card
+        width:100%
+        font-size:14px
+        .weui-card-coneten
+            width:95%
+            margin:0px auto
+            padding-top:10px
+            padding-bottom:10px
+            .weui-card-top
+                display: flex;
+                display: -webkit-flex
+                display: -ms-flexbox
+                width:100%
+                height:45px
+                .photo
+                    flex:0 0 37px
+                    -ms-flex: 0 0 37px
+                    -webkit-box-flex:0 0 37px 
+                    width:37px
+                    height:37px
+                    border-radius:50%
+                    margin-right:10px
+                    overflow: hidden
+                .info
+                    flex:1
+                    position:relative
+                    .p
+                        margin-bottom:5px
+                        &:last-child
+                            margin-bottom:0
+                        .name
+                            color:#4d7093
+                            vertical-align:top
+                        .icon
+                            display:inline-block
+                            vertical-align:top
+                            width:63px
+                            height:19px
+                            background-size:63px 19px
+                            background-repeat: no-repeat 
+                            &.renzhen
+                                bg-image('../images/renzheng')
+                            &.bao
+                                bg-image('../images/bao')
+                        .price
+                            color:#ff8b00
+                    .ok
+                        position:absolute
+                        background: #07d95e
+                        right:0px
+                        top:25px
+            .weui-card-bottom
+                color:#707070
+                .class
+                    margin-bottom:5px
+                .message
+                    .golook
+                        float:right
+                        color:#6583a1

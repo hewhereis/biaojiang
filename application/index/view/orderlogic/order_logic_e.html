@@ -1,0 +1,145 @@
+{include file="public/style_header" }
+<!-- 定义主题头部图片-->
+<div class="order_manage_client">
+    <div class="" id="navigatesLeft">
+        <div class="" id='navigatesRigth'>
+            {include file="stype/service_type_1" }
+
+        </div>
+        <!-- 分页条-->
+        <div class="row" id="row">
+            <div class="col-md-4" style="margin-top:0.7%">
+                <input type="button" id="check_all" class="btn border-radius btn-default" value="全选">
+                <input type="button" id="Invert_Selection" class="btn border-radius btn-default"  value="删除所选">
+            </div>
+            <div class="col-md-6" style="margin-top:1%">
+                <div id="AjaxPage" style=" text-align: right;"></div>
+							
+            </div>
+            <a id="list-content"></a>
+        </div>
+							
+    </div>
+			
+</div>
+<!-- 加载动画 -->
+<div class="spiner-example">
+    <div class="sk-spinner sk-spinner-three-bounce">
+        <div class="sk-bounce1"></div>
+        <div class="sk-bounce2"></div>
+        <div class="sk-bounce3"></div>
+    </div>
+</div>
+<script>
+    //全选
+ 
+    $(function () {
+        var ty=true;
+        $("#check_all").click(function () {
+            if(ty){
+                var checknbox=$(".panel-heading input[type='checkbox']");
+                checknbox.each(function (i,value) {
+                    $(value).prop('checked',true);
+                    ty=false;
+                })
+            }else{
+                var checknbox=$(".panel-heading input[type='checkbox']");
+                checknbox.each(function (i,value) {
+                    $(value).prop('checked',false);
+                    ty=true;
+                })
+            }
+
+        })
+		//删除所有
+		 $("#Invert_Selection").click(function() {  
+				var id="";  
+				$("input[name=items]").each(function() {  
+					if ($(this).prop("checked")) {  
+						id += ","+$(this).val();  
+					}  
+				});  
+				
+				if(id==''){
+				layer.msg('至少选择一个哟',{icon:2,time:1500,shade: 0.1});
+				 return false;
+				}
+				id = id.substring(1); 
+				lunhui.confirmz(id,'__PUBLIC__orders/del_sers');	
+					
+			});
+    })
+    $(".panel-heading span.glyphicon").click(function () {
+        $(this).parents('.panel-default').remove();
+    })
+  
+</script>
+<script type="text/javascript">
+   
+    //laypage分页
+    Ajaxpage();
+    function Ajaxpage(curr){
+        var laytpl=layui.laytpl;
+        var  laypage=layui.laypage;
+        $.getJSON('__PUBLIC__orders/client/daieva', {page: curr || 1,key:parent.key_se}, function(data){
+            $(".spiner-example").css('display','none'); //数据加载完关闭动画 
+            if(data==''){
+                $("#list-content").html('<td colspan="20" style="padding-top:10px;padding-bottom:10px;font-size:16px;text-align:center">暂无数据</td>');
+            }else{
+                var tpl = document.getElementById('list-template').innerHTML;
+                laytpl(tpl).render(data, function(html){
+                    document.getElementById('list-content').innerHTML = html;
+                });
+                laypage({
+                    cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                    pages:'{$allpage}',//总页数
+                    skip: true,//是否开启跳页
+                    skin: '#1AB5B7',//分页组件颜色
+                    curr: curr || 1,
+                    groups: 3,//连续显示分页数
+                    jump: function(obj, first){
+                        if(!first){
+                            Ajaxpage(obj.curr)
+                        }
+                        $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    }
+                });
+            }
+        });
+    }
+//删除
+function del_ser(id){
+    lunhui.confirm(id,'__PUBLIC__orders/del_ser');
+	
+}
+//订单状态
+function orderstatus(id){
+    location.href = '__PUBLIC__order/status/'+id;
+}
+$("#ds-all").click(function() {  
+	  window.location.href="__PUBLIC__orders/client";	
+	});
+	$("#ds-k1").click(function() {  
+	  window.location.href="__PUBLIC__orders/client/daiset";	
+	});
+	 $("#ds-k2").click(function() {  
+	  window.location.href="__PUBLIC__orders/client/daipay";	
+	});
+	 $("#ds-k3").click(function() {  
+	  window.location.href="__PUBLIC__orders/client/daitob";	
+	});
+	 $("#ds-k4").click(function() {  
+	  window.location.href="__PUBLIC__orders/client/daiche";	
+	});
+	 $("#ds-k5").click(function() {  
+	  window.location.href="__PUBLIC__orders/client/daieva";	
+	});
+	 $("#ds-k6").click(function() {  
+	  window.location.href="__PUBLIC__orders/client/daiclo";	
+	});
+</script>
+
+
+
+
+

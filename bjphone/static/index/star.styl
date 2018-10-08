@@ -1,0 +1,33 @@
+.starContent
+    display:inline-block
+    vertical-align:top
+    .star
+        width:100%
+        font-size:0
+        height:20px
+        .star-item
+            width:20px
+            height:20px
+            display: inline-block
+            background-size:20px 20px
+            background-repeat: no-repeat
+            vertical-align:top
+            &.on
+                bg-image('img/star48_on')
+            &.off
+                bg-image('img/star48_off')
+            &.half
+                bg-image('img/star48_half')
+        .star-item-32
+            width:15px
+            height:15px
+            display: inline-block
+            background-size:15px 15px
+            background-repeat: no-repeat
+            vertical-align:top
+            &.on
+                bg-image('img/star36_on')
+            &.off
+                bg-image('img/star36_off')
+            &.half
+                bg-image('img/star36_half')

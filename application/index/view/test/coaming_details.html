@@ -1,0 +1,241 @@
+{include file='public/header'}
+<div class="main">
+	<div class="container">
+	   <div class="header">
+		<div class="page-header bx">
+			<h5>
+				<span>当前所在位置</span>
+				<span>>></span>
+				<small>围板/搭建详情</small>
+			</h5>
+		</div>
+	   </div>
+		<div class="panel panel-orange">
+			<div class="panel-heading">
+			    <div class="panel-title">
+			    	<p class="panel-title-p">
+			    		围板搭建/拆除详情
+			    	</p>
+			    </div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+			    <!-- 搭建时间 -->
+						<div class="row">
+							<div class="col-md-2 pt-10">
+								搭建时间
+							</div>
+							<div class="col-md-2">
+								<div class="input-group">
+									<input type="text" name="" class="form-control" value="2017-08-20">
+									
+								</div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio1" id="radio2" class="form-control">
+									<label for="radio2">白天</label>
+							    </div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio1" id="radio3" class="form-control">
+									<label for="radio3">晚上</label>
+								</div>
+							</div>	
+						</div>
+						<!-- 搭建时间 -->
+						<div class="row mt-20">
+							<div class="col-md-2 pt-10">
+								拆除时间
+							</div>
+							<div class="col-md-2">
+								<div class="input-group">
+									<input type="text" name="" class="form-control" value="2017-08-20">
+									
+								</div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio2" class="form-control">
+									<label for="radio2">白天</label>
+							    </div>
+							</div>
+							<div class="col-md-1">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio3" class="form-control">
+									<label for="radio3">晚上</label>
+								</div>
+							</div>	
+						</div>
+						<!-- 上传围板搭建图纸 -->
+						<div class="row mt-20">
+							<div class="col-md-2">
+								下载围板搭建图纸
+							</div>
+							<div class="col-md-2 ">
+								<button type="button" class="btn border-radius btn-info" style="color:#fff;padding:0.5em 3em" id='add'>查看图纸</button>
+							</div>
+						</div>
+						<!-- 承包模式 -->
+						<div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								承包模式
+							</div>
+							<div class="col-md-2">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio4" value="">
+									<label for="radio4">全包</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="radio radio-danger">
+									<input type="radio" name="radio2" id="radio5" value="">
+									<label for="radio5">半包（协助模式）</label>
+								</div>
+							</div>
+						</div>
+						<!-- 物流提货 -->
+						<div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								物流提货
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio6" value="">
+									<label for="radio6">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio7" value="">
+									<label for="radio7">不需要</label>
+								</div>
+							</div>
+						</div>
+					<!-- 是否需要现场查看场地 -->
+					    <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要现场查看场地
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio8" value="">
+									<label for="radio8">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio9" value="">
+									<label for="radio9">否</label>
+								</div>
+							</div>
+						</div>
+                    <!-- 是否需要办理施工手续 -->
+                        <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要办理施工手续
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio10" value="">
+									<label for="radio10">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio11" value="">
+									<label for="radio11">否</label>
+								</div>
+							</div>
+						</div>
+				    <!-- 是否需要代缴工程押金 -->
+				        <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要代缴工程押金
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio12" value="">
+									<label for="radio12">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio13" value="">
+									<label for="radio13">不需要</label>
+								</div>
+							</div>
+						</div>
+				    <!-- 是否需要办证 -->
+				        <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								是否需要办证
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio7" id="radio14" value="">
+									<label for="radio14">师傅办证</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio7" id="radio15" value="">
+									<label for="radio15">客户办理</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio7" id="radio16" value="">
+									<label for="radio16">不需要办理</label>
+								</div>
+							</div>
+						</div>
+					<!-- 完工后垃圾处理方式 -->
+					    <div class="row mt-10">
+							<div class="col-md-2 pt-10">
+								完工后垃圾处理方式
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio17" value="">
+									<label for="radio17">商场处理</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio18" value="">
+									<label for="radio18">师傅处理</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <!-- 选择施工人数 -->
+                <div class="row">
+					<div class="col-md-12 ">
+						<div class="row">
+							<div class="col-md-2 pt-10">
+								选择施工人数
+							</div>
+							<div class="col-md-5">
+								<div class="row">
+									<div class="col-md-7 pl-10">
+										<input type="text" name="" class="form-control" value="3">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	  </div>
+	</div>
+	<div class="text-center">
+	  	  <input type="button" name="" class="btn btn-info border-radius" value="返回" style="padding:0.5em 4em">
+	  </div>
+</div>
+
+
+{include file='public/footer'}

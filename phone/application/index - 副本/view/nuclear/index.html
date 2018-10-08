@@ -1,0 +1,67 @@
+{include file='public/header'}
+	<div class="htmleaf-container">
+		<div class="container">
+			<div class="js-signature" hidden></div>
+			<div class="row">
+				<div class="col-xs-12">
+					<h3>客户签字</h3>
+					<div class="js-signature" data-width="600" data-height="200" data-border="1px solid black" data-line-color="#bc0000" data-auto-fit="true"></div>
+					<p><button id="clearBtn" class="btn btn-default" onclick="clearCanvas();">重新签字</button>&nbsp;<button id="saveBtn" class="btn btn-default" onclick="saveSignature();" disabled>确认签字</button></p>
+					<div id="signature">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="__PUBLIC__static/index/js/jq-signature.js"></script>
+	<script type="text/javascript">
+		$(document).on('ready', function() {
+			if ($('.js-signature').length) {
+				$('.js-signature').jqSignature();
+			}
+		});
+
+		function clearCanvas() {
+			
+			$('.js-signature').eq(1).jqSignature('clearCanvas');
+			$('#saveBtn').attr('disabled', true);
+		}
+
+		function saveSignature() {
+			$('#signature').empty();
+			var dataUrl = $('.js-signature').eq(1).jqSignature('getDataURL');
+			// var img = $('<img>').attr('src', dataUrl);
+			dataUrl=dataUrl.split(",");
+			img=dataUrl[1];
+			$.ajax({
+				type:"POST",
+				data:{img:img,order:'{$order_number}'},
+				url:"__PUBLIC__submit_reports1",
+				success:function(data){
+						if(data.code==200){
+								$.ajax({
+									type:"POST",
+									data:{id:data.ids,order:'{$order_number}'},
+									url:"__PUBLIC__nuclear_sign_ajax",
+									success:function(data){
+											if(data.code===200){
+                                              alert(data.msg);
+                                               window.location.href="__PUBLIC__customer_nuclear/"+'{$order_number}';
+											}else{
+                                               alert(data.msg)
+											}
+									}
+								})
+						}
+				}
+
+			})
+		}
+
+		$('.js-signature').eq(1).on('jq.signature.changed', function() {
+			$('#saveBtn').attr('disabled', false);
+		});
+	</script>
+</body>
+</html>

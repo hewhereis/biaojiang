@@ -1,0 +1,116 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main customer_master_has_additional_items client_affirm_accomplish">
+  
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media" >
+        <h5 class="page-header bx">
+            <span class="pl-10">当前位置：</span>
+             <small><a href="__PUBLIC__orders/client">订单管理</a></small>
+             <span>>></span>
+            <small>客户追加项目</small>
+            
+        </h5>
+    </div>
+    
+    <div class="container ">
+        <!--/*标题*/-->
+        <input type="hidden" id="order_number" value="{$order_number}">
+        <div class="row The-test-panel-head">
+            <div class="col-xs-11 ">师傅追加项目表项目</div>
+        </div>
+        <FORM> 
+         <div class="row The-test-panel-body">
+                <div class="col-md-12">
+                    <span>追加项目报价</span><input type="text" name="Data" onkeyup="enfocus()" class="border-bottom-1 ml-10 pl-10 mr-10"><span>元</span>
+                    <input type="text" SIZE=40 name="Data2"  value="{$rate}" hidden="hidden" onkeyup="enfocus()"><br> 
+                    
+                    <div class="row">
+                        <div class="col-md-12 mt-30">
+                            <textarea name="" placeholder="请填写追加项目理由" class="form-control" id="reason" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mt-10">
+                        
+                            <br>
+                            <span class="mr-10  ">合计:<input type="text" style="border:0px;width:5%" name="Copy" id="copy"></span><span>(含了{$rate}的税率)</span>
+                             
+                        </div>
+                    </div>
+                </div>
+         </div>
+         </FORM>
+        <!--去付款-->
+        <div class="row">
+            <div class="col-md-3 col-md-offset-4 mt-30">
+                <a href="" class="btn btn-orange border-radius form-control" id="payment">去付款</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".pointer").click(function () {  
+    })
+</script>
+<script LANGUAGE="JavaScript">
+function enfocus() 
+{ 
+    var t1 = document.forms[0].Data.value; 
+    var t2 = document.forms[0].Data2.value; 
+    var t3 = document.forms[0].Copy.value ; 
+if(t1!="" && t2!=""){ 
+    var c =parseFloat(t1)*(parseFloat(t2)+1);
+document.getElementById("copy").value = c.toFixed(2) ; 
+} 
+else {document.getElementById("copy").value = "";} 
+} 
+<!-- done hiding --> 
+</script>
+<script>
+$('#payment').click(function(e){
+    e.preventDefault();
+   var total = document.forms[0].Copy.value ;
+   var t1 = document.forms[0].Data.value;
+   if(t1==''){
+     layer.msg('请填写追加项目费用',{icon:2,time:1500})
+   return false;
+   }
+   var reason = $('#reason').val();
+   if(reason==''){
+     layer.msg('请填写追加项目理由',{icon:2,time:1500})
+   return false;
+   }
+   var order_number = $('#order_number').val();
+      $.ajax({
+              url:'__PUBLIC__is_weixin',
+              type:'post',
+              data:{},
+              dataType:'json',
+              success:function(data){
+                 if(data==true){
+                  location.href="http://www.bj-wang.com/ordermanage/jsapi?total="+total+"&&number="+order_number;
+                 }else{
+                  $.ajax({
+                          url:'__PUBLIC__addition',
+                          type:'post',
+                          data:{total:total,reason:reason,order_number:order_number},
+                          dataType:'json',
+                          success:function(data){
+                               if(data.code==200){
+                                 location.href="http://www.bj-wang.com/ordermanage/scan/"+order_number;
+                               }
+                  
+                        }     
+                    })
+            
+                 }
+              
+            }
+        })
+})
+
+
+</script>
+{include file="public/footer" }

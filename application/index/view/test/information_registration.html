@@ -1,0 +1,373 @@
+{include file='public/header'}
+
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<script type="text/javascript" src="http://192.168.0.253/newbj/static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style>
+</style>
+<div class="main">
+	<div class="container">
+		<div class="header">
+				<h5 class="page-header bx">
+					<span>当前所在位置</span>
+					<span>>></span>
+					<small>师傅信息登记表</small>
+				</h5>
+		</div>
+		<div class="panel panel-orange">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<p class="panel-title-p">
+						<span>师傅信息登记</span>
+					</p>
+				</div>
+			</div>
+	        <div class="panel-body">
+	    <!-- 师傅信息 -->    
+				<div style="font-weight: bold;font-size:1.1em">
+					师傅信息
+				</div>
+	    <!-- 用户昵称 -->
+                <div class="row">
+                    <div class='col-md-3 col-md-push-9'>
+                        <div clas='row'>
+                            <div class='col-md-12'>
+                              <a href="#">  
+                                
+                                <img  height="100px" class="mt-0_xs" id='uploadPicture' src="__PUBLIC__static/index/images/shangchuan.png"/>
+                              </a>  
+                            </div>
+                        </div>
+                        <!-- <div clas='row' > 
+                            <div class='col-md-12' style='overflow: hidden'>   
+                                <label class=''  >上传头像</label>
+                            </div>
+                        </div>  --> 
+                    </div>
+
+                    <div class="col-md-9 col-md-pull-3">
+                        <div class='row'>   
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                          用户昵称
+                                    </div>
+                                    <div class="col-md-6">
+                                          <input type="text" name="" class="form-control">
+                                    </div>
+                                </div>
+                            </div>     
+                        </div>
+
+                        <!-- 常住区域 -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content2" style="margin-top: 1em">
+                                    <div class="row">
+                                        <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                              住居区域
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                              <option>上海市</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option>上海市</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option>上海市</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <!-- 目标区域 -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content3" style="margin-top: 1em">
+                                    <div class="row">
+                                        <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                              目标区域
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                              <option>上海市</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option>上海市</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option>上海市</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+
+                
+    
+        <hr>
+        <!-- 愿意服务项目 --> 
+                <div style="font-weight: bold;font-size:1.1em">
+					愿意服务项目
+				</div>
+                <!-- 服务项目 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content5" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      服务项目
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                      <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+	    <!-- 商品类别  -->
+	            <div class="row">
+                    <div class="col-md-9">
+                        <div class="content4" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      商品类别
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control">
+                                      <option>上海市</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control">
+                                       <option>上海市</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control">
+                                        <option>上海市</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div> 
+     <hr>
+        <!-- 工程简历 -->
+        <div class='' id='one'>
+            <div class='html'>
+                <div style="font-weight: bold;font-size: 1.1em">
+                	工程简历
+                </div>
+        <!-- 认证数/邀请认证 -->
+           
+                <div class="row">
+                	<div class="col-md-9">
+                		<div class="content6">
+                			<div class="row">
+                				<div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%" >
+                					<button type="button" class="btn border-radius btn-defulte" style="background-color:#ff5200;color:#fff">认证数</button>
+                				</div>
+                                <div class="col-md-3" style="font-size: 1.5em;padding-top: 0.3em">
+                                    <i class="fa fa-star" style="color:#ff5200" aria-hidden="true"></i>
+                                    <i class="fa fa-star" style="color:#ff5200" aria-hidden="true"></i>
+                                    <i class="fa fa-star" style="color:#ff5200" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-md-3" style="padding-top: 0.5em" >
+                                    <button type="button" class="btn border-radius btn-info" style="color:#fff">邀请认证</button>
+                                </div>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+        <!-- 项目名称 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content1" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      项目名称
+                                </div>
+                                <div class="col-md-6">
+                                      <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+        <!-- 任职公司 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content1" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      任职公司
+                                </div>
+                                <div class="col-md-6">
+                                      <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+        
+        <!-- 下的下一个 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content1" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      项目时间
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                           <div class="input-group">
+                                            <input type="text" readonly="" name="" class="form-control" value="">
+                                            <a class='btn btn-defalute input-group-addon'><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                           </div>
+                                        </div>
+                                        <div class="col-md-2" style="padding-top:0.3em">
+                                            <span>——</span>
+                                        </div>
+                                        <div class="col-md-5">
+                                          <div class="input-group">
+                                            <input type="text" readonly="" name="" class="form-control" value="">
+                                             <a class='btn btn-defalute input-group-addon'><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                          </div>
+        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <!-- 服务品牌 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content5" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      服务品牌
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                      <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+        <!-- 服务项目 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content5" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      服务项目
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                      <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div> 
+        <!-- 师傅技能 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content5" style="margin-top: 1em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      师傅技能
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                      <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+             <hr>
+            </div>
+        </div>
+
+        <!-- 添加简历 -->
+                <div class="col-md-9" style="padding-top:1.5em;padding-left:13%" >
+                    <button type="button" class="btn border-radius btn-info" style="color:#fff" id='add'><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;添加工程简历</button>
+                </div>
+        <!-- 邀请人号码 -->
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="content1" style="margin-top: 3em">
+                            <div class="row">
+                                <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                      邀请人号码
+                                </div>
+                                <div class="col-md-6">
+                                      <input type="text" name="" class="form-control">
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+        <hr>
+        <!-- 确认按钮 -->
+                <div style="text-align:center">
+                    <input type="button" name="" class="btn border-radius btn-info" style="padding:0.5em 4em" value="确认">
+                </div>
+
+			</div>
+		</div>
+	</div>
+  </div>
+
+<script>
+    var html = $('#one').html();
+    $('#add').click(function(){
+        $('#one').append(html);
+    });
+
+    var uploader = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#uploadPicture',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#data_photo").val(data._raw);
+            $("#img_data").attr('src', '__TUN__/face/' + data._raw).show();
+        }
+    });
+    
+</script>
+{include file='public/footer'}

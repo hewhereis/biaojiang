@@ -1,0 +1,367 @@
+{include file='public/header'}
+ <div class="main">
+ 	<div class="container">
+ 		<div class="content">
+	 		<h5 class="page-header bx">
+	            <span class="pl-10">当前所在位置</span>
+	            <span>>></span>
+	            <small>勘测任务</small>
+	        </h5>
+ 		</div>
+ 		<div class="panel panel-orange">
+			<div class="panel-heading">
+				<div class="panel-title">
+						<span>勘测任务提交</span>
+				</div>
+			</div>
+			<div class="panel-body">
+ 				<div class="row">
+ 					<div class="col-md-6">
+	 		      <div class="row">
+	            <div class="col-md-4" style="padding-top: 0.5em">
+                <span>勘测商品类型</span>
+              </div>
+                 <div class='col-md-8'>
+                  <select class='form-control'>
+                    <option>111111</option>
+                    <option>222222</option>
+                  </select>  
+                </div>
+            </div>       
+          </div> 
+        </div>
+         <!--  勘测面积 --> 
+        <div class="row">
+          <div class="col-md-6">
+             <div class="form-group" style="margin-top: 1em"> 
+              <div class="row">
+               <label class="col-md-4" style="padding-top: 0.5em">
+                  勘测面积
+               </label>
+                 <div class="col-md-8">
+                    <div class="input-group">
+                        <input type="text" name="" class="form-control">
+                           <a class="btn btn-defalute input-group-addon"><i>m<sup>2<sup></i></a>
+                    </div>
+                 </div>
+              </div>
+             </div>
+          </div> 
+        </div> 
+       <!--  空间高度 -->
+        <div class="row">
+          <div class="col-md-6">
+             <div class="form-group" style="margin-top: 1em">
+              <div class="row">
+               <label class="col-md-4" style="padding-top: 0.5em">
+                  空间高度
+               </label>
+                 <div class="col-md-8">
+                    <div class="input-group">
+                         <input type="text" name="" class="form-control">
+                         <a class="btn btn-defalute input-group-addon"><i>m</i></a>
+                    </div>
+                 </div>
+              </div>
+             </div>
+          </div> 
+        </div> 
+       <!--  上传图片  -->
+        <div class="row">
+          <div class="col-md-6">
+             <div class="form-group" style="margin-top: 1em">
+              <div class="row">
+               <label class="col-md-4" style="padding-top:5em">
+                  上传图片
+               </label>
+                 <div class="col-md-4">
+                    <a href="">
+                      <img src="__PUBLIC__static/index/images/shangchuan.png" class="img-responsive" alt="" />
+                    </a>
+                 </div>
+              </div>
+             </div>
+          </div> 
+        </div>
+        
+          <!-- 施工时间 --> 
+          <div class="row">
+            <div class="col-md-6">
+                <div class="content1" style="margin-top:1em">
+                  <div class="row">
+                    <div class="col-md-4" style="padding-top: 1em">
+                         施工时间
+                    </div>
+                     <div class="col-md-4">
+                        <div class="checkbox checkbox-success">
+                           <input type="radio" name="radio1" class="styled" id="radio2" value=""> 
+                           <label for="radio2">白天</label>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="checkbox checkbox-danger">
+                           <input type="radio" name="radio1" class="styled" id="radio4" value=""> 
+                           <label for="radio4">晚上</label>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- 是否具备的条件 -->
+           
+          <div class="row">
+            <div class="col-md-6">
+                <div class="content2" style="margin-top: 1em">
+                  <div class="row">
+                    <div class="col-md-4" style="padding-top: 1em">
+                         是否具备的条件
+                    </div>
+                     <div class="col-md-4">
+                        <div class="checkbox checkbox-success">
+                           <input type="radio" name="radio5" class="styled" id="radio6" value=""> 
+                           <label for="radio6">梯子</label>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="checkbox checkbox-danger">
+                           <input type="radio" name="radio5" class="styled" id="radio8" value=""> 
+                           <label for="radio8">脚手架</label>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+     <!--      上传勘测场地勘查表 -->
+          <div class="row">
+            <div class="col-md-7">
+               <div class="content3" style="margin-top: 1em">
+                 <div class="row">
+                   <div class="col-md-4" style="padding-top:0.6em">
+                      上传勘测场地勘查表
+                   </div>
+                   <div class="col-md-4">
+                       <button class="btn btn-info btn-lg " style="padding:0.3em 2em; border-radius: 0.2em">点击上传</button>
+                   </div>
+                    <div class="col-md-4">
+                       <button class="btn btn-warning btn-lg " style="padding:0.3em 2.5em; border-radius: 0.2em">无报告</button>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+       <!--  上传勘测测绘表 -->
+                <div class="row">
+            <div class="col-md-7">
+               <div class="content4" style="margin-top: 1em">
+                 <div class="row">
+                   <div class="col-md-4" style="padding-top: 0.6em">
+                      上传勘测测绘表
+                   </div>
+                   <div class="col-md-4">
+                       <button class="btn btn-info btn-lg " style="padding:0.3em 2em;border-radius: 0.2em">点击上传</button>
+                   </div>
+                    <div class="col-md-4">
+                            <button class="btn btn-warning btn-lg " style="padding:0.3em 2.5em; border-radius:0.2em">无报告</button>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+       <!--    预计施工时长 -->
+          <div class="row">
+             <div class="col-md-6">
+                 <div class="content5" style="margin-top: 1em">
+                    <div class="row">
+                        <div class="col-md-4" style="padding-top:0.5em">
+                            预计施工时长
+                        </div>
+                        <div class="col-md-6">
+                           <input type="text" name="" class="form-control">
+                        </div>
+                    </div>
+                 </div>            
+             </div>
+          </div>
+   <!--      完工期限 -->
+           <div class="row">
+               <div class="col-md-6">
+                   <div class="content6" style="margin-top:1em">
+                        <div class="row">
+                            <div class="col-md-4" style="padding-top: 0.5em">
+                                 完工期限
+                            </div>
+                            <div class="col-md-6">
+                                <div class='input-group'>
+                                    <input type="text" readonly="" name="" class="form-control"  id="test1">
+                                    <a class='btn btn-defalute input-group-addon'><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+           </div>                            
+                            <script>
+                             layui.use('laydate', function(){
+                               var date = layui.laydate;
+                               date.render({
+                                 elem: '#test1' //指定元素
+                               });
+                             });
+                            </script>
+ <!--        商场办证 -->
+        <div class="row">
+          <div class="col-md-7">
+             <div class="content7" style="margin-top: 1em">
+                 <div class="row">
+                      <div class="col-md-3" style="padding-top: 1em">
+                          商场办证
+                      </div>
+                       <div class="col-md-3">
+                          <div class="checkbox checkbox-success">
+                             <input type="radio" name="radio9" class="styled" id="radio10" value="">
+                             <label for="radio10">师傅代办</label>
+                          </div>
+                       </div>
+                       <div class="col-md-3">
+                           <div class="checkbox checkbox-primary">
+                              <input type="radio" name="radio9" class="styled" id="radio12" value="">
+                               <label for="radio12">客户办理</label>
+                           </div>
+                       </div>
+                           <div class="col-md-3">
+                               <div class="checkbox checkbox-warning">
+                                    <input type="radio" name="radio9" class="styld" id="radio14" value="">
+                                    <label for="radio14">不需要办理</label>
+                               </div>
+                           </div>
+                 </div>
+             </div>
+          </div>
+        </div>
+     <!--  一条线 -->
+        <div class="row">
+           <div class="col-md-12">
+              <hr />
+           </div>
+        </div>
+        <!--    店铺地址 -->
+           <div class="row">
+              <div class="col-md-8">
+                  <div class="content8">
+                      <div class="row">
+                          <div class="col-md-3">
+                             店铺地址
+                          </div>
+                          <div class="col-md-3">
+                              <select class="form-control">
+                                 <option>上海市</option>
+                              </select>
+                          </div>
+                          <div class="col-md-3">
+                              <select class="form-control">
+                                  <option>嘉定区</option>
+                              </select>
+                          </div>
+                          <div class="col-md-3">
+                              <select class="form-control">
+                                  <option>方泰镇</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div> 
+              </div>
+           </div>
+           <!-- 请填写你的详细地址 -->
+           <div class="row">
+              <div class="col-md-8">
+                  <div class="content8" style="margin-top: 1em">
+                      <div class="row">
+                          <div class="col-md-3">
+                             
+                          </div>
+                          <div class="col-md-6">
+                             <input type="text" name="" class="form-control" placeholder="请填写你的详细地址">
+                          </div>
+                      </div>
+                  </div> 
+              </div>
+           </div>
+       <!--    请填写你的姓名 -->
+                <div class="row">
+              <div class="col-md-8">
+                  <div class="content8" style="margin-top: 1em">
+                      <div class="row">
+                          <div class="col-md-3">
+                              联系人
+                          </div>
+                          <div class="col-md-6">
+                             <input type="text" name="" class="form-control" placeholder="请填写你的姓名">
+                          </div>
+                      </div>
+                  </div> 
+              </div>
+           </div>
+        <!--   联系方式 -->
+               
+                <div class="row">
+              <div class="col-md-8">
+                  <div class="content8" style="margin-top: 1em">
+                      <div class="row">
+                          <div class="col-md-3">
+                              联系方式
+                          </div>
+                          <div class="col-md-6">
+                             <input type="text" name="" class="form-control" placeholder="请填写你的正确联系方式">
+                          </div>
+                      </div>
+                  </div> 
+              </div>
+           </div>
+      <!--     邮箱 -->
+           
+                <div class="row">
+              <div class="col-md-8">
+                  <div class="content8" style="margin-top: 1em">
+                      <div class="row">
+                          <div class="col-md-3">
+                              邮箱
+                          </div>
+                          <div class="col-md-6">
+                             <input type="text" name="" class="form-control" placeholder="请填写你的邮箱地址，以便你接受资料">
+                          </div>
+                      </div>
+                  </div> 
+              </div>
+           </div>
+       <!--     特殊要求 -->
+           
+                <div class="row">
+              <div class="col-md-8">
+                  <div class="content8" style="margin-top: 1em">
+                      <div class="row">
+                          <div class="col-md-3">
+                             特殊要求
+                          </div>
+                          <div class="col-md-6">
+                              <textarea style="width: 100%;height:8em;border:1px solid #cacaca"></textarea>
+                          </div>
+                      </div>
+                  </div> 
+              </div>
+           </div>
+
+ 				 </div>
+        </div>
+ 			</div>
+        <div class="content9 text-center">
+         
+              <button type="button" class="btn btn-primary btn-lg" style="padding:1em 5em;border-radius:0.5em">下一步</button>
+            
+          </div>
+     
+ 	</div>
+ </div>
+
+{include file='public/footer'}

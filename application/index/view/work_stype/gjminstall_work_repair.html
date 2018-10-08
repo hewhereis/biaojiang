@@ -1,0 +1,109 @@
+<!--判断当前更换灯片步骤为6时-->
+{{# if(d[i].step_type==6){ }}
+	{{# if(d[i].master_status==1){ }}
+	<a href="javascript:;">
+		<span class="btn btn-xs btn-sm btn-orange">已抢单</span>
+	</a>
+	{{# }if(d[i].master_status==2){ }}
+	<a href="javascript:void(0)" onclick="ad_message2({{d[i].worker_id}},{{d[i].owner_id}},'{{d[i].order_number}}');">
+		<span class="btn btn-xs btn-sm btn-orange">提醒客户付款</span>
+	</a>
+{{# }if(d[i].master_status==3){ }}
+
+	{{# if(d[i].work_step_number==6){ }}
+		<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+			<span class="btn btn-xs btn-sm btn-orange">点击签退</span>
+		</a>
+	{{#}}}
+	{{# if(d[i].work_step_number==2){ }}
+	<a href="__PUBLIC__master_contact_customer/{{d[i].order_number}}" target="_blank" >
+		<span class="btn btn-xs btn-sm btn-orange">联系客户</span>
+	</a>
+	{{# }if(d[i].work_step_number==3){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">点击签到</span>
+	</a>
+	{{# }if(d[i].work_step_number==4){ }}
+	{{# if(d[i].is_bomb==0){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">提交施工报告</span>
+	</a>
+	{{# }if(d[i].is_bomb==1){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">提交核单报告</span>
+	</a>
+	{{# } }}
+	{{# }if(d[i].work_step_number==5){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">提交施工报告</span>
+	</a>
+	{{# } }}
+{{# }if(d[i].master_status==4){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">提交验收报告</span>
+	</a>
+	{{# }if(d[i].master_status==5){ }}
+	<a href="__PUBLIC__master_evaluate/{{d[i].order_number}}" target="_blank" >
+		<span class="btn btn-xs btn-sm btn-orange">去评价</span>
+	</a>
+	{{# }if(d[i].master_status==6){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">追加评价</span>
+	</a>
+{{# } }}
+<!--判断当前更换灯片步骤为7时-->
+{{# }if(d[i].step_type==7){ }}
+	{{# if(d[i].master_status==1){ }}
+	{{# }if(d[i].master_status==2){ }}
+	<a href="javascript:;" onclick="ad_message2({{d[i].worker_id}},{{d[i].owner_id}},'{{d[i].order_number}}');">
+		<span class="btn btn-xs btn-sm btn-orange">提醒客户付款</span>
+	</a>
+{{# }if(d[i].master_status==3){ }}
+	{{# if(d[i].work_step_number==5){ }}
+	<a href="__PUBLIC__master_contact_customer/{{d[i].order_number}}" target="_blank" >
+		<span class="btn btn-xs btn-sm btn-orange">联系客户</span>
+	</a>
+	{{# }if(d[i].work_step_number==6){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">点击签到</span>
+	</a>
+	{{# }if(d[i].work_step_number==7){ }}
+	{{# if(d[i].is_bomb==0){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">提交施工报告</span>
+	</a>
+	{{# }if(d[i].is_bomb==1){ }}
+	<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+		<span class="btn btn-xs btn-sm btn-orange">提交核单报告</span>
+	</a>
+	{{# } }}
+{{# }if(d[i].work_step_number==8){ }}
+						<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+							<span class="btn btn-xs btn-sm btn-orange">提交施工报告</span>
+						</a>
+					{{# } }}		
+			{{# if(d[i].work_step_number==9){ }}
+						<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+							<span class="btn btn-xs btn-sm btn-orange">点击签退</span>
+						</a>
+			{{# } }}
+{{# }if(d[i].master_status==4){ }}
+{{# if(d[i].work_step_number==9){ }}
+            <a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+                <span class="btn btn-xs btn-sm btn-orange">点击签退</span>
+            </a>
+          {{# }else{ }}
+             <a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+            <span class="btn btn-xs btn-sm btn-orange">提交验收报告</span>
+          </a>
+           {{#}}}
+{{# }if(d[i].master_status==5){ }}
+<a href="__PUBLIC__master_evaluate/{{d[i].order_number}}" target="_blank" >
+    <span class="btn btn-xs btn-sm btn-orange">去评价</span>
+</a>
+{{# }if(d[i].master_status==6){ }}
+<a href="__PUBLIC__order/workstatus/{{d[i].id}}" target="_blank">
+    <span class="btn btn-xs btn-sm btn-orange">追加评价</span>
+</a>
+{{# } }}
+{{# } }}

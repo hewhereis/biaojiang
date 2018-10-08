@@ -1,0 +1,189 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="shifushimingrenzheng">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+
+    <div class="weui-cells_form">
+        <div class="bg-primary-hieght"></div>
+        <div class="weui-cell__bd zhengjian">
+            <div class="weui-uploader">
+                <div class="weui-cell__bd">
+                    <p class="weui-uploader__title">
+                        <span class="icon-证件"></span>
+                        基本资料
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color weui-input">真实姓名:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  type="text" v-model="fuwuleixing"  id="fuwuleixing" placeholder="请输入你身份证上的姓名" value="">
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">身份证号:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input"  type="text" name="fuwuquyu" v-model="fuwuquyu"   id="fuwuquyu" placeholder="请输入您身份证上的身份证号">
+            </div>
+
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">手机号:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input " id="fuwushijian" v-model="fuwushijian"  type="text" placeholder="请输入的手机号"   >
+            </div>
+
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label  bj-label-color">验证码:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  type="text" id="yuangongrenshu" v-model="yuangongrenshu"  placeholder="请输入验证码">
+            </div>
+            <div class="weui-cell__hd">
+                <label @click="fasongyanzhengma()" class="weui-label  bj-label-color">发送验证码</label>
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">公司名称:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input type="text" class="weui-input" id="fuwushuliang" v-model="fuwushuliang" placeholder="请输入公司全名" >
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">货车大小:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  type="text"  v-model="houchedaxiao" placeholder="请填写货车大小">
+            </div>
+        </div>
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">公司地址:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  v-model="houcedunwei"  id="houcedunwei" type="text"    placeholder="请输入公司所在地址">
+            </div>
+        </div>
+        <div class="bg-primary-hieght"></div>
+        <div class="weui-cell__bd zhengjian">
+            <div class="weui-uploader">
+                <div class="weui-cell__bd">
+                    <p class="weui-uploader__title">
+                        <span class="icon-证件"></span>
+                        证件上传
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="weui-flex tupian">
+            <div class="weui-flex__item">
+                <div class="text">身份证正面</div>
+                <img src="__index__static/index/images/z3.png" class="img" alt="">
+            </div>
+        </div>
+        <div class="weui-flex tupian">
+            <div class="weui-flex__item">
+                <div class="text">身份证反面</div>
+                <img src="__index__static/index/images/z4.png" class="img" alt="">
+            </div>
+        </div>
+        <div class="weui-flex tupian">
+            <div class="weui-flex__item">
+                <div class="text">手持身份证照</div>
+                <img src="__index__static/index/images/z1.png" class="img" alt="">
+            </div>
+        </div>
+        <div class="weui-flex tupian">
+            <div class="weui-flex__item">
+                <div class="text">公司营业执照</div>
+                <img src="__index__static/index/images/z2.png" class="img" alt="">
+            </div>
+        </div>
+        <div class="weui-flex shuoming">
+            <div class="weui-flex__item text">
+                <p>1.需本人上身免冠照</p>
+                <p>2.照片五官清晰</p>
+                <p>3.照片身份证号码可见</p>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <input @click="tijiao()" type="button" value="申请审核" class="weui-btn bj_button_orange">
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "公司实名认证",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                fuwuleixing:"",
+                fuwuquyu:"",
+                fuwushijian:"",
+                yuangongrenshu:"",
+                fuwushuliang:"",
+                houchedaxiao:"",
+                houcedunwei:"",
+                fuwujiesho:""
+            }
+        },
+        methods:{
+            fasongyanzhengma:function () {
+                alert(0)
+            },
+            tijiao:function () {
+                console.log(this._data)
+            }
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

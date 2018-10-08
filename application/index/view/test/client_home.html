@@ -1,0 +1,158 @@
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+<!--nav-->
+{include file="public/header" }
+<!--header-->
+<div class="main client_home">
+    <!-- header-img-->
+    <div class="header-img ">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <div class="container container-hidden">
+        <!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：
+            <small>客户首页</small><span>>></span>
+        </h5>
+        <!-- 主题-->
+        <div class="row mt-10">
+            <div class="col-md-12">
+                <div class="panel  panel-default">
+                    <div class="panel-heading bg-orange text-center">
+                        客户首页
+                    </div>
+                    <div class="panel-body  pb-0">
+                        <div class="row mt-10" id="navigatesLeft">
+                            <!--本页的样式-->
+                            <div class='left responsive_to_the_head' id='left'>
+        <span class='btn text-elg text-orange hidden-lg hidden-md' style='position:absolute;z-index: 999;left:210px;' id='menu_btn'>
+            <i class="fa fa-times hide text-orange" aria-hidden="true"></i>
+            <i class="fa fa-bars text-orange" aria-hidden="true"></i>
+        </span>
+                                <div class='row'>
+                                    <div class='col-xs-12'>
+                                        <ul class="list-group text-center">
+                                            <li class="list-group-item ">
+                                                <a href="http://www.baidu.com" target="pi">我的任务</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="http://www.baidu.com" target="pi">帮助中心</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">我的钱包</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">账号安全</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">申请记录</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">服务保障</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">
+                                                    地址管理
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">消息中心</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">交易记录</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">评价管理</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">退款管理</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">分享推荐</a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a href="">投诉建议</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12 right" id='navigatesRigth' style="min-height: 900px">
+
+                                <iframe src="__PUBLIC__client_home_k" name="pi" scrolling="no"  style="min-height: 1000px;width: 100%;border: none" name="iframe_a">
+                                </iframe>
+
+                            </div >
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div >
+
+
+</div>
+</div>
+<script>
+    $("#money").focus(function () {
+        $("#ack_buttone").removeAttr('disabled');
+        $("#ack_buttone").addClass('bg-success');
+    });
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+    $("#stores_add").click(function () {
+        var div=$("<div> <div> <img/> <div></div></div> </div>");
+        div.addClass('col-xs-4')
+        var att=div.children().children();
+        $(att[0]).attr('src','__PUBLIC__static/index/images/banner.jpg');
+        $(att[0]).addClass('img-responsive');
+        $(".client_home #navigatesRigth>div.shop").append(div)
+    });
+    $(".shop>div>div").hover(function () {
+        $($(this).first().contents()[3]).css('background','rgba(192,192,192,1)')
+        console.log()
+    },function(){
+        $($(this).first().contents()[3]).css('background','rgba(0,0,0,.5)')
+    });
+//    mousedown、mousemove和mouseup
+
+
+
+
+
+
+
+</script>
+{include file="public/footer" }

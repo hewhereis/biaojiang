@@ -1,0 +1,89 @@
+{include file="public/headerlogin"}
+<script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+<div class='signOut'>
+    <div class="signOut-top">
+        <div class="orderNumber">
+            <span>订单号：</span>
+            <span>{$list.order_number}</span>
+        </div>
+        <div class="price">
+            <span>￥<span>{$list.amount_engineer}</span>元</span>
+            <br>
+            <span class='priceText'>总价</span>
+        </div>
+    </div>
+    <input id="id"  hidden="hidden" value="{$id}">
+    <div class="signOut-bottom">
+        <div class="siginOut-buttom">
+             <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_default" id="ds_work_sign">签到</a>
+        </div>
+        <div class="signOut-location" id="pos-area">
+            <span><i class='icon-location2'></i>当前位置：<span class='location' id="demo"></span></span>
+        </div>
+    </div>
+</div>
+
+<script>
+$("#ds_work_sign").click(function () {
+     var position=$('#demo').html();
+     var obj = document.getElementById("ds_work_sign"); 
+     var id = $('#id').val(); 
+     if(position==''){
+         $.toast('没有获取到您的位置信息','error');
+         geolocation.getLocation(showPosition, showErr, options);
+     }else{
+        $.ajax({
+                url: '__PUBLIC__signajax',
+                dataType: 'json',
+                data: {
+                    id:id,
+                    position:position
+                },
+                type: 'post',
+                success: function(data) {
+                    if (data.code == 200) {
+                        $.toast(data.msg,  function() {
+                            obj.innerText= "已签到"; 
+                            //location.href = '__PUBLIC__orders/master';
+                        });
+                    } else {
+                         $.toast('不要重复签到','error');
+                    }
+                },
+                
+            })
+        
+     }
+})
+</script>
+
+
+<script type="text/JavaScript">
+    var geolocation = new qq.maps.Geolocation("TFGBZ-MO4WO-6AEWJ-S2GB3-3MVGJ-4RBP4", "myapp");
+    document.getElementById("pos-area").style.height = (document.body.clientHeight - 110) + 'px';
+    var positionNum = 0;
+    var options = {timeout: 8000};
+    function showPosition(position) {
+        positionNum ++;
+        var weizhi =JSON.stringify(position, null, 4);
+        var obj = JSON.parse(weizhi);
+        var province=obj.province;//省
+        var city=obj.city;//市
+        var district=obj.district;//市]
+        var ds='<br>';
+        var addr=obj.addr;//详细地址
+        var information =province+city+district+ds+addr;
+        if(addr==''){
+            $.toast('定位失败,请确保已在手机上打开位置信息','error');
+            return false;
+        }
+        document.getElementById("demo").innerHTML = information;
+        document.getElementById("pos-area").scrollTop = document.getElementById("pos-area").scrollHeight;
+    };
+    function showErr() {
+        positionNum ++;
+        $.toast('定位失败,请确保已在手机上打开位置信息','error');
+        document.getElementById("pos-area").scrollTop = document.getElementById("pos-area").scrollHeight;
+    };
+    geolocation.getLocation(showPosition, showErr, options);
+</script>

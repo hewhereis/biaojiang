@@ -1,0 +1,184 @@
+{include file="public/header"}
+<!-- header -->
+	<!--main-->
+	<div class='main'>
+        <div class='container'>
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>评价客户</small><span>>></span>
+            </h5>
+            <div class='panel panel-orange'>
+	            <div class='panel-heading'>
+	            	<div class="panel-title">
+	            		<span>请评价</span>
+	            	</div>
+	            </div>
+	            <div class='panel-body mb-50'>
+	            <form action="">
+	            	<div class='row mt-20'>
+						<div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+							<div class="row">
+								<h4 class='heading pl-15'>
+									<small>恭喜您又完成一单！</small>
+									<br>
+									<small>大师傅辛苦了，业主的表现如何，给出你的评价吧！</small></h4>
+							</div>
+							<hr class='bx'>
+							<div class="row mt-20">
+								<div class="col-sm-3">
+									<label class='control-label'>业主表现:</label>
+								</div>
+								<div class="col-sm-9">
+									<div class="row">
+										<div class="col-xs-4 col-sm-3 p-0">
+											<div class="radio radio-danger ">
+				                                <input type="radio" name="owner" id="good" value="1" checked="" >
+				                                <label for="good">
+				                                    <img src='__PUBLIC__static/index/images/satisfaction3.png' width='30px' style='position:absolute;top:-10px;left: -2px;'><span style='margin-left: 22px;'>满意</span>
+				                                </label>
+				                            </div>
+										</div>
+										<div class="col-xs-4 col-sm-3 p-0">
+											<div class="radio radio-warning">
+				                                <input type="radio" name="owner" id="ordinary" value="0" >
+				                                <label for="ordinary">
+				                                    <img src='__PUBLIC__static/index/images/satisfaction.png' width='30px' style='position:absolute;top:-10px;left: -2px;'><span style='margin-left: 22px;'>一般</span>
+				                                </label>
+				                            </div>
+										</div>
+										<div class="col-xs-4 col-sm-3 p-0">
+											<div class="radio radio-">
+				                                <input type="radio" name="owner" id="yawp" value="-1" >
+				                                <label for="yawp">
+				                                    <img src='__PUBLIC__static/index/images/satisfaction2.png' width='30px' style='position:absolute;top:-10px;left: -2px;'><span style='margin-left: 22px;'>不满意</span>
+				                                </label>
+				                            </div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<label class='control-label'>留言:</label>
+								</div>
+								<div class="col-sm-9">
+									<textarea class='form-control' rows='5' id='comments1' placeholder="辛苦了,评价一下业主吧!"></textarea>
+								</div>
+							</div>
+							
+							<hr class='bx'>
+							<div class="row mt-20">
+								<div class="col-sm-3">
+									<label class='control-label'>主任师傅表现:</label>
+								</div>
+								<div class="col-sm-9">
+									<div class="row">
+										<div class="col-xs-4 col-sm-3 p-0">
+											<div class="radio radio-danger ">
+				                                <input type="radio" name="worker" id="good1" value="1" checked="" >
+				                                <label for="good1">
+				                                    <img src='__PUBLIC__static/index/images/satisfaction3.png' width='30px' style='position:absolute;top:-10px;left: -2px;'><span style='margin-left: 22px;'>满意</span>
+				                                </label>
+				                            </div>
+										</div>
+										<div class="col-xs-4 col-sm-3 p-0">
+											<div class="radio radio-warning">
+				                                <input type="radio" name="worker" id="2ordinary" value="0" >
+				                                <label for="2ordinary">
+				                                    <img src='__PUBLIC__static/index/images/satisfaction.png' width='30px' style='position:absolute;top:-10px;left: -2px;'><span style='margin-left: 22px;'>一般</span>
+				                                </label>
+				                            </div>
+										</div>
+										<div class="col-xs-4 col-sm-3 p-0">
+											<div class="radio radio-">
+				                                <input type="radio" name="worker" id="yawp2" value="-1" >
+				                                <label for="yawp2">
+				                                    <img src='__PUBLIC__static/index/images/satisfaction2.png' width='30px' style='position:absolute;top:-10px;left: -2px;'><span style='margin-left: 22px;'>不满意</span>
+				                                </label>
+				                            </div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<label class='control-label'>留言:</label>
+								</div>
+								<div class="col-sm-9">
+									<textarea class='form-control' rows='5' id='comments' placeholder="辛苦了,评价一下业主吧!"></textarea>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+	            </form>
+				</div>
+			</div>
+			<div class='row'>
+			<div class="col-xs-6 col-xs-offset-2 col-sm-4 col-sm-offset-4">
+					<input type="button" class='btn btn-orange w-b' id='sumbitComments' value='确认评价'>
+			</div>
+				<div class='col-xs-3 col-xs-offset-1'>
+					<span onclick="window.history.go(-1);" class='text-orange' style='cursor:pointer'>返回>></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--main end-->
+
+	<!-- ===============================================
+    ============== Page Specific Scripts ===============
+    ================================================ -->
+
+	<script>
+	$(document).ready(function(){
+		var url = '__PUBLIC__master_evaluate/{$ordernumber}';
+		//主任师傅评论提交
+		var Comments =function(url){
+			$('#sumbitComments').click(function(){
+				layer.confirm('提交评论吗？', {
+				  btn: ['确定','取消'] //按钮
+				}, function(){
+				 	var comment = $('#comments').val();
+				 	var comment1 = $('#comments1').val();
+				 	var worker =$('input[name=worker]:checked').val();
+				 	var owner =$('input[name=owner]:checked').val();
+				 	if(comment1 == '' || comment == ''){
+				 		msg('请先填写留言');
+				 		return;
+				 	}
+				 	var arr ='[{"comments"'+':'+comment+','+'"owner"'+':'+worker+'}'+','+'{'+'"comments"'+':'+comment1+','+'"owner"'+':'+owner+'}]';
+				 	console.log(arr);
+					$.ajax({
+						url:url,
+						type:'post',
+						dataType:'json',
+						data:{
+							arr:arr
+						},
+						success:function(data){
+							if(data.code=='200'){
+								layer.msg(data.msg+'即将跳转', {
+								  icon: 1,
+								  time: 2000 //2秒关闭（如果不配置，默认是3秒）
+								}, function(){
+								  window.location.href='__PUBLIC__orders/master';
+								});  
+							}else{
+								msg();
+							}
+						},
+						error:function(data){
+							msg();
+						}
+					});
+				}, function(){
+				  layer.close();
+				});
+			});
+		}
+		Comments(url);
+		
+	});
+
+	</script>
+	<!--/ Page Specific Scripts -->
+<!-- footer -->
+{include file="public/footer"}
+<!-- footer end-->

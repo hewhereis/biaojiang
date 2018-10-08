@@ -1,0 +1,281 @@
+<!--师傅安装确认表-->
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main">
+    <!-- header-img-->
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media " >
+        <h5 class="page-header bx">
+            <span class="pl-10">当前位置：</span>
+            <small>师傅更幻灯片确认表</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12 ">师傅更幻灯片确认表</div>
+        </div>
+        <form id="fault_details" action="">
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12">
+                    <!--客户信息-->
+                     <div class="row  border-bottom-1 ">  
+                        <!--店铺联系-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label for="input_date" class="col-sm-3 mt-10">店铺联系人</label>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                        <input size="16" type="text" disabled class="form-control" id="store_contact" value="{$order.contact_name}" name="store_contact" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--项目地址-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">项目地址</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="project_address" disabled required id="project_address" value="{$order.full_location}" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--联系人电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">联系人电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="phone_number_of_the_contact" disabled required value="{$order.contact_phone}" id="phone_number_of_the_contact" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--施工师傅-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工师傅</label>
+                                <div class="col-md-9">
+                                    <input type="text " value="{$order.real_name}" name="Construction_of_the_teacher" disabled required id="Construction_of_the_teacher" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工联系人-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">师傅电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="Construction_contact" disabled id="Construction_contact" required value="{$order.phone}" class="form-control">
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="row 1 border-bottom-1">
+                        <div id="zengjia" class="col-md-12  mb-30 mt-20">
+                            <div class="row border-bottom-1">
+                                <div class="col-md-2 col-sm-2 mt-30">
+                                    <a href="javascript:;" class="btn border-radius btn-default">门头照片</a>
+                                </div>
+                                <div class="col-md-3 col-sm-3" id="mentou">
+                                    <input type="hidden" name="img3" id="mentouzhaopi">
+                                    <img id="img_data" class="pull-left_on_xs mt-0_xs"  style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$list.img3}"/>
+                                </div>
+                                 <div class="col-md-2 col-sm-2 mt-30">
+                                    <a href="javascript:;" class="btn border-radius btn-default">幻灯片签收单</a>
+                                </div>
+                                <div class="col-md-4 col-sm-4" id="jindu">
+                                    <input type="hidden" name="img5" id="anzhuangjindubiao">
+                                    <img id=""  class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$list.img5}"/>
+                                </div>
+                            </div>
+                            <div class="row border-bottom-1 mt-30">
+                                <div class="col-md-2 col-sm-2 mt-30">
+                                    <a href="javascript:;" class="btn border-radius btn-default">专柜全景</a>
+                                </div>
+                                <div class="col-md-3 col-sm-3" id="zhuangui">
+                                    <input type="hidden" name="img4" id="zhuanguiquanjin">
+                                    <img   class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$list.img4}"/>
+                                </div>
+                            </div>
+                            <?php foreach($lists as $vo){ ?>
+                            <div class="weixiu-group" id="template">
+                                <div  class="row   mt-10">
+                                    <div class="col-md-2  mt-30">
+                                        <a href="javascript:;" class="btn border-radius btn-default">更换前</a>
+                                    </div>
+                                    <div class="col-md-4 col-xs-12" id="qian">
+                                        <img id=""  class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$vo.img1}"/>
+                                    </div>
+                                    <div class="col-md-2  mt-30">
+                                        <a href="javascript:;" class="btn border-radius btn-default">更换后</a>
+                                    </div>
+                                    <div class="col-md-4" id="huo">
+                                        <img id=""  class="mt-0_xs" style="margin-left: 10px;width: 150px;height: 150px;margin-bottom: 5px" src="__DsQINiu__{$vo.img2}"/>
+                                    </div>
+                                </div>
+                                <div class="row border-bottom-1 pb-10">
+                                    <div class="col-md-10 col-xs-9 col-sm-9">
+                                        <input type="text" placeholder="请详细描述故障详情" disabled name="text" value="{$vo.texts}" class="form-control  mt-30 pr-30">
+                                    </div>
+                                    <div class="col-md-2 col-xs-3 mt-40 col-sm-3">
+                                        <i id="" class="fa miaoxie fa-plus-square" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                           <?php } ?>
+                        </div>
+                    </div>
+                     <?php if($list['is_ok']==1): ?>
+                        <img src="__PUBLIC__public/{$list.user_sign}">
+                    <?php else:?>
+                        <div class="row mt-30">
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            
+                            <input type="button" class="btn df btn-default border-radius form-control" data-toggle='modal' data-target='#queren' value="客户方签字">
+                        </div>
+                        
+                        <div class="col-md-4 col-xs-6 col-sm-4">
+                            
+                        </div>
+                        
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control" onclick="ds_feedback()" value="报告有问题">
+                        </div>
+                      
+                    </div>
+                    <br>
+                    <span style="color:red;">(*注:如报告没有问题请点击签字)</span>
+                    <?php endif;?>
+                    <!--提交按钮-->
+                    <input type="hidden" id="order_number" value="{$order_number}">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="__PUBLIC__static/index/js/jq/flashcanvas.js"></script>
+<script src="__PUBLIC__static/index/js/jq/jSignature.min.js"></script>
+    <div class='modal fade' id='queren'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    客户签名
+                </div>
+            </div>
+            <div class='modal-body' id='jSignature' style='border:1px solid #aaf;'>
+            </div>
+            <div class="modal-footer">
+                <button class='btn btn-info' id='ok'>确定</button>
+                <button class='btn btn-danger' id='rest' data-dismiss='modal'>关闭</button>
+            </div>
+        </div>
+    </div>
+    </div>
+<script>
+    window.onload = function(){
+    
+      $('.main img').click(function(){
+          var imgUrl = $(this).attr('src'); 
+
+          $('#imgmodal').on('show.bs.modal', function (e) {
+                $('#imgseach').attr('src',imgUrl);
+            })
+         $('#imgmodal').modal('show');
+      });  
+    };
+    
+</script>
+<script>
+    var orderNumber = $('#order_number').val();
+    var links =  '__PUBLIC__replace_master_presentation/'+orderNumber;
+    $jSignature = $('#jSignature');
+    $('#queren').on('shown.bs.modal', function() {
+    width = $jSignature.parent().width() - 20;
+    $jSignature.jSignature({
+        height: 200,
+        width: width,
+        lineWidth: "2",
+        signatureLine: false
+    });
+    });
+    $('#queren').on('hide.bs.modal', function() {
+        $jSignature.html('');
+    });
+    $('#ok').on('click', function() {
+        layer.confirm('您是确定好签名了吗？', {
+            btn: ['确定', '取消'] //按钮
+        }, function() {
+        AJAXsignatures =function(url,file_data,folder_id,file_id,type,classname,links){
+        $.ajax({
+                url:url,
+                type: 'post',
+                dataType:'json',
+                data: {
+                    file_data:file_data,
+                    folder_id:folder_id,
+                    file_id:file_id,
+                    type:type,
+                    links:links
+                },
+                success:function(response) {
+                    console.log(response)
+                    $('#'+classname).val(response.ids);
+                },
+                error: function(response) {
+                console.log(response)
+                                }
+                            });
+                    }
+            var datapair = $jSignature.jSignature("getData", "image");
+            var i = new Image();
+            i.src = "data:" + datapair[0] + "," + datapair[1];
+            $(i).appendTo($("#oippp"));
+
+            if (i.src != '') {
+                AJAXsignatures('__PUBLIC__replace_signature', i.src, '6', orderNumber, 'qianming', 'user_sign',links);
+                 layer.msg('保存成功', {icon: 6,time:1500,shade:0}, function(index){
+                             window.location.href="__PUBLIC__orders/client";    
+                            });
+                $('#queren').modal('hide'); 
+            }
+        }, function() {
+            layer.close();
+        });
+
+    });
+</script>
+<script>
+function ds_feedback(){
+var order_number = $('#order_number').val();
+var link = '__PUBLIC__replace_master_presentation/'+order_number;
+layer.prompt({title: '输入反馈内容，并确认', formType: 2,shade:0}, function(text, index){
+    $.ajax({
+                url:'__PUBLIC__ajax_replace_feedback',
+                type:'post',
+                dataType:'json',
+                data:{
+                    order_number:order_number,
+                    text:text,
+                    link:link
+                },
+                success:function(data){
+                        if(data.code == 200){ 
+                             layer.msg(data.msg, {icon: 6,time:2000,shade:0}, function(index){
+                                layer.closeAll('page');
+                            });
+                        }else{
+                             layer.msg(data.msg, {icon: 5,time:1500,shade:0});
+                             return false;
+                        }
+                        
+                    }
+                    
+            });
+});
+
+}
+</script>
+
+{include file="public/footer" }

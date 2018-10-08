@@ -1,0 +1,38 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>404哟</title>
+<link rel="stylesheet" href="__PUBLIC__static/index/css/404.css">
+<script src="__PUBLIC__static/index/js/jquery/jquery-1.11.2.min.js"></script>
+</head>
+<style type="text/css">
+
+.link{text-shadow:0px 1px 2px white;font-weight:600;color:#3366cc;margin:0 auto;text-align:center;}
+#sec{margin:0 auto;text-align:center}
+
+</style>
+<body>
+
+<div class="demo">
+	<p><span>4</span><span>0</span><span>4</span></p>
+	<p>该页面不存在(´･ω･`)</p>
+	<p style="margin-top:-3%"><a class="link" href="__PUBLIC__" ><span id="sec">5</span> 秒后返回首页</a></p>
+	
+</div>
+
+<script type="text/javascript">
+	$(function () {            
+	   setTimeout("lazyGo();", 1000);
+	});
+	function lazyGo() {
+		var sec = $("#sec").text();
+		$("#sec").text(--sec);
+		if (sec > 0)
+			setTimeout("lazyGo();", 1000);
+		else
+		 window.location.href = "__PUBLIC__"; 
+	}
+	</script>
+</body>
+</html>

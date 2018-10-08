@@ -1,0 +1,527 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<style>
+    .akm{
+        position: relative;
+        margin: 4px 5px 0 0;
+        padding: 5px 19px 5px 4px;
+        float: left;
+        max-width: 144px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: 1px solid #e8e8e8;
+        height: 26px;
+        line-height: 18px;
+        color: #666;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+    .akm:hover{
+        border: 1px solid #f40;
+        cursor: pointer;
+    }
+    .cu:hover{
+        cursor: pointer;
+    }
+    .icon-btn-x {
+        position: absolute;
+        right: 6px;
+        top: 3px;
+        background-position: -73px -445px;
+        width: 7px;
+        height: 7px;
+    }
+    .icon-btn-x:hover{
+        color: red;
+    }
+    .layui-tab-title{
+        height: auto;
+    }
+    .thumbnail img{
+        width: 60%;
+        height: 40%;
+    }
+    .caption p{
+        width: 100%;
+        height: 15px;
+        overflow: hidden;
+    }
+
+</style>
+<form id="" name="form1" method="get" action="__PUBLIC__master_filters/{$order_number}/cid/{$cid}/sid/{$sid}">
+
+    <!-- <input id="brand_cate" type="hidden" value="" name="brand_cate" to="__PUBLIC__master_filters/{$order_number}/cid/{$cid}/sid/{$sid}"> -->
+    <input id="brand_list" type="hidden" value="" name="brand_list" to="__PUBLIC__master_filters/{$order_number}/cid/{$cid}/sid/{$sid}">
+    <input id="service_id" type="hidden" value="" name="service_id" to="__PUBLIC__master_filters/{$order_number}/cid/{$cid}/sid/{$sid}">
+    <input id="skill_id" type="hidden" value="" name="skill_id" to="__PUBLIC__master_filters/{$order_number}/cid/{$cid}/sid/{$sid}">
+    <!-- <input id="service_province" type="hidden" value="" name="service_province" to="__PUBLIC__master_filters/{$order_number}/cid/{$cid}/sid/{$sid}"> -->
+    <input id="pt_id" type="hidden" value="" name="" to="__PUBLIC__master_filters/{$order_number}/cid/{$cid}/sid/{$sid}">
+    <input type="hidden" id="cid" value="{$cid}">
+    <input type="hidden" id="order_number" value="{$order_number}">
+    <input type="hidden" id="sid" value="{$sid}">
+    <div class="main install_master_filter"  >
+
+        <div class="container pr-0-media pl-0_media" >
+            <h5 class="page-header pl-10 bx">
+                <span>当前位置</span>
+                <small>筛选师傅</small>
+                <span>>></span>
+            </h5>
+        </div>
+
+        <div class="container">
+            <!--/*标题*/-->
+            <div class="The-test-panel-head">
+                <div class=" pl-20">
+                    筛选师傅
+                </div>
+            </div>
+            <div class=" pl-0 The-test-panel-body  ">
+                <div class="pl-10 text-black">
+
+                    <span id="acs"></span>
+                    <input type="text" class="border-aspx" id="work_order" placeholder="师傅技能/师傅工号/师傅姓名" style="padding: 5px;min-width: 250px">
+                    <input type="button" id="summeit" class="border-radius bg-orange" style="padding: 5px;" value="搜索">
+                </div>
+                <div style="background: #dddddd" class="pt-10 mt-10 mb-20  pl-10 pb-10">
+                    <span class="mr-20">师傅筛选   </span> <span>{$num}位师傅</span>
+                </div>
+                <div class="container">
+                    <div class="row mr-0 pinpai" >
+                        <div class="col-md-1  mt-20">
+                            品牌:
+                        </div>
+                        <div class="col-md-11">
+                            <div class="layui-tab layui-tab-card" lay-filter="docDemoTabBrief">
+
+                                <ul class="layui-tab-title brand_list">
+                                    {volist name="brand_cate" id = "vo"}
+                                    <?php if($vo['id']==$min):?>
+                                    <li ids= "{$vo.id}" class="layui-this cate" ><a href="javascript:Filter('brand_cate','{$vo.id}');">{$vo.name}</a></li>
+                                    <?php else: ?>
+                                    <li ids= "{$vo.id}" class="cate" ><a href="javascript:Filter('brand_cate','{$vo.id}');">{$vo.name}</a></li>
+                                    <?php endif; ?>
+                                    {/volist}
+                                </ul>
+                                <div class="layui-tab-content k_a">
+                                    <div class="layui-tab-item  layui-show">
+                                        <div class="row pr-20">
+                                            <div class="col-md-2 b_a pull-right text-center">
+                                              
+                                            </div>
+                                            <div class="col-md-10 pull-right" >
+                                                <ul class="mb-10 space pull-left brand">
+                                              
+                                                </ul>
+                                               
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-bottom-1 bo_b pinpai ">  </div>
+                    <div class="row pt-10 leixin">
+                        <div class="col-md-1">
+                            服务类型:
+                        </div>
+                        <div class="col-md-9  text-center">
+                            <ul class="ul_list ul_listk">
+                                {volist name="service" id="vo"}
+                                <li class=""><span class="mr-10 "><a num="2" bn="{$vo['name']}" val="{$vo.id}" class="km" href="javascript:;">{$vo['name']}</a></span><i>x</i>
+                                </li>
+                                {/volist}
+
+                            </ul>
+                        </div>
+                     
+                    </div>
+                    <div class="border-bottom-1 leixin bo_b ">  </div>
+                    <div class="row pt-10 jineng">
+                        <div class="col-md-1">
+                            师傅技能:
+                        </div>
+                        <div class="col-md-9  text-center">
+                            <ul class="ul_list ul_lists">
+                                {volist name="skill" id="vo"}
+                                <li  class="" ><span  class="mr-10"><a val="{$vo.id}" num="3" bn="{$vo.skill}" class="km" href="javascript:;">{$vo.skill}</a></span><i>x</i>
+                                </li>
+                                {/volist}
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-bottom-1 jineng bo_b ">  </div>
+                    <div class="row quxu">
+                        <div class="col-md-1 col-xs12 mt-10">服务区域:</div>
+                        <div class="col-md-6 col-xs-12">
+                            <div id="distpicker5" class="row">
+                                <div class="form-group  col-xs-6 col-md-4">
+                                    <label class="sr-only km" for="province10">Province</label>
+                                    <select class="form-control" num="1000" id="province10" name="service_province">
+                                    </select>
+                                </div>
+                                <div class="form-group col-xs-6 col-md-4">
+                                    <label class="sr-only" for="city10">City</label>
+                                    <select class="form-control km" num="4" id="city10" name="service_city">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray clearfix pl-10 mt-10 ">
+                    <ul class="li_screen">
+                        <li class="item-list">
+                            <span>综合</span>
+                            <i class="glyphicon glyphicon-arrow-down"></i>
+                        </li>
+                        <li class="item-list">
+                            <span>日薪</span>
+                            <i class="glyphicon glyphicon-arrow-down"></i>
+                        </li>
+                        <li class="item-list">
+                            <span>保证金</span>
+                            <i class="glyphicon glyphicon-arrow-down"></i>
+                        </li>
+                        <li class="list-selct">
+
+                            <span>平台等级</span>
+                            <select name="pt_id" class="" id="lever">
+                                <option value="" selected="">请选择</option>
+                                {volist name="users_worker" id="vo"}
+                                <option value="{$vo.id}">{$vo.id}</option>
+                                {/volist}
+                            </select>
+                        </li>
+                        <li hidden class="list-selct">
+                            <input type="text" class="km" placeholder="请选择时间" lay-verify="start_time" id="start_time" name="start_time" >
+                        </li>
+                        <li hidden class="list-selct">
+                            <input type="text"  class="km" placeholder="请选择时间" id="end_time" name="end_time" >
+                        </li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <div class="row ls mt-10 mr-20">
+                       <?php if(empty($order)):?>
+					   <div class="h4 text-orange text-center">当前没有在线师傅</div>
+					   <?php else:?>
+					    {volist name="order" id="vo"}
+							
+                        <div class="col-sm-6 zo cu col-xs-12 col-md-3" >
+                            <div class="thumbnail thumbnails  mb-0"  num="{$vo.uid}">
+                                <input type="hidden" value="1">
+                                <img src="__DsQINiu__{$vo.img}" onerror="this.src='__PUBLIC__static/index/images/moren.jpg'"title="品牌" class="img-responsive"  alt=""/>
+                                <div class="caption " style="line-height: 13px;font-size: 12px" >
+                                    <h5 class="">日&nbsp;&nbsp;&nbsp;&nbsp;薪 ： <span class="" style="font-weight: 700" >￥{$vo.wage}</span></h5>
+                                    <p>师傅名称：<span>{$vo.real_name}</span></p>
+                                    <p>师傅工号：<span>{$vo.uid}</span></p>
+                                    <p>师傅类型：<span>{$vo.service_type_id}</span></p>
+                                    <p>师傅标签：<span class="bg-gray" style="padding: 0px 2px;margin: 2px">{$vo.work_skill} </span> </span> </p>
+                                </div>
+                            </div>
+                            <a class="bg-danger text-center pt-10 pb-10" style="width: 100%;height: 100%;display: block" href="__PUBLIC__{$cid}/{$order_number}/wid/{$vo.uid}">选中</a>
+                        </div>
+                        {/volist}
+					   <?php endif; ?>
+					 
+						
+                       
+                    </div>
+                    <div class="row ks mt-10 mr-20">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <div id="AjaxPage" style=" text-align: right;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="text-right mt-20">
+                <a href="__PUBLIC__{$cid}/{$order_number}/wid/0">返回>>  </a>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<input type="hidden" id="pinpai" value="">
+<input type="hidden" id="leixin" value="">
+<input type="hidden" id="jineng" value="">
+<input type="hidden" id="quxu" value="">
+<input type="hidden" id="quxu1" value="">
+<script>
+    $(".container").on("click",".thumbnails",function () {
+        var or= $(this).attr("num")
+        ids(or);
+    })
+    function ids(id){
+        var cid = $('#cid').val();
+        var order_number = $('#order_number').val();
+        window.location.href="__PUBLIC__master_information/"+order_number+"/cid/"+cid+"/wid/"+id;
+    }
+    $(function () {
+        //默认品牌分类
+        $.ajax({
+            url:'__PUBLIC__default_master',
+            data:{},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                var lists = data.arr;
+                var html='';
+                for (var i in lists) {
+                    html+='<a num="1" bn='+lists[i].brand+' onclick="brand_list("brand_list",'+lists[i].id+');"  val='+lists[i].id+' class="a_s km" ><li><img src="__PUBLIC__static/index/images/banner.jpg" title="+lists[i].brand+"class="img-responsive"  alt=""/><span class="img-responsive text-center " >'+lists[i].brand+'</span><i>x</i></li></a>'
+                }
+                $('.brand').html(html);
+            }
+        });
+        //点击品牌分类
+        $('.cate').click(function(){
+            var id  = $(this).attr('ids');
+            $.ajax({
+                url:'__PUBLIC__cate',
+                data:{id:id},
+                dataType:'json',
+                type:'post',
+                success:function(data){
+                    var lists = data.lists;
+                    var html='';
+                    for (var i in lists) {
+                        //alert(lists[i].id);
+                        html+='<a  val="'+lists[i].id+'" val='+lists[i].id+'   class="a_s kms" num="1" bn="'+lists[i].brand+'" ><li><img src="__PUBLIC__static/index/images/banner.jpg" title="+lists[i].brand+" class="img-responsive"  alt=""/><span class="img-responsive text-center " >'+lists[i].brand+'</span><i>x</i></li></a>'
+                    }
+                    $('.brand').html(html);
+                    var num;
+                    $(".kms").on("click",function () {
+                        num =$(this).attr("num");
+                        var test=$(this).attr("bn");
+                        if(num==1){
+                            var a=$("<a class='akm' num='"+num+"'>品牌: &nbsp;"+test+"<span class='icon-btn-x'>x</spanc></a>");
+                            $(".pinpai").css("display","none");
+                            $("#acs").before(a);
+                            $("#pinpai").val($(this).attr("val"));
+                            aj();
+                        }
+                    });
+                }
+            })
+        })
+        $(".ls").on('click','.thumbnail',function () {
+            $(this).find("input:hidden").val();
+        })
+        $(".k_a").on(" click","a",function (e) {
+            e.preventDefault();
+            $("#pin").html($(this).text())
+            var val = $(this).attr('val');
+            $("#brand_list").val(val);
+        });
+        $(".k_a").on(" mouseenter","a",function (data) {
+            $(this).find("span").css("z-index",'10');
+            $(this).find("img").css("z-index",'-1');
+        });
+        $(".k_a").on(" mouseleave","a",function (data) {
+            $(this).find("span").css("z-index",'-1');
+            $(this).find("img").css("z-index",'10');
+        });
+
+        var num;
+        $(".The-test-panel-body").on("click",".km",function () {
+            num =$(this).attr("num");
+            var test=$(this).attr("bn");
+            if(num==1){
+                var a=$("<a class='akm ' num='"+num+"'>品牌: &nbsp;"+test+"<span class='icon-btn-x'>x</spanc></a>");
+                $(".pinpai").css("display","none");
+                $("#acs").before(a);
+                $("#pinpai").val($(this).attr("val"));
+                aj();
+            }else if(num==2){
+                var a=$("<a class='akm ' num='"+num+"'>服务类型: &nbsp;"+test+"<span class='icon-btn-x'>x</spanc></a>");
+                $(".leixin").css("display","none");
+                $("#leixin").val($(this).attr("val"))
+                $("#acs").before(a);
+                aj();
+            }else if(num==3){
+                var a=$("<a class='akm ' num='"+num+"' >服务技能: &nbsp;"+test+"<span class='icon-btn-x'>x</spanc></a>");
+                $(".jineng").css("display","none");
+                $("#acs").before(a);
+
+                $("#jineng").val($(this).attr("val"));
+                aj();
+            }
+            else if(num==4){
+
+                if($("#province10").val()!==""){
+
+                }
+            }
+
+        });
+        $("#city10").change(function () {
+            if(num==4 && $(this).val()!==""){
+                var m= $("#province10").val();
+                var n=$("#city10").val();
+                var a=$("<a class='akm ' num='"+num+"'>服务区域: &nbsp;"+n+"<span class='icon-btn-x'>x</spanc></a>");
+                $("#acs").before(a);
+                $(".quxu").css("display","none");
+                $("#quxu1").val($("#city10 option:selected").val());
+                aj();
+            }
+        })
+        $("#province10").change(function () {
+            $("#quxu").val($("#province10 option:selected").val());
+
+        });
+        $(".The-test-panel-body").on("click",".akm",function () {
+            var num =$(this).attr("num");
+
+            if(num==1){
+                $(".pinpai").css("display","block");
+                $("#pinpai").val("")
+
+            }else if(num==2){
+                $(".leixin").css("display","block");
+                $("#leixin").val("");
+
+            }else if(num==3){
+                $(".jineng").css("display","block");
+                $("#jineng").val("");
+            }
+            else if(num==4){
+                $(".quxu").css("display","block");
+                $("#quxu").val("");
+                $("#quxu1").val("");
+
+            }
+            $(this).remove();
+            aj();
+        });
+        $("#lever").change(function () {
+            aj();
+        });
+        var aj=function (curr) {
+            var $order_number=$("#order_number").val();
+            var sid=$("#sid").val(),
+                    cid=$("#cid").val();
+            var pinpai=$("#pinpai").val(),
+                    leixin=$("#leixin").val(),
+                    jineng=$("#jineng").val(),
+                    quxu=$("#quxu").val(),
+                    quxu=$("#quxu").val(),
+                    quxu1=$("#quxu1").val();
+            var pt_id=$("#lever").val(),
+                    start_time=$("#start_time").val(),
+                    end_time=$("#end_time").val();
+            var datas={'brand_list':pinpai,'service_id':leixin,'skill_id':jineng,"service_city":quxu1,"service_province":quxu,"pt_id":pt_id,"start_time":start_time,"end_time":end_time,"curr":curr||1};
+            $.ajax({
+                type:"GET",
+                data:datas,
+                url:"__PUBLIC__master_filtersk/"+$order_number+"/cid/"+cid+"/sid/+"+sid+"",
+                success:function (data) {
+                    htm(data,curr);
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            })
+
+        }
+        var $inv;
+        layui.use('element', function(){
+            var $ = layui.jquery
+                    ,element = layui.element(); //Tab的切换功能，切换事件监听等，需要依赖element模块
+            element.init();
+        });
+        $("#summeit").click(function () {
+            $inv=$(this).siblings("input[type='text']").val();
+            if($inv===""){
+                var layer = layui.layer;
+                aj();
+            }else{
+                $.ajax({
+                    type:"get",
+                    data:{order:$inv},
+                    url:"__PUBLIC__master_filterknam",
+                    success:function (data) {
+                        htm(data);
+                    }
+                })
+            }
+        });
+        function AjaxPage (curr,zo) {
+
+            if(zo){
+
+            }else{
+                zo='{$num_ber}';
+            }
+            var laypage=layui.laypage;
+            laypage({
+                cont: $('#AjaxPage'),//容器。值支持id名、原生dom对象，jquery对象,
+                pages:zo,//总页数
+                skip: true,//是否开启跳页
+                skin: '#1AB5B7',//分页组件颜色
+                curr:curr || 1,
+                groups: 5,//连续显示分页数
+                jump: function(obj, first){
+                    $('#allpage').html('第'+ obj.curr +'页，共'+ obj.pages +'页');
+                    if(!first){
+                        aj(obj.curr);
+                    }
+                }
+            });
+        }
+
+       
+        function htm(data,curr) {
+		
+            if(data.msg==1){
+                var html='';
+            }else if(data.msg==2){
+                var text= $(".akm").text();
+                text= text.replace(/[x]/ig," ");
+                data.text=text;
+                var html='<div class="h4 text-orange text-center"><i  class="fa fa-exclamation-circle" aria-hidden="true"></i>抱歉,没有找<span style="color:#000;">'+data.text+'</span>到的搜索结果,为您推荐以下结果</div>';
+
+            }else if(data.msg=3){
+			 var html='<div class="h4 text-orange text-center">当前没有在线师傅</div>';
+				$(".ls").html(html);
+			}
+            if(data.order.length!==0){
+                for(var i=0;i<data.order.length;i++){
+                    var vo=data.order[i];
+					if(vo.wage==null ){
+						vo.wage="";
+					}
+					if(vo.real_name==null ){
+						vo.real_name="";
+					}
+					if(vo.work_skill==null ){
+						vo.work_skill="";
+					}
+					if(vo.service_type_id==null ){
+						vo.service_type_id="";
+					}
+                    html+='<div class="col-sm-6 cu  col-md-3" ><div class="thumbnail mb-0" onclick="ids('+vo.uid+')"><input type="hidden" value="1"> <img onerror='+"this.src='__PUBLIC__static/index/images/moren.jpg'"+' src="__DsQINiu__'+vo.img+'" title="" class="img-responsive"  alt=""/> <div class="caption "  style="line-height: 13px;font-size: 12px"> <h5 class="">日&nbsp;&nbsp;&nbsp;&nbsp;薪 ： <span class="" style="font-weight: 700"  >￥'+vo.wage+'</span></h5> <p>师傅名称：<span>'+vo.real_name+'</span></p> <p>师傅工号：<span>'+vo.uid+'</span></p> <p>师傅类型：<span>'+vo.service_type_id+'</span></p> <p>师傅标签：<span class="bg-gray" style="padding: 0px 2px;margin: 2px">'+vo.work_skill+' </span> <!-- <span style="padding: 0px 2px;margin: 2px" class="bg-gray">  </span> --></p></div> </div> <a class="bg-danger text-center pt-10 pb-10" style="width: 100%;height: 100%;display: block" href="__PUBLIC__{$cid}/{$order_number}/wid/'+vo.uid+'">选中</a> </div>';
+
+                }
+               
+                $("#AjaxPage").html("");
+                $(".ls").html(html);
+                $("#summeit").siblings("input[type='text']").val("");
+                AjaxPage(curr,data.num);
+            }
+        }
+    })
+</script>
+{include file="public/footer" }

@@ -1,0 +1,944 @@
+<!--客户维修确认表-->
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<style>
+    .col-sm-6:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+    .col-sm-4:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+</style>
+<div class="main client_affirm_accomplish">
+
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media ">
+        <h5 class="page-header bx">
+            <span class="pl-10">当前位置：</span>
+            <small>师傅维修施工报告</small>
+            <span>>></span>
+        </h5>
+    </div>
+    <script src="__PUBLIC__static/index/js/jq/flashcanvas.js"></script>
+    <script src="__PUBLIC__static/index/js/jq/jSignature.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+    <script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12 ">师傅维修施工报告</div>
+        </div>
+        <form id="fault_details" action="__PUBLIC__add" method="post">
+            <input type="hidden" readonly="readonly "  id="number" name="order_number" value="{$order_number}">
+            <!-- <input type="hidden" class='form-control' name="qianming" id='qianming' value=''> -->
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12">
+                    <!--客户信息-->
+                    <div class="row  border-bottom-1 ">
+                        <!--维修项目名称-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">项目名称</label>
+                                <div class="col-md-9">
+                                    <input readonly  type="text" name="project_name" id="project_name" class="form-control" value='{$order.itemname}'>
+                                </div>
+                            </div>
+                        </div>
+                        <!--店铺联系-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label for="input_date" class="col-sm-3 mt-10">店铺联系人</label>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                        <input readonly size="16" type="text" class="form-control" id="store_contact" value="{$order.owner_name}" name="store_contact">
+                                        <span class="add-on"><i class="icon-remove"></i></span>
+                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--项目地址-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">项目地址</label>
+                                <div class="col-md-9">
+                                    <input readonly type="text" name="project_address" value="{$order.full_location}" required id="project_address" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--联系人电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">店铺联系人电话</label>
+                                <div class="col-md-9">
+                                    <input readonly type="text" name="phone_number_of_the_contact" required value="{$order.contact_phone}" id="phone_number_of_the_contact" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工公司-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工公司</label>
+                                <div class="col-md-9">
+                                    <input readonly type="text" name="construction_company" id="construction_company" required class="form-control" value="{$order.real_name}">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工师傅-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工师傅</label>
+                                <div class="col-md-9">
+                                    <input readonly type="text " name="Construction_of_the_teacher" value="{$order.real_name}" required id="Construction_of_the_teacher" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工联系人-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工联系人</label>
+                                <div class="col-md-9">
+                                    <input readonly type="text" name="Construction_contact" id="Construction_contact" value="{$order.real_name}" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--维修项目完成时间-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">项目完成时间</label>
+                                <div class="col-md-9">
+                                    <input readonly class="layui-input" name="end_time" placeholder="" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value='{$order.finish_time|date="Y-m-d H:i:s",###}'>
+                                </div>
+                            </div>
+                            <div class="row hidden ">
+                                <div class="col-md-10 mt-5 mb-10 text-center text-orange ">目标维修地址不能为空</div>
+                            </div>
+                        </div>
+                        <!--施工联系电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工联系人电话</label>
+                                <div class="col-md-9">
+                                    <input readonly type="text" name="construction_contact_number" id="construction_contact_number" value="{$order.phone}" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row 1 border-bottom-1">
+                        <div id="sa" class="col-md-12  mb-30 mt-20">
+                            <p>
+                                <i class="fa fa-instagram"></i>上传图片
+                            </p>
+                            <div class="row border-bottom-1 pt-10 pb-20">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo0" name="img0" value='{$order["doorpicsids"]}'>
+                                            <div id="fileList0" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker0" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>门头照片
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data0" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;"  src="<?php echo $order['doorpicsids']!=''?'__DsQINiu__'.$order['doorpicsids']: '__PUBLIC__static/admin/images/no_img.jpg' ?>" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo1" name="img1" value='{$order["signrecvpicsids"]}'>
+                                            <div id="fileList1" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker1" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>维修签收单
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data1" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="<?php echo $order['signrecvpicsids']!=''?'__DsQINiu__'.$order['signrecvpicsids']: '__PUBLIC__static/admin/images/no_img.jpg' ?>"/>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="row border-bottom-1 mt-30 pt-10 pb-20">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo2" name="img2" value='{$order["overviewpicsids"]}'>
+                                            <div id="fileList2" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker2" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>专柜柜全景
+                                            </div></div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data2" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="<?php echo $order['overviewpicsids']!=''?'__DsQINiu__'.$order['overviewpicsids']: '__PUBLIC__static/admin/images/no_img.jpg' ?>" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php if($beforeAfter[0]['beforepics']!=''){ $lenght =count($beforeAfter); ?>
+                            
+                            {volist name='beforeAfter' id='ba'}
+                            <div class="row  mt-10">
+                                <div class="col-md-6">
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo{$ba.beforepicsids}" name="dimg[]" value='{$ba.beforepicsids}'>
+                                            <div id="fileList{$ba.beforepicsids}" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker{$ba.beforepicsids}" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>维修前
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data{$ba.beforepicsids}" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__DsQINiu__{$ba.beforepics}" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <input type="hidden" id="data_photo{$ba.afterpicsids}" name="eimg[]" value='{$ba.afterpicsids}'>
+                                            <div id="fileList{$ba.afterpicsids}" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker{$ba.afterpicsids}" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>维修后
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <img id="img_data{$ba.afterpicsids}" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__DsQINiu__{$ba.afterpics}" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-xs-9 col-sm-9">
+                                    <input type="text" placeholder="请详细描述故障详情" name="details[]" class="form-control  mt-30 pr-30" value='{$ba.detials}'>
+                                </div>
+                                {if $lenght==$i}
+                                <div>
+                                <div class="col-md-2 col-xs-3 mt-40 col-sm-3"><i id="" class="fa miaoxie fa-plus-square" aria-hidden="true"></i></div>
+
+                                </div>
+                                {/if}
+                                
+                            </div>
+
+                            <script type="text/javascript">
+                                WebUploader.create({
+                                    auto: true, // 选完文件后，是否自动上传。
+                                    swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                                    server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                                    duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                                    pick: '#imgPicker{$ba.beforepicsids}' , // 选择文件的按钮。可选。
+                                    accept: {
+                                        title: 'Images',
+                                        extensions: 'gif,jpg,jpeg,bmp,png',
+                                        mimeTypes: 'image/jpg,image/jpeg,image/png'
+                                    },
+                                    'onUploadSuccess': function(file, data, response) {
+
+                                        $("#img_data{$ba.beforepicsids}").attr('src', '__DsQINiu__' + data._raw).show();
+                                        var aa = data._raw;
+
+                                        $.ajax({
+                                            url: '__PUBLIC__img',
+                                            data: {
+                                                aa: aa,
+                                                order_number: order_number
+                                            },
+                                            dataType: 'json',
+                                            type: 'post',
+                                            success: function(data) {
+                                                if (data.code == 200) {
+                                                    var ids = data.datas;
+                                                    var val = $("#data_photo{$ba.beforepicsids}").val();
+                                                    val = ids;
+                                                    $("#data_photo{$ba.beforepicsids}").val(val);
+                                                } else {
+                                                    msg(data.msg, 2, 6, 1000);
+                                                }
+                                            }
+                                        })
+                                    }
+                                });
+                                WebUploader.create({
+                                    auto: true, // 选完文件后，是否自动上传。
+                                    swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                                    server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                                    duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                                    pick: '#imgPicker{$ba.afterpicsids}' , // 选择文件的按钮。可选。
+                                    accept: {
+                                        title: 'Images',
+                                        extensions: 'gif,jpg,jpeg,bmp,png',
+                                        mimeTypes: 'image/jpg,image/jpeg,image/png'
+                                    },
+                                    'onUploadSuccess': function(file, data, response) {
+
+                                        $("#img_data{$ba.afterpicsids}").attr('src', '__DsQINiu__' + data._raw).show();
+                                        var aa = data._raw;
+
+                                        $.ajax({
+                                            url: '__PUBLIC__img',
+                                            data: {
+                                                aa: aa,
+                                                order_number: order_number
+                                            },
+                                            dataType: 'json',
+                                            type: 'post',
+                                            success: function(data) {
+                                                if (data.code == 200) {
+                                                    var ids = data.datas;
+                                                    var val = $("#data_photo{$ba.afterpicsids}").val();
+                                                    val = ids;
+                                                    $("#data_photo{$ba.afterpicsids}").val(val);
+                                                } else {
+                                                    msg(data.msg, 2, 6, 1000);
+                                                }
+                                            }
+                                        })
+                                    }
+                                });
+                            </script>
+                            {/volist}
+
+                            <?php }else{ ?>
+                            <div class="row  mt-10">
+
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-12">
+                                            <input type="hidden" id="data_photo3" name="dimg[]" value=''>
+                                            <div id="fileList3" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker3" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>维修前
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            <img id="img_data3" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-12">
+                                            <input type="hidden" id="data_photo4" name="eimg[]" value=''>
+                                            <div id="fileList4" class="uploader-list" style="float:right">
+                                            </div>
+                                            <div id="imgPicker4" style="float:left;margin-left:5%;margin-top:3%">
+                                                <i class="glyphicon glyphicon-plus"></i>维修后
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            <img id="img_data4" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-xs-9 col-sm-9">
+
+                                    <input type="text" placeholder="请详细描述故障详情" name="details[]" class="form-control  mt-30 pr-30" value=''>
+                                </div>
+                                <div class="col-md-2 col-xs-3 mt-40 col-sm-3">
+                                    <i id="" class="fa miaoxie fa-plus-square" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+                    <?php if(!empty($report)){ ?>
+                    <?php if(empty($masterimg)){ ?>
+                    <div class="row mt-30">
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control"  value="客户方签字">
+                        </div>
+                        <div class="col-md-4 col-xs-6 col-sm-4">
+                            <img  src="__PUBLIC__public/{$report['image']}" alt="">
+                        </div>
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control"  value="服务确认码">
+                        </div>
+                        <div class="col-md-4 mt-10-media_xs col-xs-6 col-sm-4">
+                            <!-- <div id='oippp' all='1'></div>
+                            <input type="hidden" value="" name="master_sign" class="form-control border-radius"> -->
+                            <input type="text" id='querenma' name='querenma' class='form-control' placeholder="客户已经确认！请填写服务确认码！">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center  mt-20">
+                            <input id="" type="submit" value="确认" class="btn btn-success border-radius form-control">
+                        </div>
+                        <!-- <div class="col-md-4 col-xs-6 col-sm-4 col-sm-offset-3 text-center mt-20">
+                            <input id="" type="button" class="btn btn-blue border-radius form-control" value="报告有问题">
+                        </div> -->
+                    </div>
+                    <?php }else{ ?>
+                    <div class="row mt-30">
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control"  value="客户方签字">
+                        </div>
+                        <div class="col-md-4 col-xs-6 col-sm-4">
+                            <img src="__PUBLIC__public/{$report['image']}" alt="">
+                        </div>
+                        <!-- <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control" value="施工方签字">
+                        </div>
+                        <div class="col-md-4 mt-10-media_xs col-xs-6 col-sm-4">
+                            <img src="__PUBLIC__public/{$masterimg['image']}" alt="">
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center  mt-20">
+                        </div>
+                        <!-- <div class="col-md-4 col-xs-6 col-sm-4 col-sm-offset-3 text-center mt-20">
+                            <input id="" type="button" class="btn btn-blue border-radius form-control" value="报告有问题">
+                        </div> -->
+                    </div>
+                    <?php } ?>
+                    <?php }else{ ?>
+                    <div class="row mt-30">
+
+                        <!-- <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn df btn-default border-radius form-control"  onclick="msg('请先提醒客户签字！');" value="施工方签字">
+                        </div>
+                        <div class="col-md-4 mt-10-media_xs col-xs-6 col-sm-4">
+                            <div id='oippp'></div>
+                            <input type="hidden" value="" name="master_sign" class="form-control border-radius">
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center  mt-20">
+                            <input id="" type="submit" value="确认" class="btn btn-success border-radius form-control">
+                        </div>
+                        <!-- <div class="col-md-4 col-xs-6 col-sm-4 col-sm-offset-3 text-center mt-20">
+                            <input id="" type="button" class="btn btn-blue border-radius form-control" value="报告有问题">
+                        </div> -->
+                    </div>
+                    <?php } ?>
+
+                    <!--提交按钮-->
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- <div class='modal fade' id='queren'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    师傅签名
+                </div>
+            </div>
+            <div class='modal-body' id='jSignature' style='border:1px solid #aaf;'>
+            </div>
+            <div class="modal-footer">
+                <button class='btn btn-info' id='ok'>确定</button>
+                <button class='btn btn-danger' id='rest'>重置</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<script>
+    $(".df")
+    $(".The-test-panel-body").on("change", " .file_box", function() {
+        var $img = $("<img>");
+        var img = $(this).parent().siblings();
+        var $file = $(this);
+        var fileObj = $file[0];
+        var windowURL = window.URL || window.webkitURL;
+        if (fileObj && fileObj.files && fileObj.files[0]) {
+            dataURL = windowURL.createObjectURL(fileObj.files[0]);
+            $img.attr('src', dataURL);
+            img.html($img)
+        } else {
+            dataURL = $file.val();
+            var imgObj = document.getElementById(img);
+            imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+            imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+        }
+    });;
+    var name_se = $("input[name='se']");
+    name_se.change(function() {
+        $("#xiandan").prop('disabled', false);
+        $("#xiandan").css('background', "#ff5200").css('color', "#fff").css("border-color", "#ff5200")
+    })
+    //    判断radio单选框
+    var radio = function() {
+        name_se = $("input[name='se']");
+        for (let i = 0; i < name_se.length; i++) {
+
+            if ($(name_se[i]).prop("checked")) {
+                $("#xiandan").prop('disabled', false);
+                $("#xiandan").css('background', "#ff5200").css('color', "#fff").css("border-color", "#ff5200");
+            } else {
+                $("#xiandan").prop('disabled', true);
+                $("#xiandan").css('background', "#fff").css('color', "#000").css("border-color", "#ddd");
+            }
+        }
+    }
+    radio();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    asa = 20;
+    $("#sa").on("click", ".miaoxie", function() {
+        $(this).removeClass("miaoxie");
+        $(this).addClass("miaoxie_s");
+        $(this).addClass("fa-minus-square-o");
+        $(this).removeClass("fa-plus-square");
+        var html = '';
+        html += '<div  class="row  mt-10"> <div class="col-md-6"> <div class="row"> <div class="col-sm-4"> <input type="hidden" id="data_photo' + asa + '" name="dimg[]' + asa + '" value=""><div id="fileList' + asa + '" class="uploader-list" style="float:right"></div><div id="imgPicker' + asa + '" style="float:left;margin-left:5%;margin-top:3%"><i class="glyphicon glyphicon-plus"></i>维修前</div> </div> <div class="col-sm-6"> <img id="img_data' + asa + '"  class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/> </div> </div> </div> <div class="col-md-6"> <div class="row"> <div class="col-sm-4"> <input type="hidden" id="data_photos' + asa + '" name="eimg[]' + asa + '"><div id="fileLists' + asa + '" class="uploader-list" style="float:right"> </div><div id="imgPickers' + asa + '" style="float:left;margin-left:5%;margin-top:3%"><i class="glyphicon glyphicon-plus"></i>维修后</div> </div> <div class="col-sm-6"> <img id="img_datas' + asa + '"  class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/> </div> </div> </div> <div class="row"><div class="col-md-10 pl-20 col-xs-9 col-sm-9"><input type="text" name="details[]' + asa + '" placeholder="请详细描述故障详情" class="form-control  mt-30 pr-30"> </div><div class="col-md-2 col-xs-3 mt-40 col-sm-3"><i id="" class="fa miaoxie fa-plus-square" aria-hidden="true"></i></div></div></div>';
+        $("#sa").append(html);
+        as(asa);
+        asa++;
+    });
+    function as(i){
+        WebUploader.create({
+            auto: true, // 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+            duplicate: true, // 重复上传图片，true为可重复false为不可重复
+            pick: '#imgPicker' + i, // 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function(file, data, response) {
+               
+                $("#img_data" + i).attr('src', '__DsQINiu__' + data._raw).show();
+                console.log(data);
+                var aa = data._raw;
+                var order_number = $('#number').val();
+                $.ajax({
+                    url: '__PUBLIC__img',
+                    data: {
+                        aa: aa,
+                        order_number: order_number
+                    },
+                    dataType: 'json',
+                    type: 'post',
+                    success: function(data) {
+                        if (data.code == 200) {
+                            var  ids = data.datas;
+                            $("#data_photo" + i).val(ids);
+                        } else {
+                            msg(data.msg, 2, 6, 1000);
+                        }
+                    }
+                })
+            }
+        });
+        WebUploader.create({
+            auto: true, // 选完文件后，是否自动上传。
+            swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+            server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+            duplicate: true, // 重复上传图片，true为可重复false为不可重复
+            pick: '#imgPickers' + i, // 选择文件的按钮。可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/jpg,image/jpeg,image/png'
+            },
+            'onUploadSuccess': function(file, data, response) {
+               
+                $("#img_datas" + i).attr('src', '__DsQINiu__' + data._raw).show();
+                var aa = data._raw;
+                var order_number = $('#number').val();
+                $.ajax({
+                    url: '__PUBLIC__img',
+                    data: {
+                        aa: aa,
+                        order_number: order_number
+                    },
+                    dataType: 'json',
+                    type: 'post',
+                    success: function(data) {
+                        if (data.code == 200) {
+                            var ids = data.datas;
+                             $("#data_photos" + i).val(ids);
+
+                        } else {
+                            msg(data.msg, 2, 6, 1000);
+                        }
+                    }
+                })
+            }
+        });
+    }
+    var k=1;
+    $("#sa").on("click", ".miaoxie_s", function() {
+//
+        if(k==1){
+            $(this).parent().parent().prev().remove();
+            $(this).parent().parent().remove();
+            k=2;
+        }else {
+            $(this).parent().parent().parent().remove()
+        }
+    });
+</script>
+<script>
+    var $list = $('#fileList');
+    var $list1 = $('#fileList1');
+    var $list2 = $('#fileList2');
+    var $list3 = $('#fileList3');
+    var $list4 = $('#fileList4');
+WebUploader.create({
+                auto: true, // 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                pick: '#imgPicker0', // 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function(file, data, response) {
+                    $("#data_photo0").val(data._raw);
+                    $("#img_data0").attr('src', '__DsQINiu__' + data._raw).show();
+                    var aa = data._raw;
+                    var order_number = $('#number').val();
+                    $.ajax({
+                        url: '__PUBLIC__img',
+                        data: {
+                            aa: aa,
+                            order_number: order_number
+                        },
+                        dataType: 'json',
+                        type: 'post',
+                        success: function(data) {
+                            if (data.code == 200) {
+                                var ids = data.datas;
+                                var val = $('input[name=img0]').val();
+                                val = ids;
+                            } else {
+                                msg(data.msg, 2, 6, 1000);
+                            }
+                        }
+                    })
+                }
+            });
+WebUploader.create({
+                auto: true, // 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                pick: '#imgPicker1', // 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function(file, data, response) {
+                    $("#data_photo1").val(data._raw);
+                    $("#img_data1").attr('src', '__DsQINiu__' + data._raw).show();
+                    var aa = data._raw;
+                    var order_number = $('#number').val();
+                    $.ajax({
+                        url: '__PUBLIC__img',
+                        data: {
+                            aa: aa,
+                            order_number: order_number
+                        },
+                        dataType: 'json',
+                        type: 'post',
+                        success: function(data) {
+                            if (data.code == 200) {
+                                var ids = data.datas;
+                                var val = $('input[name=img1]').val();
+                                val = ids;
+                            } else {
+                                msg(data.msg, 2, 6, 1000);
+                            }
+                        }
+                    })
+                }
+            });
+WebUploader.create({
+                auto: true, // 选完文件后，是否自动上传。
+                swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+                duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                pick: '#imgPicker2', // 选择文件的按钮。可选。
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/jpg,image/jpeg,image/png'
+                },
+                'onUploadSuccess': function(file, data, response) {
+                    $("#data_photo2").val(data._raw);
+                    $("#img_data2").attr('src', '__DsQINiu__' + data._raw).show();
+                    var aa = data._raw;
+                    var order_number = $('#number').val();
+                    $.ajax({
+                        url: '__PUBLIC__img',
+                        data: {
+                            aa: aa,
+                            order_number: order_number
+                        },
+                        dataType: 'json',
+                        type: 'post',
+                        success: function(data) {
+                            if (data.code == 200) {
+                                var ids = data.datas;
+                                var val = $('input[name=img2]').val();
+                                val = ids;
+                            } else {
+                                msg(data.msg, 2, 6, 1000);
+                            }
+                        }
+                    })
+                }
+            });
+
+</script>
+<script>
+    WebUploader.create({
+        auto: true, // 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+        duplicate: true, // 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPicker3', // 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#data_photo3").val(data._raw);
+            $("#img_data3").attr('src', '__DsQINiu__' + data._raw).show();
+            var aa = data._raw;
+            var order_number = $('#number').val();
+            $.ajax({
+                url: '__PUBLIC__img',
+                data: {
+                    aa: aa,
+                    order_number: order_number
+                },
+                dataType: 'json',
+                type: 'post',
+                success: function(data) {
+                    if (data.code == 200) {
+                        var ids = data.datas;
+                        var val = $('#data_photo3').val();
+                        val = ids;
+                        $('#data_photo3').val(val);
+                    } else {
+                        msg(data.msg, 2, 6, 1000);
+                    }
+                }
+            })
+        }
+    });
+    WebUploader.create({
+        auto: true, // 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}", // 文件接收服务端。
+        duplicate: true, // 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPicker4', // 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#data_photo4").val(data._raw);
+            $("#img_data4").attr('src', '__DsQINiu__' + data._raw).show();
+            var aa = data._raw;
+            var order_number = $('#number').val();
+            $.ajax({
+                url: '__PUBLIC__img',
+                data: {
+                    aa: aa,
+                    order_number: order_number
+                },
+                dataType: 'json',
+                type: 'post',
+                success: function(data) {
+                    if (data.code == 200) {
+                        var ids = data.datas;
+                        var val = $('#data_photo4').val();
+                        val = ids;
+                        $('#data_photo4').val(val);
+                    } else {
+                        msg(data.msg, 2, 6, 1000);
+                    }
+                }
+            })
+        }
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#fault_details').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+        function checkForm(){
+            var layer=layui.layer;
+            if($("#data_photo0").val()==""){
+                layer.tips('请上传门头照片。', '#imgPicker0', {
+                    tips: [1, '#3595CC'],
+                    time: 2000
+                });
+                return false;
+            }
+            if($("#data_photo1").val()==""){
+                layer.tips('请上传维修签收单。', '#imgPicker1', {
+                    tips: [1, '#3595CC'],
+                    time: 2000
+                });
+                return false;
+            }
+            if($("#data_photo2").val()==""){
+                layer.tips('请上传专柜全景。', '#imgPicker2', {
+                    tips: [1, '#3595CC'],
+                    time: 2000
+                });
+                return false;
+            }
+            if($("#data_photo3").val()==""){
+                layer.tips('请上传维修前。', '#imgPicker3', {
+                    tips: [1, '#3595CC'],
+                    time: 2000
+                });
+                return false;
+            }
+            if($("#data_photo4").val()==""){
+                layer.tips('请上传门维修后。', '#imgPicker4', {
+                    tips: [1, '#3595CC'],
+                    time: 2000
+                });
+                return false;
+            }
+            for(var i=0; i<asa+1;i++){
+                if($("#data_photo"+i).val()==""){
+                    layer.tips('请先上传图片', '#imgPicker'+i, {
+                        tips: [1, '#3595CC'],
+                        time: 2000
+                    });
+                    return false;
+                }
+            }
+        }
+
+        function complete(data) {
+            if (data.code == 200) {
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                }, function() {
+                    var number = {$order_number};
+                    var message_type='1';
+                    var source_id="<?php echo session('id') ?>";
+                    var receive_id='{$owner_id}';
+                    var content='师傅已经提交订单为{$order_number}的维修确认报告，请查看！';
+                    var sending_time ="<?php echo date('Y-m-d h:i:s',time()); ?>";
+                    var link = "__PUBLIC__client_affirm_accomplishs/{$order_number}";
+                    $.ajax({
+                        url: '__PUBLIC__api/message',
+                        dataType: 'json',
+                        data: {
+                            message_type:message_type,
+                            source_id:source_id,
+                            receive_id:receive_id,
+                            content:content,
+                            sending_time:sending_time,
+                            link:link
+                        },
+                        type: 'post',
+                        success: function(data) {
+                            window.location.href="__PUBLIC__orders/client";
+                        },
+                    })
+
+                    window.location.href = "__PUBLIC__orders/master";
+                });
+            } else {
+                msg(data.msg, 2, 6, 1000);
+                return false;
+            }
+        }
+    });
+</script>
+<script>
+    // $jSignature = $('#jSignature');
+    // AJAXsignature = function(url,file_data,folder_id,file_id,type,classname){
+    //         $.ajax({
+    //                 url:url,
+    //                 type: 'post',
+    //                 dataType:'json',
+    //                 data: {
+    //                     file_data:file_data,
+    //                     folder_id:folder_id,
+    //                     file_id:file_id,
+    //                     type:type,
+    //                 },
+    //                 success:function(response) {
+    //                     $('#'+classname).val(response.ids);
+    //                 },
+    //                 error: function(response) {
+    //                     msg();
+    //                 }
+    //             });
+    //     }
+
+    // $('#queren').on('shown.bs.modal', function() {
+    //     width = $jSignature.parent().width() - 20;
+    //     $jSignature.jSignature({
+    //         height: 200,
+    //         width: width,
+    //         lineWidth: "2",
+    //         signatureLine: true
+    //     });
+    // });
+    // $('#queren').on('hide.bs.modal', function() {
+    //     $jSignature.html('');
+    // });
+    // $('#ok').on('click', function() {
+    //     layer.confirm('您是确定好签名了吗？', {
+    //         btn: ['确定', '取消'] //按钮
+    //     }, function() {
+    //         var datapair = $jSignature.jSignature("getData", "image");
+    //         var i = new Image();
+    //         i.src = "data:" + datapair[0] + "," + datapair[1];
+    //         $(i).appendTo($("#oippp"));
+    //         if (i.src != '') {
+    //             var order_number = $('#number').val();
+    //             AJAXsignature('__PUBLIC__signature', i.src, '6', order_number, 'qianming', 'qianming');
+    //             msg('保存成功', 1);
+    //             $('#queren').modal('hide');
+    //         }
+    //     }, function() {
+    //         layer.close();
+    //     });
+
+    // });
+</script>
+
+{include file="public/footer" }

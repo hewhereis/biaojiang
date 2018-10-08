@@ -1,0 +1,648 @@
+{include file='public/header'}
+<link href="__PUBLIC__static/index/css/select2.css" rel="stylesheet" />
+<script src="__PUBLIC__static/index/js/select2.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style>
+</style>
+<div class="main">
+    <div class="container">
+        <div class="header">
+            <h5 class="page-header bx">
+                <span>当前所在位置</span>
+                <span>>></span>
+                <small>师傅信息登记表</small>
+            </h5>
+        </div>
+        <div class="panel panel-orange">
+            <div class="panel-heading">
+                <div class="panel-title">
+                        <span>师傅信息登记</span>
+                </div>
+            </div>
+            <form id="myForm" class="" method="post" action="__PUBLIC__submit_information">
+                <div class="panel-body">
+                    <!-- 个人信息 -->
+                    <div style="font-weight: bold;font-size:1.1em">
+                        个人信息
+                    </div>
+                    <!-- 用户昵称 -->
+
+                    <div class="row">
+                        <div class="col-md-3 col-md-push-9 "style="height:150px;">
+                            <input type="hidden" id="data_photos" name="img">
+                            <div id="fileLists" class="uploader-list" style="float:right">
+                            </div>
+                            <div id="imgPickers" style="float:left;margin-left:5%;margin-top:3%">
+                                <i class="glyphicon glyphicon-plus"></i>上传头像
+                            </div>
+                            <img id="img_datas"  class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                        </div>
+                        <div class="col-md-9 col-md-pull-3">
+                            <div class='row'>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                            用户昵称
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" name="nikname" id="nikname" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 常住区域 -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="content2" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                住居区域
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div id="distpicker4" class="row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="sr-only" for="province10">Province</label>
+                                                        <select class="form-control" id="province10" name="province">
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="sr-only" for="city10">City</label>
+                                                        <select class="form-control" id="city10" name="city">
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="sr-only" for="district10">District</label>
+                                                        <select class="form-control" id="district10" name="town">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 目标区域 -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="content3" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                目标区域
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div id="distpicker5" class="row">
+                                                    <div class="form-group col-md-4">
+                                                        <label class="sr-only" for="province10">Province</label>
+                                                        <select class="form-control" id="province" name="service_province">
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label class="sr-only" for="city10">City</label>
+                                                        <select class="form-control" id="city" name="service_city">
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 点击上传图片 -->
+                    <hr>
+                    <!-- 愿意服务项目 -->
+                    <div style="font-weight: bold;font-size:1.1em">
+                        服务项目
+                    </div>
+                    <!-- 服务项目 -->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="content5" style="margin-top: 1em">
+                                <div class="row">
+                                    <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                        服务项目
+                                    </div>
+                                    <div class="col-md-8" >
+
+
+                                        {volist name="service" id="vo"}
+                                        <div class="checkbox checkbox-success" style="display: inline-block">
+                                                <input type="checkbox" name="services[]" id="{$vo.id}" value="{$vo.id}">
+                                            <label for="{$vo.id}">{$vo.name}</label>
+                                        </div>
+                                        {/volist}
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 师傅技能 -->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="content5" style="margin-top: 1em">
+                                <div class="row">
+                                    <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                        师傅技能
+                                    </div>
+                                    <div class="col-md-8">
+                                        {volist name="skills" id="vo"}
+
+                                        <div class="checkbox checkbox-success" style="display: inline-block">
+                                            <input type="checkbox" name="s_id[]" id="{$vo.id}s" value="{$vo.id}">
+                                            <label for="{$vo.id}s">{$vo.skill}</label>
+                                        </div>
+
+                                        {/volist}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 服务时间 -->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="content1" style="margin-top: 1em">
+                                <div class="row">
+                                    <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                        服务时间
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="input-group">
+                                                    <input type="text"  name="s_time" id="s_time" placeholder="例:周一至周日(8:30~23:00)" class="form-control" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 员工人数 -->
+                    <div class="row mt-20">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3" style="padding-top: 0.5em;padding-left:15%">
+                                    员工人数
+                                </div>
+
+                                <div class="col-md-2">
+                                    <input type="text" name="peopleNumber" id='peopleNumber' class="form-control" value="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div style="font-weight: bold;font-size:1.1em">
+                        货车情况
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="content1" style="margin-top: 1em">
+                                <div class="row">
+                                    <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                        货车情况
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="huoche" id="huoche" placeholder="例：1辆/中型/1吨" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- 工程简历 -->
+                    <div class="" id="one">
+                        <div class="html ">
+                            <div style="font-weight: bold;font-size: 1.1em">
+                                工程简历
+                            </div>
+                            <!-- 认证数/邀请认证 -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="content6">
+                                        <div class="row">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 项目名称 -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="content1" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                项目名称
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="pro_name" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 任职公司 -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="content1" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                任职公司
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" name="company" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 项目时间 -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="content1" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                项目时间
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <input type="text" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD '})" name="start_time" class="form-control" value="">
+                                                    </div>
+                                                    <div class="col-md-2" style="padding-top:0.3em">
+                                                        <span>——</span>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <input type="text" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD '})" name="end_time" class="form-control" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 服务品牌 -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="content5" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                服务品牌
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control js-example-tags" name="brand">
+                                                    {volist name="brand" id="vo"}
+                                                    <option value="{$vo.id}">{$vo.brand}</option>
+                                                    {/volist}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 商品类别 -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="content5" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                服务类别
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control" name="servicess">
+                                                    {volist name="service" id="v"}
+                                                    <option value="{$v.id}">{$v.name}</option>
+                                                    {/volist}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 师傅技能 -->
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="content5" style="margin-top: 1em">
+                                        <div class="row">
+                                            <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                                师傅技能
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control" name="skill">
+                                                    {volist name="skills" id="vv"}
+                                                    <option value="{$vv.id}">{$vv.skill}</option>
+                                                    {/volist}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="padding-top: 0.5em" >
+                                <button type="button" class="btn border-radius btn-info keep" style="color:#fff" num="" >保存简历</button>
+                            </div>
+                            <div class="col-md-3" style="padding-top: 0.5em" >
+                                <button type="button" class="btn border-radius btn-info invite" style="color:#fff" >邀请认证</button>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- 添加简历 -->
+                    <div class="col-md-9" style="padding-top:1.5em" >
+                        <button type="button" class="btn border-radius btn-info" style="color:#fff" id="add">添加工程简历</button>
+                    </div>
+                    <!-- 邀请人号码 -->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="content1" style="margin-top: 1em">
+                                <div class="row">
+                                    <div class="col-md-4" style="padding-top: 0.5em;padding-left: 20%">
+                                        邀请人号码
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="phone" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- 确认按钮 -->
+                    <div style="text-align:center">
+                        <input type="submit" name="" class="btn border-radius btn-info" style="padding:0.5em 4em" value="确认">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" class="ids" value="">
+<input type="hidden" class = 'worker_id' value="{$worker_id}">
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<script>
+
+    var modalHtml = '<div class="row mt-10"><div class="col-md-8 col-md-offset-2"><div class="row"><div class="col-md-3"><span style="color:#000">姓 名:</span></div><div class="col-md-9"><input type="text" class="form-control"></div></div><div class="row mt-10 pb-10"><div class="col-md-3"><span style="color:#000">联系电话:</span></div><div class="col-md-9"><input type="text" class="form-control"></div></div></div><div class="col-md-2"></div></div>';
+    var modalHtml2 = '<div class="row mt-10"><div class="col-md-8 col-md-offset-2"><div class="row"><div class="col-md-3"><span style="color:#000">姓 名:</span></div><div class="col-md-9"><input type="text" class="form-control"></div></div><div class="row mt-10 pb-10"><div class="col-md-3"><span style="color:#000">联系电话:</span></div><div class="col-md-9"><input type="text" class="form-control"></div></div></div><div class="col-md-2"><a class="btn btn-danger delete">删除</a></div></div>';
+    var html = $('#one').html();
+
+    $('#modal').on('show.bs.modal',function(){
+        $('#modal-body').html(modalHtml);
+    });
+    $('#add').click(function(){
+        $('#one').append(html);
+        $(".js-example-tags").select2({tags: true});
+        $(".select2-container").css("width", "100%");
+
+        $(".select2-selection").css("border","none")
+        $("#select2-brand-container").addClass("form-control").css({
+            lineHeight:"22px"
+        });
+        $(".select2-selection__rendered").css("border","1px solid #ddd")
+    });
+    $('#addPeopel').on('click',function(){
+        var bodyhtml = $('#modal-body').html();
+        $('#modal-body').html(bodyhtml+modalHtml2);
+    });
+    $('#modal-body').on('click','.delete',function(){
+        $(this).parent('div').parent('.row').remove();
+    });
+
+</script>
+
+<script>
+    function getSelectVal(){
+        $.getJSON("__PUBLIC__service",{bigname:$("#service").val()},function(json){
+            var smallname = $("#category");
+            $("option",smallname).remove(); //清空原有的选项
+            $.each(json,function(index,array){
+                var option = "<option id='ds_option' value='"+array['id']+"'>"+array['name']+"</option>";
+                smallname.append(option);
+                var aa =$('#ds_option').val();
+                $.getJSON("__PUBLIC__commodity",{bigname:aa},function(json){
+                    var smallname = $("#commodity");
+                    smallname.html(' '); //清空原有的选项
+                    $.each(json,function(index,array){
+                        var option = "<option id='three' name='category' value='"+array['id']+"'>"+array['name']+"</option>";
+                        smallname.append(option);
+                    });
+                });
+            });
+        });
+    }
+    function getSelectVals(){
+        $.getJSON("__PUBLIC__category",{bigname:$("#category").val()},function(json){
+            var smallname = $("#commodity");
+            smallname.html(' '); //清空原有的选项
+            $.each(json,function(index,array){
+                var option = "<option  id='site_survey_measurement' name='commodity' value='"+array['id']+"'>"+array['name']+"</option>";
+                smallname.append(option);
+            });
+        });
+    }
+
+    $(function () {
+        $("#service").change(function(){
+            getSelectVal();
+            var smallname = $("#commodity");
+            smallname.html(' '); //清空原有的选项
+        });
+        $("#category").change(function(){
+            getSelectVals();
+        });
+    });
+
+</script>
+<script>
+
+    $(document).ready(function(){
+        $('#myForm').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+
+        function checkForm(){
+            if($('#nikname').val()==''){
+                Tip("nikname","请填写用户昵称");
+                return false;
+            }
+
+            if ('' == $.trim($('#province10').val())) {
+
+                Tip("province10","请填写住居区域省");
+                return false;
+            }
+            if ('' == $.trim($('#city10').val())) {
+
+                Tip("city10","请填写住居区域市");
+                return false;
+            }if ('' == $.trim($('#district10').val())) {
+
+                Tip("district10","请填写住居区域区");
+                return false;
+            }
+            if ('' == $.trim($('#province').val())) {
+
+                Tip("province","请选择目标区域省份");
+                return false;
+            }
+            if ('' == $.trim($('#city').val())) {
+
+                Tip("city","请选择目标区域市区")
+                return false;
+            }
+
+            if ('' == $.trim($('#s_time').val())) {
+                Tip("s_time","请填写服务时间")
+                return false;
+
+            }
+            if ('' == $.trim($('#peopleNumber').val())) {
+                Tip("peopleNumber","请填写员工人数")
+                return false;
+            }
+            if ('' == $.trim($('#huoche').val())) {
+                Tip("huoche","请填写货车情况")
+                return false;
+            }
+
+        }
+
+        function complete(data){
+            var dsurl=$('#ds-sub').val();
+            if(data.code==200){
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                },function(){
+                    window.location.href = "__PUBLIC__core/master";
+                });
+            }else{
+                lunhui.error(data.msg);
+                return false;
+            }
+        }
+    })
+</script>
+<script>
+    //保存工程简历
+    $('#one').on('click','.keep',function(){
+        var ht=$(this);
+        var $html = $(this).parent('div').parent('.html');
+        var pro_name = $html.find('input[name=pro_name]').val();
+        var company = $html.find('input[name=company]').val();
+        var start_time = $html.find('input[name=start_time]').val();
+        var end_time = $html.find('input[name=end_time]').val();
+        var brand = $html.find('select[name=brand]').val();
+        var servicess = $html.find('select[name=servicess]').val();
+        var skill = $html.find('select[name=skill]').val();
+        if(pro_name==''){
+            layer.msg('请填写项目名称',{icon:2,time:1500});
+            return false;
+        }
+        if(company==''){
+            layer.msg('请填写任职公司',{icon:2,time:1500});
+            return false;
+        }
+        if(start_time==''){
+            layer.msg('请填写项目开始时间',{icon:2,time:1500});
+            return false;
+        }
+        if(end_time==''){
+            layer.msg('请填写项目结束时间',{icon:2,time:1500});
+            return false;
+        }
+
+        $.ajax({
+            url:'__PUBLIC__keep',
+            data:{
+                pro_name:pro_name,
+                company:company,
+                start_time:start_time,
+                end_time:end_time,
+                brand:brand,
+                servicess:servicess,
+                skill:skill
+            },
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                if(data.code==200){
+                    var id = data.id;
+                    $('.ids').val(id);
+                    layer.msg(data.msg,{icon:1,time:1500});
+                    ht.addClass("btn-blue");
+                    ht.removeClass("btn-info");
+                    ht.attr("num",1);
+                }else{
+                    layer.msg(data.msg,{icon:2,time:1500});
+                }
+            }
+        })
+
+    })
+
+    $('#one').on('click','.invite',function(){
+        var num =$('.keep').attr("num");
+        var id = $('.ids').val();
+        var worker_id = $('.worker_id').val();
+        if(num!=1){
+            layer.msg('请先保存工程简历在邀请认证',{icon:2,time:1500});
+            return false;
+        }else{
+            window.location.href="__PUBLIC__resume_auth?id="+id+'&&wid='+worker_id;
+        }
+
+    })
+</script>
+
+<script>
+    //图片上传
+    var uploaders = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/admin/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/dsupload')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#imgPickers',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#data_photos").val(data._raw);
+            $("#img_datas").attr('src', '__DsQINiu__' + data._raw).show();
+        }
+    });
+
+
+    $(".js-example-tags").select2({tags: true});
+    $(".select2-container").css("width", "100%");
+
+    $(".select2-selection").css("border","none")
+    $("#select2-brand-container").addClass("form-control").css({
+        lineHeight:"22px"
+    });
+    $(".select2-selection__rendered").css("border","1px solid #ddd")
+</script>
+
+
+
+{include file='public/footer'}

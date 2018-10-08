@@ -1,0 +1,143 @@
+.ClientCenter,.MasterCenter
+    .CenterTop
+        width:100%
+        height:90px
+        background-size:100% 90px
+        background-repeat:no-repeat
+        bg-image('img/CenterTop')
+        padding:15px 20px
+        display: flex
+        display: -webkit-flex
+        display: -ms-flexbox
+        .centerTopLeft
+            flex: 0 0 60
+            -webkit-box-flex: 0 0 60
+            -webkit-flex: 0 0 60
+            -ms-flex:0 0 60
+            border-radius:50%
+            width:60px
+            height:60px
+            overflow: hidden
+            .photo
+                width:60px
+                height:60px 
+                border-radius:50%
+        .centerTopRight
+            flex:1
+            -webkit-box-flex:1
+            -webkit-flex:1
+            -ms-flex:1
+            width:100%
+            height:60px
+            padding:10px 0px 5px 10px
+            color:#fff
+            position:relative
+            .userName
+                margin-bottom:10px
+                span 
+                    font-weight: 700
+            .editInfo
+                position:absolute
+                bottom:20px
+                right:-10px
+                a
+                    color:#fff
+                    i 
+                        font-size:25px
+                        position:relative
+                        top:6px
+    .centerMenu
+        width:100%
+        height:60px
+        display:flex
+        display:-webkit-flex
+        display:-ms-flexbox
+        .centerMenuTab
+            width:100%
+            height:100%
+            flex:1
+            -webkit-box-flex: 1
+            -webkit-flex:1
+            -ms-flex:1
+            text-align:center
+            line-height:60px
+            border-right:1px solid #ccc
+            border-1px(#ccc)
+            &:last-child
+                border-right:none
+            a
+                display:inline-block
+                width:100%
+                height:100%
+                color:#333
+                font-size:16px
+                font-weight:700
+    .centerMenuList
+        width:100%
+        height:auto
+        background:#F7F7F7
+        padding:10px
+        .centerMenuListInfo
+            width:100%
+            height:100%
+            border:1px solid #D9D9D9
+            border-bottom:none
+            border-radius:5px
+            margin-bottom:10px
+            overflow:hidden
+            .centerMenuList-item
+                width:100%
+                height:52px
+                border-radius:5px
+                display: block
+                background:#fff
+                border-1px(#D9D9D9)
+                .centerMenuList-item-Content
+                    width:100%
+                    height:100%
+                    display:flex
+                    display:-webkit-flex
+                    display:-ms-flexbox
+                    padding:10px
+                    .centerMenuList-item-photo
+                        width:30px
+                        height:30px
+                        flex:0 0 30px
+                        -webkit-box-flex: 0 0 30px
+                        -webkit-flex:0 0 30px
+                        -ms-flex:0 0 30px
+                    .centerMenuList-item-info
+                        width:100%
+                        height:30px
+                        flex:1
+                        -webkit-box-flex:1
+                        -webkit-flex:1
+                        -ms-flex:1
+                        padding:0px 20px 0px 10px
+                        position:relative
+                        .centerMenuList-item-info-left,.centerMenuList-item-info-right
+                            display:inline-block
+                            height:30px
+                            line-height:30px
+                        .centerMenuList-item-info-left
+                            span 
+                                color:#333
+                                font-size:14px
+                        .centerMenuList-item-info-right
+                            float:right
+                            span 
+                                color:#A6A6A6
+                                font-size:14px
+                                &.spanColor
+                                    color:#ff5200
+                                    margin-right:20px 
+                        i 
+                            font-size:20px
+                            position:absolute
+                            top:6px
+                            right:0
+
+
+
+
+                

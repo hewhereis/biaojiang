@@ -1,0 +1,186 @@
+{include file="public/header_sy" }
+{include file="public/menu" }
+<link rel="stylesheet" href="__indexStatic__/layui/css/layui.css">
+<script src="__indexStatic__/layui/layui.js"></script>
+<body>
+<div id="bj-app">
+	<div class="wodedingdan">
+		<si-headers></si-headers>
+		<si-content></si-content>
+		<si-footer></si-footer>
+	</div>
+</div>
+<script type="text/x-template" id="content">
+    <div class="parent">
+        <div class="bj-header">
+            <ul class="nav-header">
+                <li class="" :class="{active:topheader==0}" @click="topclick(0)">
+                    <span>全部</span>
+                </li>
+                <li class="" :class="{active:topheader==1}" @click="topclick(1)">
+                    <span>待定标</span>
+                </li>
+                <li :class="{active:topheader==2}" @click="topclick(2)">
+                    <span>待付款</span>
+                </li>
+                <li :class="{active:topheader==3}" @click="topclick(3)">
+                    <span>待完工</span>
+                </li>
+                <li class="" :class="{active:topheader==4}" @click="topclick(4)">
+                    <span>待验收</span>
+                </li>
+                <li :class="{active:topheader==5}" @click="topclick(5)">
+                    <span>待评价</span>
+                </li>
+            </ul>
+        </div>
+		<form  name="myfroms" id="myforms" method="post" action="__PUBLIC__order_customer_home">
+					<input  hidden style="width:100px;height:50px;margin-top:50px;" name="ser" id="ser" value="{$ser}" />
+		   </form>
+        <div class="content">
+            <div class="tab">
+				<div  v-for="(item,index) in list">
+					 <div class="bg-primary-hieght"></div>
+						<div class="tab-header">
+							<div class="weui-flex">
+								<div class="weui-flex__item left">
+								<span class="orange">{{item.sname}}</span>
+								<span class="text-hui">订单编号:{{item.order_number}}</span>
+								</div>
+								<div class="weui-flex__item text-hui right">付款金额 : <span class="orange">￥{{item.amount_urgent}}</span></div>
+							</div>
+						</div>
+					<a :href="'__PUBLIC__order_customer_state/'+item.id">	
+			
+					<div class="tab-content">
+						<div class="text weui-flex">
+							<div class="left"> 师傅名称:<span class="">{{item.bname}}</span></div>
+							<div class="right">
+								<span class="icon-倒计时 tl"></span>
+								<span class="orange"  v-if="item.status==1">待定标</span>
+								<span class="orange"  v-if="item.status==2">待付款</span>
+								<span class="orange"  v-if="item.status==3">待完工</span>
+								<span class="orange"  v-if="item.status==4">待验收</span>
+								<span class="orange"  v-if="item.status==5">待评价</span>
+								<span class="orange"  v-if="item.status==6">追加评价</span>
+								<span class="orange"  v-if="item.status==7">交易完成</span>
+								<span class="orange"  v-if="item.status==8">交易关闭</span>
+								
+								
+							</div>
+						</div>
+						<p class="text">品牌名称: 
+								<span v-if="item.service_type_id==1" >{{item.e_brand}}</span>
+								<span v-if="item.service_type_id==2" >{{item.d_brand}}</span>
+								<span v-if="item.service_type_id==4" >{{item.s_brand}}</span>
+								<span v-if="item.service_type_id==5" >{{item.g_brand}}</span>
+								<span v-if="item.service_type_id==6" >{{item.m_brand}}</span>
+						</p>
+						
+						<p class="text">店铺地址: <span>{{item.full_location}}-{{item.location_ext}}</span> </p>
+					</div>
+					</a>
+					<div class="tab-footer weui-flex">
+						<div class="left">
+							<div class="right" style="float:right" >
+							<div v-if="item.service_type_id==1 || item.service_type_id==2 || item.service_type_id==5">
+								 <div v-if="item.status==1 || item.status==2 || item.status==3 || item.status==4">	
+									 <a href="" class="bg-orange">追加项目</a> 
+								 </div>
+							</div>		
+						</div>
+						</div>
+						<div class="right">
+							
+							<span v-if="item.service_type_id==1" >安装</span>
+							<span v-if="item.service_type_id==2" >{include file="stype/repair" }</span>
+							<span v-if="item.service_type_id==4" >勘测</span>
+							<span v-if="item.service_type_id==5" >更换</span>
+							<span v-if="item.service_type_id==6" >围板</span>
+							
+						</div>
+					</div>
+				</div>
+            </div>
+            <div class="bg-primary-hieght"></div>
+        </div>
+		<if condition="count($list) eq 6">
+					<a  id="btn"  href="javascript:;"></a>
+				</if>
+    </div>
+</script>
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "我的订单",
+                left:"",
+                right:""
+            }
+        },
+        methods:{
+        }
+    });
+    Vue.component('si-footer', {
+        template: '#menu',
+        data: function () {
+        },
+        methods:{
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+				list:{$list},
+			    topheader:'{$ser}',
+			    DsQINiu:'__DsQINiu__',
+                
+            }
+        },
+        methods:{
+            topclick:function (i) {
+                this.topheader=i;
+				$('#ser').val(i);
+				$("#myforms").submit();
+            },
+			load:function(){
+				_that = this;
+				var nStart = 6;
+				var ser=$('#ser').val();
+				layui.use('flow', function(){
+				var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+				  flow = layui.flow;
+				  flow.load({
+					elem: '#btn' //指定列表容器
+					,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
+					  var lis = [];
+					  //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+					  $.post("__PUBLIC__order_customer_home", {start: nStart,ser:ser}, function(res){
+						//假设你的列表返回在data集合中
+								layui.each(res.result, function(index, item){
+								_that.list.push(item)
+						}); 
+						//执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+						//pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+						next(lis.join(''), nStart < res.totals,nStart += 6); 
+					  });
+					}
+				  });
+				});
+		}
+        },
+		mounted:function(){
+			this.load()
+		}
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+        },
+        methods:{
+        }
+    })
+</script>
+</body>

@@ -1,0 +1,232 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="mt_md-130 order_calibrate">
+    <!--header-img-->
+    <!-- 面包屑导航-->
+    <div class="container ">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>更换灯片订单询价页面</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+            <input id="number" hidden="hidden" value="{$order_number}">
+            <div class="panel panel-default mb-0 ">
+                <div class="panel-heading bg-orange ">
+                    <span>更换灯片订单(订单号：{$order_number})</span>
+                </div>
+            </div>
+            <div  class="panel-body border-aspx">
+                        <div class="form-group">
+                            <label class="col-sm-2  mt-10 text-right">客户名称</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" disabled class="form-control"  name="customer_name" value="{$order['contact_name']}" id="customer_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 mt-10  text-right">目标地址</label>
+                            <div class="col-sm-10 ">
+                                <input type="text" disabled class="form-control" name="target_address" value="{$order['full_location']}" id="target_address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input_date" class="col-sm-2 text-right">预约开始时间</label>
+                            <div class="layui-inline col-xs-12   col-sm-10 relative_order_calibrate">
+                                <input id="input_date " disabled class="form-control" name="Appointment_start_time" value="{$order['start_time']|date='Y-m-d H:i',###}">
+
+                            </div>
+                        </div>
+                    </div>
+            <div class="panel-body border-aspx ">
+
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>项目</th>
+                                <th>项目预算价</th>
+                                <th>故障详情</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <?php foreach($list as $vo){ ?>
+                            <tr>
+                                <td>更换灯片-{$vo['brand']}(品牌)</td>
+                                <td>{$vo['budget']}</td>
+                                <td>
+                                    <a href="__PUBLIC__oneer/{$vo['id']}" class="btn btn-default border-radius">查看</a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+
+                            </tbody>
+                        </table>
+                        <div class="row mt-10 mb-10">
+                            <div class="col-md-12">
+                                合计：{$total}元
+                            </div>
+                        </div>
+                        <table class="table selected-maste table-bordered">
+                            <thead>
+                            <tr>
+                                <th>抢单师傅</th>
+                                <th>报价</th>
+                                <th>选择师傅</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($evaluate as $v){ ?>
+                            <tr>
+                                <td class="popup_message">
+                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                    <a href="">{$v['real_name']}</a>
+                                    <div class="mobile_static"></div>
+                                    <ul class="text-left on ul_li_float_parent">
+                                        <li class="clearfix">
+                                            <ul class="ul_li_float">
+                                                <li>
+                                                    <a href=""></a>
+                                                </li>
+                                                <li >
+                                                    <p><?php echo mb_substr($v['real_name'],0,1);?>师傅</p>
+                                                    <p>
+                                                        <?php for($i=0;$i<$v["platform_level"];$i++){ ?>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <?php } ?>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            师傅工号 <span>{$v['worker_id']}  </span>
+                                        </li>
+                                        <li>
+                                            平台等级 <span>{$v['platform_level']}</span>
+                                        </li>
+                                        <li>
+                                            客户评分<span>{$v['rating']}分</span>
+                                        </li>
+                                        <li>
+                                            师傅日薪 <span>{$v['wage']}元</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td> {$v['totals']}</td>
+                                <td>
+                                    <a href="" ids="{$v['worker_id']}" class="btn btn-default selected" >选定</a>
+
+                                </td>
+                            </tr>
+                            <?php } ?>
+
+
+                            </tbody>
+                        </table>
+
+                        <?php if(!empty($evaluate)): ?>
+                        <div class="row">
+                            <div class="col-md-12 mt-30 text-center mb-10">
+                                <button class="btn btn-orange btn-lg" id="confirm">确认</button>
+                            </div>
+                        </div>
+                        <?php else: ?>
+                        <div class="row">
+                            <div class="col-md-12 mt-30 text-center mb-10">
+                                <input type="button" class="btn btn-orange btn-lg" value="确认" id="confirms">
+                            </div>
+                        </div>
+                        <?php endif; ?>
+                        <div style="height: 50px"></div>
+                    </div>
+            <div class="row">
+                <div class="col-md-12 text-right mt-20">
+                    <div class="col-md-2 pull-right text-right">
+                        <a href="javascript:window.history.back(-1);" class="text-blue">返回>></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+
+
+    $(".selected-maste a.btn-default").click(function(e){
+        e.preventDefault();
+
+        $(".selected-maste a.btn-default").css("background","#fff").css('color','#000');
+
+        $(this).css("background","#ff5200").css('color','#fff');
+
+    })
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+    var cu=true;
+    $(".popup_message>a").click(function (e) {
+        e.preventDefault();
+        if(cu){
+            $(this).siblings('ul').removeClass('on');
+            cu=false;
+        }else{
+            $(this).siblings('ul').addClass('on');
+            cu=true;
+        }
+    });
+
+
+    //客户选定师傅
+    var samm=null;
+    $(".selected").click(function(){
+        samm=$(this).attr("ids");
+
+    })
+    $('#confirm').click(function(e){
+        if(samm===null){
+            layer.msg('请先选择师傅', {
+                icon: 1,
+                time: 2000
+            });
+            return false;
+        }
+        var number = $('#number').val();
+        var link = "__PUBLIC__replace/client";
+        e.preventDefault();
+        $.ajax({
+            url:'__PUBLIC__gjmselects',
+            data:{samm:samm,number:number,link:link},
+            type:'post',
+            dataType:'json',
+            success:function(data){
+                if(data.code==200){
+                    layer.msg(data.msg, {
+                        icon: 1,
+                        time: 1000
+                    }, function() {
+                        location.href = '__PUBLIC__settlements/'+number+'/url/'+0;
+                    });
+                }else{
+                    msg(data.msg,2,6,1000);
+                }
+            }
+        })
+    })
+    $('#confirms').click(function(){
+        var number = $('#number').val();
+        layer.msg('还没师傅抢单，请耐心等待', {
+            icon: 2,
+            time: 2000
+        });
+        setTimeout(function(){
+            window.location.href="__PUBLIC__gjmguestbook/"+number;
+        },1000)
+
+    })
+
+</script>
+{include file='public/footer'}

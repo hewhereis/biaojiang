@@ -1,0 +1,140 @@
+{include file='public/header'}
+
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+
+<template id="mian">
+  <div class="kehu_zhuijiaxiangmu">
+    <div class="bg">
+    <div class="content">
+      <div class="heading">
+        <span class="heading_name">追加理由：</span>
+        <div>
+          <textarea class="heading_text" v-model="resuse" placeholder="请输入追加项目故障详情"></textarea>
+        </div>
+      </div>
+      <div class="footer">
+        <span class="left">追加项目报价：</span>
+        <span class="right">
+          <input type="text" placeholder="请输入追加项目报价" v-model="price" class="text1" name="">
+        </span>
+      </div>
+    </div>
+    <div class="btn">
+      <input type="button" @click="btns()" class="btn1" name="" value="去付款">
+    </div>
+    </div>
+  </div>
+</template>
+
+
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+
+
+  var data = {
+    sex: 1,
+    resuse:'',
+    price:'',
+    order_number:'{$order_number}'
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+      btns:function(){
+        var _this = this;
+        if(_this.resuse==''){
+           $.toptip('请填写追加项目理由');
+           return;
+        }
+        if(_this.price==0||_this.price==''){
+           $.toptip('请填写追加追加费用');
+           return;
+        }
+         $.ajax({
+                  url:'__PUBLIC__is_weixin',
+                  type:'post',
+                  data:{},
+                  dataType:'json',
+                  success:function(data){
+                      if(data==true){
+                          location.href="http://www.bj-wang.com/PhoneWxpay/project_cost?total="+totals+"&&number="+order_number;
+                      }else{
+                          $.ajax({
+                              url:'__PUBLIC__additional_projects',
+                              type:'post',
+                              data:{resuse:_this.resuse,order_number:_this.order_number,price:_this.price},
+                              dataType:'json',
+                              success:function(data){
+                                  if(data.code==200){
+                                      //location.href="http://www.bj-wang.com/wxpay/scan/number/"+order_number;
+                                      //window.location.href="__PUBLIC__payment/"+order_number;
+                                  }
+
+                              }
+                          })
+
+                      }
+
+                  }
+              })
+       }
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "追加项目报价"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+
+  
+</script>

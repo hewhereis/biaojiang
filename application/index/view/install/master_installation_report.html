@@ -1,0 +1,293 @@
+<!--师傅安装确认表-->
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main">
+   
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media " >
+        <h5 class="page-header bx">
+            <span class="pl-10">当前位置：</span>
+            <small>安装确认表</small>
+            <span>>></span>
+        </h5>
+    </div>
+
+    <div class="container">
+        <!--/*标题*/-->
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12 ">安装确认表</div>
+        </div>
+        <form id="fault_details" action="">
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12">
+                    <!--客户信息-->
+                    <div class="row  border-bottom-1 ">
+                        <!--维修项目名称-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">维修项目名称</label>
+                                <div class="col-md-9">
+                                    <input type="text" required name="project_name" id="project_name" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--店铺联系-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label for="input_date" class="col-sm-3 mt-10">店铺联系</label>
+                                <div class="col-md-9 col-xs-12">
+                                    <div class="input-append date form_datetime" id="input_date" data-date="2013-02-21T15:25:00Z">
+                                        <input size="16" type="text" class="form-control" id="store_contact" value="" name="store_contact" >
+                                        <span class="add-on"><i class="icon-remove"></i></span>
+                                        <span class="add-on"><i class="icon-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--项目地址-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">项目地址</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="project_address" required id=" project_address" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--联系人电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">联系人电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="phone_number_of_the_contact" required id="phone_number_of_the_contact" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工公司-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工公司</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="construction_company" id="construction_company" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工师傅-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工师傅</label>
+                                <div class="col-md-9">
+                                    <input type="text " name="Construction_of_the_teacher" required id="Construction_of_the_teacher" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--施工联系人-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">施工联系人</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="Construction_contact" id="Construction_contact" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!--维修项目完成时间-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">维修项目完成时间</label>
+                                <div class="col-md-9">
+                                    <input type="text " name="maintenance_project_completion_time" required id="maintenance_project_completion_time" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row hidden ">
+                                <div class="col-md-10 mt-5 mb-10 text-center text-orange ">目标维修地址不能为空</div>
+                            </div>
+                        </div>
+                        <!--施工联系电话-->
+                        <div class="col-sm-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 mt-10">联系人电话</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="construction_contact_number" id="construction_contact_number" required class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row 1 border-bottom-1">
+                        <div id="sa" class="col-md-12  mb-30 mt-20">
+                            <p>
+                                <i class="fa fa-instagram"></i>上传图片
+                            </p>
+                            <div class="row border-bottom-1">
+                                <div class="col-md-6 col-xs-12">
+                                    <input type="hidden" id="data_photo" name="aimg[]">
+                                    <div id="fileList" class="uploader-list" style="float:right">
+                                    </div>
+                                    <div id="imgPicker" style="float:left;margin-left:5%;margin-top:3%">
+                                        <i class="glyphicon glyphicon-plus"></i>门头照片
+                                    </div>
+                                    <img id="img_data" class="pull-left_on_xs mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <input type="hidden" id="data_photo1" name="bimg[]">
+                                    <div id="fileList1" class="uploader-list" style="float:right">
+                                    </div>
+                                    <div id="imgPicker1" style="float:left;margin-left:5%;margin-top:3%">
+                                        <i class="glyphicon glyphicon-plus"></i>维修签收单
+                                    </div>
+                                    <img id="img_data1" class="pull-left_on_xs mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                </div>
+                            </div>
+                            <div class="row border-bottom-1 mt-30">
+                                <div class="col-md-1 col-sm-2 mt-30">
+                                    <input type="button" class="btn border-radius btn-default" value="专柜全景">
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <img id="" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <img id="" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                </div>
+                                <div class="col-md-3 col-sm-3">
+                                    <img id="" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                </div>
+                            </div>
+                            <div  class="row  mt-10">
+                                <div class="col-md-1 col-sm-2 mt-30">
+                                    <input type="button" class="btn border-radius btn-default" value="维修前">
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <img id="" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                </div>
+                                <div class="col-md-1 col-sm-2 mt-30">
+                                    <input type="button" class="btn border-radius btn-default" value="维修后">
+                                </div>
+                                <div class="col-md-5 col-sm-4">
+                                    <img id="" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-xs-9 col-sm-9">
+                                    <input type="text" placeholder="请详细描述故障详情" class="form-control  mt-30 pr-30">
+                                </div>
+                                <div class="col-md-2 col-xs-3 mt-40 col-sm-3">
+                                    <i id="" class="fa miaoxie fa-plus-square" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-30">
+                        <div class="col-md-2 col-xs-6 col-sm-2">
+                            <input type="button" class="btn btn-default border-radius form-control" value="业主方签字">
+                        </div>
+                        <div class="col-md-4 col-xs-6 col-sm-4">
+                            <input type="text" value="" class="form-control border-radius">
+                        </div>
+                        <div class="col-md-2 col-xs-6 mt-10-media_xs col-sm-2">
+                            <input type="button" class="btn btn-default border-radius form-control" value="施工方签字">
+                        </div>
+                        <div class="col-md-4 mt-10-media_xs col-xs-6 col-sm-4">
+                            <input type="text" value="" class="form-control border-radius">
+                        </div>
+                    </div>
+                    <!--提交按钮-->
+                    <div class="row">
+                        <div class="col-md-4 col-xs-6 col-sm-4 text-center  mt-20">
+                            <input id="" type="button" value="确认"  class="btn btn-success border-radius form-control">
+                        </div>
+                        <div class="col-md-4 col-xs-6 col-sm-4 col-sm-offset-3 text-center mt-20">
+                            <input id="" type="button"  class="btn btn-blue border-radius form-control" value="报告有问题">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script>
+    //图片预览方法
+    function tpyl(file1,file2,img){
+        var file1=file1;
+        var file2=file2;
+        var img1=img;
+
+        $("."+file2).change(function() {
+
+            var $file = $(this);
+            var fileObj = $file[0];
+            var windowURL = window.URL || window.webkitURL;
+            var dataURL;
+            var $img = $("<img>");
+            var img=$(this).parent().siblings();
+            if(fileObj && fileObj.files && fileObj.files[0]) {
+                dataURL = windowURL.createObjectURL(fileObj.files[0]);
+                $img.attr('src', dataURL);
+                img.html($img)
+            } else {
+                dataURL = $file.val();
+                var imgObj = document.getElementById(img);
+                imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+            }
+        })
+    }
+    $(".The-test-panel-body").on("change"," .file_box",function(){
+        var $img = $("<img>");
+        var img=$(this).parent().siblings();
+        var $file = $(this);
+        var fileObj = $file[0];
+        var windowURL = window.URL || window.webkitURL;
+        if(fileObj && fileObj.files && fileObj.files[0]) {
+            dataURL = windowURL.createObjectURL(fileObj.files[0]);
+            $img.attr('src', dataURL);
+            img.html($img)
+        } else {
+            dataURL = $file.val();
+            var imgObj = document.getElementById(img);
+            imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+            imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+        }
+    });
+    ;
+    var name_se=$("input[name='se']");
+    name_se.change(function () {
+        $("#xiandan").prop('disabled',false);
+        $("#xiandan").css('background',"#ff5200").css('color',"#fff").css("border-color","#ff5200")
+    })
+    //    判断radio单选框
+    var radio=function () {
+        name_se=$("input[name='se']");
+        for(let i=0;i<name_se.length;i++){
+
+            if($(name_se[i]).prop("checked")){
+                $("#xiandan").prop('disabled',false);
+                $("#xiandan").css('background',"#ff5200").css('color',"#fff").css("border-color","#ff5200");
+            }else{
+                $("#xiandan").prop('disabled',true);
+                $("#xiandan").css('background',"#fff").css('color',"#000").css("border-color","#ddd");
+            }
+        }
+    }
+    radio();
+</script>
+<script>
+    $("#sa").on("click",".miaoxie",function () {
+
+        $(this).removeClass("miaoxie");
+        $(this).addClass("miaoxie_s");
+        $(this).addClass("fa-minus-square-o");
+        $(this).removeClass("fa-plus-square");
+        console.log()
+        var html='';
+        html+=' <div class="row  mt-10"> <div class="col-md-1 col-sm-2 mt-30"> <input type="button" class="btn border-radius btn-default" value="维修前"> </div> <div class="col-md-4 col-sm-4"> <img id="" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/> </div> <div class="col-md-1 col-sm-2 mt-30"> <input type="button" class="btn border-radius btn-default" value="维修后"> </div> <div class="col-md-5 col-sm-4"> <img id="" height="100px" class="mt-0_xs" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/> </div> </div> <div class="row"> <div class="col-md-10 col-xs-9 col-sm-9"> <input type="text" placeholder="请详细描述故障详情" class="form-control  mt-30 pr-30"> </div> <div class="col-md-2 col-xs-3 mt-40 col-sm-3"> <i id="" class="fa miaoxie fa-plus-square" aria-hidden="true"></i> </div> </div>';
+        $("#sa").append(html);
+    })
+    $("#sa").on("click",".miaoxie_s",function () {
+        $(this).parent().parent().prev().remove();
+
+        $(this).parent().parent().remove()
+    })
+
+</script>
+{include file="public/footer" }

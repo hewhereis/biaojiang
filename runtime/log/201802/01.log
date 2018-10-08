@@ -1,0 +1,1363 @@
+---------------------------------------------------------------
+[ 2018-02-01T15:37:54+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.wanglong.com/ [运行时间：1.042516s][吞吐率：0.96req/s] [内存消耗：2,918.76kb] [文件加载：40]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\web-php-5.6\bjtp5\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.047501s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.052501s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.215003s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.010000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.085002s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.142502s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.005000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:38:07+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] www.wanglong.com/ [运行时间：0.093701s][吞吐率：10.67req/s] [内存消耗：2,918.71kb] [文件加载：40]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\web-php-5.6\bjtp5\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.007500s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:38:18+08:00 ] 127.0.0.1 127.0.0.1 POST /index/defa
+[ info ] www.wanglong.com/index/defa [运行时间：0.230003s][吞吐率：4.35req/s] [内存消耗：2,618.73kb] [文件加载：40]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'defa',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.wanglong.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->defa[ E:\web-php-5.6\bjtp5\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id` FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_category` [ RunTime:0.162502s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_category` WHERE  (  find_in_set(1,s_id) ) [ RunTime:0.002500s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:38:19+08:00 ] 127.0.0.1 127.0.0.1 GET /static/index/css/fonts/glyphicons-halflings-regular.woff2
+[ info ] wanglong.com/static/index/css/fonts/glyphicons-halflings-regular.woff2 [运行时间：0.093601s][吞吐率：10.68req/s] [内存消耗：1,816.45kb] [文件加载：28]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://wanglong.com/static/index/css/bootstrap/bootstrap.min.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'origin' => 'http://www.wanglong.com',
+  'connection' => 'close',
+  'host' => 'wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'fonts' => 'glyphicons-halflings-regular.woff2',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:38:19+08:00 ] 127.0.0.1 127.0.0.1 GET /static/index/css/fonts/glyphicons-halflings-regular.woff
+[ info ] wanglong.com/static/index/css/fonts/glyphicons-halflings-regular.woff [运行时间：0.031200s][吞吐率：32.05req/s] [内存消耗：1,816.45kb] [文件加载：28]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://wanglong.com/static/index/css/bootstrap/bootstrap.min.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'origin' => 'http://www.wanglong.com',
+  'connection' => 'close',
+  'host' => 'wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'fonts' => 'glyphicons-halflings-regular.woff',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:38:19+08:00 ] 127.0.0.1 127.0.0.1 GET /static/index/css/fonts/glyphicons-halflings-regular.ttf
+[ info ] wanglong.com/static/index/css/fonts/glyphicons-halflings-regular.ttf [运行时间：0.031200s][吞吐率：32.05req/s] [内存消耗：1,816.48kb] [文件加载：28]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'css',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://wanglong.com/static/index/css/bootstrap/bootstrap.min.css',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'origin' => 'http://www.wanglong.com',
+  'connection' => 'close',
+  'host' => 'wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'fonts' => 'glyphicons-halflings-regular.ttf',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:38:48+08:00 ] 127.0.0.1 127.0.0.1 GET /api/message_refresh
+[ info ] wanglong.com/api/message_refresh [运行时间：0.111700s][吞吐率：8.95req/s] [内存消耗：2,161.63kb] [文件加载：36]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'message_refresh',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'origin' => 'http://www.wanglong.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:39:18+08:00 ] 127.0.0.1 127.0.0.1 GET /api/message_refresh
+[ info ] wanglong.com/api/message_refresh [运行时间：0.046800s][吞吐率：21.37req/s] [内存消耗：2,161.63kb] [文件加载：36]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'message_refresh',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'origin' => 'http://www.wanglong.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:39:19+08:00 ] 127.0.0.1 127.0.0.1 GET /admin
+[ info ] www.wanglong.com/admin [运行时间：0.078000s][吞吐率：12.82req/s] [内存消耗：2,100.02kb] [文件加载：38]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:39:19+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/login/index.html
+[ info ] www.wanglong.com/admin/login/index.html [运行时间：0.093600s][吞吐率：10.68req/s] [内存消耗：2,085.88kb] [文件加载：36]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Login.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\login.html [ array (
+  0 => 'verify_type',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:39:19+08:00 ] 127.0.0.1 127.0.0.1 GET /favicon.ico
+[ info ] www.wanglong.com/favicon.ico [运行时间：0.030000s][吞吐率：33.33req/s] [内存消耗：1,816.10kb] [文件加载：28]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'favicon.ico',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/login/index.html',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:39:39+08:00 ] 127.0.0.1 127.0.0.1 POST /admin/login/dologin.html
+[ info ] www.wanglong.com/admin/login/dologin.html [运行时间：0.468000s][吞吐率：2.14req/s] [内存消耗：3,234.57kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'dologin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/login/index.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.wanglong.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '30',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'bj2017',
+)
+[ info ] [ RUN ] app\admin\controller\Login->doLogin[ E:\web-php-5.6\bjtp5\application\admin\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT file
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015600s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_admin` [ RunTime:0.062400s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_admin` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_group` [ RunTime:0.046800s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_group` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.015600s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_auth_rule` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `bj_admin`  SET `loginnum`=815,`last_login_ip`='127.0.0.1',`last_login_time`=1517470779,`token`='a87ff679a2f3e71d9181a67b7542122c'  WHERE  `id` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_log` [ RunTime:0.062400s ]
+[ sql ] [ SQL ] INSERT INTO `bj_log` (`admin_id` , `admin_name` , `description` , `status` , `ip` , `add_time`) VALUES (1 , 'admin' , '用户【admin】登录成功' , 1 , '127.0.0.1' , 1517470779) [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:39:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ info ] www.wanglong.com/admin/index/index.html [运行时间：0.130602s][吞吐率：7.66req/s] [内存消耗：3,184.73kb] [文件加载：50]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Index->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\index.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:39:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/indexpage.html
+[ info ] www.wanglong.com/admin/index/indexpage.html [运行时间：0.110002s][吞吐率：9.09req/s] [内存消耗：3,168.92kb] [文件加载：50]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'indexpage',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Index->indexPage[ E:\web-php-5.6\bjtp5\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\index\index.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.007500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:39:42+08:00 ] 127.0.0.1 127.0.0.1 GET /static/index/js/layui/css/modules/layer/extend/layer.ext.js,skin/moon/style.css
+[ info ] wanglong.com/static/index/js/layui/css/modules/layer/extend/layer.ext.js,skin/moon/style.css [运行时间：0.027500s][吞吐率：36.36req/s] [内存消耗：1,817.16kb] [文件加载：28]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'static',
+    1 => 'index',
+    2 => 'js',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[visit_times]=1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/css,*/*;q=0.1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'layui' => 'css',
+  'modules' => 'layer',
+  'extend' => 'layer.ext.js,skin',
+  'moon' => 'style.css',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-02-01T15:40:18+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/member/index.html
+[ info ] www.wanglong.com/admin/member/index.html [运行时间：0.278104s][吞吐率：3.60req/s] [内存消耗：3,308.13kb] [文件加载：53]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'member',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Member->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Member.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\member\index.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'Nowpage',
+  5 => 'allpage',
+  6 => 'val',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.025001s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.030000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_users` WHERE  `yz` = 1 LIMIT 1 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_users` WHERE  `yz` = 1 ORDER BY id desc LIMIT 0,12 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:18+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/member/index.html?page=1&key=
+[ info ] www.wanglong.com/admin/member/index.html?page=1&key= [运行时间：0.080002s][吞吐率：12.50req/s] [内存消耗：3,182.48kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'member',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/member/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'key' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Member->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Member.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_users` WHERE  `yz` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_users` WHERE  `yz` = 1 ORDER BY id desc LIMIT 0,12 [ RunTime:0.002500s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:23+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/brand/index.html
+[ info ] www.wanglong.com/admin/brand/index.html [运行时间：0.285604s][吞吐率：3.50req/s] [内存消耗：3,303.42kb] [文件加载：53]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Brand->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Brand.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\brand\index.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'Nowpage',
+  5 => 'allpage',
+  6 => 'search',
+  7 => 'val',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_brand_list` [ RunTime:0.037501s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_brand_list` LIMIT 1 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_brand_list` ORDER BY `id` LIMIT 0,12 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_brand_cate` [ RunTime:0.015000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `bj_brand_cate` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:23+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/brand/index.html?page=1&key=
+[ info ] www.wanglong.com/admin/brand/index.html?page=1&key= [运行时间：0.077501s][吞吐率：12.90req/s] [内存消耗：3,179.39kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'brand',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/brand/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'key' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Brand->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Brand.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_brand_list` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_brand_list` LIMIT 1 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_brand_list` ORDER BY `id` LIMIT 0,12 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_brand_cate` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT `name` FROM `bj_brand_cate` WHERE  `id` IN (1) [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`name` FROM `bj_brand_cate` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:29+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/cost/index.html
+[ info ] www.wanglong.com/admin/cost/index.html [运行时间：0.240004s][吞吐率：4.17req/s] [内存消耗：3,288.97kb] [文件加载：53]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'cost',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Cost->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Cost.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\cost\index.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002501s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.085001s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:37+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/log/operate_log.html
+[ info ] www.wanglong.com/admin/log/operate_log.html [运行时间：0.203103s][吞吐率：4.92req/s] [内存消耗：3,273.92kb] [文件加载：53]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'log',
+    2 => 'operate_log',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Log->operate_log[ E:\web-php-5.6\bjtp5\application\admin\controller\Log.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\log\operate_log.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'Nowpage',
+  5 => 'allpage',
+  6 => 'count',
+  7 => 'search_user',
+  8 => 'val',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_admin` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`username` FROM `bj_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_log` [ RunTime:0.007500s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_log` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_log` ORDER BY add_time desc LIMIT 0,12 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:38+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/log/operate_log.html
+[ info ] www.wanglong.com/admin/log/operate_log.html [运行时间：0.077501s][吞吐率：12.90req/s] [内存消耗：3,147.27kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'log',
+    2 => 'operate_log',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Log->operate_log[ E:\web-php-5.6\bjtp5\application\admin\controller\Log.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\log\operate_log.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'Nowpage',
+  5 => 'allpage',
+  6 => 'count',
+  7 => 'search_user',
+  8 => 'val',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_admin` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`username` FROM `bj_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_log` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_log` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_log` ORDER BY add_time desc LIMIT 0,12 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:38+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/log/operate_log.html?page=1&key=0
+[ info ] www.wanglong.com/admin/log/operate_log.html?page=1&key=0 [运行时间：0.087502s][吞吐率：11.43req/s] [内存消耗：3,152.05kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'log',
+    2 => 'operate_log',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/log/operate_log.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'key' => '0',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Log->operate_log[ E:\web-php-5.6\bjtp5\application\admin\controller\Log.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_admin` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT `id`,`username` FROM `bj_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_log` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_log` LIMIT 1 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_log` ORDER BY add_time desc LIMIT 0,12 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:40+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/article/index_cate.html
+[ info ] www.wanglong.com/admin/article/index_cate.html [运行时间：0.217503s][吞吐率：4.60req/s] [内存消耗：3,295.89kb] [文件加载：53]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'index_cate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->index_cate[ E:\web-php-5.6\bjtp5\application\admin\controller\Article.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\article\index_cate.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article_cate` [ RunTime:0.037501s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article_cate` ORDER BY id asc [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/article/index.html
+[ info ] www.wanglong.com/admin/article/index.html [运行时间：0.115601s][吞吐率：8.65req/s] [内存消耗：3,433.36kb] [文件加载：53]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Article.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\article\index.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'Nowpage',
+  5 => 'allpage',
+  6 => 'count',
+  7 => 'val',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_article` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `bj_article`.*,`name` FROM `bj_article` INNER JOIN `bj_article_cate` `bj_article_cate` ON `bj_article`.`cate_id`=`bj_article_cate`.`id` ORDER BY id desc LIMIT 0,12 [ RunTime:0.030000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/article/index.html?page=1&key=
+[ info ] www.wanglong.com/admin/article/index.html?page=1&key= [运行时间：0.077501s][吞吐率：12.90req/s] [内存消耗：3,397.88kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/article/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'key' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Article.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_article` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `bj_article`.*,`name` FROM `bj_article` INNER JOIN `bj_article_cate` `bj_article_cate` ON `bj_article`.`cate_id`=`bj_article_cate`.`id` ORDER BY id desc LIMIT 0,12 [ RunTime:0.005000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:50+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/article/index.html?page=2&key=
+[ info ] www.wanglong.com/admin/article/index.html?page=2&key= [运行时间：0.070601s][吞吐率：14.16req/s] [内存消耗：3,252.70kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/article/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+  'key' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Article.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_article` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `bj_article`.*,`name` FROM `bj_article` INNER JOIN `bj_article_cate` `bj_article_cate` ON `bj_article`.`cate_id`=`bj_article_cate`.`id` ORDER BY id desc LIMIT 12,12 [ RunTime:0.005000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:56+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/article/index.html
+[ info ] www.wanglong.com/admin/article/index.html [运行时间：0.088101s][吞吐率：11.35req/s] [内存消耗：3,304.46kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Article.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\article\index.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'Nowpage',
+  5 => 'allpage',
+  6 => 'count',
+  7 => 'val',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_article` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `bj_article`.*,`name` FROM `bj_article` INNER JOIN `bj_article_cate` `bj_article_cate` ON `bj_article`.`cate_id`=`bj_article_cate`.`id` ORDER BY id desc LIMIT 0,12 [ RunTime:0.005000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:56+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/article/index.html?page=1&key=
+[ info ] www.wanglong.com/admin/article/index.html?page=1&key= [运行时间：0.080001s][吞吐率：12.50req/s] [内存消耗：3,397.88kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/article/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'key' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->index[ E:\web-php-5.6\bjtp5\application\admin\controller\Article.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000000s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.007500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.005000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_article` LIMIT 1 [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SELECT `bj_article`.*,`name` FROM `bj_article` INNER JOIN `bj_article_cate` `bj_article_cate` ON `bj_article`.`cate_id`=`bj_article_cate`.`id` ORDER BY id desc LIMIT 0,12 [ RunTime:0.005000s ]
+---------------------------------------------------------------
+[ 2018-02-01T15:40:58+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/article/index_cate.html
+[ info ] www.wanglong.com/admin/article/index_cate.html [运行时间：0.072501s][吞吐率：13.79req/s] [内存消耗：3,167.02kb] [文件加载：51]
+[ info ] [ LANG ] E:\web-php-5.6\bjtp5\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'article',
+    2 => 'index_cate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'ECS[history]=70%2C68; ECS[visit_times]=8; PHPSESSID=3o5dfbp75586dbfetb2tc7rrt0',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.wanglong.com/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.wanglong.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT file
+[ info ] [ RUN ] app\admin\controller\Article->index_cate[ E:\web-php-5.6\bjtp5\application\admin\controller\Article.php ]
+[ info ] [ VIEW ] E:\web-php-5.6\bjtp5/application/admin\view\article\index_cate.html [ array (
+  0 => 'username',
+  1 => 'portrait',
+  2 => 'rolename',
+  3 => 'menu',
+  4 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002500s ] mysql:host=localhost;port=3306;dbname=bj252;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_auth_rule` [ RunTime:0.007500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_auth_rule` WHERE  (  status = 1 ) ORDER BY `sort` [ RunTime:0.002500s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article_cate` [ RunTime:0.007500s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article_cate` ORDER BY id asc [ RunTime:0.000000s ]

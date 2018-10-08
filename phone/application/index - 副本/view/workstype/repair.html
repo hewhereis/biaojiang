@@ -1,0 +1,85 @@
+﻿<div v-if="item.work_step_service==1">
+			 <div v-if="item.master_status==1">	
+				 <a href="javascript:;" class="bg-orange">已抢单</a> 
+			 </div>
+			 
+			 <div v-if="item.master_status==2">	
+				 <a href="javascript:;" class="bg-orange">提醒付款</a> 
+			 </div>
+	 
+			 <div v-if="item.master_status==3">	
+				 <div v-if="item.work_step_number==2">	
+					<a href="" class="bg-orange">联系客户</a> 
+				 </div>
+				
+				 <div v-if="item.work_step_number==3">	
+					<a href="" class="bg-orange">点击签到</a> 
+				 </div>
+				
+				 <div v-if="item.work_step_number==4">	
+					<div v-if="item.is_bomb==0">	
+						<a href="" class="bg-orange">提交施工报告</a> 
+					 </div>
+					 <div v-if="item.is_bomb==1">	
+						<a href="" class="bg-orange">提交核单报告</a> 
+					</div>
+				</div>
+				
+				<div v-if="item.work_step_number==5">	
+					<a href="" class="bg-orange">提交施工报告</a> 
+				</div>
+				
+				 <div v-if="item.work_step_number==6">	
+					<a href="" class="bg-orange">点击签退</a> 
+				</div>
+				
+			 </div>
+			 <div v-if="item.master_status==4">	
+				 	<a href="" class="bg-orange">提交验收报告</a> 
+			 </div>
+			 <div v-if="item.master_status==5">	
+				 <a href="" class="bg-orange">去评价</a> 
+			 </div>
+			 <div v-if="item.master_status==6">	
+				 <a href="" class="bg-orange">追加评价</a> 
+			 </div>
+		
+</div>
+<div v-else-if="item.work_step_service==2">
+		 <div v-if="item.master_status==2">	
+			 <a href="" class="bg-orange">提醒客户付款</a> 
+		 </div>
+		 <div v-if="item.master_status==3">	
+		 
+			 <div v-if="item.work_step_number==5">	
+				<a href="" class="bg-orange">联系客户</a> 
+		 	 </div>
+			  <div v-if="item.work_step_number==6">	
+				<a href="" class="bg-orange">点击签到</a> 
+		 	 </div>
+			  <div v-if="item.work_step_number==7">	
+					<div v-if="item.is_bomb==0">	
+						<a href="" class="bg-orange">提交施工报告</a> 
+					 </div>
+					 <div v-if="item.is_bomb==1">	
+						<a href="" class="bg-orange">提交核单报告</a> 
+					</div>
+		 	 </div>
+			  <div v-if="item.work_step_number==8">	
+				<a href="" class="bg-orange">提交施工报告</a> 
+		 	 </div>
+			  <div v-if="item.work_step_number==9">	
+				<a href="" class="bg-orange">点击签退</a> 
+		 	 </div>
+			
+		 </div>
+		 <div v-if="item.master_status==4">	
+			 <a href="" class="bg-orange">提交验收报告</a> 
+		 </div>
+		 <div v-if="item.master_status==5">	
+			 <a href="" class="bg-orange">去评价</a> 
+		 </div>
+		 <div v-if="item.master_status==6">	
+			 <a href="" class="bg-orange">追加评价</a> 
+		 </div>
+</div>

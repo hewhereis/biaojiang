@@ -1,0 +1,475 @@
+{include file='public/header'}
+<style type="text/css">
+	.border-header{
+		border-top: 1px solid #cacaca;
+		border-bottom: 1px solid #cacaca;
+		padding: 0.5em 0;
+	}
+	.border{
+		border-bottom: 1px solid #cacaca;
+		padding:0.5em 0;
+	}
+	.border-bottom{
+		border-bottom: 1px solid #cacaca;
+		padding: 2em 0;
+	}
+	.bg{
+		background-color: rgb(252,232,216);
+		padding: 1em 0;
+	}
+	.panel.panel-orange{
+	border-color: #cacaca;
+	}
+</style>
+<div class="main">
+	<div class="container">
+	   <div class="header">
+		<div class="page-header bx">
+			<h5>
+				<span>当前所在位置</span>
+				<span>>></span>
+				<small>围板/搭建详情</small>
+			</h5>
+		</div>
+	   </div>
+		<div class="panel panel-orange">
+			<div class="panel-heading">
+			    <div class="panel-title">
+			    	<p class="panel-title-p">
+			    		围板搭建/拆除详情
+			    	</p>
+			    </div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+			    <!-- 搭建时间 -->
+						<?php if($coaming['constructdate']){ ?>
+						<div class="row">
+							<div class="col-md-2 pt-10">
+								搭建时间
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<input type="text" name="" placeholder="请选择时间" class="form-control" value="{$coaming['constructdate']|date='Y-m-d H:i:s',###}">
+								    <a href="javascript:;" class="btn btn-defalute input-group-addon">
+								    	<i class="fa fa-calendar" aria-hidden="true"></i>
+								    </a>
+								</div>
+							</div>	
+						</div>
+					<?php } ?>	
+						<!-- 搭建时间 -->
+						<?php if($coaming['dismantledate']){ ?>		
+						<div class="row mt-20">
+							<div class="col-md-2 pt-10">
+								拆除时间
+							</div>
+							<div class="col-md-3">
+								<div class="input-group">
+									<input type="text" placeholder="请选择时间" name="" class="form-control" value="{$coaming['dismantledate']|date='Y-m-d H:i:s',###}">
+									<a href="javascript:;" class="btn btn-defalute input-group-addon">
+										<i class="fa fa-calendar" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+				<?php } ?>		
+						<!-- 上传围板搭建图纸 -->
+						<div class="row mt-20">
+							<div class="col-md-2 mt-10">
+								围板搭建图纸(图)
+							</div>
+							<div class="col-md-2 ">
+								
+							<?php if($coaming['imgpaper']):?>	
+							
+							<a href= "__DsQINiu__{$coaming['imgpaper']}"   target="_blank"  style="background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;" class="text-blue" id="">查看并保存</a>
+							
+							
+							<?php else: ?>	
+								<div class="col-md-2 col-xs-6">
+									<a href="javascript:;" num="0" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 2.2em">围板搭建图纸(图)</a>
+								</div>
+							<?php endif; ?>
+							</div>
+						</div>
+						<!-- 承包模式 -->
+						<div class="row mt-10 border-header">
+							<div class="col-md-2 pt-10">
+								承包模式
+							</div>
+							<?php if($coaming['contractmode']==1){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio20" id="radio4" checked value="">
+									<label for="radio4">全包</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio20" id="radio5"  value="">
+									<label for="radio5">半包（协助模式）</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($coaming['contractmode']==0){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio20" id="radio4"  value="">
+									<label for="radio4">全包</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio20" id="radio5" checked value="">
+									<label for="radio5">半包（协助模式）</label>
+								</div>
+							</div>
+							<?php } ?>
+						</div>
+						<!-- 物流提货 -->
+						<div class="row border" >
+							<div class="col-md-2 pt-10">
+								物流提货
+							</div>
+							<?php if($coaming['delivermode']==1){?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio6" checked value="">
+									<label for="radio6">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio7" value="">
+									<label for="radio7">不需要</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($coaming['delivermode']==0){?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio6"  value="">
+									<label for="radio6">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio3" id="radio7" checked value="">
+									<label for="radio7">不需要</label>
+								</div>
+							</div>
+							<?php } ?>
+						</div>
+					<!-- 是否需要现场查看场地 -->
+					    <div class="row border">
+							<div class="col-md-2 pt-10">
+								是否需要现场查看场地
+							</div>
+							<?php if($coaming['site']==1){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio8" checked value="">
+									<label for="radio8">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio9" value="">
+									<label for="radio9">否</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($coaming['site']==0){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio8"  value="">
+									<label for="radio8">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio4" id="radio9" checked value="">
+									<label for="radio9">否</label>
+								</div>
+							</div>
+							<?php } ?>
+						</div>
+                    <!-- 是否需要办理施工手续 -->
+                        <div class="row border">
+							<div class="col-md-2 pt-10">
+								是否需要办理施工手续
+							</div>
+							<?php if($coaming['SGprocedure']==1){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio10" checked value="">
+									<label for="radio10">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio11" value="">
+									<label for="radio11">否</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($coaming['SGprocedure']==0){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio10"  value="">
+									<label for="radio10">是</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio5" id="radio11" checked value="">
+									<label for="radio11">否</label>
+								</div>
+							</div>
+							<?php } ?>
+						</div>
+				    <!-- 是否需要代缴工程押金 -->
+				        <div class="row border">
+							<div class="col-md-2 pt-10">
+								是否需要代缴工程押金
+							</div>
+							<?php if($coaming['projectdepositmode']==1){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio12" checked value="">
+									<label for="radio12">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio13" value="">
+									<label for="radio13">不需要</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($coaming['projectdepositmode']==0){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio12" value="">
+									<label for="radio12">需要</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio6" id="radio13" checked value="">
+									<label for="radio13">不需要</label>
+								</div>
+							</div>
+							<?php } ?>
+						</div>
+					    <div class="row border">
+							<div class="col-md-2 pt-10">
+								完工后垃圾处理方式
+							</div>
+							<?php if($coaming['garbagemode']==1){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio17" checked value="">
+									<label for="radio17">商场处理</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio18" value="">
+									<label for="radio18">师傅处理</label>
+								</div>
+							</div>
+							<?php } ?>
+							<?php if($coaming['garbagemode']==0){ ?>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio17" value="">
+									<label for="radio17">商场处理</label>
+								</div>
+							</div>
+							<div class="col-md-2">
+								<div class="checkbox checkbox-danger">
+									<input type="radio" name="radio8" id="radio18" checked value="">
+									<label for="radio18">师傅处理</label>
+								</div>
+							</div>
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+                <!-- 选择施工人数 -->
+                <div class="row border-bottom">
+					<div class="col-md-12 ">
+						<div class="row">
+							<div class="col-md-2 pt-10">
+								选择施工人数
+							</div>
+							{$coaming.workernumber}
+						</div>
+					</div>
+				</div>
+				<div class="row mt-20">
+					<div class="col-md-12">
+					<!-- 上传围板塔建/拆除进度表 -->
+                        <div class="row">
+                        	<div class="col-md-3 pt-10">
+                        		上传围板搭建/拆除进度表(图)
+                        	</div>
+                        	<?php if($coaming['progresssheet']){?>
+                        	
+                        	<a href= "__DsQINiu__{$coaming.progresssheet}"   target="_blank"  class="btn btn-defalute border-radius text-blue "style="background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;"  id="">查看并保存</a>
+                        	<?php } ?>
+                        	<?php if(empty($coaming['progresssheet'])){ ?>
+                        	
+                        	<div class="col-md-2 col-xs-6">
+                        		<a href="javascript:;" num="0" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 2.2em">无进度表</a>
+                        	</div>
+                        	<?php } ?>
+                        </div>
+                    <!-- 上传围板塔建/拆除验收单 -->
+                        <div class="row mt-20">
+                        	<div class="col-md-3 pt-10">
+                        		上传围板搭建/拆除验收单(图)
+                        	</div>
+                        	<?php if($coaming['verifysheet']){ ?>
+                        	<a href= "__DsQINiu__{$coaming.verifysheet}"   target="_blank"  class="btn btn-defalute border-radius text-blue "style="background: #ff5200;color: #fff;border: 1px solid #ff5200;border-radius: 5px;padding: 3px;"  id="">查看并保存</a>
+                        	
+                        	<?php } ?>
+                        	<?php if(empty($coaming['verifysheet'])){ ?>
+                        <div class="col-md-2 col-xs-6">
+                        		<a href="javascript:;" num="0" class="btn btn-defalute border-radius text-blue " style="border-color:rgb(0,160,233);padding:0.5em 2.2em">无验收单</a>
+                        	</div>
+                        	<?php } ?>
+                        </div>
+				    </div>
+				</div>
+				<div class="row mt-20 bg">
+					<div class="col-md-2 mt-10">
+						商场办证
+					</div>
+					<?php if($coaming['departure_permit']==1){ ?>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15" checked id="radio15">
+							<label for="radio15">师傅代办</label>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15" id="radio16">
+							<label for="radio16">客户代办</label>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15" id="radio14">
+							<label for="radio14">不需要办理</label>
+						</div>
+					</div>
+					<?php } ?>
+					<?php if($coaming['departure_permit']==2){ ?>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15"  id="radio15">
+							<label for="radio15">师傅代办</label>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15" checked id="radio16">
+							<label for="radio16">客户代办</label>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15" id="radio14">
+							<label for="radio14">不需要办理</label>
+						</div>
+					</div>
+					<?php } ?>
+					<?php if($coaming['departure_permit']==3){ ?>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15"  id="radio15">
+							<label for="radio15">师傅代办</label>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15" id="radio16">
+							<label for="radio16">客户代办</label>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="checkbox checkbox-danger">
+							<input type="radio" name="radio15" checked id="radio14">
+							<label for="radio14">不需要办理</label>
+						</div>
+					</div>
+					<?php } ?>
+				</div>
+				<div class="row">
+				  <div class="col-md-2 pl-30 " >
+						<label class="btn btn-default">门头照片</label>
+				  </div>
+					<div class="col-xs-3">
+						<div id="imgPickers">
+							<img id="img_datas"  class="mt-0_xs" style="width: 200px;height: 200px" src="__DsQINiu__{$coaming['imgstore']}"/>
+						</div>
+					</div>
+				  </div>
+			   </div>
+	  </div>
+	</div>
+	 <div class="text-center">
+	  	  <a type="button" name="" id="search" class="btn btn-info border-radius"  onclick="javascript:history.back(-1);" style="padding:0.5em 4em">返回</a>
+	 </div>
+</div>
+<script>
+
+    $("input:not(:button)").prop("disabled",true);
+    $("select").prop("disabled",true);
+	 function GetRequest() {
+		var url = location.search; //获取url中"?"符后的字串
+		var theRequest = new Object();
+		if (url.indexOf("?") != -1) {
+			var str = url.substr(1);
+			strs = str.split("&");
+			for(var i = 0; i < strs.length; i ++) {
+				theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+			}
+		}
+		return theRequest;
+	}
+	 var da=GetRequest()
+	 if(da.dd==2){
+		$("#search").hide();
+	}
+</script>
+<script type="text/javascript">
+	  window.onload =function(){
+	  $("input").prop("disabled",true);
+	$('#addnumber').click(function(){
+	    	var val = $('#peopleNumber').val();
+	    	if(val==''){
+	    		val=0;
+	    	}
+	    ++val;
+	    $('#peopleNumber').val(val);
+	    });
+	    $('#reducenumber').click(function(){
+			var val = $('#peopleNumber').val();
+	    	if(val==''){
+	    		val=0;
+	    	}
+	    	if(val!=0){
+	    		--val;
+	    	}
+	    $('#peopleNumber').val(val);
+	    });
+
+	}
+</script>
+{include file='public/footer'}

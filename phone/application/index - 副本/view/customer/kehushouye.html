@@ -1,0 +1,168 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="kehushouye">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+        <div class="parent">
+            <div class="bg-primary-hieght">
+                    
+            </div>
+            <span v-show="!list" style="text-align:center">您暂时还没有最近订单哦</span>
+            <div class="tablet" v-show="list">
+                <div class="weui-flex dingdanwancheng">
+                    <div class="weui-flex__item ">
+                        <span class="icon-订单完成"></span>
+                        最新订单
+                    </div>
+                </div>
+                <div class="weui-flex dingdanhao">
+                    <div class="weui-flex__item dingdanhao-left">
+                        订单号:{{list.order_number}}
+                    </div>
+                   <!--  <div class="weui-flex__item dingdanhao-right">
+                        投标师傅
+                    </div> -->
+                </div>
+                <div class="weui-panel weui-panel_access">
+
+                    <div class="weui-panel__bd tuwenzhenghe">
+                        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb img" src="__DsQINiu__{as_img}" onerror="this.src='__PUBLIC__static/index/images/ds_qiuqiu.png'">
+                            </div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title title">服务类型:{{list.sname}}</h4>
+                                <h4 class="weui-media-box__title title">地    址:{{list.full_location}}</h4>
+                                <h4 class="weui-media-box__title title">施工时间:{{list.start_time}}</h4>
+                                <h4 class="weui-media-box__title title jiage ">
+                                    <span>价格:{{list.aa_budget}}</span>
+                                    <!-- <input type="button" class=" bj-button-orange" value="有客户咨询"> -->
+                                </h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-primary-hieght">
+
+            </div>
+
+            <div class="tablets">
+
+                <div class="weui-flex">
+                    <div class="weui-flex__item kuaijie">
+                        <span class="icon-发布"></span>
+                        快捷下单
+                    </div>
+                </div>
+
+                <div class="weui-flex">
+                    <div class="weui-flex__item ">
+                        <div class="content">
+                            <div class="img">
+                                <img src="__indexStatic__images/t5.png" alt="">
+                            </div>
+                            <p class="title"> 维修</p>
+                        </div>
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="content">
+                            <div class="img">
+                                <img src="__indexStatic__images/t6.png" alt="">
+                            </div>
+                            <p class="title">安装</p>
+                        </div>
+
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="content">
+                            <div class="img">
+                                <img src="__indexStatic__images/t8.png" alt="">
+                            </div>
+                            <p class="title">勘测</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="weui-flex">
+                    <div class="weui-flex__item">
+                        <div class="content">
+                            <div class="img">
+                                <img src="__indexStatic__images/t2.png" alt="">
+                            </div>
+                            <p class="title">更换灯片</p>
+                        </div>
+
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="content">
+                            <div class="img">
+                                <img src="__indexStatic__images/t3.png" alt="">
+                            </div>
+                            <p class="title">围板搭建</p>
+                        </div>
+
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="content">
+                            <div class="img">
+                                <img src="__indexStatic__images/t9.png" alt="">
+                            </div>
+                            <p class="title">品质监理</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</script>
+
+<script>
+    var data={
+        list:{$result}
+    }
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "客户首页",
+                left:"",
+                right:""
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return data
+        },
+        methods:{
+
+        },
+        computed:{
+
+        },
+        mounted:function(){
+            
+            
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    });
+
+</script>
+
+</body>

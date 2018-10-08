@@ -1,0 +1,152 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="shezhimima">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div>
+        <div class="ora "></div>
+        <div class="orange ora">
+            <p>为了安全,先进行手机验证</p>
+        </div>
+        <div class="weui-cells_form">
+            <div class="weui-cell bj-weui-cell">
+
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text"   v-model="phone"    value="">
+                </div>
+            </div>
+
+            <div class="weui-cell bj-weui-cell">
+                <div class="weui-cell__bd">
+                    <input class="weui-input "  type="text" v-model="yanzheng" id="" placeholder="请输入手机验证码" value="">
+                </div>
+                <div class="weui-cell__hd">
+                    <label class="weui-label bj-label-color" @click="btn()" id="btnSendCode">获取验证码</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-flex button">
+            <div class="weui-flex__item">
+                <input value="下一步" type="button" class="weui-btn bj_button_orange" @click="nexts()">
+            </div>
+        </div>
+        <div class="orange">
+            <p>1.设置密码不可以和登录密码一致</p>
+            <br>
+            <p>2.一个手机号只能绑定一个手机号</p>
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "手机验证",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:""
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+              phone:{$phone},
+                yanzheng:''
+            }
+        },
+        methods:{
+btn:function(){
+                var _this=this;
+                //立即注册获取验证码
+                var InterValObj; //timer变量，控制时间
+                var count = 60; //间隔函数，1秒执行
+                var curCount; //当前剩余秒数
+                var phone  =$('#phone').val();
+
+                $.showLoading();
+                $.ajax({
+                    timeout:60*1000,
+                    type:'POST',
+                    dataType:'json',
+                    url:"__PUBLIC__auth/master_vcode",
+                    data:{phone:_this.phone},
+                    success: function(data) {
+                        if (data.code == 200) {
+                            $.hideLoading();
+                            $.toast(data.msg, 'success', function(){
+                                curCount = count;　　 //设置button效果，开始计时
+                                $("#btnSendCode").attr("disabled",true);
+                                $("#btnSendCode").css("pointer-events","none");
+                                $("#btnSendCode").css("color","#ccc");
+                                $("#btnSendCode").html(curCount + "秒后获取");
+                                InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                            });
+                        } else {
+                            $.hideLoading();
+                            $.toptip(data.msg, 'error');
+                            return false;
+                        }
+                    }
+                });
+                //timer处理函数
+                function SetRemainTime() {
+                    if (curCount == 0) {
+                        window.clearInterval(InterValObj); //停止计时器
+                        $("#btnSendCode").removeAttr("disabled"); //启用按钮
+                        $("#btnSendCode").css("pointer-events","auto");
+                        $("#btnSendCode").css("color","##008cd0");
+                        $("#btnSendCode").html("重新发送");
+                    } else {
+
+                        curCount--;
+                        $("#btnSendCode").html(curCount + "秒后获取");
+                    }
+                }
+            },
+            nexts:function(){
+               if(this.yanzheng==''){
+                   $.toast('请输入验证码');
+                   return;
+               }
+               var _this=this;
+               $.ajax({
+                   url:'__PUBLIC__chapt',
+                   data:{yanzheng:_this.yanzheng,phone:_this.phone},
+                   dataType:'json',
+                   type:'post',
+                   success:function(data){
+                      if(data.code==200){
+                         window.location.href="__PUBLIC__wallet/index9"
+                      }else{
+                          $.toptip(data.msg);
+                      }
+                   }
+               })
+            }
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

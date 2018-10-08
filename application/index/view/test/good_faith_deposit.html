@@ -1,0 +1,107 @@
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+<!--nav-->
+{include file="public/header" }
+<!--header-->
+<div class="main good_faith_deposit">
+    <!-- header-img-->
+    <div class="header-img ">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <div class="container container-hidden">
+        <!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>保证金</small><span>>></span>
+        </h5>
+        <!-- 主题-->
+        <div class="row mt-10" id="navigatesLeft">
+            {include file="fenlei/purse_recharge_left" }
+            <div class="col-xs-12 right" id='navigatesRigth'>
+                <ul>
+                    <li>诚信保证金</li>
+                    <li>
+                        <a href=""><img src="__PUBLIC__static/index/images/protect.png" alt=""/></a>
+                        <div >
+                            <p>缴纳保证金:<b class="text-orange">14</b>元</p>
+                            <p>你还未交纳保证金</p>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="btn btn-orange"  id="i_want_to_pay">我要缴纳</button>
+                        <p>了解并同意 <a href="" class="text-info">《标匠平台用户保障服务协议》</a></p>
+                    </li>
+                    <li>
+                        <div class="row pr-10 pl-10">
+                            <div class="col-md-12 ">
+                                <h4 class="text-center mt-20 mb-20">关于保证金</h4>
+                                <ol type="1">
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur blanditiis dicta doloribus enim, est exercitationem fugiat minima natus, nobis omnis possimus repellat rerum ullam veritatis. Deleniti dolorum repudiandae sed?</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur blanditiis dicta doloribus enim, est exercitationem fugiat minima natus, nobis omnis possimus repellat rerum ullam veritatis. Deleniti dolorum repudiandae sed?</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur blanditiis dicta doloribus enim, est exercitationem fugiat minima natus, nobis omnis possimus repellat rerum ullam veritatis. Deleniti dolorum repudiandae sed?</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur blanditiis dicta doloribus enim, est exercitationem fugiat minima natus, nobis omnis possimus repellat rerum ullam veritatis. Deleniti dolorum repudiandae sed?</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur blanditiis dicta doloribus enim, est exercitationem fugiat minima natus, nobis omnis possimus repellat rerum ullam veritatis. Deleniti dolorum repudiandae sed?</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur blanditiis dicta doloribus enim, est exercitationem fugiat minima natus, nobis omnis possimus repellat rerum ullam veritatis. Deleniti dolorum repudiandae sed?</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aspernatur blanditiis dicta doloribus enim, est exercitationem fugiat minima natus, nobis omnis possimus repellat rerum ullam veritatis. Deleniti dolorum repudiandae sed?</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div >
+    </div>
+</div>
+<style>
+    @media (max-width: 776px) {
+        html{
+            font-size: 8px;
+        }
+    }
+</style>
+<script>
+    $("#money").focus(function () {
+        $("#ack_buttone").removeAttr('disabled');
+        $("#ack_buttone").addClass('bg-success');
+    });
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    });
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    })
+</script>
+{include file="public/footer" }

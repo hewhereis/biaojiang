@@ -1,0 +1,222 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main grab_order">
+    <!--/*主题*/-->
+    <div class="container pl-0_media pr-0-media" >
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>抢单页面</small>
+            <span>>></span>
+        </h5>
+    </div>
+    
+    <div class="container   ">
+        <!--/*标题*/-->
+
+        <div class="row The-test-panel-head">
+            <div class="col-xs-12">
+                <span>订单号</span>
+                <span>{$order_number}</span>
+            </div>
+        </div>
+        <form class="form-signin layui-form" method="post" id="defaultForm" action="__PUBLIC__tender/{$order_number}" >
+            <input id="owner_id" type ="hidden"  name="owner_id" value="{$owner_id}">
+            <input id="ds_uid" name="uid" type="hidden" value="<?php echo $_SESSION['think']['id']?>">
+            <input id="number" type="hidden"  name="order_number" value="{$order_number}">
+            <input value="<?php echo date('Y-m-d H:i:s')?>" type="hidden" id="sending_time">
+            <div class="row The-test-panel-body pl-0 pr-0">
+                <div class="col-md-12 ">
+                    <!--所需总数-->
+                    <div class="row form-group">
+                        <label class="col-md-offset-2  col-md-2 ">客户名称</label>
+                        <div class="col-md-6">
+                            <input type="text" vocab="" disabled name="customer_name" id="customer_name" value="{$contact_name}" class="form-control">
+                        </div>
+                    </div>
+                    <!--目标地址-->
+                    <div class="row form-group">
+                        <label class="col-md-offset-2 col-md-2 ">目标地址</label>
+                        <div class="col-md-6 ">
+                            <input type="text"  disabled name="target_address" id="target_address" value="{$location_extc}" class="form-control">
+                        </div>
+                    </div>
+                    <!--预约开始时间-->
+                    <div class="row mb-10">
+                        <label class="col-md-offset-2 col-md-2 ">预约开始时间</label>
+                        <div class="col-md-6 form-group">
+                            <input class="layui-input form-control " value="{$start_at|date='Y-m-d',###}" name="Appointment_start_time"  disabled placeholder="" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
+                        </div>
+                    </div>
+                    <!--table-->
+                    <div class="row sheet border-bottom-1 border-top">
+                        <div class="col-md-8 mt-30  col-md-offset-2">
+                            <table class="table table-bordered">
+                                <!-- <caption class="text-center mb-10"> 订单师傅预算总数 1个 </caption> -->
+                                <thead>
+                                <tr>
+                                    <td>项目</td>
+                                    <td> 项目预算价</td>
+                                    <td>故障</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{$commodity}_{$commoditys}_{$commodityss}</td>
+                                    <td><input type="number" name="cost" id="cost" class="border-bottom-1 text-center tenderCost taxon" min="10"  style="-webkit-appearance:none"></td>
+                                    <td>
+                                        <a href="__PUBLIC__install_order/{$order_number}" class="btn btn-default border-radius">查看</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="row mt-30 mb-20">
+                                <div class="col-xs-4 col-md-2 mt-10">
+                                    投标总价
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                    <textarea name="total" id="total" readonly class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--合计-->
+                    <div class="row">
+                        <div class="col-md-4 form-group col-md-offset-4 mt-20">
+                            <input type="submit"  id="validateBtn" class="btn btn-orange  border-radius form-control" value="确认">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(".taxon").keyup(function () {
+        var At_the_time_variable=0;
+        $(".taxon").each(function (index,val) {
+            var n;
+            if($(val).val()==""){
+                n=0;
+            }else{
+                n= $(val).val();
+            }
+            At_the_time_variable+=  parseInt(n);
+            $("#total").val(At_the_time_variable)
+        });
+
+    })
+
+</script>
+<script>
+
+    $("#tander_sum").focusout(function () {
+        console.log()
+        if($(this).val()!==""){
+            $("#validateBtn").prop('disabled',false)
+        }else{
+            $("#validateBtn").prop('disabled',true)
+        }
+    })
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form()
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+
+        //自定义验证规则
+        form.verify({
+            title: function(value){
+                if(value.length < 5){
+                    return '标题至少得5个字符啊';
+                }
+            }
+            ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+            ,content: function(value){
+                layedit.sync(editIndex);
+            }
+        });
+
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                offset: '6px'
+            });
+            layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+        });
+
+        //监听提交
+        form.on('submit(demo1)', function(data){
+            layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            })
+            return false;
+        });
+
+
+    });
+    //提交师傅报价
+         $(document).ready(function() {
+        var number=$("#number").val();
+        $('#defaultForm').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置       
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+            function checkForm(){
+             if( '' == $.trim($('#total').val())|| 10>$.trim($('#total').val())){
+                Tip('cost','项目投标价不能小于10元')
+                return false;
+            }
+        }
+    function complete(data){
+         var number=$("#number").val();
+         var owner_id = $('#owner_id').val();
+            if(data.code==200){
+
+        var message_type='2';
+        var source_id=$('#ds_uid').val();
+        var receive_id = owner_id;
+        var content='您的订单已有师傅报价，请前往查看';
+        var sending_time = $('#sending_time').val(); 
+        var link = "__PUBLIC__install_message_pairing/"+number;
+     $.ajax({
+        url: '__PUBLIC__api/message',
+        dataType: 'json',
+        data: {
+            message_type:message_type,
+            source_id:source_id,
+            receive_id:receive_id,
+            content:content,
+            sending_time:sending_time,
+            link:link
+     
+        },
+        type: 'post',
+        success: function(data) {
+            if (data.code == 200) {
+                
+            } else {
+                layer.msg(data.msg, {
+                    icon: 1,
+                    time: 1000
+                });
+            }
+        },    
+    })
+     layer.msg(data.msg,{icon:1,time:1500,shade: 0.1}, function(index){
+         window.location.href="__PUBLIC__install_message_pairing/"+number; 
+        });
+          
+    }else{ 
+       layer.msg(data.msg,{icon:2,time:1500,shade: 0.1}, function(index){
+         window.location.href="__PUBLIC__install_message_pairing/"+number; 
+        });   
+      }
+    }
+});
+</script>
+{include file="public/footer" }

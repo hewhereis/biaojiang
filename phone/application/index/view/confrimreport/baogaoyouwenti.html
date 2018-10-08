@@ -1,0 +1,111 @@
+{include file='public/header'}
+
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+</div>
+
+
+<script type="text/template" id="mian">
+	<div class="">
+		<div class='header'>
+			<div class="header-wrapper">
+				<div class="header-left" @click='goback()'>
+					<i class='icon-arrow_lift'></i>
+                    <span class='goback'>返回</span>
+				</div>
+				<div class="header-content">
+                    <span class='text'>{{title}}</span>
+                </div>
+                <div class="header-right">
+                </div>
+		    </div>
+		</div>
+		<div class="baogaoyouwenti">
+			<div class="box">
+				<div class="textarea">
+					<textarea class="textarea1" v-model="content"  placeholder="请填写反馈的问题"></textarea>
+				</div>
+			</div>
+			<div class="btn">
+				<input type="button" class="btn1" @click="btn()" value="确认" >
+        <input type="button" @click='goback1()' class="btn2" value="取消" >
+			</div>
+		</div>
+	</div>
+</script>
+
+
+
+
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+    sex: 1,
+    title:"",
+    order_number:'{$order_number}',
+    content:'',
+    title:'报告有问题',
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data 
+      	
+
+     
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      },
+      goback1: function () {
+        window.history.go(-1)
+      },
+      btn:function(){
+        var _this= this;
+        var link = '__PUBLIC__master_reports/'+_this.order_number;
+        $.ajax({
+          url:'__PUBLIC__problem_ajax',
+          data:{order_number:_this.order_number,content:_this.content,link:link},
+          dataType:'json',
+          type:'post',
+          success:function(data){
+             if(data.code==200){
+               $.toast(data.msg,function(){
+                   window.location.href="__PUBLIC__customer_home"
+               });
+             }else{
+               $.tiptop(data.msg,'error');
+             }
+          }
+        })
+         
+      }
+
+    },
+    mounted: function () {
+      $("#time1").calendar();
+      $("#time2").calendar();
+    
+    }
+  });
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  }) 
+</script>

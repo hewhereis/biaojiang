@@ -1,0 +1,455 @@
+
+{include file="public/style_header"}
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+<script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+<style type="text/css">
+	.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+     background: #FFF; 
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+	.label-color{
+		font-weight: 400;
+		color: #000;
+	}
+
+@media screen and (min-width: 992px){
+    #all-powerful{
+    	font-size:1.2em;
+		padding-left:4%;
+		padding-top: 0.3em;
+    }
+    #shangchuan1{
+    	margin-top:8%;
+    	padding-left: 6%;
+    }
+    #shangchuan2{
+    	margin-top:8%;
+    	padding-left: 6%;
+
+    }
+    #audit_button{
+    	margin-top:10%;
+    	margin-left: 30%;
+    	padding:0.5em 3em;
+    }
+    #zhu1{
+    	margin-top: 2em;
+        font-size: 0.1em;
+    }
+    #zhu2{
+    	margin-top: 2em;
+    	font-size: 0.1em;
+    }
+
+}
+@media screen and (max-width: 767px){
+    #all-powerful{
+    	margin-top:0.5em;
+    	padding-left: 1%;
+
+    }
+    #shangchuan1{
+    	margin-top:20%;
+    }
+    #shangchuan2{
+    	margin-top: 20%;
+    }
+    #audit_button{
+    	margin-left:35%;
+    }
+    #zhu1{
+    	font-size:0.1em;
+    	margin-left: 10%;
+    }
+    #zhu2{
+    	font-size:0.1em;
+    	margin-left: 10%;
+    }
+}
+
+</style>
+<div class="panel panel-orange">
+	<div class="panel-heading">
+		<div class="panel-title">申请月结客户</div>
+	</div>
+	<div class="panel-body" style="line-height: 3">
+		<!-- 真实姓名 -->
+		<div class="row">
+			<label for="linkman_contacts" class="col-sm-2 label-color col-xs-4" >真实姓名</label>
+			<div class="col-sm-6 col-xs-8">
+				<input type="text" id="linkman_contacts" class="form-control" name="linkman_contacts" value="">
+			</div>
+		</div>
+		<!-- 联系电话 -->
+		<div class="row mt-10">
+			<label for="phone" class="col-sm-2 label-color col-xs-4" id="">联系电话</label>
+			<div class="col-sm-6 col-xs-8">
+				<input type="text" id="phone" class="form-control" name="phone" value="">
+			</div>
+		</div>
+		<!-- 银行卡号 -->
+		<div class="row mt-20">
+			<label for="credit-card" class="col-sm-2 label-color col-xs-4">银行卡号</label>
+			<div class="col-sm-6 col-xs-8">
+				<input type="text" id="credit-card" class="form-control" placeholder="请输入银行卡号" name="credit-card">
+			</div>
+		</div>
+		<!-- 验证码 -->
+		<div class="row mt-10">
+			<label for="yanz" class="col-sm-2 label-color col-xs-4">验证码</label>
+			<div class="col-sm-6 col-xs-8">
+				<div class="input-group">
+					<input type="text" id="yanz" name="yanz" class="form-control" placeholder="请输入验证码">
+					<a onclick="sendMessage(this)" class="btn btn-defalute input-group-addon" id="btnSendCode"><i>点击获取</i></a>
+				</div>
+			</div>
+		</div>
+		<!-- 企业名称 -->
+		<div class="row mt-10">
+			<label for="the_name_of" class="col-sm-2 label-color col-xs-4">企业名称</label>
+			<div class="col-sm-6 col-xs-8">
+				<input type="text" id="the_name_of" class="form-control" name="the_name_of" value="">
+			</div>
+		</div>
+		<!-- 企业地址 -->
+		<div class="row mt-10">
+			<label for="address" class="col-sm-2 label-color col-xs-3">企业地址</label>
+			<div class="col-sm-2 col-xs-6 mb-10">
+				<select id="address" name="address" class="form-control">
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</div>
+			<div class="col-sm-2 col-xs-6 mb-10">
+				<select name="=address1" class="form-control">
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</div>
+			<div class="col-sm-2 col-xs-6 mb-10">
+				<select name="address2" class="form-control">
+					<option>1</option>
+					<option>2</option>
+				</select>
+			</div>
+			<div class="col-sm-4 col-xs-6">
+				<input type="text"  class="form-control" placeholder="请填写详细地址（楼层、门牌号）" name="address3">
+			</div>
+		</div>
+		<!-- 营业执照号 -->
+		<div class="row mt-10">
+			<label for="business" class="col-sm-2 label-color col-xs-4" id="">营业执照号</label>
+			<div class="col-sm-6 col-xs-8">
+				<input type="text" id="business" class="form-control" placeholder="请输入营业执照代码或社会信用代码" name="business">
+			</div>
+		</div>
+		<!-- 身份证号码 -->
+		<div class="row mt-20">
+			<label for="Id_Car" class="col-sm-2 label-color col-xs-4">身份证号码</label>
+			<div class="col-sm-6 col-xs-8">
+				<input type="text" id="Id_Car" class="form-control" placeholder="请输入真实有效的身份证号码" name="Id_Car">
+			</div>
+		</div>
+		<!-- 点击上传 -->
+		<div class="row mt-10">
+			<div class="col-sm-3 col-xs-4" id="shangchuan1">
+				<button class="btn btn-info" >点击上传</button>
+
+			</div>
+			<div class="col-sm-3 col-xs-8" id="picture">
+				<img src="__PUBLIC__static/index/images/shangchuan.png" id="img_data" class="img-responsive" alt="">
+			</div>
+			<div class="col-sm-4 col-xs-12" id="zhu1">
+				<p id="zhu1_top" class="text-red">注：</p>
+				<p id="zhu1_center"  class="text-red">1.上传文件要求为扫描件或清晰照片。</p>
+				<p id="zhu1_bottom"  class="text-red">2.上传文件格式为JPEG/JPG/PNG.</p>
+			</div>
+		</div>
+
+		<!-- 上传正面 -->
+		<div class="row mt-10">
+			<div class="col-sm-3 col-xs-4"  id="shangchuan2">
+				<button class="btn btn-info" >上传正面</button>
+			</div>
+			<div class="col-sm-3 col-xs-8" id="picture2">
+				<img src="__PUBLIC__static/index/images/shangchuan.png" id="img-data" class="img-responsive" alt="">
+			</div>
+			<div class="col-sm-4 col-xs-12" id="zhu2">
+				<p class="text-red">注：</p>
+				<p class="text-red">1.上传文件要求为扫描件或清晰照片。</p>
+				<p class="text-red">2.上传文件格式为JPEG/JPG/PNG.</p>
+			</div>
+		</div>
+
+		<!-- 申请审核 -->
+		<div class="row mt-20">
+			<div class="col-sm-12">
+				<input type="submit" class="btn btn-info border-radius" id="audit_button" name="" value="申请审核">
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$("#demo>li:eq(2)>ul>li>a:eq(0)").attr("target","__blank");
+	$("#demo>li:eq(1)>ul>li>a:eq(1)").attr("target","__blank");
+</script>
+<script type="text/javascript">
+	var uploader = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#picture',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#img_data").attr('src', '__TUN__/face/' + data._raw).show();
+        }
+    });
+
+    var uploader = WebUploader.create({
+        auto: true,// 选完文件后，是否自动上传。
+        swf: '__PUBLIC__static/index/webupload/Uploader.swf',// swf文件路径
+        server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}",// 文件接收服务端。
+        duplicate :true,// 重复上传图片，true为可重复false为不可重复
+        pick: '#picture2',// 选择文件的按钮。可选。
+        accept: {
+            title: 'Images',
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/jpg,image/jpeg,image/png'
+        },
+        'onUploadSuccess': function(file, data, response) {
+            $("#img-data").attr('src', '__TUN__/face/' + data._raw).show();
+        }
+    });
+
+    $("#huoqu").click(function () {
+
+    });
+    //立即注册获取验证码
+    var InterValObj; //timer变量，控制时间
+    var count = 20; //间隔函数，1秒执行
+    var curCount; //当前剩余秒数
+    function sendMessage(t) {
+        if($("input[name=yanz]").val()==""){
+            var  huoqu= alertmsg.msgk("yanz","请填写月结客户密码");
+            return false;
+        }
+        var locading = layer.load(3);
+        var phone = $("input[name=yanz]").val();
+        if (!(/^1[34578]\d{9}$/.test(phone))) {
+            layer.close(locading);
+            msg('手机号码有误，请重填');
+            return false;
+        } else {　　 //向后台发送处理数据
+            $.ajax({
+                type: 'POST',
+                url: 'auth/vcode',
+                data: {
+                    phone: phone
+                },
+                timeout:20*1000,
+                dataType: 'json',
+                error: function(data) {
+                    layer.close(locading);
+                    msg();
+                },
+                success: function(data) {
+                    layer.close(locading);
+                    if (data.code == 200) {
+                        layer.msg(data.msg, {
+                            icon: 1,
+                            time: 1000
+                        }, function() {
+                            curCount = count;　　 //设置button效果，开始计时
+                            $("#btnSendCode").attr("disabled", "true");
+                            $("#btnSendCode").html(curCount + "秒后获取");
+                            InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                        });
+                    } else {
+                        layer.close(locading);
+                        msg(data.msg,2,6,1000);
+                    }
+                }
+            });
+        }
+    }
+    //timer处理函数
+    function SetRemainTime() {
+        if (curCount == 0) {
+            window.clearInterval(InterValObj); //停止计时器
+            $("#btnSendCode").removeAttr("disabled"); //启用按钮
+            $("#btnSendCode").html("重新发送");
+        } else {
+            console.log(curCount)
+            curCount--;
+            $("#btnSendCode").html(curCount + "秒后获取");
+        }
+    }
+
+
+    $(document).ready(function () {
+        $('#myForm').ajaxForm({
+            beforeSubmit: checkForm, // 此方法主要是提交前执行的方法，根据需要设置
+            success: complete, // 这是提交后的方法
+            dataType: 'json'
+        });
+        function checkForm() {
+
+            var linkman_contacts=alertmsg.msgk("linkman_contacts","请填写联系人");
+            if(!linkman_contacts){
+                return false;
+            }
+
+            var  form_datetime= alertmsg.msgk("form_datetime","请填写要求完成时间")
+            if(!form_datetime){
+                return false;
+            }
+
+            var telephone=alertmsg.msgk("telephone","请填写联系人电话");
+            if(!telephone){
+                return false;
+            }
+//            if(!(/^1[34578]\d{9}$/.test($("#telephone").val()))){
+//
+//                layer.msg('手机号格式不正确，请重新输入手机号码', { icon: 2, time: 1500, shade: 0 }, function (index) {
+//                    layer.close(index);
+//                });
+//                $("#telephone").focus()
+//                return false;
+//            }
+            var province10=alertmsg.msgk("province10","请输入目标维修地址");
+            if(!province10){
+                return false;
+            }
+            var city10=alertmsg.msgk("city10","请输入维修地址");
+            if(!city10){
+                return false;
+            }
+            var city10=alertmsg.msgk("city10","请输入维修地址");
+            if(!city10){
+                return false;
+            }
+
+            var district10=alertmsg.msgk("district10","请输入维修地址");
+            if(!district10){
+                return false;
+            }
+            var address=alertmsg.msgk("address","请输入详细地址，精确到街道、门牌号");
+            if(!address){
+                return false;
+            }
+            var designation=alertmsg.msgk("designation","商城名称不能为空,请输入商城名称");
+            if(!designation){
+                return false;
+            }
+            var product_categories=alertmsg.msgk("product_categories","请填写商品大类");
+            if(!product_categories){
+                return false;
+            }
+            var product_categoriesx_xiao=alertmsg.msgk("product_categoriesx_xiao","请填写商品小类");
+            if(!product_categoriesx_xiao){
+                return false;
+            }
+            var brand=alertmsg.msgk("brand","请填写品牌");
+            if(!brand){
+                return false;
+            }
+            if($("#ds-s").prop("checked")){
+                var year_service_ordere_pwd=alertmsg.msgk("year_service_ordere_pwd","请填写月结客户密码");
+                if(!year_service_ordere_pwd){
+                    return false;
+                }
+            }
+
+            if (alertmsg.ker) {
+                var product_categories1=alertmsg.msgk("product_categories1","请填写商品大类");
+                if(!product_categories1){
+                    return false;
+                }
+                var product_categoriesx_xiao1=alertmsg.msgk("product_categoriesx_xiao1","请填写商品小类");
+                if(!product_categoriesx_xiao1){
+                    return false;
+                }
+                var brand1=alertmsg.msgk("brand1","请填写品牌");
+                if(!brand1){
+                    return false;
+                }
+            }
+            if (alertmsg.kers) {
+                var product_categories2=alertmsg.msgk("product_categories2","请填写商品大类");
+                if(!product_categories2){
+                    return false;
+                }
+                var product_categoriesx_xiao2=alertmsg.msgk("product_categoriesx_xiao2","请填写商品小类");
+                if(!product_categoriesx_xiao2){
+                    return false;
+                }
+
+                var brand2=alertmsg.msgk("brand2","请填写品牌");
+                if(!brand2){
+                    return false;
+                }
+            }
+            //查找元素
+            var checkbox_sel = $(".dele1:eq(0) [type='checkbox']");
+            var checkbox_sel = $(".dele1:eq(1) [type='checkbox']");
+            var checkbox_sel = $(".dele1:eq(2) [type='checkbox']");
+        }
+        function complete(data) {
+            var layer=layui.layer;
+            var dsurl = $('#ds-sub').val();
+            if (data.code == 200) {
+                var jump = data.msg;
+                if (dsurl == 1) {
+                    if($("#ds-s").prop("checked")){
+                        window.location.href = "__PUBLIC__month_order/";
+                    }else{
+                        window.location.href = "__PUBLIC__jilt_single/" + jump;
+                    }
+
+                } else {
+                    window.location.href = "__PUBLIC__choose/" + jump + "/wid/0";
+                }
+            } else if (data.code == -1) {
+                layer.open({
+                    content:"你还未登录还不能开始下单,是否去登录账号",
+                    btn:['登录', '我在看看'],
+                    title:"登录",
+                    shade:0,
+                    skin:"layui-layer-molv",
+                    yes:function () {
+                        window.location.href = "__PUBLIC__auth";
+                    }
+                })
+
+            } else if(data.code==0) {
+                layer.open({
+                    content: data.msg+'是否前去申请月结客户'
+                    ,btn: ['申请月结客户', '我在看看'],
+                    title:"申请月结客户",
+                    shade:0,
+                    skin:"layui-layer-lan"
+                    ,yes: function(index, layero){
+                        //按钮【按钮一】的回调
+                        window.location.href='__PUBLIC__index';
+                    }
+                });
+                return false;
+            }else{
+                msg(data.msg);
+            }
+        }
+    });
+</script>

@@ -1,0 +1,121 @@
+{include file='public/header'}
+
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<template id="mian">
+	<div class="shifu_zhuijiaxiangmu">
+		<div class="bg">
+			<div class="bianHao">
+				<span>订单编号：</span>
+				<span>{{order_number}}</span>
+			</div>
+			<div class="fuKuan">
+				<span>已付款：</span>
+				<span>￥{{list.ampunt_addition}}</span>
+			</div>
+            <div class="content">
+                <div class="heading">
+                    <span class="heading_name">追加理由：</span>
+                    <div>
+                        <textarea class="heading_text" v-model="list.amput_content"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="btn">
+                <input type="button" class="btn1" @click="btn()" name="" value="确认接单">
+            </div>
+		</div>
+	</div>
+</template>
+
+
+
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+
+
+  var data = {
+    sex: 1,
+    list:{$list},
+    order_number:{$order_number}
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+      btn1:function(){
+        var _this=this;
+        $.ajax({
+          url:'__PUBLIC__que_additonal_ajax',
+          data:{order_number:_this.order_number},
+          dataType:'json',
+          type:'post',
+          success:function(data){
+              if(data.code==200){
+                $.toast(data.msg,function(){
+                  window.location.href="__PUBLIC__customer_home";
+                })
+              }else{
+                $.toptip(data.msg);
+              }
+          }
+        })
+      }
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "追加项目报价"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+
+  
+</script>

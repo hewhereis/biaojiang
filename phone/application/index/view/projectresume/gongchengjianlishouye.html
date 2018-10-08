@@ -1,0 +1,160 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app" class="gongchengjianlishouye">
+        <si-headers></si-headers>
+        <si-content></si-content>
+</div>
+<script type="text/x-template" id="content">
+    <div class="weui-cells_form ">
+        <div class="tab" v-for="(item,index) in xiangmu" v-if="xiangmu">
+            <div class="weui-flex tab-header">
+                <div class="weui-flex__item left">
+                   {{item.name}}
+                    <span>(项目时间：2017-40-10)</span>
+                </div>
+                <div class="weui-flex__item right" @click="bianji(item.id)">
+                   {{item.yujifeiyong}}
+                </div>
+            </div>
+            <div class="weui-flex tab-content">
+                <div class="weui-flex__item">
+                    <p class="text">
+                        项目名称 :
+                        {{item.tiem}}
+                        </p>
+                </div>
+                <div class="weui-flex__item">
+                    <p class="text"> 师傅技能 : {{item.tiem}} </p>
+                </div>
+            </div>
+            <div class="weui-flex tab-content">
+                <div class="weui-flex__item">
+                    <p class="text">认证数 :
+                        <span class="icon-五角星"></span>
+                        <span class="icon-五角星"></span>
+                        <span class="icon-五角星"></span>
+                        <span class="icon-五角星"></span>
+                    </p>
+                </div>
+                <div class="weui-flex__item">
+                    <p class="text">服务品牌 : {{item.shichang}}小时</p>
+                </div>
+            </div>
+            <div class="weui-flex tab-footer">
+                <div class="weui-flex__item left">
+                    <span class="icon-认证"></span> 邀请认证
+                </div>
+                <div class="weui-flex__item right" @click="shanchu(item.id)">
+                    删除
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+//   tab 数据 json 格式
+//    name 项目名称
+//    yujifeiyong 预计费用
+//    tiem 时间
+//    gonghao 工号
+//    shichang 预计时长
+  var data={
+      searal:"233333333333333333333333",
+      nickname:"张三",
+      time:"10101010101010",
+      address:"上海市嘉定区",
+      yuna:"200",
+      sui:"200",
+      xian:"先生",
+      xiangmu:[{ id:"1",name:"维修|费用",yujifeiyong:"编辑",tiem:"2017-10-20",gonghao:"2010",shichang:"10"}]
+  }
+  Vue.filter("ke", function(value) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+      return "￥"+value +".00元";
+  });
+  Vue.filter("bk", function(value) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+      return value + "%";
+  });
+  Vue.filter("times", function(time) {   //全局方法 Vue.filter() 注册一个自定义过滤器,必须放在Vue实例化前面
+      if(time){
+          var oDate=new Date();
+          oDate.setTime(time);
+          var y=oDate.getFullYear();
+          var m=oDate.getMonth()+1;
+          var d=oDate.getDate();
+          var h=oDate.getHours();
+          var m=oDate.getMinutes();
+          var s=oDate.getSeconds();
+          return y+'-'+m+'-'+d+' '+h+':'+m+':'+s;
+      }
+  });
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "工程简历",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:"<div id='tianjian'>添加</div>"
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return data
+        },
+        methods:{
+            bianji:function (id) {
+//                 编辑
+                $.ajax({
+                    type:"post",
+                    dataType:"json",
+                    data:{id:id},
+                    ur:"",
+                    success:function (data) {
+                        if(data.code===200){
+
+                        }else if(data.code===300){
+
+                        }
+                    },
+                    erorr:function () {
+
+                    }
+                })
+            },
+            shanchu:function (id) {
+//                删除
+                $.ajax({
+                    type:"post",
+                    dataType:"json",
+                    data:{id:id},
+                    ur:"",
+                    success:function (data) {
+                        if(data.code===200){
+
+                        }else if(data.code===300){
+
+                        }
+                    },
+                    erorr:function () {
+
+                    }
+                })
+            }
+        },
+        mounted:function () {
+            $("#tianjian").click(function () {
+                window.location.href="index"
+            })
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+    })
+</script>
+</body>

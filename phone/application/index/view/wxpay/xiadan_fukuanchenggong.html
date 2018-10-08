@@ -1,0 +1,111 @@
+{include file='public/header'}
+
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+
+<script type="text/template" id="mian">
+	<div class="">
+		<div class='header'>
+			<div class="header-wrapper">
+				<div class="header-left" @click='goback()'>
+					<i class='icon-arrow_lift'></i>
+                    <span class='goback'>返回</span>
+				</div>
+				<div class="header-content">
+                    <span class='text'>{{title}}</span>
+                </div>
+                <div class="header-right">
+                </div>
+		    </div>
+		</div>
+		<div class="xiadan_fukuanchenggong">
+			<div class="weui-msg">
+                <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i>
+            </div>
+            <div class="weui-msg__text-area">
+                <h2 class="weui-msg__title">您的订单付款成功</h2>
+                <h4 style="padding-top:10px">请您耐心等待，师傅接单后会在2小时内联系您</h4>
+                <p class="weui-msg__desc" style="padding-top:15px">
+                   平台师傅在线时间为8:00-18:00，若在此事件外，师傅可能会延迟时间
+                </p>
+            </div>
+            <div class="weui-msg__opr-area">
+                <p class="weui-btn-area">
+                    <a href="javascript:;" @click="gobacks" class="weui-btn weui-btn_primary">确认</a>
+                </p>
+            </div>
+            <div class="weui-msg__extra-area">
+                <div class="weui-footer">
+                    <p class="weui-footer__links">
+                        <a href="javascript:void(0);"  class="weui-footer__link">底部链接文本</a>
+                    </p>
+                    <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
+                </div>
+            </div>
+		</div>
+	</div>
+</script>
+
+
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+    sex: 1,
+    title:"",
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return { 	
+      	service:'',
+      	title:'勘测下单',
+      	address:"",
+      	condition:'',
+      }
+    },
+    methods: {
+      gobacks:function(){
+        window.location.href="__PUBLIC__master_home";
+      },
+      goback: function () {
+        window.history.go(-1)
+      },
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+      $()
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  }) 
+</script>

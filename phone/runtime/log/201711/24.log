@@ -1,0 +1,4297 @@
+---------------------------------------------------------------
+[ 2017-11-24T14:09:03+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.068707s][吞吐率：14.55req/s] [内存消耗：3,009.57kb] [文件加载：34]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:10:08+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.063509s][吞吐率：15.75req/s] [内存消耗：3,009.79kb] [文件加载：34]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:10:08+08:00 ] ::1 ::1 GET /phone/login
+[ info ] localhost/phone/login [运行时间：0.044198s][吞吐率：22.63req/s] [内存消耗：2,998.13kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'auth',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Auth->login[ D:\wamp64\www\phone\application\index\controller\Auth.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\auth\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:10:17+08:00 ] ::1 ::1 POST /phone/login_ajax
+[ info ] localhost/phone/login_ajax [运行时间：0.093470s][吞吐率：10.70req/s] [内存消耗：4,870.16kb] [文件加载：41]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'xwf',
+    2 => 'ds_login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '33',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/login',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+  'phone' => '15550161208',
+  'password' => 'llllll',
+)
+[ info ] [ RUN ] app\index\controller\Xwf->ds_login[ D:\wamp64\www\phone\application\index\controller\Xwf.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002924s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001768s ]
+[ sql ] [ SQL ] SELECT `phone` FROM `bj_users` WHERE  (  phone='15550161208' ) [ RunTime:0.001612s ]
+[ sql ] [ SQL ] SELECT `status`,`type` FROM `bj_users` WHERE  (  phone='15550161208' ) LIMIT 1 [ RunTime:0.002872s ]
+[ sql ] [ SQL ] UPDATE `bj_users`  SET `is_sign`=1  WHERE  `phone` = '15550161208' [ RunTime:0.011817s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_users` WHERE  `phone` = '15550161208' LIMIT 1 [ RunTime:0.000634s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:10:19+08:00 ] ::1 ::1 GET /phone/
+[ info ] localhost/phone/ [运行时间：0.086925s][吞吐率：11.50req/s] [内存消耗：4,535.06kb] [文件加载：41]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/login',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wamp64\www\phone\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\index\index.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001841s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001116s ]
+[ sql ] [ SQL ] SELECT `order_number`,`create_time` FROM `bj_orders` WHERE  `owner_id` = 43 ORDER BY id desc LIMIT 2 [ RunTime:0.000392s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:10:38+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.089122s][吞吐率：11.22req/s] [内存消耗：4,633.70kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005901s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001087s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.000894s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000615s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.001588s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.003171s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:10:42+08:00 ] ::1 ::1 GET /phone/wallet/index12
+[ info ] localhost/phone/wallet/index12 [运行时间：0.055087s][吞吐率：18.15req/s] [内存消耗：3,224.33kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index12',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index12[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index12.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:10:46+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.063305s][吞吐率：15.80req/s] [内存消耗：4,378.15kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002120s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000926s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000416s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.000913s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000631s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.003655s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000414s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:14:01+08:00 ] ::1 ::1 GET /phone/wallet/index12
+[ info ] localhost/phone/wallet/index12 [运行时间：0.055680s][吞吐率：17.96req/s] [内存消耗：2,979.02kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index12',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index12[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index12.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:14:03+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.073081s][吞吐率：13.68req/s] [内存消耗：4,378.15kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010528s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000991s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000523s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001449s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.001375s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.002061s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000331s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:16:05+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.087859s][吞吐率：11.38req/s] [内存消耗：4,634.42kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001250s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000490s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001327s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.002198s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000543s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:16:05+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.067715s][吞吐率：14.77req/s] [内存消耗：4,379.11kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001233s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000832s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000665s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.000879s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000576s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.001906s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000324s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:17:08+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.084398s][吞吐率：11.85req/s] [内存消耗：4,634.55kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001368s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.002161s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.001011s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001315s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.001461s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.005175s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000729s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:17:08+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.070994s][吞吐率：14.09req/s] [内存消耗：4,379.05kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001262s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001036s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.000838s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000796s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.001302s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000408s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:17:10+08:00 ] ::1 ::1 GET /phone/wallet/index12
+[ info ] localhost/phone/wallet/index12 [运行时间：0.044056s][吞吐率：22.70req/s] [内存消耗：2,979.02kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index12',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index12[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index12.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:17:33+08:00 ] ::1 ::1 GET /phone/wallet/index12
+[ info ] localhost/phone/wallet/index12 [运行时间：0.043570s][吞吐率：22.95req/s] [内存消耗：2,979.22kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index12',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index12[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index12.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:17:33+08:00 ] ::1 ::1 GET /phone/wallet/index12
+[ info ] localhost/phone/wallet/index12 [运行时间：0.060929s][吞吐率：16.41req/s] [内存消耗：2,978.98kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index12',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index12[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index12.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:17:40+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.065672s][吞吐率：15.23req/s] [内存消耗：3,233.41kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:18:30+08:00 ] ::1 ::1 GET /phone/wallet/index12
+[ info ] localhost/phone/wallet/index12 [运行时间：0.045729s][吞吐率：21.87req/s] [内存消耗：2,978.39kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index12',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index12[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index12.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:18:33+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.069333s][吞吐率：14.42req/s] [内存消耗：4,633.84kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001247s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000909s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.000851s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000630s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.001318s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000350s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:18:35+08:00 ] ::1 ::1 GET /phone/wallet/index12
+[ info ] localhost/phone/wallet/index12 [运行时间：0.046583s][吞吐率：21.47req/s] [内存消耗：2,979.02kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index12',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index12[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index12.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:18:38+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.066158s][吞吐率：15.12req/s] [内存消耗：4,378.30kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001244s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000830s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001436s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.001510s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000379s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:20:36+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.082481s][吞吐率：12.12req/s] [内存消耗：4,634.41kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010331s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000879s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000605s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001480s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000861s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.000826s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000527s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:20:36+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.083262s][吞吐率：12.01req/s] [内存消耗：4,378.99kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001634s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001127s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000477s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001329s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.001320s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.002478s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.001516s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:20:37+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.042907s][吞吐率：23.31req/s] [内存消耗：2,979.16kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:22:37+08:00 ] ::1 ::1 GET /phone/wallet/index
+[ info ] localhost/phone/wallet/index [运行时间：0.079272s][吞吐率：12.61req/s] [内存消耗：4,378.15kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010305s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.000845s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000782s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.002174s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000365s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:22:39+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.046602s][吞吐率：21.46req/s] [内存消耗：2,979.16kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:30:25+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.055989s][吞吐率：17.86req/s] [内存消耗：3,238.98kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:30:26+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.045142s][吞吐率：22.15req/s] [内存消耗：2,980.80kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:30:53+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.043821s][吞吐率：22.82req/s] [内存消耗：3,238.59kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:30:53+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.043415s][吞吐率：23.03req/s] [内存消耗：2,980.80kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:31:22+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.050111s][吞吐率：19.96req/s] [内存消耗：3,238.56kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:31:22+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.045171s][吞吐率：22.14req/s] [内存消耗：2,980.80kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:31:28+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.034169s][吞吐率：29.27req/s] [内存消耗：3,059.90kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:32:13+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.054616s][吞吐率：18.31req/s] [内存消耗：3,238.61kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:32:13+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.036421s][吞吐率：27.46req/s] [内存消耗：2,980.77kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:32:22+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.040854s][吞吐率：24.48req/s] [内存消耗：3,059.90kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:32:25+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.032212s][吞吐率：31.04req/s] [内存消耗：3,059.90kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:33:04+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.042916s][吞吐率：23.30req/s] [内存消耗：3,236.31kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:33:04+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.032848s][吞吐率：30.44req/s] [内存消耗：2,980.72kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:34:22+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.035482s][吞吐率：28.18req/s] [内存消耗：3,236.55kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:34:22+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.049236s][吞吐率：20.31req/s] [内存消耗：2,980.74kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:34:49+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.033819s][吞吐率：29.57req/s] [内存消耗：3,236.36kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:34:49+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.032103s][吞吐率：31.15req/s] [内存消耗：2,980.75kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:35:30+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.043916s][吞吐率：22.77req/s] [内存消耗：3,235.73kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:35:30+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.052650s][吞吐率：18.99req/s] [内存消耗：2,980.75kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:38:50+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.035526s][吞吐率：28.15req/s] [内存消耗：3,236.58kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:38:51+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.030940s][吞吐率：32.32req/s] [内存消耗：2,980.78kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:40:03+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.056050s][吞吐率：17.84req/s] [内存消耗：3,236.53kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:40:03+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.029308s][吞吐率：34.12req/s] [内存消耗：2,980.77kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:40:35+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.044998s][吞吐率：22.22req/s] [内存消耗：3,236.66kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:40:35+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.043030s][吞吐率：23.24req/s] [内存消耗：2,980.71kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:42:14+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.037796s][吞吐率：26.46req/s] [内存消耗：3,236.78kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:42:14+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.033678s][吞吐率：29.69req/s] [内存消耗：2,980.78kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:43:01+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.040656s][吞吐率：24.60req/s] [内存消耗：3,239.33kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:43:02+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.029517s][吞吐率：33.88req/s] [内存消耗：2,980.82kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:43:03+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.029776s][吞吐率：33.58req/s] [内存消耗：2,980.82kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:43:03+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.032327s][吞吐率：30.93req/s] [内存消耗：2,980.82kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:43:22+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.034485s][吞吐率：29.00req/s] [内存消耗：3,239.42kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:43:22+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.037341s][吞吐率：26.78req/s] [内存消耗：2,980.80kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:43:27+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.032161s][吞吐率：31.09req/s] [内存消耗：3,059.90kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:44:14+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.044636s][吞吐率：22.40req/s] [内存消耗：3,239.38kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:44:14+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.039401s][吞吐率：25.38req/s] [内存消耗：2,980.80kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:44:19+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.033552s][吞吐率：29.80req/s] [内存消耗：3,059.90kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:49:24+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.033620s][吞吐率：29.74req/s] [内存消耗：2,980.80kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:49:25+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.032086s][吞吐率：31.17req/s] [内存消耗：2,980.80kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:49:30+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.029106s][吞吐率：34.36req/s] [内存消耗：2,991.49kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_2 like Mac OS X) AppleWebKit/602.3.12 (KHTML, like Gecko) Mobile/14C92 Safari/601.1 wechatdevtools/1.01.1711020 MicroMessenger/6.5.7 Language/zh_CN webview/{{webviewID}} webdebugger port/9974',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vasqeis9u3bf63nsp6acirfnj5',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:50:12+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.030738s][吞吐率：32.53req/s] [内存消耗：3,010.27kb] [文件加载：34]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:50:12+08:00 ] ::1 ::1 GET /phone/login
+[ info ] localhost/phone/login [运行时间：0.027496s][吞吐率：36.37req/s] [内存消耗：2,997.81kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'auth',
+    2 => 'login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Auth->login[ D:\wamp64\www\phone\application\index\controller\Auth.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\auth\login.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:50:21+08:00 ] ::1 ::1 POST /phone/login_ajax
+[ info ] localhost/phone/login_ajax [运行时间：0.061823s][吞吐率：16.18req/s] [内存消耗：4,869.88kb] [文件加载：41]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'xwf',
+    2 => 'ds_login',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '33',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/login',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'phone' => '15550161208',
+  'password' => 'llllll',
+)
+[ info ] [ RUN ] app\index\controller\Xwf->ds_login[ D:\wamp64\www\phone\application\index\controller\Xwf.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002018s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001076s ]
+[ sql ] [ SQL ] SELECT `phone` FROM `bj_users` WHERE  (  phone='15550161208' ) [ RunTime:0.000424s ]
+[ sql ] [ SQL ] SELECT `status`,`type` FROM `bj_users` WHERE  (  phone='15550161208' ) LIMIT 1 [ RunTime:0.000422s ]
+[ sql ] [ SQL ] UPDATE `bj_users`  SET `is_sign`=1  WHERE  `phone` = '15550161208' [ RunTime:0.004281s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_users` WHERE  `phone` = '15550161208' LIMIT 1 [ RunTime:0.000797s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:50:23+08:00 ] ::1 ::1 GET /phone/
+[ info ] localhost/phone/ [运行时间：0.074632s][吞吐率：13.40req/s] [内存消耗：4,271.84kb] [文件加载：39]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/login',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\wamp64\www\phone\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\index\index.html [ array (
+  0 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001405s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.001673s ]
+[ sql ] [ SQL ] SELECT `order_number`,`create_time` FROM `bj_orders` WHERE  `owner_id` = 43 ORDER BY id desc LIMIT 2 [ RunTime:0.000445s ]
+---------------------------------------------------------------
+[ 2017-11-24T14:50:31+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.036172s][吞吐率：27.65req/s] [内存消耗：2,979.73kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:50:37+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.028828s][吞吐率：34.69req/s] [内存消耗：2,991.38kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:55:25+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.051429s][吞吐率：19.44req/s] [内存消耗：3,241.68kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:55:32+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.039561s][吞吐率：25.28req/s] [内存消耗：2,994.53kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:55:35+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.042489s][吞吐率：23.54req/s] [内存消耗：2,994.53kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:56:21+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.049755s][吞吐率：20.10req/s] [内存消耗：3,241.93kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:56:37+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.042350s][吞吐率：23.61req/s] [内存消耗：2,994.53kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:56:37+08:00 ] ::1 ::1 POST /phone/customer_add_qian
+[ info ] localhost/phone/customer_add_qian [运行时间：0.058832s][吞吐率：17.00req/s] [内存消耗：2,488.18kb] [文件加载：28]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_add_qian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '16',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'totals' => '10',
+  'uid' => '43',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected 'return' (T_RETURN)[D:\wamp64\www\phone\application\index\controller\Wxpay.php:31]
+---------------------------------------------------------------
+[ 2017-11-24T14:58:27+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.059765s][吞吐率：16.73req/s] [内存消耗：2,983.68kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'pragma' => 'no-cache',
+  'cache-control' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:58:36+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.042514s][吞吐率：23.52req/s] [内存消耗：2,994.53kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:58:36+08:00 ] ::1 ::1 POST /phone/customer_add_qian
+[ info ] localhost/phone/customer_add_qian [运行时间：0.056018s][吞吐率：17.85req/s] [内存消耗：2,488.18kb] [文件加载：28]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_add_qian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '16',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'totals' => '10',
+  'uid' => '43',
+)
+[ info ] [ LOG ] INIT File
+[ error ] [4]语法错误: unexpected 'return' (T_RETURN)[D:\wamp64\www\phone\application\index\controller\Wxpay.php:31]
+---------------------------------------------------------------
+[ 2017-11-24T14:58:59+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.041974s][吞吐率：23.82req/s] [内存消耗：2,994.53kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T14:58:59+08:00 ] ::1 ::1 POST /phone/customer_add_qian
+[ info ] localhost/phone/customer_add_qian [运行时间：0.037833s][吞吐率：26.43req/s] [内存消耗：2,854.69kb] [文件加载：31]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_add_qian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '16',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'totals' => '10',
+  'uid' => '43',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_add_qian[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T15:07:58+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.087684s][吞吐率：11.40req/s] [内存消耗：2,986.85kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T15:08:03+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.045758s][吞吐率：21.85req/s] [内存消耗：2,997.95kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T15:08:03+08:00 ] ::1 ::1 POST /phone/customer_add_qian
+[ info ] localhost/phone/customer_add_qian [运行时间：0.054736s][吞吐率：18.27req/s] [内存消耗：3,018.70kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_add_qian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '16',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'totals' => '10',
+  'uid' => '43',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_add_qian[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: param[D:\wamp64\www\phone\application\index\controller\Wxpay.php:85]
+---------------------------------------------------------------
+[ 2017-11-24T15:08:34+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.041518s][吞吐率：24.09req/s] [内存消耗：2,997.95kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T15:08:34+08:00 ] ::1 ::1 POST /phone/customer_add_qian
+[ info ] localhost/phone/customer_add_qian [运行时间：0.049154s][吞吐率：20.34req/s] [内存消耗：4,274.05kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_add_qian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '16',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'totals' => '10',
+  'uid' => '43',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_add_qian[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001447s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_c_recharge` [ RunTime:0.003764s ]
+[ sql ] [ SQL ] INSERT INTO `bj_c_recharge` (`money` , `uid` , `create_time`) VALUES (10 , 43 , 1511507314) [ RunTime:0.003762s ]
+---------------------------------------------------------------
+[ 2017-11-24T15:09:30+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.039401s][吞吐率：25.38req/s] [内存消耗：2,997.95kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T15:09:30+08:00 ] ::1 ::1 POST /phone/customer_add_qian
+[ info ] localhost/phone/customer_add_qian [运行时间：0.050294s][吞吐率：19.88req/s] [内存消耗：4,274.05kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_add_qian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '16',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'totals' => '10',
+  'uid' => '43',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_add_qian[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001261s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_c_recharge` [ RunTime:0.001391s ]
+[ sql ] [ SQL ] INSERT INTO `bj_c_recharge` (`money` , `uid` , `create_time`) VALUES (10 , 43 , 1511507370) [ RunTime:0.003590s ]
+---------------------------------------------------------------
+[ 2017-11-24T15:14:38+08:00 ] ::1 ::1 GET /phone/wallet/index15
+[ info ] localhost/phone/wallet/index15 [运行时间：0.072229s][吞吐率：13.84req/s] [内存消耗：3,245.21kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index15',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index15[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index15.html [ array (
+  0 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T15:14:44+08:00 ] ::1 ::1 POST /phone/is_weixin
+[ info ] localhost/phone/is_weixin [运行时间：0.039573s][吞吐率：25.27req/s] [内存消耗：2,997.98kb] [文件加载：33]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'is_weixin',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '0',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Api->is_weixin[ D:\wamp64\www\phone\application\index\controller\Api.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2017-11-24T15:14:44+08:00 ] ::1 ::1 POST /phone/customer_add_qian
+[ info ] localhost/phone/customer_add_qian [运行时间：0.060598s][吞吐率：16.50req/s] [内存消耗：4,281.52kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_add_qian',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'content-length' => '16',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'origin' => 'http://localhost',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'totals' => '20',
+  'uid' => '43',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_add_qian[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001313s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_c_recharge` [ RunTime:0.001581s ]
+[ sql ] [ SQL ] INSERT INTO `bj_c_recharge` (`money` , `uid` , `create_time`) VALUES (20 , 43 , 1511507684) [ RunTime:0.006302s ]
+---------------------------------------------------------------
+[ 2017-11-24T15:14:45+08:00 ] ::1 ::1 GET /phone/customer_payment/43/times/1511507684
+[ info ] localhost/phone/customer_payment/43/times/1511507684 [运行时间：0.051599s][吞吐率：19.38req/s] [内存消耗：3,029.54kb] [文件加载：36]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_payment',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '43',
+  'times' => '1511507684',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_payment[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: t[D:\wamp64\www\phone\application\index\controller\Wxpay.php:101]
+---------------------------------------------------------------
+[ 2017-11-24T15:15:17+08:00 ] ::1 ::1 GET /phone/customer_payment/43/times/1511507684
+[ info ] localhost/phone/customer_payment/43/times/1511507684 [运行时间：0.099030s][吞吐率：10.10req/s] [内存消耗：5,331.69kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_payment',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '43',
+  'times' => '1511507684',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_payment[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wxpay\customer_index.html [ array (
+  0 => 'qq',
+  1 => 'service',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002103s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_c_recharge` [ RunTime:0.003342s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_c_recharge` WHERE  `uid` = 43  AND `create_time` = 1511507684 ORDER BY id desc LIMIT 1 [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SELECT `money` FROM `bj_c_recharge` WHERE  `uid` = 43 ORDER BY id desc LIMIT 1 [ RunTime:0.000280s ]
+[ error ] [8]未定义变量: list[D:\wamp64\www\phone\runtime\temp\d08126da6d568184115610b1b234b06c.php:17]
+---------------------------------------------------------------
+[ 2017-11-24T15:15:19+08:00 ] ::1 ::1 GET /phone/customer_payment/43/times/1511507684
+[ info ] localhost/phone/customer_payment/43/times/1511507684 [运行时间：0.092579s][吞吐率：10.80req/s] [内存消耗：5,069.19kb] [文件加载：51]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_payment',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '43',
+  'times' => '1511507684',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_payment[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wxpay\customer_index.html [ array (
+  0 => 'qq',
+  1 => 'service',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001184s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_c_recharge` [ RunTime:0.001294s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_c_recharge` WHERE  `uid` = 43  AND `create_time` = 1511507684 ORDER BY id desc LIMIT 1 [ RunTime:0.000624s ]
+[ sql ] [ SQL ] SELECT `money` FROM `bj_c_recharge` WHERE  `uid` = 43 ORDER BY id desc LIMIT 1 [ RunTime:0.000368s ]
+[ error ] [8]未定义变量: list[D:\wamp64\www\phone\runtime\temp\d08126da6d568184115610b1b234b06c.php:17]
+---------------------------------------------------------------
+[ 2017-11-24T15:16:20+08:00 ] ::1 ::1 GET /phone/customer_payment/43/times/1511507684
+[ info ] localhost/phone/customer_payment/43/times/1511507684 [运行时间：0.104676s][吞吐率：9.55req/s] [内存消耗：5,331.51kb] [文件加载：53]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_payment',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '43',
+  'times' => '1511507684',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_payment[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wxpay\customer_index.html [ array (
+  0 => 'qq',
+  1 => 'service',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001243s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_c_recharge` [ RunTime:0.002559s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_c_recharge` WHERE  `uid` = 43  AND `create_time` = 1511507684 ORDER BY id desc LIMIT 1 [ RunTime:0.001982s ]
+[ sql ] [ SQL ] SELECT `money` FROM `bj_c_recharge` WHERE  `uid` = 43 ORDER BY id desc LIMIT 1 [ RunTime:0.000465s ]
+[ error ] [8]未定义变量: number[D:\wamp64\www\phone\runtime\temp\d08126da6d568184115610b1b234b06c.php:20]
+---------------------------------------------------------------
+[ 2017-11-24T15:18:09+08:00 ] ::1 ::1 GET /phone/customer_payment/43/times/1511507684
+[ info ] localhost/phone/customer_payment/43/times/1511507684 [运行时间：0.175700s][吞吐率：5.69req/s] [内存消耗：5,310.40kb] [文件加载：51]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wxpay',
+    2 => 'customer_payment',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index15',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+  'uid' => '43',
+  'times' => '1511507684',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wxpay->customer_payment[ D:\wamp64\www\phone\application\index\controller\Wxpay.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wxpay\customer_index.html [ array (
+  0 => 'qq',
+  1 => 'service',
+  2 => 'uid',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001209s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_c_recharge` [ RunTime:0.003949s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_c_recharge` WHERE  `uid` = 43  AND `create_time` = 1511507684 ORDER BY id desc LIMIT 1 [ RunTime:0.000994s ]
+[ sql ] [ SQL ] SELECT `money` FROM `bj_c_recharge` WHERE  `uid` = 43 ORDER BY id desc LIMIT 1 [ RunTime:0.000810s ]
+[ error ] [0]curl出错，错误码:60[D:\wamp64\www\phone\wxpay\lib\WxPay.Api.php:564]
+---------------------------------------------------------------
+[ 2017-11-24T16:19:54+08:00 ] ::1 ::1 GET /phone/wallet/index_home
+[ info ] localhost/phone/wallet/index_home [运行时间：0.057690s][吞吐率：17.33req/s] [内存消耗：4,625.08kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index_home',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index_home[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index_home.html [ array (
+  0 => 'balance',
+  1 => 'guarantee',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001801s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001090s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000721s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_worker` [ RunTime:0.003070s ]
+[ sql ] [ SQL ] SELECT `guarantee` FROM `bj_users_worker` WHERE  `uid` = 43 LIMIT 1 [ RunTime:0.002040s ]
+---------------------------------------------------------------
+[ 2017-11-24T16:20:15+08:00 ] ::1 ::1 GET /phone/pay_pwd
+[ info ] localhost/phone/pay_pwd [运行时间：0.083680s][吞吐率：11.95req/s] [内存消耗：4,690.90kb] [文件加载：43]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Personalcenter',
+    2 => 'pay_pwd',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index_home',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Personalcenter->pay_pwd[ D:\wamp64\www\phone\application\index\controller\Personalcenter.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\personalcenter\zhifumima.html [ array (
+  0 => 'phone',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001353s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.000950s ]
+[ sql ] [ SQL ] SELECT `phone` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.002698s ]
+---------------------------------------------------------------
+[ 2017-11-24T16:20:19+08:00 ] ::1 ::1 GET /phone/wallet/index_home
+[ info ] localhost/phone/wallet/index_home [运行时间：0.086278s][吞吐率：11.59req/s] [内存消耗：4,371.84kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index_home',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index_home[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index_home.html [ array (
+  0 => 'balance',
+  1 => 'guarantee',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001272s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.007348s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_worker` [ RunTime:0.002494s ]
+[ sql ] [ SQL ] SELECT `guarantee` FROM `bj_users_worker` WHERE  `uid` = 43 LIMIT 1 [ RunTime:0.001269s ]
+---------------------------------------------------------------
+[ 2017-11-24T16:20:25+08:00 ] ::1 ::1 GET /phone/wallet/index1
+[ info ] localhost/phone/wallet/index1 [运行时间：0.094890s][吞吐率：10.54req/s] [内存消耗：4,651.99kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index1',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index_home',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index1[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index1.html [ array (
+  0 => 'mingxi1',
+  1 => 'mingxi2',
+  2 => 'balance',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006615s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001174s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000405s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_orders` [ RunTime:0.000873s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_orders` WHERE  `owner_id` = 43 [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_guarantee` [ RunTime:0.000629s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_guarantee` WHERE  `uid` = 43 [ RunTime:0.000318s ]
+---------------------------------------------------------------
+[ 2017-11-24T16:20:26+08:00 ] ::1 ::1 GET /phone/wallet/index_home
+[ info ] localhost/phone/wallet/index_home [运行时间：0.065474s][吞吐率：15.27req/s] [内存消耗：4,371.84kb] [文件加载：40]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index_home',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index_home[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index_home.html [ array (
+  0 => 'balance',
+  1 => 'guarantee',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001376s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users` [ RunTime:0.001106s ]
+[ sql ] [ SQL ] SELECT `balance` FROM `bj_users` WHERE  `id` = 43 LIMIT 1 [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_worker` [ RunTime:0.002533s ]
+[ sql ] [ SQL ] SELECT `guarantee` FROM `bj_users_worker` WHERE  `uid` = 43 LIMIT 1 [ RunTime:0.000907s ]
+---------------------------------------------------------------
+[ 2017-11-24T16:39:28+08:00 ] ::1 ::1 GET /phone/wallet/index13
+[ info ] localhost/phone/wallet/index13 [运行时间：0.084412s][吞吐率：11.85req/s] [内存消耗：4,606.89kb] [文件加载：42]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index13',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index13[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index_home1.html [ array (
+  0 => 'guarantee',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006380s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_worker` [ RunTime:0.002907s ]
+[ sql ] [ SQL ] SELECT `guarantee` FROM `bj_users_worker` WHERE  `uid` = 43 LIMIT 1 [ RunTime:0.001447s ]
+---------------------------------------------------------------
+[ 2017-11-24T16:39:37+08:00 ] ::1 ::1 GET /phone/wallet/index14
+[ info ] localhost/phone/wallet/index14 [运行时间：0.060869s][吞吐率：16.43req/s] [内存消耗：3,250.15kb] [文件加载：35]
+[ info ] [ LANG ] D:\wamp64\www\phone\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'wallet',
+    2 => 'index14',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'host' => 'localhost',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Mobile Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://localhost/phone/wallet/index13',
+  'accept-encoding' => 'gzip, deflate, br',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=nr7vb4dpv13t9qi30eqa42oks1',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\index\controller\Wallet->index14[ D:\wamp64\www\phone\application\index\controller\Wallet.php ]
+[ info ] [ VIEW ] D:\wamp64\www\phone/application/index\view\wallet\index_home2.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

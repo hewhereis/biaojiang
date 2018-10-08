@@ -1,0 +1,238 @@
+
+<!--nav-->
+{include file="public/header" }
+<!--header-->
+<div class="main coupon_filled_red_envelope">
+    <!-- header-img-->
+    <div class="header-img ">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <div class="container pr--1_medai pl--1_medai container-hidden">
+        <!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>优惠卷</small><span>>></span>
+        </h5>
+        <!-- 主题-->
+        <div class="row mt-10" id="navigatesLeft">
+            {include file="fenlei/purse_recharge_left" }
+            <div class="col-xs-12 right" id='navigatesRigth'>
+                <ul>
+                    <li>我的优惠卷</li>
+                    <li>
+                        <div class="row text-center">
+                            <div class="col-xs-3 scue">全部</div>
+                            <div class="col-xs-3 scue">未使用</div>
+                            <div class="col-xs-3 scue">己使用</div>
+                            <div class="col-xs-3 scue">己过期</div>
+                        </div>
+                    </li>
+                    <li class="amma">
+                      <div class="row">
+                          <div class="col-xs-4">
+                              <div></div>
+                          </div>
+                          <div class="col-xs-4"><div></div></div>
+                          <div class="col-xs-4"><div></div></div>
+                          <div class="col-xs-4"><div></div></div>
+                          <div class="col-xs-4"><div></div></div>
+                          <div class="col-xs-4"><div></div></div>
+                      </div>
+                        <div class="row on">
+                            <div class="col-xs-4">
+                                <div></div>
+                            </div>
+                            <div class="col-xs-4"><div>00</div></div>
+                            <div class="col-xs-4"><div>00</div></div>
+                            <div class="col-xs-4"><div>00</div></div>
+                            <div class="col-xs-4"><div>00</div></div>
+                            <div class="col-xs-4"><div>00</div></div>
+                        </div>
+                        <div class="row on">
+                            <div class="col-xs-4">
+                                <div></div>
+                            </div>
+                            <div class="col-xs-4"><div></div></div>
+                            <div class="col-xs-4"><div></div></div>
+                            <div class="col-xs-4"><div></div></div>
+                            <div class="col-xs-4"><div></div></div>
+                            <div class="col-xs-4"><div></div></div>
+                        </div>
+                        <div class="row on">
+                            <div class="col-xs-4">
+                                <div></div>
+                            </div>
+                            <div class="col-xs-4"><div>ss</div></div>
+                            <div class="col-xs-4"><div>11</div></div>
+                            <div class="col-xs-4"><div>11</div></div>
+                            <div class="col-xs-4"><div>11</div></div>
+                            <div class="col-xs-4"><div>11</div></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-4 mt-10">
+                                <div>
+                                    <img src="__PUBLIC__static/index/images/coupon.png" alt=""/>
+                                    <p>劵码兑换</p>
+                                </div></div>
+                            <div class="col-sm-4  mt-10"><div>
+                                <img src="__PUBLIC__static/index/images/acquisition.png" alt=""/>
+                               <p> 如何获得优惠卷</p>
+                            </div></div>
+                            <div class="col-sm-4  mt-10"><div>
+                                <img src="__PUBLIC__static/index/images/issue.png" alt=""/>
+                                <p>优惠卷使用常识</p>
+                            </div></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div >
+
+    </div>
+</div>
+<style>
+
+    #navigatesLeft{
+        height: 530px;
+    }
+    #navigatesRigth>ul{
+        width: 100%;
+        border: 1px solid #dddddd;
+    }
+    #navigatesRigth>ul>li:first-child{
+        height: 50px;
+        background: #ff5200;
+        padding-left: 20px;
+        line-height: 50px;
+        color: #ffffff;
+    }
+    #navigatesRigth>ul>li:nth-child(2){
+        height: 50px;
+        padding: 15px;
+       font-weight: 600;
+        background: #dddddd;
+    }
+    @media (max-width: 568px) {
+        #navigatesRigth>ul>li:nth-child(2)>div>div{
+            padding-left: 6px;
+        }
+    }
+    #navigatesRigth>ul>li:nth-child(3){
+        padding-left: 30px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        line-height: 60px;
+        border-bottom: 1px solid #dddddd;
+        padding-right: 30px;
+    }
+    #navigatesRigth>ul>li:nth-child(3)>div>div{
+        padding: 10px;
+        box-sizing: border-box;
+        height: 10rem;
+    }
+    #navigatesRigth>ul>li:nth-child(3)>div>div>div{
+        width: 100%;
+        background: #dddddd;
+        height: 100%;
+    }
+    #navigatesRigth>ul>li:nth-child(4){
+        padding-left: 30px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-right: 30px;
+        border-bottom: 1px solid #dddddd;
+    }
+    #navigatesRigth>ul>li:nth-child(4)>div>div{
+        height: 124px;
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    #navigatesRigth>ul>li:nth-child(4)>div>div>div{
+        border-radius: 5px;
+        border: 1px solid #dddddd;
+        background: rgba(0,0,05,0.5);
+        width: 100%;
+        padding: 10px;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+        color: #ffffff;
+    }
+    #navigatesRigth>ul>li:nth-child(4)>div>div>div>img{
+        width: 9rem;
+        height: 8rem;
+    }
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+@media (max-width: 776px) {
+    html{
+        font-size: 8px;
+    }
+}
+
+</style>
+<script>
+    //师傅首页的侧边栏
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+    $("#money").focus(function () {
+        $("#ack_buttone").removeAttr('disabled');
+        $("#ack_buttone").addClass('bg-success');
+    });
+  $(".scue").click(function (e) {
+      var n=$(this).index()
+     switch(n){
+         case 0:nh(n)
+             break;
+         case 2:nh(n)
+             break;
+         case 3:nh(n)
+             break;
+         default :nh(n)
+     }
+
+  })
+    var nh=function(n){
+        console.log( $(".amma>div").eq(n))
+        $(".amma>div").eq(n).removeClass('on');
+        $(".amma>div").eq(n).siblings().addClass('on');
+    }
+    $(window).resize(function () {
+        var wdiths=$(window).width();
+        if(wdiths>776){
+            $("#navigatesLeft .left").css('left','15px')
+        }else{
+            $("#navigatesLeft .left").css('left','-200px')
+        }
+    })
+</script>
+{include file="public/footer" }

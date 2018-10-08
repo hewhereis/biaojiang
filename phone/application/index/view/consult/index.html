@@ -1,0 +1,253 @@
+{include file='public/header'}
+<div class='app'>
+    <headers></headers>
+    <mian></mian>
+    <menus></menus>
+</div>
+<script type="text/template" id="mian">
+    <div class="kehu_zixunzhurenshifu">
+        <div class="weui-cell content">
+            <div class="weui-cell_hd">
+                <img src="__DsQINiu__{$img}" alt="" style="width: 50px;height:50px " onerror="this.src='__PUBLIC__static/index/images/more.png'">
+            </div>
+            <div class="weui-cell_bd heading">
+                <div class="p1">
+                    <span class="wang"></span>
+                    <span class="gonghao">(工号{$wid})</span>
+                    <span class="cz" style="margin-left:20%">
+                        <a class="" href="javascript:;" @click="reselects()" style="padding:6px 13px;background-color:#58a22f ;border:none;color:#fff;border-radius:3px">重选师傅</a>
+                  </span>
+                </div>
+                <p class="putong">添加普通师傅个数<span><input class="text1" type="text" name=""  v-model="bangshou"></span>位</p>
+                <p class="time">
+                    <input type="checkbox" :checked="checkbox1==1"  >
+                    <span>师傅已确认时间</span>
+                </p>
+            </div>
+        </div>
+        <div class="bg"></div>
+        <div class="weui-table">
+            <div class="weui-table-tr">
+                <div class="weui-cell-item"><span>项目</span></div>
+                <div class="weui-cell-item"><span>项目预算价</span></div>
+                <div class="weui-cell-item"><span>故障详情</span></div>
+            </div>
+            <div class='weui-table-th'  v-for="(item,index) in data">
+                <div class="weui-cell-item">
+
+                    <span v-if="item.service_type_id==1">安装</span>
+                    <span v-if="item.service_type_id==2">维修</span>
+                    <span v-if="item.service_type_id==3">品质监理</span>
+                    <span v-if="item.service_type_id==4">勘测</span>
+                    <span v-if="item.service_type_id==5">更换灯片</span>
+                    <span v-if="item.service_type_id==6">围板搭建</span>
+                </div>
+                <div class="weui-cell-item">
+                    <span class="paojia qian"  :id="'qian'+index">{{qian[index]}}</span>
+                </div>
+                <div class="weui-cell-item">
+                    <a :href="'__PUBLIC__'" class='a-link' v-if="item.service_type_id==1"><span>查看详情>></span></a>
+                    <a :href="'__PUBLIC__repair_details/'+item.id" class='a-link' v-if="item.service_type_id==2"><span>查看详情>></span></a>
+                    <a :href="'__PUBLIC__'" class='a-link' v-if="item.service_type_id==3"><span>查看详情>></span></a>
+                    <a :href="'__PUBLIC__'" class='a-link' v-if="item.service_type_id==4"><span>查看详情>></span></a>
+                    <a :href="'__PUBLIC__'" class='a-link' v-if="item.service_type_id==5"><span>查看详情>></span></a>
+                    <a :href="'__PUBLIC__'" class='a-link' v-if="item.service_type_id==6"><span>查看详情>></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="dingdanbiaohao">
+            <span class="dingdan">订单编号:{$order}</span>
+            <span class="bianhao"></span>
+        </div>
+        <div class='weui-text label'>
+            <span>合&nbsp; 计：</span>
+            <span class="heji">￥</span><span class="heji">
+            {{zongjia}}
+        </span>
+            <span class='tip'></span>
+        </div>
+        <div class="weui-tim">
+            <div class="weui-tim-content" id="login">
+                <!--<div class="weui-tim-content-left" v-for="item in elemarrleft">-->
+                    <!--<div class='weui-tim-content-left-photo'>-->
+                        <!--<img src="__DsQINiu__{$useridimageurl}" onerror="this.src='__PUBLIC__static/index/images/more.png'" height='45' width='45' alt="">-->
+                    <!--</div>-->
+                    <!--<div class='weui-tim-content-left-text'>-->
+                        <!--<span>{{item.title}}</span>-->
+                        <!--<span class=''>{{item.content}}</span>-->
+                        <!--&lt;!&ndash;onerror="this.src='__PUBLIC__static/index/images/more.png'"&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="weui-tim-content-right" v-for="item in elemarright">-->
+                    <!--<div class='weui-tim-content-right-photo'>-->
+                        <!--<img src="__DsQINiu__{$customerimageurl}" onerror="this.src='__PUBLIC__static/index/images/more.png'"  height='45' width='45' alt="">-->
+                    <!--</div>-->
+                    <!--<div class='weui-tim-content-right-text'>-->
+                        <!--<span>{{item.title}}</span>-->
+                        <!--<span class=''>{{item.content}}</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="xunwen">
+        		<input id="job" v-model="usermsg" class="xunwen2" style="border: 1px solid #dddddd">
+
+            <span><button  @click="send" class="" style="background-color:#58a22f;padding:7px 17px;border: 0;color: #fff;border-radius: 3px;float: right;margin-top: 10px;margin-right: 5%;">发送</button></span>
+        </div>
+        <div class="" style="padding:15px 15px 20px 15px;width:100%">
+        	<span class="" style="display:inline-block;">
+                <a class="" href="__PUBLIC__master_information/{$order}/wid/{$wid}?dd=3" style="padding:13px 35px;background-color:#58a22f;border:none;outline:none;color:#fff;border-radius:4px">咨询付费</a>
+        	</span>
+            <span class="" style="display:inline-block;float:right">
+        		 <a class="" @click="ad" href="javascript:;"  style="padding:13px 10px;background-color:#ff8270;color:#fff;border-radius:4px">提交订单去结算</a>
+        	</span>
+        </div>
+
+    </div>
+</script>
+{include file='public/menu'}
+{include file='public/footer'}
+<script>
+    var data={
+        data:{$data},
+        zongjia:'{$totals}',
+        bangshou:'{$num}',
+        qian:{$list},
+        checkbox1:'{$gettime}',
+        elemarrleft:[],
+        elemarright:[],
+        usermsg:"",
+        pay:{$pay}
+    }
+    Vue.component('mian', {
+        template: '#mian',
+        data: function () {
+            return data
+        },
+        methods: {
+            reselects:function(){
+                $.ajax({
+                    url:'__PUBLIC__reselects',
+                    data:{order_number:'{$order}'},
+                    dataType:'json',
+                    type:"post",
+                    success:function(data){
+                       if(data.code==200){
+                         window.location.href="__PUBLIC__screen/"+data.number+'/zt/'+1;
+                       }else{
+                         $.toptip(data.number);
+                       }
+                    }
+                })
+            },
+            send:function () {
+                if(this.usermsg==""){
+                    $.toptip("发送内容不能为空","error");
+                    return false
+                }
+                sendweb(this.usermsg)
+            },
+            ad:function(){
+                if(this.checkbox1!=1){
+                    $.toptip("师傅还没有确认时间","error");
+                    return false;
+                }
+                $.ajax({
+                    url:"__PUBLIC__consult2",
+                    type:"post",
+                    data:{order_number:'{$order}',worker_id:'{$wid}'},
+                    dataType:"json",
+                    success:function(data){
+                            if(data.code==200){
+                                $.toptip(data.msg,"success");
+                                window.location.href="__PUBLIC__settlement/{$order}"
+                            }else{
+                                $.toptip(data.msg,"error");
+                            }
+                    },
+                    error:function(data){
+                            console.log(data)
+                    }
+                })
+                
+            }
+        },
+        mounted:function() {
+
+        }
+    })
+    //头
+    Vue.component('headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "客户咨询主任师傅"
+            }
+        },
+        methods:{
+            goback:function(){
+                window.history.go(-1)
+            }
+        }
+    })
+    Vue.component('menus', {
+        template: '#menu',
+        data: function () {
+            return {}
+        },
+        mounted:function () {
+            if(this.pay!==1){
+                 $("#job").select({
+                title: "发送内容",
+                items: ["麻烦看看需求是否还需补充", "请确认是否能够承接"],
+                onChange:function (da) {
+                    data.usermsg=da.values;
+
+                }
+            });
+            }
+           
+        }
+    })
+    Vue.component('footers', {
+        template: '#footers',
+        data: function () {
+            return {}
+        }
+    })
+
+    new Vue({
+        el: '.app'
+    })
+
+    function onSendData(usermsg) {
+        //得到交易对方的userid.
+        //get the content in the element and wrap into .
+        var content = "msgtype:0,msg:" + usermsg;
+        SendContentOut(content);
+    }
+    function SetSelfElement(from_user_id, msg) {
+        //here, set the value of different element.
+        var items = {};
+        var keyvalue = [];
+        var key = "", value = "";
+        var paraString = msg.split("&");
+        for(var item in paraString){
+            var  paraString1= paraString[item].split("=");
+            if(item==0){
+                say(from_user_id,null,paraString[0])
+            }else if(item>3||item==3){
+                $("#"+paraString1[0]).text(paraString1[1])
+            }else {
+                data[paraString1[0]]=paraString1[1]
+            }
+        }
+
+//        zongjia  checkbox1 bangshou qian
+
+
+        var chatmsg = "";
+        return chatmsg;
+    }
+</script>
+{include file="consult/consult"}

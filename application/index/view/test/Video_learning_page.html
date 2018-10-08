@@ -1,0 +1,140 @@
+<!--nav-->
+{include file="public/header" }
+<div class="main">
+    <!--header-img-->
+    <div class="header-img mt-130">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <!-- 面包屑导航-->
+    <div class="container ">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>学习页面</small><span>>></span>
+        </h5>
+        <div class="row mt-10 Video_playback_page" id="navigatesLeft">
+            <div class="clo-xs-12 " id='navigatesRigth'>
+                <div class="panel panel-default height ">
+                    <div class="panel-heading bg-orange">
+                        <a href="" class="text-info">回到知识页面>></a>
+                    </div>
+                    <div class="panel-body">
+                        <!-- 导航-->
+                       <div class="row">
+                           <div class="col-md-12 h4">
+                               木工基本知识
+                           </div>
+                       </div>
+                        <!--视频播放-->
+                        <div class="row video  mt-10">
+                            <div class="col-md-12">
+                                <video src="__PUBLIC__static/index/video/birds.mp4" id="v1" controls autoplay ></video>
+                                <ul class="hide">
+                                    <li>
+                                        <i class="layui-icon paly-btn" style="font-size: 30px; color: #1E9FFF;">&#xe652;</i>
+                                    </li>
+                                    <li>
+                                       <ul>
+                                           <li>00:00</li>
+                                           <li>
+                                               <div></div>
+                                               <span></span>
+                                           </li>
+                                           <li>24:00</li>
+                                       </ul>
+                                    </li>
+                                    <li> <i class="layui-icon" style="font-size: 30px; color: #1E9FFF;">&#xe645;</i></li>
+                                    <li>
+                                        <i class="fa fa-arrows-alt"></i>
+                                    </li>
+                                </ul>
+                                <div id="btn-bof">
+                                    <i class="fa fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!--分集-->
+                        <div class="row mt-30">
+                            <div class="col-md-3">推荐</div>
+                        </div>
+                        <div class="row Video_continuous">
+                            <div class="col-sm-3">
+                                下一集
+                                <a href="">
+                                    <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                                </a>
+                                <span>24:00</span>
+                            </div>
+                            <div class="col-sm-3">
+                                下一集
+                                <a href="">
+                                    <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                                </a>
+                                <span>24:00</span>
+                            </div>
+                            <div class="col-sm-3">
+                                下一集
+                                <a href="">
+                                    <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                                </a>
+                                <span>24:00</span>
+                            </div>
+                            <div class="col-sm-3">
+                                下一集
+                                <a href="">
+                                    <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                                </a>
+                                <span>24:00</span>
+                            </div>
+                        </div>
+
+                        <!--分享方式-->
+                        <div  class="row">
+                            <div class="col-md-6  pull-right text-right mt-20 Share" style="width: 230px">
+                                <a href=""><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                <a href=""><i class="fa fa-wechat text-success"></i></a>
+                                <a href=""><i class="fa fa-qq"></i></a>
+                                <a href=""><i class="fa fa-weibo text-danger"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#xieliuyan").click(function () {
+        $("#liuyan").css("border","1px solid #ddd");
+        $("#liuyan").html('');
+        $("#liuyan").removeAttr('disabled');
+        $(this).css('display','none');
+        $(this).siblings('i').css('display','none')
+        $(this).siblings('.btn').css('display','block')
+    });
+    var v1=$("#v1")[0];
+    var jtrue=true;
+    var tmer=null;
+$("#btn-bof").click(function () {
+
+    if(jtrue){
+        v1.play();
+
+        jtrue=false;
+        $(this).html('<i class="fa fa-pause"></i>');
+           tmer= setInterval(function () {
+                if(v1.duration===v1.currentTime){
+                    clearInterval(tmer)
+                }
+            },v1.duration)
+    }else{
+        v1.pause();
+        jtrue=true;
+        $(this).html('<i class="fa fa-play"></i>')
+        console.log(v1.duration)
+    }
+});
+    $("#btn-bof").mouseleave(function () {
+        $("#btn-bof").css('display','none')
+    })
+</script>
+{include file='public/footer'}

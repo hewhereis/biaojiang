@@ -1,0 +1,179 @@
+{include file="public/style_header" }
+
+<!--/*标题*/-->
+
+<div class='panel panel-orange' style="min-height:1000px;">
+	<div class='panel-heading'>
+		<div class='panel-title'>地址管理</div>
+	</div>
+	<div class='panel-body'>
+        <div class='row' style='padding-bottom:5px;'>
+            <div class='col-xs-12' style='border-bottom:1px solid #ccc;'>
+                <a href="__PUBLIC__addlocation" class='btn btn-success'>添加新地址</a>
+            </div>
+        </div> 
+		<div class='row'>
+			<div class='col-xs-12'>
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>联系人</th>
+                        <th>详细地址</th>
+                        <th>电话/手机号</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody  class='location'>
+                    {volist name='location' id='l'}
+                        <tr>
+                            <td><span>{$l.name}</span></td>
+                            <td>{$l.province}-{$l.city}-{$l.district}-{$l.location}</td>
+                            <td>
+                                {$l.phone}
+                            </td>
+                            <td>
+                                <div style='display:inline-block;margin-right:20px;cursor:pointer' data-toggle='modal' data-target='#loactionModal'>
+                                    <a href="__PUBLIC__editlocation/client/{$l.id}">
+                                        编辑
+                                    </a>
+                                </div>
+                                <div style='display:inline-block;cursor:pointer' onclick="del_ser({$l.id})">
+                                    删除
+                                </div>
+                                <div class="radio radio-info radio-inline" style='display:inline-block' >
+                                    {if $l.default==1}
+                                    <input type="radio" id="inlineRadio{$l.id}" name="radioInline" checked='true'>
+                                    <span style="background: #ffd6cc;padding: 2px 5px;color: #f30;font-size: 12px;border: 1px solid #ff3800;border-radius: 5px">
+                                        默认地址
+                                    </span>
+                                    {else}
+                                    <input type="radio" id="inlineRadio{$l.id}" name="radioInline" >
+                                    <span  class="tacitly"  style="padding: 2px 5px; opacity: 0;background: #f60; color: #fff; border: 1px solid #f60; border-radius: 3px;text-decoration: none" onclick="default1({$l.id})">
+                                        设为默认
+                                    </span>
+                                    {/if}
+                                </div>
+                            </td>
+                        </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+				<ul>
+
+			</div>
+		</div>
+	</div>
+</div>
+<script src="__CITY__/distpicker.data.js"></script>
+<script src="__CITY__/distpicker.js"></script>
+<script src="__CITY__/main.js"></script>
+<script>
+	//删除
+    function del_ser(id){
+		lunhui.ds_confirmz(id,'__PUBLIC__del_address');
+    }
+$(".layui-table").on("mouseover",".tacitly",function () {
+        $(this).css("opacity","1")
+})
+    $(".layui-table").on("mouseout ",".tacitly",function () {
+        $(this).css("opacity","0")
+    })
+ var  default1 = function (id) {
+
+        $.ajax({
+            url:'__PUBLIC__client_location/default',
+            type:"post",
+            dataType:"json",
+            data:{id:id},
+            success:function(res){
+                window.location.href='__PUBLIC__client_location';
+            }
+        })
+    }
+    $(".k").click(function() {
+        $(this).addClass("activee");
+        $(this).siblings("").removeClass("activee");
+        if($(this).index()==1){
+            $(".b-se_l").addClass("hidden")
+            $(".b-se_k").removeClass("hidden");
+
+            $(".messamge").addClass("hidden");
+            $(".list_lh").addClass("hidden");
+
+
+        }else  if($(this).index()==0){
+            $(".b-se_k").addClass("hidden")
+            $(".b-se_l").removeClass("hidden");
+
+            $(".messamge").removeClass("hidden");
+            $(".list_lh").removeClass("hidden");
+        }
+    });
+    $("#xiugai").click(function () {
+        $(".b-se").eq(0).addClass("hidden");
+        $(".b-se").eq(1).removeClass("hidden");
+
+    });
+    $("#quxiao").click(function () {
+        $(".b-se").eq(1).addClass("hidden");
+        $(".b-se").eq(0).removeClass("hidden");
+    });
+    $(".b_a img").css("width", "20px");
+    $(document).ready(function() {
+        $('#demoa').ajaxForm({
+            success: complete, // 这是提交后的方法
+            dataType: 'json',
+            beforeSubmit:function () {
+                var op={icon:2,time:1500,shade: 0.1,shade:0};
+                if( '' == $.trim($('#contac').val())){
+                    parent.layer.msg('请填写用户名',op, function(index){
+                        layer.close(index);
+                    });
+                    return false;
+                }
+				if( '' == $.trim($('#there_is_a_pre_survey').val())){
+                    parent.layer.msg('请填写真实姓名',op, function(index){
+                        layer.close(index);
+                    });
+                    return false;
+                }
+				if( '' == $.trim($('#province10').val())){
+                    parent.layer.msg('请填写所在地区省',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+				if( '' == $.trim($('#city10').val())){
+                    parent.layer.msg('请填写所在地区市',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+				if( '' == $.trim($('#district10').val())){
+                    parent.layer.msg('请填写所在地区区',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+				if( '' == $.trim($('#location').val())){
+                    parent.layer.msg('请填写详细地址·',op, function(index){
+						layer.close(index);
+					});
+					return false;
+				}
+            }
+        });
+        function complete(data){
+			if(data.code==200){
+				 parent.layer.msg(data.msg, {icon: 6,time:1500}, function(index){
+                    $(".b-se").eq(1).addClass("hidden");
+					$(".b-se").eq(0).removeClass("hidden");
+                    window.location.reload(true);
+                });
+            }else{
+               parent.layer.msg(data.msg, {icon: 5,time:1500});
+                return false;   
+            }
+        }
+    });
+</script>

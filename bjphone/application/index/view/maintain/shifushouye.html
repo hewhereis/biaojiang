@@ -1,0 +1,104 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="shifushouye">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div class="parent">
+        <div class="bj-header">
+            <ul class="nav-header">
+                <li class="" :class="{active:topheader==1}" @click="topclick(1)">
+                    <span    >安装</span>
+                </li>
+                <li class="" :class="{active:topheader==2}" @click="topclick(2)">
+                    <span    >维修</span>
+                </li>
+                <li class="" :class="{active:topheader==3}" @click="topclick(3)">
+
+                    <span    >围板搭建</span>
+                </li>
+                <li :class="{active:topheader==4}" @click="topclick(4)">
+
+                    <span  >更换灯片</span>
+                </li>
+
+            </ul>
+        </div>
+        <div class="content">
+            <div class="bg-primary-hieght">
+            </div>
+            <div class="tablet">
+                <div class="weui-flex dingdanhao">
+                    <div class="weui-flex__item dingdanhao-left">
+                        订单号:30555565
+                    </div>
+                </div>
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__bd tuwenzhenghe">
+                        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb img" src="__indexStatic__images/tuyi.png">
+                            </div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title title">客户名称:</h4>
+                                <h4 class="weui-media-box__title title">施工地址:</h4>
+                                <h4 class="weui-media-box__title title">施工时间:</h4>
+                                <h4 class="weui-media-box__title title jiage ">
+                                    <span class="jiages">价格</span>
+                                    <input type="button" class=" bj-button-orange" value="有客户咨询">
+
+                                </h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-primary-hieght">
+            </div>
+        </div>
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "师傅首页",
+                left:"",
+                right:""
+            }
+        },
+        methods:{
+
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                topheader:"1",
+            }
+        },
+        methods:{
+            topclick:function (i) {
+                this.topheader=i;
+            }
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+
+</body>

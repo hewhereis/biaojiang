@@ -1,0 +1,113 @@
+{include file="public/headerlogin"}
+<div class='signOut'>
+    <div class="signOut-top">
+        <div class="orderNumber">
+            <span>您当前的服务诚信分</span>
+            <a href="" class="aRight">处理规则</a>
+        </div>
+        <div class='CanvasPoint'>
+            <canvas width="150" height="150" id="CanvasPoint"></canvas>
+        </div>  
+    </div>
+    <div class="pointul">
+        <div class="pointullist">
+            <a href=""><span class='pointullistLeft'>规则说明</span></a>
+        </div>
+        <div class="pointullist">
+            <a href=""><span class='pointullistRight'>扣分明细</span></a>
+        </div>
+    </div>
+    <div class='pointInfoList'>
+        <div class="pointInfoList-item">
+            <div class="pointInfoList-item-top">
+                <div class="pointInfoList-item-top-left">
+                    <span>预约成功率</span>
+                </div>
+                <div class="pointInfoList-item-top-right">
+                    <span>100%</span>
+                </div>
+            </div>
+            <div class="pointInfoList-item-bottom"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var point =60;
+    var sayText = '';
+    if(20>=point){
+        sayText = '极差';
+    }else if(30>=point){
+        sayText = '差';
+    }else if(40>=point){
+        sayText = '一般';
+    }else if(50>=point){
+        sayText = '良';
+    }else if(60>=point){
+        sayText = '良好';
+    }else if(70>=point){
+        sayText = '好';
+    }else if(90>=point){
+        sayText = '极好';
+    }else{
+        sayText = '极佳';
+    }
+        //  技能
+        var c = document.getElementById("CanvasPoint");
+        var ctx = c.getContext('2d');
+        var centerX = c.width/2;   //Canvas中心点x轴坐标
+        var centerY = c.height/2;  //Canvas中心点y轴坐标
+        var rad = Math.PI*2/100; //将360度分成100份，那么每一份就是rad度
+        var speed = 0.4;         //加载的快慢就靠它了
+    
+        animate(point);
+    
+        function animate(){
+            window.requestAnimationFrame(function(){
+                if(speed < point ){
+                    animate();
+                }
+            }); 
+            ctx.clearRect(0, 0, c.width, c.height);
+            speed += 0.4;
+            drawCircle(ctx,speed);
+        };
+    
+    
+        function drawCircle(ctx,percent){
+            //画白色的静态圆
+            ctx.save();  
+            ctx.strokeStyle = "#b2b2b2";  
+            ctx.lineWidth = 12; 
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 68, 0, Math.PI*2, false);  
+            ctx.stroke();     
+            ctx.closePath(); 
+            ctx.restore();
+            //画进度环
+            ctx.save();
+            if(0<percent<20){
+                console.log(percent)
+                 ctx.strokeStyle = "#fff";
+            }else{
+                 ctx.strokeStyle = "#000";
+            }
+            ctx.lineWidth = 12;
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, 68, -Math.PI/2, -Math.PI/2 +percent*rad, false);
+            ctx.stroke();     
+            ctx.closePath();  
+            ctx.restore();
+    
+            //百分比文字绘制
+            ctx.save();
+            ctx.fillStyle = "#fff";
+            ctx.font = "bold 21px Arial";
+    
+            //绘制字体并指定位置
+            ctx.fillText(percent.toFixed(0) + '%', centerX-20, centerY);
+            ctx.fillText(sayText, centerX-20, centerY+25);
+            ctx.restore();
+        }
+    
+    
+        </script>

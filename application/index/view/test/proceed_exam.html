@@ -1,0 +1,287 @@
+<{include file="public/header" }>
+
+<div class="main">
+    <div class="header-img mt-130">
+        <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+    </div>
+    <div class="container">
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>木工定级考试</small><span>>></span>
+            </h5>
+        <!--木工考试信息 和试题-->
+        <div class="row mt-10 ">
+            <div class="col-md-3">
+                <div class="text-center CarpenterLevelExamination">木工定级考试</div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul>
+                            <li class="color-orange">
+                                考生信息
+                            </li>
+                            <li class="mt-10 mb-10 ">
+                                <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive" alt=""/>
+                            </li>
+                            <li>
+                                姓名：鲁班
+                            </li>
+                            <li>题目：共50题</li>
+                            <li>时间：共计50分钟</li>
+                            <li>标准100分 60分合格</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 ml-10_media mr-10_media test-item-t border-aspx liner-height pl-20">
+                <div class="row color-orange">
+                    考试项目
+                </div>
+                <div class="row mt-20">
+                    <div class="col-md-10 col-md-offset-1 font-width-nineHundred">
+                        1.玻璃安装的主次一般安装程序（）
+                    </div>
+                </div>
+                <div class="row mt-10">
+                    <div class="col-md-10 col-md-offset-1">
+                        <ol class="ualpha">
+                            <li>444</li>
+                            <li>444</li>
+                            <li>444</li>
+                            <li>444</li>
+
+                        </ol>
+                    </div>
+                </div>
+                <div class="row mr-20">
+                    <div class="col-xs-12 text-right">
+                        请选择:
+                        <button class="bg-orange">A</button>
+                        <button>B</button>
+                        <button>C</button>
+                        <button>D</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 考试时间-->
+        <div class="row">
+            <div class="col-md-3 mt-10">
+                <div class="text-center CarpenterLevelExamination">
+                    <i class="color-orange">考试时间还剩：</i>
+                    <span class="font-width-nineHundred TimerTask">60：00</span>
+                </div>
+            </div>
+            <div class="col-md-5 mt-10">
+                <div class=" CarpenterLevelExamination">
+                    <i class="color-orange ml-10">考试时间：</i><span class="font-width-nineHundred">此题为选择题，请选择你认为正确的答案</span>
+                </div>
+            </div>
+            <div class="col-md-4 mt-10">
+                <button class="btn btn-info bg-orange-hver">上一题</button>
+                <button class="btn btn-info bg-orange-hver">下一题</button>
+                <button class="btn btn-orange bg-orange-hver">交卷</button>
+            </div>
+        </div>
+        <!-- 选项-->
+        <div class="row mt-20">
+            <div class="col-md-12 mr-10 border-aspx liner-height ml-10 pl-30">
+
+                <div class="row color-orange">
+                    答案信息
+                </div>
+                <div class="row TheAnswerInformation" >
+
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .CarpenterLevelExamination+div>div>ul>li:nth-child(2){
+        height: 65px;
+    }
+    .test-item-t{
+        height:287px;
+    }
+    .test-item-t button{
+        width: 32px;
+    }
+    ol.ualpha {list-style-type: upper-alpha;list-style-position:inside;}
+    ol.ualpha li{
+        list-style-type: upper-alpha;list-style-position:inside;
+    }
+</style>
+<script>
+    $(window).ready(function () {
+        img('fileupload');
+        $("#DefineNavigationList>li>a").click(function (e) {
+            e.preventDefault();
+            $(this).parent().siblings().removeClass('active');
+            $(this).parent().addClass('active');
+        });
+
+        $("#navigatesLeft>div>div>ul>li").click(function () {
+            if($(this).index()!=0){
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+            }
+        });
+        var mu=0;
+        $(".flex-center-center-col").click(function () {
+            if(mu%2!=0){
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                $(this).html('<span class="glyphicon glyphicon-th-list"></span>')
+            }else{
+
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+            }
+            mu++;
+        });
+        $(function () {
+            var widthvar= $(window).width();
+            if(widthvar>763&&widthvar<1016){
+                var mu=0;
+                $(".flex-center-center-col").click(function () {
+                    if(mu%2!=0){
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-th-list"></span>');
+                        $("#navigatesRigth").removeClass("col-sm-9");
+                        $("#navigatesRigth").addClass("col-sm-11");
+                    }else{
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+                        $("#navigatesRigth").removeClass("col-sm-11");
+                        $("#navigatesRigth").addClass("col-sm-9");
+                    }
+
+                    mu++;
+                });
+            }
+            if(widthvar>886){
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+            }else{
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+            }
+        })
+        $(window).resize(function () {
+            var width= $(window).width();
+            if(width>763&&width<1016){
+                $(".flex-center-center-col").click(function () {
+                    if(mu%2!=0){
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-th-list"></span>');
+                        $("#navigatesRigth").removeClass("col-sm-9");
+                        $("#navigatesRigth").addClass("col-sm-11");
+                    }else{
+
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+                        $("#navigatesRigth").removeClass("col-sm-11");
+                        $("#navigatesRigth").addClass("col-sm-9");
+                    }
+                    mu++;
+                });
+            }
+            if(width>987){
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                $('.flex-center-center-col').html('<span class="glyphicon glyphicon-remove"></span>')
+            }else{
+                $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                $('.flex-center-center-col').html('<span class="glyphicon glyphicon-th-list"></span>');
+            }
+            ;
+            if(width>763&&width<1016){
+                $(".flex-center-center-col").click(function () {
+                    if(mu%2!=0){
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").removeClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-th-list"></span>');
+                        $("#navigatesRigth").removeClass("col-sm-9");
+                        $("#navigatesRigth").addClass("col-sm-11");
+                    }else{
+
+                        $("#navigatesLeft>div.clearfix-div>div.hidden-xs").addClass("flex");
+                        $(this).html('<span class="glyphicon glyphicon-remove"></span>')
+                        $("#navigatesRigth").removeClass("col-sm-11");
+                        $("#navigatesRigth").addClass("col-sm-9");
+                    }
+
+                    mu++;
+                });
+            }
+
+        });
+        $('.text-right>button').click(function(e){
+            click_sibling(e,$(this),'bg-orange')
+        });
+        var click_sibling= function (e,$this,bac) {
+            e.preventDefault();
+            $this.siblings().removeClass(bac);
+            $this.addClass(bac);
+        }
+//    定时器
+
+        $('.bg-orange-hver').click(function (e) {
+            click_sibling(e,$(this),'bg-orange')
+        });
+        var htmls='';
+        for(var i=1;i<51;i++){
+            if(i==1){
+                htmls+= `
+            <a href="" class="active">${i}</a>
+        `;
+            }else{
+                htmls+= `
+            <a href="">${i}</a>
+        `;
+            }
+
+
+        }
+        $(".TheAnswerInformation").html(htmls);
+
+        $(".TheAnswerInformation").on('click','a', function (e) {
+            e.preventDefault();
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active')
+        })
+        var tmer=null;
+        function TimerTask(){
+            var f=0;
+            var s=1;
+            tmer=  setInterval(function () {
+
+                if(s>0){
+                    s--;
+                }else if(s===0&&f!=0){
+                    s=60;
+                    f--;
+                }else{
+                    alert('时间到了');
+                    clearInterval(tmer)
+                }
+                var ny=f+':'+s;
+                $('.TimerTask').html(ny);
+            },1000)
+        }
+        TimerTask()
+    })
+
+</script>
+<style>
+    .TheAnswerInformation a.active{
+        background: #ff5200;
+        color: #FFFFFF;
+    }
+</style>
+{include file='public/footer'}

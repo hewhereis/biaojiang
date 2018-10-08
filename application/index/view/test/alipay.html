@@ -1,0 +1,43 @@
+{include file="public/header" }
+<div class="main">
+   
+  
+    <!-- header-->
+    <div class="container container-hidden">
+    <!--导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>微信转入</small><span>>></span>
+        </h5>
+        <!--扫码登录-->
+        <div class="row mt-10" id="navigatesLeft">
+            <div class="col-xs-12" id='navigatesRigth'>
+               <div class="wx">
+                   <img src="__PUBLIC__static/index/images/banner.jpg" class="img-responsive " alt=""/>
+                   请使用手机扫码登录
+               </div>
+            </div>
+        </div >
+
+    </div>
+</div>
+<style>
+    #navigatesRigth .wx{
+        margin:0 auto;
+        height: 150px;
+        width: 150px;
+        background: #ff5200;
+        padding: 10px;
+        color: #0C3011;
+    }
+    #navigatesRigth .wx img{
+        height: 80%;
+        margin-bottom: 10px;
+    }
+    @media (max-width: 767px){
+        #navigatesLeft>div:first-child {
+            position: inherit;
+        }
+    }
+</style>
+{include file="public/footer" }

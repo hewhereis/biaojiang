@@ -1,0 +1,52 @@
+2017-11-07 17:00:05 R 
+<xml><ToUserName><![CDATA[gh_78bf9cd45b4a]]></ToUserName>
+<FromUserName><![CDATA[oGCJ20TeYxBQOFCaZZ_m6XPTYzsE]]></FromUserName>
+<CreateTime>1510045204</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[VIEW]]></Event>
+<EventKey><![CDATA[https://mp.weixin.qq.com/s/UiGr35jYQvgPWhbIZ7TtWg]]></EventKey>
+<MenuId>417539250</MenuId>
+</xml>
+2017-11-07 17:00:05 T 
+<xml>
+						 <ToUserName><![CDATA[oGCJ20TeYxBQOFCaZZ_m6XPTYzsE]]></ToUserName>
+						<FromUserName><![CDATA[gh_78bf9cd45b4a]]></FromUserName>
+						 <CreateTime>1510045205</CreateTime>
+						 <MsgType><![CDATA[text]]></MsgType>
+						 <Content><![CDATA[receive a new event: VIEW]]></Content>
+						</xml>
+2017-11-07 17:13:43 R 
+<xml><ToUserName><![CDATA[gh_78bf9cd45b4a]]></ToUserName>
+<FromUserName><![CDATA[oGCJ20TeYxBQOFCaZZ_m6XPTYzsE]]></FromUserName>
+<CreateTime>1510046021</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[unsubscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+2017-11-07 17:13:43 T 
+<xml>
+						 <ToUserName><![CDATA[oGCJ20TeYxBQOFCaZZ_m6XPTYzsE]]></ToUserName>
+						<FromUserName><![CDATA[gh_78bf9cd45b4a]]></FromUserName>
+						 <CreateTime>1510046023</CreateTime>
+						 <MsgType><![CDATA[text]]></MsgType>
+						 <Content><![CDATA[receive a new event: unsubscribe]]></Content>
+						</xml>
+2017-11-07 17:14:01 R 
+<xml><ToUserName><![CDATA[gh_78bf9cd45b4a]]></ToUserName>
+<FromUserName><![CDATA[oGCJ20TeYxBQOFCaZZ_m6XPTYzsE]]></FromUserName>
+<CreateTime>1510046039</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+2017-11-07 17:14:01 T 
+<xml>
+						 <ToUserName><![CDATA[oGCJ20TeYxBQOFCaZZ_m6XPTYzsE]]></ToUserName>
+						<FromUserName><![CDATA[gh_78bf9cd45b4a]]></FromUserName>
+						 <CreateTime>1510046041</CreateTime>
+						 <MsgType><![CDATA[text]]></MsgType>
+						 <Content><![CDATA[您好，我是客服小匠，感谢您的关注哦！
+标匠网络是集展柜安装，测量，维修，基装等一站式全国性商装服务平台，以创新模式引领商装行业“新售后”，网点覆盖全国50+重点城市，曾服务68个全球一线品牌，随时随地帮您找到专业师傅。
+小匠将竭诚为你服务！
+欢迎咨询：0512-36911463]]></Content>
+						</xml>

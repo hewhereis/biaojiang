@@ -1,0 +1,132 @@
+{include file="public/header" }
+
+<div class="main">
+    <div class="container">
+        <!-- 面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>木工定级考试</small><span>>></span>
+        </h5>
+    </div>
+
+    <div class="container container-hidden ml-10_media mr-10_media mr--1_medai ml--1_medai learningknowledgedynamic border-aspx">
+        <!-- 主题-->
+        <div class="row mt-10 PlatformLevelExamination">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body zuobian-heigth">
+                        <ul>
+                            <li class="mt-10 mb-10 Head-portrait-style ">
+                                <img src="thumb_path{$headerImg}" class="img-responsive" alt=""/>
+                            </li>
+                            <li class="text-center mt-30 color-green">
+                                	木工等级：初级学徒
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9  liner-height pl-20">
+                <div class="row color-orange h4 font-width-nineHundred">
+                    <div class="col-xs-12 ">
+                        平台等级：初级
+                    </div>
+
+                </div>
+                <div class="row">
+                {if $num == 0}
+                    <div class="col-md-5 col-xs-6">您还没有参加过考试</div>
+                {else}
+                    <div class="col-md-2 col-xs-6">参加考试{$Gnum}/{$num}次</div>
+                    <div class="col-md-4 col-xs-6">通过率{$Gnum/$num*100|substr=0,5}%</div>
+                {/if}
+                </div>
+                <!-- <div class="row">
+                    <div class="col-md-2 col-xs-6">参加考试2/5次</div>
+                    <div class="col-md-2 col-xs-6">通过率40%</div>
+                </div> -->
+                <div class="row mt-10">
+                    <div class="col-md-5 col-xs-5">
+                        <a href="__PUBLIC__studytrain/exam_select" class="btn bg-green no-radius  btn-width">参加考试</a>
+                    </div>
+                    <!-- <div class="col-md-5 col-xs-5"><button class="btn bg-orange no-radius  btn-width">发文章获取积分</button></div> -->
+                </div>
+                <div class="row mt-20">
+                    <div class="col-md-7 col-xs-7">
+                        <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col-md-5 col-xs-5">
+                        <button class="btn bg-orange no-radius pl-xs-media-5 pr-xs-media-5">搜索知识要点</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row PlatformLevelExamination mt-20">
+            <div class="col-sm-3">
+                <div class="panel panel-default Classification">
+                    <div class="panel-heading  bg-whiteness">知识点分类>> </div>
+                    <div class="panel-body pl-10 pr-10 pt-20 height-auto">
+                        <ul class="color-orange ">
+                            <li >
+                                <button class="btn bg-whiteness btn-height no-radius bg-orange-hver btn-width">知识动态</button>
+                            </li>
+                            <li  >
+                                <button class="btn bg-whiteness btn-height no-radius bg-orange-hver btn-width">平台基本知识</button>
+                            </li>
+                            <li  >
+                                <button class="btn bg-whiteness btn-height no-radius bg-orange-hver btn-width">施工现场施工要点</button>
+                            </li>
+                            <li  >
+                                <button class="btn bg-whiteness btn-height no-radius bg-orange-hver btn-width">平台紧缺人才知识要点</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <i class="fa fa-bars text-orange hidden-lg hidden-sm hidden-md"></i>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="lists" style='border:1px solid #ccc;padding:5px;'>
+                    <div class="row">
+                        <div class="col-md-12 knowledge">
+                            <p><i class="fa fa-mars-double text-orange"></i>学习知识点</p>
+                            <div class="border-aspx " >
+                                <p class="color-orange">平台基本知识</p>
+                                <p class="font-width-nineHundred">师傅接单平台基本规则和流程介绍</p>
+                                <p class="text-right">
+                                    <i class="fa fa-heart-o ">10</i>
+                                    <i class="fa fa-comment-o ">10</i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var th=true;
+    $(".learningknowledgedynamic .PlatformLevelExamination .panel i").click(function () {
+        if(th){
+            $(".learningknowledgedynamic .PlatformLevelExamination>.col-sm-3").css({
+                'left':0
+            })
+            th=false;
+            $(this).removeClass('fa-bars');
+            $(this).addClass('fa-times');
+        }else{
+            $(".learningknowledgedynamic .PlatformLevelExamination>.col-sm-3").css({
+                'left':-185
+            })
+            th=true;
+            $(this).removeClass('fa-times');
+            $(this).addClass('fa-bars');
+        }
+    })
+</script>
+{include file="public/footer" }

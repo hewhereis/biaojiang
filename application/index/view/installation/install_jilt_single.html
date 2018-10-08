@@ -1,0 +1,194 @@
+<!--nav-->
+{include file="public/header" }
+<!--main-->
+<div class="main jilt_single">
+    <div class="container">
+        <h5 class="page-header">
+            <span class="pl-10">当前位置：</span>
+            <small>甩单配师傅</small>
+            <span>>></span>
+        </h5>
+        <!--/*标题*/-->
+        <form class="form-signin" action="__PUBLIC__installation/install_rejection" id="jilt_single" method="post" >
+        <div class="The-test-panel-head pl-10">
+                <span>订单号</span>
+                <span id="dingdan">{$id}</span>
+                <input type="hidden" id="order_number" value="{$id}" name="installation[order_number]">
+                <input value="<?php echo date('Y-m-d H:i:s')?>" hidden="hidden" id="sending_time">
+                <input type="hidden" id="uid" value="{$uid}">
+        </div>
+            <div class=" The-test-panel-body">
+                    <!--所需总数-->
+                    <div class="row form-group">
+                        <label class="col-md-offset-2  col-md-2">客户名称</label>
+                        <div class="col-md-6">
+                            <input type="hidden" value="{$order_id}" name="installation[order_id]">
+
+                            <input type="hidden" value="{$ids}" name="installation[id]">
+                            <input type="text" name="customer_name" disabled  id="customer_name" value="{$cate}" class="form-control">
+                        </div>
+                    </div>
+                    <!--目标地址-->
+                    <div class="row form-group">
+                        <label class="col-md-offset-2 col-md-2">目标地址 </label>
+                        <div class="col-md-6 ">
+                            <input type="text" name="target_address" disabled id="target_address" value="{$cate1}" class="form-control">
+                        </div>
+                    </div>
+                    <!--预约开始时间-->
+                    <div class="row mb-10">
+                        <label class="col-md-offset-2 col-md-2">预约施工时间</label>
+                        <div class="col-md-6 form-group">
+                            <input class="layui-input form-control" disabled name="Appointment_start_time" value="{$cate2|date='Y-m-d H:i',###}"  placeholder="" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD'})">
+                        </div>
+                    </div>
+                    <!--table-->
+                <div style="margin-left: -10px" class="border-top"></div>
+                    <div class="row sheet">
+                        <div class="col-md-8 mt-30  col-md-offset-2">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td>项目</td>
+                                    <td> 本平台建议价</td>
+                                    <td>项目预算价</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{$co1}_{$co2}_{$co3}</td>
+                                    <td> 客户自定义</td>
+                                    <td>
+                                        <input type="text" id="qian" min="0" name="installation[budget]"  class="text-center ina border-bottom-1 ">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="row mt-30 mb-20">
+                                <div class="col-xs-4 col-md-2">
+                                    <input type="button" disabled value="招募留言" class="btn btn-default border-radius">
+                                </div>
+                                <div class="col-xs-8 col-md-10">
+                                     <select class="form-control" name="modules" lay-verify="required"  id="modules" >
+                                        <option value="施工工具齐全,无需师傅携带工具">施工工具齐全,无需师傅携带工具</option>
+                                        <option value="施工时间不限制，随时都可以">施工时间不限制，随时都可以</option>
+                                        <option value="交通便利,师傅出行方便">交通便利,师傅出行方便</option>
+                                        <option value="运输工具齐全,省时又省力">运输工具齐全,省时又省力</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--合计-->
+                    <div class="row mt-10">
+                        <div class="col-md-10 col-md-offset-2" style="line-height: 18px">
+                            <p class="mb-10">合计：<span style="color: #000000;" id="sasd">0</span> &nbsp;&nbsp;&nbsp;元</p>
+
+                                <div class="checkbox checkbox-success">
+                                    <input type="checkbox" name="installation[tender]" value="0" id="zhaobiao">
+                                    <label for="zhaobiao">招标是否显示预算价</label>
+                                </div>
+								  <input type="hidden" hidden name="yincang" value="0" id="ds_yc">
+
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-4 form-group col-md-offset-4 mt-20">
+                    <input type="submit" id="aa " class="btn form-control bg-orange border-radius" value="下单找师傅">
+                </div>
+
+    </div>
+        </form>
+    </div>
+</div>
+<script>
+    $("#zhaobiao").change(function () {
+        if($(this).prop('checked')){
+            $(this).val(1);
+			$("#ds_yc").val(1);
+        }else{
+            $(this).val(0);
+        }
+    })
+	
+	
+    layui.use(['form','element'], function(){
+        var form = layui.form();
+        form.render();
+    });
+    $('input').on('input propertychange', function()
+    {
+        //获取.input-form下的所有 <input> 元素,并实时监听用户输入
+     var num=$("#sasd").html();
+        num=parseInt(num);
+
+       var nus= parseFloat($(this).val());
+       var m= nus;
+        $("#sasd").html(m);
+        //逻辑
+    })
+
+    var complete=function (da) {
+        
+
+        var layer=layui.layer;
+        if(da.code===200){
+            layer.msg(da.msg,{icon:6,time:1500,shade: 0.1}, function(index){
+                layer.close(index);
+                var number=$("#dingdan").text();
+
+                
+                var message_type='2';
+                var source_id=$('#uid').val();
+                var receive_id='';
+                var content='有客户发布订单,请点击查看';
+                var sending_time = $('#sending_time').val();
+                var link = "__PUBLIC__install_message_pairing/"+number;
+                $.ajax({
+                    url: '__PUBLIC__mess',
+                    dataType: 'json',
+                    data: {
+                        message_type:message_type,
+                        source_id:source_id,
+                        receive_id:receive_id,
+                        content:content,
+                        sending_time:sending_time,
+                        link:link
+
+                    },
+                    type: 'post',
+                    success: function(data) {
+                        if (data.code == 200) {
+                            layer.msg(data.msg, {
+                                icon: 1,
+                                time: 1000
+                            });
+                        }else{
+                            layer.msg(data.msg, {
+                                icon: 1,
+                                time: 1000
+                            });
+                        }
+                    },
+                })
+
+                location.href = '__PUBLIC__install_message_pairing/'+number;
+            });
+        }else if(da.code===1) {
+            layer.msg(da.msg,{icon:6,time:1500,shade: 0.1}, function(index){
+                layer.close(index);
+            });
+        }else{
+            layer.msg(da.msg,{icon:6,time:1500,shade: 0.1}, function(index){
+                layer.close(index);
+            });
+        }
+    }
+        $('#jilt_single').ajaxForm({
+            success: complete, // 这是提交后的方法
+            dataType: 'json',
+
+        });
+</script>
+{include file="public/footer" }

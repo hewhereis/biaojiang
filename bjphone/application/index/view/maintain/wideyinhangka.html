@@ -1,0 +1,134 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app">
+    <div class="fuwuxinxi">
+        <si-headers></si-headers>
+        <si-content></si-content>
+    </div>
+</div>
+<script type="text/x-template" id="content">
+    <div class="weui-cells_form">
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">服务类型:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  type="text" v-model="fuwuleixing"  id="fuwuleixing" placeholder="选择服务类型" value="">
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">服务区域:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input"  type="text" name="fuwuquyu"   id="fuwuquyu" placeholder="请填写服务区域">
+            </div>
+
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">服务时间:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input " id="fuwushijian" v-model="fuwushijian"  type="text" placeholder="请填写服务时间"   >
+            </div>
+
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label  bj-label-color">员工人数:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  type="text" id="yuangongrenshu" v-model="yuangongrenshu"  placeholder="请填写员工人数">
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">货车数量:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input type="text" class="weui-input" id="fuwushuliang" v-model="fuwushuliang" placeholder="请填写货车数量" >
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">货车大小:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  type="text"  v-model="houchedaxiao" placeholder="请填写货车大小">
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">货车吨位:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  v-model="houcedunwei"  id="houcedunwei" type="text"    placeholder="请填写货车吨位">
+            </div>
+        </div>
+
+        <div class="weui-cell bj-weui-cell">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label bj-label-color">服务介绍:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input "  type="text" id="fuwujiesho" v-model="fuwujiesho"  placeholder="请用一段话来描述你和你的服务">
+            </div>
+        </div>
+
+    </div>
+</script>
+
+<script>
+    Vue.component('si-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "服务信息",
+                left:"<span class=\"icon-返回2\"></span><a  style='color: #fff'>返回</a>",
+                right:"<span >保存</span>"
+            }
+        },
+        methods:{
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('si-content', {
+        template: '#content',
+        data: function () {
+            return {
+                fuwuleixing:"",
+                fuwuquyu:"",
+                fuwushijian:"",
+                yuangongrenshu:"",
+                fuwushuliang:"",
+                houchedaxiao:"",
+                houcedunwei:"",
+                fuwujiesho:""
+            }
+        },
+        methods:{
+
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+        mounted:function () {
+
+        },
+
+        methods:{
+
+        }
+    })
+</script>
+</body>

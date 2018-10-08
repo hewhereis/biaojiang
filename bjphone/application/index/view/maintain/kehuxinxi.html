@@ -1,0 +1,168 @@
+{include file="public/header_sy" }
+<body>
+<div id="bj-app" class="kehuxinxi">
+    <bj-headers></bj-headers>
+    <bj-content></bj-content>
+</div>
+
+<script type="text/x-template" id="content">
+    <div class="weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">你的昵称:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text"  required name="nam" v-model="nam" id="nam">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">联系电话:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" required id="phone" v-model="phone">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">服务时间</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" required id="time" v-model="time">
+            </div>
+        </div>
+
+        <div class="weui-flex">
+            <div class="weui-flex__item weui-bg-cc">
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">商城名称:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" required   name="nickname" v-model="nickname" id="nickname">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">详细地址:</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" id="site" v-model="site">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">楼号-门牌号</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text" required id="nube" v-model="nube">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd">
+                <label class="weui-label bj-label-color">商城办证</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input bj-font-item-content" type="text"  id="handling" v-model="handling">
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item weui-bg-cc">
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item weui-cell border-gray">
+                <div class="weui-cell__hd">
+                    <span class="weui-label bj-label-color">
+                        <i  class="icon-camera_c title icon-camera"></i>
+                        门头照片:
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item ">
+
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="x11">
+                <div class="weui-cell__bd">
+                    <input type="checkbox"  class="weui-check opacity-0" name="checkbox" id="x11">
+                    <span class="weui-icon-checked"></span>
+                </div>
+                <div class="weui-cell__ft">
+                        <span class="bj-label-color">需现场调查,进一步核实</span>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="x12">
+                <div class="weui-cell__bd">
+                    <input type="checkbox" name="checkbox" class="weui-check opacity-0" id="x12">
+                    <span class="weui-icon-checked"></span>
+                </div>
+                <div class="weui-cell__ft">
+                        <span class="bj-label-color">使用平台月结服务</span>
+                </div>
+            </label>
+        </div>
+        <div class="weui-flex xiayibu_bottom">
+            <div class="weui-flex__item">
+                <button class="weui-btn bj_button_orange">下一步</button>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+    var va={
+        nam:"233333333333333333333333",
+        phone:"张三",
+        time:"上海市嘉定区",
+        nickname:"10101010101010",
+        site:"上海市嘉定区",
+        nube:"200",
+        handling:"200",
+        sex:"1",
+    }
+    Vue.component('bj-headers', {
+        template: '#header',
+        data: function () {
+            return {
+                title: "客户信息",
+                left:" <span class=\"icon-返回2\"></span>返回",
+                right:""
+            }
+        },
+        methods: {
+            goback:function () {
+                window.history.go(-1)
+            }
+        }
+    });
+    Vue.component('bj-content', {
+        template: '#content',
+        data: function () {
+            return va
+        },
+        mounted:function () {
+        },
+        methods:{
+            onUpload:function(e){
+
+                var formData = new FormData();
+
+                formData.append('file', e.target.files[0]);
+
+                formData.append('type', 'test');
+                console.log(formData)
+            }
+
+        }
+    });
+    new Vue({
+        el: '#bj-app',
+    })
+</script>
+</body>

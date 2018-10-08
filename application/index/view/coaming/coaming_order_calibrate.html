@@ -1,0 +1,243 @@
+<!--订单定标-->
+<!--nav-->
+{include file="public/header" }
+<div class="main order_calibrate">
+    <!-- 面包屑导航-->
+    <div class="container ">
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>围板搭建/拆除下单询价页面</small><span>>></span>
+        </h5>
+        <form class="form-horizontal" id="order_calibrate">
+          <input type="hidden" name="" id="number" value="{$order_number}">
+         
+
+               
+                    <div class="The-test-panel-head">
+                        
+                        <div class="pl-10">
+                              围板搭建/拆除下单询价页面
+                        </div>
+                    </div>
+                    <div  class="The-test-panel-body pr-10">
+
+
+                        <div class="row mb-10">
+                            <label class="col-md-offset-2 col-md-2 ">客户名称</label>
+                            <div class="col-md-6">
+                                <input type="text" name="customer_name" disabled id="customer_name" value="{$orders['contact_name']}" class="form-control">
+                            </div>
+                        </div>
+                        <!--目标地址-->
+                        <div class="row mb-10">
+                            <label class="col-md-offset-2 col-md-2 ">目标地址</label>
+                            <div class="col-md-6">
+                                <input type="text" name="target_address" disabled id="target_address" value="{$orders['full_location']}" class="form-control" >
+                            </div>
+                        </div>
+                        <!--预约开始时间-->
+                        <div class="row mb-10">
+                            <label class="col-md-offset-2 col-md-2 ">预约开始时间</label>
+                            <div class="col-md-6">
+                                <input class="layui-input form-control" disabled name="Appointment_start_time" value="{$orders['start_time']|date='Y-m-d H:i',###}" >
+                            </div>
+                        </div>
+
+                   
+                        <div class="row mb-10">
+                            <div class="col-md-12 text-center">订单师傅总数：<span>1个</span></div>
+
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td>项目</td>
+                                <td>项目预算价</td>
+                                <td>故障详情</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{$coaming}</td>
+                                <td>{$budget['budget']}</td>
+                                <td>
+                                    <a href="__PUBLIC__coaming_detail/{$order_number}" class="btn btn-default">查看</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row mt-10 mb-10">
+                            <div class="col-md-12">
+                                合计：{$budget['budget']}元
+                            </div>
+                        </div>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <td>抢单师傅</td>
+                                <td>报价</td>
+                                <td>是否报标</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($evaluate as $key=>$vale){?>
+                            <tr>
+                                <td class="popup_message">
+                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                    <a href="">{$vale['real_name']}</a>
+                                    <div class="mobile_static"></div>
+                                    <ul class="text-left on ul_li_float_parent">
+                                        <li class="clearfix">
+                                            <ul class="ul_li_float">
+                                                <li>
+                                                    <a href="">
+
+                                                    </a>
+                                                </li>
+                                                <li >
+                                                    <p><?php echo mb_substr($vale['real_name'],0,1);?>师傅</p>
+                                                    <p>
+                                                        <?php for($i=0;$i<$vale["platform_level"];$i++){ ?>
+                                                        <img src="__PUBLIC__static/index/images/wujiaoxin.png" alt=""/>
+                                                        <?php } ?>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <img src="__PUBLIC__static/index/images/zhuanshi.png" alt=""/>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            师傅工号 <span>{$vale['worker_id']}  </span>
+                                        </li>
+                                        <li>
+                                            平台等级 <span>{$vale['platform_level']}</span>
+                                        </li>
+                                        <li>
+                                            客户评分<span>{$vale['rating']}</span>
+                                        </li>
+                                        <li>
+                                            师傅日薪 <span>{$vale['wage']}元</span>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>{$vale['totals']}</td>
+                                <td class="">
+                                    <a href="javascript:;" num="{$vale['worker_id']}" class="btn a_active btn-default selected">选定</a>
+                                </td>
+                            </tr>
+                            <?php }?>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-12 mt-30 text-center mb-10">
+                                <a class="btn  btn-orange border-radius" id="confirms" href="">确定</a>
+                            </div>
+                        </div>
+                        <div style="height: 50px"></div>
+                    </div>
+              
+          
+            <div class="row">
+                <div class="col-md-12 text-right mt-20">
+                    <div class="col-md-2 pull-right text-right">
+                       <a href="javascript:window.history.back(-1);" class="text-blue">返回>></a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+$(".table").on("click",".a_active",function () {
+    var s=$("#tit").attr("num");
+    s+='/'+$(this).attr("num");
+    $("#tit").attr("href",s);
+    $("#tit").removeClass('on');
+    $(this).css("background","#ff5200").css("color","#fff");
+    $(this).parent().parent().siblings().find(".a_active").css("background","#fff");
+})
+    $(".popup_message>a").hover(function () {
+        $(this).siblings('ul').removeClass('on');
+    }, function () {
+        $(this).siblings('ul').addClass('on');
+    });
+   
+    //order_calibrate
+    $('#order_calibrate').bootstrapValidator({
+        message: '这个值是无效的.',
+        feedbackIcons: { /*input状态样式图片*/
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            customer_name: {
+                message: '客户名称',
+                validators: {
+                    notEmpty: {
+                        message: '名称不能为空'
+                    }
+                }
+            },
+            target_address:{
+                message: '目标地址',
+                validators: {
+                    notEmpty: {
+                        message: '目标地址不能为空'
+                    }
+                }
+            },
+            Appointment_start_time:{
+                message: '时间',
+                validators: {
+                    notEmpty: {
+                        message: '时间不能为空'
+                    }
+                }
+            }
+        }
+    });
+    $('input').focus(function () {
+        $('#order_calibrate').bootstrapValidator('validate');
+        $("i.form-control-feedback").remove();
+    })
+</script>
+<script>
+  var samm=null;
+    $(".selected").click(function(){
+        samm=$(this).attr("num");
+    })
+    //客户选择师傅
+     $('#confirms').click(function(e){
+        e.preventDefault();
+        if(samm===null){
+            layer.msg('请先选择师傅', {
+                icon: 2,
+                time: 2000
+            });
+            return false;
+        }
+        var number = $('#number').val();
+        var link = "__PUBLIC__orders/client";        
+        $.ajax({
+            url:'__PUBLIC__coaming_selected',
+            data:{samm:samm,number:number,link:link},
+            type:'post',
+            dataType:'json',
+            success:function(data){
+                if(data.code==200){
+                    layer.msg(data.msg, {
+                        icon: 1,
+                        time: 1000
+                    }, function() {
+                        location.href = '__PUBLIC__coaming_settlement/'+number+'/url/'+0;
+                    });
+                }else{
+                    msg(data.msg,2,6,1000);
+                }
+            }
+        })
+    })
+</script>
+{include file='public/footer'}

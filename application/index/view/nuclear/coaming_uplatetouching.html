@@ -1,0 +1,118 @@
+{include file='public/header'}
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/webuploader.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__static/admin/webupload/style.css">
+    <script type="text/javascript" src="__PUBLIC__static/admin/webupload/webuploader.min.js"></script>
+    <div class='main'>
+        <div class='container'>
+            <h5 class="page-header bx">
+                <span>当前位置：</span>
+                <small>核单报告</small><span>>></span>
+            </h5>
+            <form action='' method='get' enctype="multipart/form-data">
+                <div class='row'>
+                <div class="col-xs-12">
+                    <div class='panel-group bx'>
+                    {volist name='list' id='v'}
+                        <div class='panel panel-orange'>
+                            <div class='panel-heading'>
+                                <div class='panel-title'>
+                                    <p class='text-pd panel-title-p' style=''>
+                                        <span>{$v.l1_category_name} - </span>
+                                        <span>{$v.o_m_ids}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class='panel-body mb-5'>
+                                <div class='row'>
+                                    <div class='col-sm-3'>
+                                        <div class='checkbox checkbox-success'>
+                                            <input type='checkbox' name='guzhang3' id='guzhang3' class='styled'>
+                                            <label for='guzhang3'>故障详情是否需补充</label>
+                                        </div>
+                                    </div>
+                                    <div class='col-sm-9'>
+                                        <div class='form-group'>
+                                            <input type='text' name='guzhanginfo' class='form-control' placeholder="请输入故障信息" value='{$v.content}'>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class="col-md-6">
+                                        <input type="hidden" id="data_photo{$v.o_m_ids}" name="eimg{$v.o_m_ids}[]" value=''>
+                                        <div id="fileList{$v.o_m_ids}" class="uploader-list" style="float:right"></div>
+                                        <div id="imgPicker{$v.o_m_ids}" style="float:left;margin-left:5%;margin-top:3%">
+                                            <i class="glyphicon glyphicon-plus"></i>维修后
+                                        </div>
+                                        <img id="img_data{$v.o_m_ids}" class="mt-0_xs" height="100px" style="float:left;margin-left: 50px;margin-top: -10px;" src="__PUBLIC__static/admin/images/no_img.jpg"/>
+                                    </div>
+                                </div>
+                                <script>
+                                    WebUploader.create({
+                                    auto: true, // 选完文件后，是否自动上传。
+                                    swf: '__PUBLIC__static/admin/webupload/Uploader.swf', // swf文件路径
+                                    server: "{:url('__PUBLIC__/admin/Uploads/uploadface')}", // 文件接收服务端。
+                                    duplicate: true, // 重复上传图片，true为可重复false为不可重复
+                                    pick: '#imgPicker{$v.o_m_ids}', // 选择文件的按钮。可选。
+                                    accept: {
+                                        title: 'Images',
+                                        extensions: 'gif,jpg,jpeg,bmp,png',
+                                        mimeTypes: 'image/jpg,image/jpeg,image/png'
+                                    },
+                                    'onUploadSuccess': function(file, data, response) {
+                                        $("#data_photo{$v.o_m_ids}").val(data._raw);
+                                        $("#img_data{$v.o_m_ids}").attr('src', '__TUN__/face/' + data._raw).show();
+                                        var aa = data._raw;
+                                        var order_number = $('#number').val();
+                                        $.ajax({
+                                            url: '__PUBLIC__img',
+                                            data: {
+                                                aa: aa,
+                                                order_number: order_number
+                                            },
+                                            dataType: 'json',
+                                            type: 'post',
+                                            success: function(data) {
+                                                if (data.code == 200) {
+                                                    var ids = data.datas;
+                                                    var val = $('#data_photo4').val();
+                                                    val = ids;
+                                                    $('#data_photo4').val(val);
+                                                } else {
+                                                    msg(data.msg, 2, 6, 1000);
+                                                }
+                                            }
+                                        })
+                                    }
+                                });
+                                </script>
+                            </div>
+                        </div>
+                        {/volist}
+                    </div>
+                    <div class='row mb-10'>
+                        <div class='col-xs-2'>
+                            <a class='btn btn-sm btn-orange' data-toggle='modal' data-target='#queren'>师傅签名确认</a>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-xs-3 text-left'>
+                            <a href='javscript:' class='btn btn-sm btn-info' id='baocun'>保存报告</a>
+                        </div>
+                        <div class='col-xs-6 text-center'>
+                            <input type="buttom" name="" class='btn btn-sm btn-info' id="" value="提交报告" />
+                        </div>
+                        <div class='col-xs-3 text-right'>
+                            <a href='javscript:' class='btn btn-sm btn-info' id='next'>下一步</a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    </form>
+
+    <div class='modal fade' id=''>
+        
+    </div>
+
+{include file='public/footer'}

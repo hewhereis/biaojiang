@@ -1,0 +1,144 @@
+{include file='public/header'}
+<div class='app'>
+  <headers></headers>
+  <mian></mian>
+  <menus></menus>
+</div>
+<script type="text/x-template" id='mian'>
+
+  <div class="lianxikehu">
+    <div class="weui-msg">
+      <div class="weui-msg__icon-area">
+        <i class="weui-icon-success weui-icon_msg" style='color:#ff5200'></i>
+      </div>
+      <div class="weui-msg__text-area">
+        <h2 class="weui-msg__title" style='font-weight:600;color:#333'>接单成功</h2>
+        <p class="weui-msg__desc" style='margin-top:15px'>状态-订单详情
+          <a href="javascript:void(0);">查看并下载</a>
+        </p>
+        <p class="weui-msg__desc" style='margin-top:15px'>请在2小时内联系客户，并选择前往维修的时间</p>
+      </div>
+    </div>
+    <div class="weui-cell bg"></div>
+    <div class="weui-panel weui-panel_access">
+      <div class="weui-panel__hd">
+        <div class='tell'>客户联系方式
+          <span>
+            <i class='icon-phone'></i>
+          </span>
+        </div>
+      </div>
+      <div class="weui-panel__bd user">
+        <span class="weui-media-box weui-media-box_appmsg">
+          <div class="weui-media-box__hd">
+            <img class="weui-media-box__thumb" src="__indexStatic__images/pic_160.png">
+          </div>
+          <div class="weui-media-box__bd">
+            <h4 class="weui-media-box__title">
+              <span> 给你花</span>： </h4>
+            <p class="weui-media-box__desc">18014869113</p>
+            <span class='longclick'>长按复制</span>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="weui-cell bg"></div>
+    <span class="weui-cell weui-cell_access">
+      <div class="weui-cell__bd" style='height:15px;'>
+        <div class='usertime'>请选择前往维修的时间</div>
+      </div>
+      <div class="weui-cell__ft">
+      </div>
+    </span>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label" for='time'>
+            请选择时间 </label>
+        </div>
+        <div class="weui-cell__bd" style='background:#ddd'>
+          <input class="weui-input label-span" type="text" placeholder="" id='time'>
+        </div>
+      </div>
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label label">
+            <i class=''></i>无法联系客户 </label>
+        </div>
+        <div class="weui-cell__bd">
+          <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd label-span">
+              <select class="weui-select" name="select1">
+                <option selected="" value="1">微信号</option>
+                <option value="2">QQ号</option>
+                <option value="3">Email</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</script>
+{include file='public/menu'} {include file='public/footer'}
+
+<script>
+  var data = {
+    sex: 1
+  }
+  Vue.component('mian', {
+    template: '#mian',
+    data: function () {
+      return data
+    },
+    methods: {
+      getdata: function (type) {
+        var date = new Date();
+        if (type == 1) {
+          var year = date.getFullYear();
+          var mounth = date.getMonth() + 1;
+          var dates = date.getDate();
+          return year + "-" + mounth + "-" + dates;
+        } else {
+          var hours = date.getHours();
+        }
+      },
+    },
+    mounted: function () {
+      $('#time').datetimePicker({
+        min: this.getdata(1)
+      });
+    }
+  })
+  //头
+  Vue.component('headers', {
+    template: '#header',
+    data: function () {
+      return {
+        title: "联系客户"
+      }
+    },
+    methods: {
+      goback: function () {
+        window.history.go(-1)
+      }
+    }
+  })
+  Vue.component('menus', {
+    template: '#menu',
+    data: function () {
+      return {}
+    }
+  })
+  Vue.component('footers', {
+    template: '#footers',
+    data: function () {
+      return {}
+    }
+  })
+  new Vue({
+    el: '.app'
+  })
+</script>

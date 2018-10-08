@@ -1,0 +1,88 @@
+<!--nav-->
+{include file="public/header" }
+<div class="main">
+    <!-- img-header-->
+  
+    <div class="container container-hidden">
+    <!--面包屑导航-->
+        <h5 class="page-header bx">
+            <span>当前位置：</span>
+            <small>我的钱包</small><span>>></span>
+        </h5>
+        <div class="row mt-10" id="navigatesLeft">
+            <!-- 主题left-->
+            {include file="fenlei/purse_recharge_left" }
+            <div class="col-md-12 right  col-xs-12" id='navigatesRigth'>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div>
+                            <p>
+                                <i class="fa fa-usd"></i>
+                                <span>账户余额</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="panel-body pl-50 Recharge" >
+                        <div class="media installation_height text-center" style="padding: 20px">
+                            <p>你的账户可用账户余额为&nbsp; <input type="number"/>&nbsp;元</p>
+
+                            <div class="mt-30">
+                                <button class="btn btn-info mr-50  pl-10">充值</button>
+                                <button class="btn btn-info pl-100">提现</button>
+                            </div>
+                            <a href="style" class="style">余额明细</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div >
+
+    </div>
+</div>
+<!--样式-->
+<style>
+    #navigatesLeft>div>div>ul>li {
+        margin-left: 0px !important;
+        margin-right:0px !important;
+    }
+</style>
+<script>
+    //师傅首页的侧边栏
+    $('#master_type div span').eq(0).addClass('active');
+    $('#master_type div span').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    $('#left ul li').hover(function(){
+        $(this).addClass('bg-orange').siblings('li').removeClass('bg-orange');
+
+    },function(){
+    });
+    var menuShow = false;
+    $('#menu_btn').click(function(){
+        if(menuShow){
+            $('#left').stop(true).animate({'left':'-'+200},1000);
+            $(this).children('i').eq(1).removeClass('hide');
+            $(this).children('i').eq(0).addClass('hide')
+            menuShow = false;
+        }else{
+            $('#left').stop(true).animate({'left':0},1000);
+            $(this).children('i').eq(1).addClass('hide');
+            $(this).children('i').eq(0).removeClass('hide')
+            menuShow = true;
+        }
+    });
+    $("#navigatesLeft>div>div>ul").on('click','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
+    $("#navigatesLeft>div>div>ul").on('mouseenter','li', function (e) {
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    });
+
+</script>
+<!--footer-->
+{include file="public/footer" }
