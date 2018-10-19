@@ -66,6 +66,4 @@ var lunhui = {
 	    });
 	    return false;
 	}
-
-
 }

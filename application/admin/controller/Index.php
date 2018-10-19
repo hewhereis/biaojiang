@@ -3,6 +3,7 @@ namespace app\admin\controller;
 use think\Config;
 use think\Loader;
 use think\Db;
+
 /**
 * 后台主页控制器
 */
@@ -20,7 +21,6 @@ class Index extends Base
 	}
 	public function indexPage()
     {
-       ;
         return $this->fetch('index');
     }
 	

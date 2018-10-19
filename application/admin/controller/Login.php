@@ -1,11 +1,10 @@
 <?php
-
 namespace app\admin\controller;
 use app\admin\model\UserType;
 use think\Controller;
 use think\Db;
-use org\Verify;
-use com\Geetestlib;
+//use org\Verify;
+//use com\Geetestlib;
 
 class Login extends Controller
 {
@@ -30,15 +29,15 @@ class Login extends Controller
         $username = input("param.username");
         $password = input("param.password");
 
-        if (config('verify_type') == 1) {
+       /* if (config('verify_type') == 1) {
             $code = input("param.code");
-        }
+        }*/
         
         $result = $this->validate(compact('username', 'password'), 'AdminValidate');
         if(true !== $result){
             return json(['code' => -5, 'url' => '', 'msg' => $result]);
         }
-        $verify = new Verify();
+       /* $verify = new Verify();
         if (config('verify_type') == 1) {
             if (!$code) {
                 return json(['code' => -4, 'url' => '', 'msg' => '请输入验证码']);
@@ -46,14 +45,14 @@ class Login extends Controller
             if (!$verify->check($code)) {
                 return json(['code' => -4, 'url' => '', 'msg' => '验证码错误']);
             }
-        }
+        }*/
 
         $hasUser = Db::name('admin')->where('username', $username)->find();
         if(empty($hasUser)){
             return json(['code' => -1, 'url' => '', 'msg' => '管理员不存在']);
         }
 
-        if(md5(md5($password) . config('auth_key')) != $hasUser['password']){
+        if(md5(md5($password)) != $hasUser['password']){
             writelog($hasUser['id'],$username,'用户【'.$username.'】登录失败：密码错误',2);
             return json(['code' => -2, 'url' => '', 'msg' => '账号或密码错误']);
         }
