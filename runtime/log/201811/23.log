@@ -1,0 +1,1400 @@
+---------------------------------------------------------------
+[ 2018-11-23T00:00:57+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.102006s][吞吐率：9.80req/s] [内存消耗：2,747.34kb] [文件加载：42]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=sekcem9domnu6p646fb9qoaqj1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.021001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:01:00+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.071203s][吞吐率：14.04req/s] [内存消耗：2,577.80kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=sekcem9domnu6p646fb9qoaqj1',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:01:55+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.089604s][吞吐率：11.16req/s] [内存消耗：2,573.09kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.006000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:04:51+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.064004s][吞吐率：15.62req/s] [内存消耗：2,577.80kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:00+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.072004s][吞吐率：13.89req/s] [内存消耗：2,577.25kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:04+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.052003s][吞吐率：19.23req/s] [内存消耗：2,577.25kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:09+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.055003s][吞吐率：18.18req/s] [内存消耗：2,577.25kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:33+08:00 ] 127.0.0.1 127.0.0.1 GET /
+[ info ] biaojiang.local/ [运行时间：0.069202s][吞吐率：14.45req/s] [内存消耗：2,577.80kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010001s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:33+08:00 ] 127.0.0.1 127.0.0.1 POST /index/defa
+[ info ] biaojiang.local/index/defa [运行时间：0.125007s][吞吐率：8.00req/s] [内存消耗：2,240.85kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'defa',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://biaojiang.local',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->defa[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_category` [ RunTime:0.027002s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_category` WHERE  (  find_in_set(1,s_id) ) [ RunTime:0.053003s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:35+08:00 ] 127.0.0.1 127.0.0.1 GET /index
+[ info ] biaojiang.local/index [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：2,565.25kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.004000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:35+08:00 ] 127.0.0.1 127.0.0.1 POST /index/defa
+[ info ] biaojiang.local/index/defa [运行时间：0.035002s][吞吐率：28.57req/s] [内存消耗：2,240.88kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'defa',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://biaojiang.local',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->defa[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_category` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_category` WHERE  (  find_in_set(1,s_id) ) [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:36+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjnews
+[ info ] biaojiang.local/Bjnews [运行时间：0.054202s][吞吐率：18.45req/s] [内存消耗：2,423.31kb] [文件加载：43]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjnews',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/index',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjnews->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjnews.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjnews\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:38+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjservice
+[ info ] biaojiang.local/Bjservice [运行时间：0.038002s][吞吐率：26.31req/s] [内存消耗：2,387.91kb] [文件加载：43]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjservice',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjnews',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjservice->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjservice.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjservice\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:39+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjclientorder
+[ info ] biaojiang.local/Bjclientorder [运行时间：0.055602s][吞吐率：17.99req/s] [内存消耗：2,393.46kb] [文件加载：43]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjclientorder',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjservice',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjclientorder->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjclientorder.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjclientorder\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016001s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:40+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjmasterreg
+[ info ] biaojiang.local/Bjmasterreg [运行时间：0.044003s][吞吐率：22.73req/s] [内存消耗：2,387.95kb] [文件加载：43]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjmasterreg',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjclientorder',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjmasterreg->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjmasterreg.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjmasterreg\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:42+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjhelp
+[ info ] biaojiang.local/Bjhelp [运行时间：0.051003s][吞吐率：19.61req/s] [内存消耗：2,603.34kb] [文件加载：43]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjhelp',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjmasterreg',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjhelp->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjhelp.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjhelp\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:43+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjintroduce
+[ info ] biaojiang.local/Bjintroduce [运行时间：0.040003s][吞吐率：25.00req/s] [内存消耗：2,427.42kb] [文件加载：43]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjintroduce',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjhelp',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjintroduce->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjintroduce.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjintroduce\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:45+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjhelp
+[ info ] biaojiang.local/Bjhelp [运行时间：0.038002s][吞吐率：26.31req/s] [内存消耗：2,358.07kb] [文件加载：41]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjhelp',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjintroduce',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjhelp->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjhelp.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjhelp\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:46+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjmasterreg
+[ info ] biaojiang.local/Bjmasterreg [运行时间：0.043003s][吞吐率：23.25req/s] [内存消耗：2,258.16kb] [文件加载：41]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjmasterreg',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjhelp',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjmasterreg->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjmasterreg.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjmasterreg\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:48+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjservice
+[ info ] biaojiang.local/Bjservice [运行时间：0.060201s][吞吐率：16.61req/s] [内存消耗：2,258.16kb] [文件加载：41]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjservice',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjmasterreg',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjservice->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjservice.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjservice\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:49+08:00 ] 127.0.0.1 127.0.0.1 GET /Bjnews
+[ info ] biaojiang.local/Bjnews [运行时间：0.030001s][吞吐率：33.33req/s] [内存消耗：2,270.07kb] [文件加载：41]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Bjnews',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjservice',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Bjnews->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Bjnews.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\bjnews\index.html [ array (
+  0 => 'carr',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:50+08:00 ] 127.0.0.1 127.0.0.1 GET /index
+[ info ] biaojiang.local/index [运行时间：0.057004s][吞吐率：17.54req/s] [内存消耗：2,565.27kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'index',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/Bjnews',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\index\index.html [ array (
+  0 => 'carr',
+  1 => 'length',
+  2 => 'ad',
+  3 => 'm',
+  4 => 'news1',
+  5 => 'news2',
+  6 => 'news3',
+  7 => 'news4',
+  8 => 'num',
+  9 => 'service',
+  10 => 'list',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_message_reminder` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_message_reminder` WHERE  `receive_id` IS NULL  AND `status` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_ad` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_ad` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `images`,`id` FROM `bj_ad` WHERE  `status` = 1  AND `closed` = 0 ORDER BY orderby desc [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT MIN(id) AS tp_min FROM `bj_ad` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_article` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 2  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 3  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_article` WHERE  `cate_id` = 21  AND `status` = 1  AND `is_tui` = 1 ORDER BY views desc LIMIT 8 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `bj_service` LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_users_recommend` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `bj_users_recommend`.*,bj_users_worker.real_name as u_name FROM `bj_users_recommend` LEFT JOIN `bj_users_worker` `bj_users_worker` ON `bj_users_worker`.`uid`=`bj_users_recommend`.`uid` WHERE  `status` = '1' ORDER BY bj_users_recommend.id  desc LIMIT 6 [ RunTime:0.002001s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:05:50+08:00 ] 127.0.0.1 127.0.0.1 POST /index/defa
+[ info ] biaojiang.local/index/defa [运行时间：0.040002s][吞吐率：25.00req/s] [内存消耗：2,240.88kb] [文件加载：40]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => 'defa',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://biaojiang.local',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '0',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->defa[ E:\masterarea.com\biaojiang.local\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=localhost;port=3306;dbname=biaojiang;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_service` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `bj_service` WHERE  `status` = 1 ORDER BY `sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `bj_category` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT * FROM `bj_category` WHERE  (  find_in_set(1,s_id) ) [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-11-23T00:06:21+08:00 ] 127.0.0.1 127.0.0.1 GET /api/message_refresh
+[ info ] biaojiang.local/api/message_refresh [运行时间：0.046800s][吞吐率：21.37req/s] [内存消耗：1,806.39kb] [文件加载：36]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'message_refresh',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-23T00:06:21+08:00 ] 127.0.0.1 127.0.0.1 GET /auth.html
+[ info ] biaojiang.local/auth.html [运行时间：0.015600s][吞吐率：64.10req/s] [内存消耗：1,966.31kb] [文件加载：37]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'auth',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Auth->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Auth.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\auth\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-23T00:06:51+08:00 ] 127.0.0.1 127.0.0.1 GET /api/message_refresh
+[ info ] biaojiang.local/api/message_refresh [运行时间：0.015600s][吞吐率：64.10req/s] [内存消耗：1,806.39kb] [文件加载：36]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'api',
+    2 => 'message_refresh',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-11-23T00:06:51+08:00 ] 127.0.0.1 127.0.0.1 GET /auth.html
+[ info ] biaojiang.local/auth.html [运行时间：0.015600s][吞吐率：64.10req/s] [内存消耗：1,793.70kb] [文件加载：35]
+[ info ] [ LANG ] E:\masterarea.com\biaojiang.local\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => NULL,
+    1 => 'auth',
+    2 => 'index',
+  ),
+  'convert' => false,
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=pf0vsu9g7oi6egbc260gebeccc',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://biaojiang.local/index',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'biaojiang.local',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Auth->index[ E:\masterarea.com\biaojiang.local\application\index\controller\Auth.php ]
+[ info ] [ VIEW ] E:\masterarea.com\biaojiang.local\public/../application/index\view\auth\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File

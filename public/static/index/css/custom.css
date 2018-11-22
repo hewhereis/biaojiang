@@ -1,0 +1,1361 @@
+/*.wrapper .inner-wrapper .main .container{
+    
+}*/
+* {
+    list-style: none;
+}
+ol, ul{
+    padding:0;
+}
+body {
+    /*background: url(../images/bg.png);*/
+    background: #fff;
+    font-family: "Microsoft Yahei", "微软雅黑体", "arial", "helvetica", "Hei Ti", "Adobe Heiti Std", "FangSong", "仿宋", "clean", "sans-serif";
+    /*padding-top:120px;*/
+}
+ textarea{
+        resize: none;
+    }
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+     }
+#servicechi{
+    position:relative;
+}
+a:hover {     text-decoration: none; }
+.hand{
+    cursor:pointer;
+}
+/*login*/
+.login .logo {
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+.login i {
+    width: 15px;
+}
+
+.login {
+    padding-top: 5%;
+    padding-bottom: 15%;
+    background: url("../images/irongrip.png") repeat #444;
+}
+
+.login .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+.login .form-signin input.top {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.login .form-signin input.middle {
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+
+.login .form-signin input.bottom {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.login .tab-content .tab-pane {
+    padding: 0px;
+}
+
+
+/*login  end*/
+
+
+/*he_dan*/
+
+.wrapper .inner-wrapper .panel {
+    background: rgba(0, 0, 0, 0);
+}
+
+.text-c {
+    text-align: center!important;
+}
+
+
+/*he_dan end*/
+
+
+/*维修页面*/
+
+.i1 {
+    font-size: 18px;
+}
+
+.time1 {
+    width: 262px!important;
+    float: left;
+    margin-right: 15px;
+}
+
+.row table tr,
+.row table td,
+.row table th {
+    text-align: center;
+}
+
+.qian {
+    width: 110px;
+    border-radius: 15px;
+    padding: 4px 10px;
+    border: 0;
+}
+
+.img {
+    border-radius: 50px;
+}
+
+.liaotian-left {
+    text-align: left;
+}
+
+.liaotian-right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.length {
+    width: 220px;
+    border-radius: 15px;
+    padding: 0px 15px;
+    border: none;
+}
+
+.fileInputContainer {
+    height: auto;
+    position: relative;
+    width: 100px;
+}
+
+table td,
+table th {
+    text-align: center;
+}
+
+label {
+    text-align: left!important;
+}
+
+.fileinput1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    -ms-filter: 'alpha(opacity=0)';
+    font-size: 200px !important;
+    direction: ltr;
+    cursor: pointer;
+    width: 100px;
+    height: 34px;
+}
+
+.filebutton {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.group {
+    height: 140px;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.dingdan-time {
+    float: left;
+    margin-top: 4px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.label1 {
+    float: left;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+
+/*维修页面结束*/
+
+
+/*下单css*/
+
+.welcome {
+    background: #444;
+    padding: 4em 0;
+}
+
+.welcome-img img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+}
+
+.welcome-text h4 {
+    font-family: 'Metamorphous', cursive;
+    font-size: 2.2em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 2.7em;
+}
+
+.welcome-text p {
+    font-size: 1.1em;
+    color: #fff;
+    margin-top: 14px;
+    line-height: 1.8em;
+}
+
+.index-about {
+    padding: 4em 0;
+    text-align: center;
+}
+
+.index-about h3 {
+    font-family: 'Metamorphous', cursive;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: .6em;
+    color: #663300;
+}
+
+.index-about p {
+    text-align: center;
+    line-height: 1.8em;
+    font-size: 1.1em;
+    color: #1b1b1b;
+}
+
+.demo-1 {
+    position: relative;
+    width: 340px;
+    height: 235px;
+    overflow: hidden;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-color: #000;
+}
+
+.gallery-info {
+    margin-left: 2em;
+}
+
+.effect:nth-child(3) {
+    margin-right: 0 !important;
+}
+
+.effect:nth-child(6) {
+    margin-right: 0 !important;
+}
+
+ul.demo-1.effect li {
+    list-style: none !important;
+}
+
+.demo-1 p,
+.demo-1 h2 {
+    color: #fff;
+    padding: 14px 25px 0px 25px;
+    left: 0px;
+    top: 41px;
+    position: relative;
+}
+
+.demo-1 p {
+    font-size: 14px;
+    line-height: 1.7em;
+    margin: 0;
+    font-weight: 400;
+}
+
+.latest-designs li {
+    list-style: none;
+}
+
+.effect img {
+    position: absolute;
+    margin: -15px 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    -webkit-transition: top .4s ease-in-out, right .4s ease-in-out;
+    -moz-transition: top .4s ease-in-out, right .4s ease-in-out;
+    -o-transition: top .4s ease-in-out, right .4s ease-in-out;
+    transition: top .4s ease-in-out, right .4s ease-in-out
+}
+
+.effect img.top:hover {
+    top: -230px;
+    right: -330px;
+    padding-bottom: 200px;
+    padding-left: 300px;
+}
+
+.latest-designs h3 {
+    font-family: 'Metamorphous', cursive;
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 1em;
+    color: #663300;
+}
+
+.latest-designs {
+    padding: 3em 0;
+}
+
+/*维修项目选择 end*/
+
+.center {
+    text-align: center;
+}
+
+.padding0 {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-bottom: 4px;
+}
+
+.lineheight {
+    text-align: center;
+}
+
+.marginright {
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.fileInputContainer {
+    height: 40px;
+    position: relative;
+    background-size: 100% 100%;
+    width: 191px;
+    border-radius: 15px;
+}
+
+
+/*故障详情*/
+
+.box {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.img1 {
+    position: relative;
+}
+
+.badge-info {
+    background: #5cb85c;
+}
+
+.popover {
+    width: 80%!important;
+}
+
+
+/*下单结束*/
+
+
+/*header*/
+
+.wrapper .inner-wrapper .header {
+    width: 100%;
+    height: auto;
+}
+
+.wrapper .inner-wrapper .header-login {
+    width: 100%;
+    height: auto;
+    background-color: rgba(227, 227, 227, 1);
+    /*border-bottom:1px solid #000;*/
+}
+
+.wrapper .inner-wrapper .header-column {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    box-shadow: 2px 3px 3px #c7c2c2;
+}
+
+
+/*header column*/
+
+.top-header {
+    background: #fff !important;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+
+.header-backup {
+    width: 20px;
+    height: 119px;
+    background: transparent;
+    margin: auto;
+}
+
+.top-header img.logo {
+    margin-bottom: 25px;
+    margin-top: 0;
+    transition: all .5s ease 0s;
+    -webkit-transition: all .5s ease 0s;
+    -moz-transition: all .5s ease 0s;
+    -o-transition: all .5s ease 0s;
+    -ms-transition: all .5s ease 0s;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+    margin-bottom: 0;
+    margin-top: 8px;
+    transition: all .5s ease 0s;
+    -webkit-transition: all .5s ease 0s;
+    -moz-transition: all .5s ease 0s;
+    -o-transition: all .5s ease 0s;
+    -ms-transition: all .5s ease 0s;
+}
+
+.nav-bar {
+    padding-top: 9px;
+}
+
+.navbar-toggle span {
+    color: #fff;
+}
+
+ul.nav {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+    font-size: 15px;
+    color: #000;
+    text-transform: uppercase;
+    transition: all .7s ease 0s;
+    -webkit-transition: all .7s ease 0s;
+    -moz-transition: all .7s ease 0s;
+    -o-transition: all .7s ease 0s;
+    -ms-transition: all .7s ease 0s;
+    padding: 14px 15px;
+    /*	font-weight: bold;*/
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #ff5200;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #000;
+}
+
+li a.active {
+    color: #ff5200 !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #fff;
+    margin-top: 4px;
+}
+
+.copyrights {
+    text-indent: -9999px;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+}
+
+
+/*header end*/
+
+/*main*/
+.wrapper .inner-wrapper .main{
+	margin-top:138px;
+}
+/*advertisement*/
+
+.number {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    top: -40px;
+}
+
+.number .advertisement {
+    width: 100%;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+
+
+/*advertisement*/
+
+
+/*service*/
+
+.wrapper .inner-wrapper .service {
+    width: 100%;
+    height: auto;
+    margin-top: -20px;
+}
+
+.wrapper .inner-wrapper .service .service-name {
+    position: relative;
+}
+
+.wrapper .inner-wrapper .service small {
+    position: absolute;
+    left: 50%;
+    margin-left: -42px;
+    top: 30px;
+}
+
+.wrapper .inner-wrapper .service .service-name i {
+    display: inline-block;
+    height: 3px;
+    width: 30px;
+    background: #ff5200;
+}
+
+.wrapper .inner-wrapper .service .service-img {
+    position: relative;
+    height: 100%;
+}
+
+.wrapper .inner-wrapper .service .service-img .blcak {
+    width: 180px;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.23);
+    position: absolute;
+    top: 50%;
+    margin-top: -90px;
+    left: 50%;
+    margin-left: -90px;
+    z-index: 2;
+    border-radius: 50%;
+    -ms-border-radius: 50%;
+    /* Safari 和 Chrome */
+    -moz-border-radius: 50%;
+    /* Firefox */
+    -webkit-border-radius: 50%;
+    /* Safari 和 Chrome */
+    /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+
+.wrapper .inner-wrapper .service .service-img .typename {
+    position: absolute;
+    left: 50%;
+    margin-left: -55px;
+    top: 50%;
+    margin-top: -55px;
+    z-index: 3;
+}
+
+.servicetype,
+#servicetype {
+    position: relative;
+}
+
+.button-right {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-2 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-2 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-3 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-3 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-4 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-4 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-5 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-5 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-6 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-6 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-7 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-7 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-8 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-8 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-right-9 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-right.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    right: 0px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.button-left-9 {
+    width: 35px;
+    height: 54px;
+    background: url(../images/button-left.png);
+    position: absolute;
+    top: 50%;
+    margin-top: -27px;
+    left: -30px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.buttonmargin {
+    margin-bottom: 30px;
+}
+
+.gray {
+    height: 215px;
+    width: 195px;
+    background: rgba(234, 234, 234, 0.5);
+    position: absolute;
+    z-index: 999;
+    top: 0px;
+    left: 45px;
+}
+
+.character {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 1000;
+    left:16%;
+    width:68%;
+    height:40px;
+    text-align: center;
+    font-size: 1em;
+    color: #fff;
+    bottom: 0px;    
+}
+
+
+/*service*/
+
+
+/*synthesize*/
+
+.synthesize {
+    width: 100%;
+    height: auto;
+}
+
+
+/*synthesize*/
+
+.wrapper .inner-wrapper .synthesize .service-name i {
+    display: inline-block;
+    height: 3px;
+    width: 30px;
+    background: #ff5200;
+}
+
+.wrapper .inner-wrapper .synthesize small {
+    position: absolute;
+    margin-left: -3px;
+    top: 50px;
+}
+
+.guarantee {
+    background: url(../images/guarantee.png) no-repeat center;
+    height: 21px;
+    padding-left: 50px;
+    line-height: 21px;
+    color: #1993ca;
+}
+
+.synthesizemargin {
+    margin-bottom: 14px;
+}
+
+.reputation-margin {
+    text-align: center;
+}
+
+
+/*synthesize*/
+
+
+/*master*/
+
+
+/*.master-info{
+		width:100%;
+		background: rgba(0,0,0,0.5);
+		border-radius: 50%;
+		position:absolute;
+		top:0px;
+	}
+	.master-info span{
+		position:absolute;
+		top:50%;
+	}*/
+
+
+/*master*/
+
+
+/*synthesize*/
+
+
+/*processs*/
+
+.wrapper .inner-wrapper .process .service-name {
+    position: relative;
+}
+
+.wrapper .inner-wrapper .process small {
+    position: absolute;
+    left: 50%;
+    margin-left: -42px;
+    top: 30px;
+}
+
+.wrapper .inner-wrapper .process .service-name i {
+    display: inline-block;
+    height: 3px;
+    width: 30px;
+    background: #ff5200;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -20px;
+}
+
+
+/*processs*/
+
+
+/*footer*/
+
+.footer {
+    width: 100%;
+    height: auto;
+    background: #3c3c3c;
+    padding:  20px 0px 0px 0px;
+}
+
+.footer-li {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.footer-li a {
+    font-size:0.7em;
+    color: #fff;
+}
+
+.footer .b-r-1 {
+    border-right: 1px solid;
+}
+
+.footer .b-l-1 {
+    border-left: 1px solid;
+}
+
+.footer .link {
+    display: inline-block;
+    width: 10%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.footer .link a {
+    color: #fff;
+}
+
+
+/*footer*/
+
+
+/*核单报告*/
+
+.bx {
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.panel-title-p {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+/*核单报告*/
+/*master_maintenance_report*/
+
+.row .p-a-1 span {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 20px;
+    -moz-box-shadow: 10px 10px 20px #e3e3e3;
+    /* Firefox */
+    -webkit-box-shadow: 10px 10px 20px #e3e3e3;
+    /* Safari 和 Chrome */
+}
+
+.row .vs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    z-index: 10;
+    margin-left: -44px;
+}
+/*master_home*/
+.wrapper .inner-wrapper .main .container .left{
+    position:absolute;
+    float:left;
+    z-index:99;
+    width:200px;
+    height:auto;
+    top:85px;
+    left:15px;
+}
+.wrapper .inner-wrapper .main .container .right{
+    padding-left:210px;
+    min-height:450px;
+}
+.wrapper .inner-wrapper .main .container .right .type{
+    width: 100%;
+    /*padding: 0px 10px;*/
+    margin: 0px auto;
+    background: #e3e3e3;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 1px #000;
+    overflow: hidden;
+}
+.wrapper .inner-wrapper .main .container .right .type span{
+    height:40px;
+    line-height: 30px;
+    padding:7px;
+    color:#000;
+    cursor:pointer;
+}
+.wrapper .inner-wrapper .main .container .right .type span:hover{
+    color:#ff5200;
+    box-shadow: 0px 0px 1px #000;
+}
+#master_type div span.active{
+    color:#ff5200;
+    box-shadow: 0px 0px 1px #000;
+}
+
+/*master_home end*/
+/*圆圈流程*/
+.flow{
+    height:25px;width:25px;
+    border:1px solid;
+    float:left;border-radius:50%;
+     -moz-border-radius: 50%; /* Firefox */
+    -webkit-border-radius: 50%; /* Safari 和 Chrome */
+}
+.flow div{
+    height:15px;width:15px;border:1px solid;
+    margin:4px auto;border-radius:50%;
+    -moz-border-radius: 50%; /* Firefox */
+    -webkit-border-radius: 50%; /* Safari 和 Chrome */
+}
+.flowline{
+    height:60px; border-left:2px solid;margin-left:12px;
+}
+.flowlineright{
+    display:inline-block;margin-top:2px;margin-left: 10px;
+}
+
+/*master_maintenance_report*/
+/*找帮手师傅*/
+#helpMaster .panel-body .row .masterOne_right{
+    padding-top:15px;
+    padding-bottom:13px;
+}
+#helpMaster .panel-body .mastertwo .col-sm-7{
+    padding-top:40px;
+}
+#helpMaster .panel-body .mastertwo .col-sm-5{
+    padding-top:40px;
+}
+
+#helpMaster .panel-body .mastertwo .col-sm-7 .row{
+    margin-bottom:20px;
+}
+
+#helpMaster .panel-body .helpmasterinfo1{
+    color:#ff5200;position:absolute;top:11px;right:50%;margin-right:-70px;
+}
+
+/*找帮手师傅*/
+
+
+
+@media screen and (max-width: 990px) {  
+    .carousel-indicators {
+        bottom: 35px;
+    }
+    .dis { 
+        display: none;
+    }
+        /*master_home*/
+    .wrapper .inner-wrapper .main .container .left{
+        position:fixed;
+        z-index:99;
+        width:200px;
+        height:auto;
+        top:50%;
+        left:-200px;
+        margin-top:-136px;
+        /*display: none;*/
+    }
+
+    .wrapper .inner-wrapper .main .container .right{
+        padding-left:0px;    
+    } 
+/*master_home end*/
+}
+    
+@media screen and (max-width: 414px) {
+    .carousel-indicators {
+    bottom: 0;
+    }
+    .navbar-default .navbar-nav>li>a {
+        font-size: 14px;
+    }
+    .navbar-header {
+        margin-top: -13px;
+    }
+    .number {
+        width: 100%;
+        height: 0px;
+        position: relative;
+        top: -25px;
+    }
+    .number .advertisement {
+        width: 100%;
+        height: 25px;
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+    }
+    /*service*/
+    .wrapper .inner-wrapper .service {
+        width: 100%;
+        height: auto;
+        margin-top: 0px;
+    }
+    .wrapper .inner-wrapper .service .service-img .blcak {
+        width: 60px;
+        height: 60px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        background: rgba(0, 0, 0, 0.23);
+        position: absolute;
+        top: 50%;
+        margin-top: -30px;
+        left: 50%;
+        margin-left: -30px;
+        z-index: 2;
+    }
+    .wrapper .inner-wrapper .service .service-img .typename {
+        width: 90%;
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        top: 50%;
+        margin-top: -25px;
+        z-index: 3;
+        margin: -25px -26px;
+    }
+    .buttonleftright {
+        display: none;
+    }
+    #servicetype .phone-height {
+        height: 90px;
+        padding-top: 5px;
+        padding-left: 5px;
+    }
+    .buttonmargin {
+        margin-bottom: 0px;
+    }
+    .gray {
+        height: 72px;
+        width: 66px;
+        background: rgba(234, 234, 234, 0.5);
+        position: absolute;
+        z-index: 999;
+        top: 0px;
+        left: 15px;
+    }
+    /*service*/
+    /*synthesize*/
+    .wrapper .inner-wrapper .synthesize .service-name {
+        text-align: center;
+    }
+
+    .wrapper .inner-wrapper .synthesize small {
+        left: 50%;
+        margin-left: -55px;
+    }
+    .guarantee {
+         padding-left: 60px;
+    }
+    .reputation-margin {
+        margin-left: 0px;
+        text-align: center;
+    }
+    /*synthesize*/
+    .footer {
+        padding: 0px 0px;
+    }
+    .dis {
+        display: none;
+    }
+    .link {
+        width: 33%;
+    }
+    .wrapper .inner-wrapper .main{
+    	margin-top:0px;
+    }
+
+    /*master_home*/
+    .wrapper .inner-wrapper .main .container .left{
+        position:fixed;
+        z-index:99;
+        width:200px;
+        height:auto;
+        top:50%;
+        left:-200px;
+        margin-top:-136px;
+        /*display: none;*/
+    }
+
+    .wrapper .inner-wrapper .main .container .right{
+        padding-left:0px;    
+    } 
+/*master_home end*/
+
+#helpMaster .panel-body .mastertwo .col-sm-7{
+    padding-top:10px;
+}
+#helpMaster .panel-body .mastertwo .col-sm-5{
+    padding-top:10px;
+}
+#helpMaster .panel-body .mastertwo .col-sm-7 .row{
+    margin-bottom:5px;
+}
+
+.character {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 1000;
+    left:17%;
+    width:67%;
+    height:20px;
+    text-align: center;
+    font-size: 0.6em;
+    color: #fff;
+    bottom: 0px;    
+}
+
+.process .container .list{
+    display: flex;
+}
+.process .container .list div{
+    padding:5px;
+    flex:1;
+    margin:0
+}
+}
+
+@media screen and (max-width: 375px) {
+    .gray {
+        height: 62px;
+        width: 57px;
+        background: rgba(234, 234, 234, 0.5);
+        position: absolute;
+        z-index: 999;
+        top: 0px;
+        left: 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .login .form-signin {
+        max-width: 290px;
+        padding: 15px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+    .wrapper .inner-wrapper .header .header-login .container .row a {
+        font-size: 9px;
+    }
+    .wrapper .inner-wrapper .header .header-login .container .row .col-xs-3 {
+        padding: 0 10px;
+    }
+    .wrapper .inner-wrapper .service .service-img .blcak {
+        width: 50px;
+        height: 50px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        background: rgba(0, 0, 0, 0.23);
+        position: absolute;
+        top: 50%;
+        margin-top: -26px;
+        left: 50%;
+        margin-left: -25px;
+        z-index: 2;
+    }
+    .wrapper .inner-wrapper .service .service-img .typename {
+        width: 90%;
+        position: absolute;
+        left: 50%;
+        margin-left: -18px;
+        top: 50%;
+        margin-top: -13px;
+        z-index: 3;
+    }
+    #servicetype .phone-height {
+        height: 100px;
+        padding-top: 13px;
+        padding-left: 28px;
+    }
+    .buttonmargin {
+        margin-bottom: 0px;
+    }
+    .gray {
+        height: 48px;
+        width: 44px;
+        background: rgba(234, 234, 234, 0.5);
+        position: absolute;
+        z-index: 999;
+        top: 0px;
+        left: 15px;
+    }
+    /*synthesize*/
+    .guarantee {
+        margin-left: 0px;
+    }
+    .reputation-margin {
+        margin-left: 0px;
+    }
+    /*synthesize*/
+    body {
+        /*padding-top: 70px;*/
+    }
+    .link {
+        width: 45%;
+    }
+
+    .wrapper .inner-wrapper .main{
+    	margin-top:0px;
+    }
+}
